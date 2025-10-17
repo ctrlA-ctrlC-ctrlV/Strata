@@ -13,7 +13,7 @@
 
 ## Requirement Completeness
 
-- [ ] No [NEEDS CLARIFICATION] markers remain
+- [x] No [NEEDS CLARIFICATION] markers remain
 - [x] Requirements are testable and unambiguous
 - [x] Success criteria are measurable
 - [x] Success criteria are technology-agnostic (no implementation details)
@@ -37,16 +37,11 @@
 
 ## Validation Results (2025-10-16)
 
-- Failing items:
-	- No [NEEDS CLARIFICATION] markers remain
-
-	Specific markers and context (quoted from spec):
-	- FR-011: "System MUST reveal pricing as [NEEDS CLARIFICATION: indicative estimates inline vs only after form submission?]"
-	- FR-012: "System MUST support purchase initiation [NEEDS CLARIFICATION: include deposit/payment now or strictly collect quotes?]"
-	- FR-013: "System MUST constrain serviceable geography [NEEDS CLARIFICATION: Ireland nationwide vs specific counties/regions?]"
-
-- All other checklist items currently PASS based on defined user stories, acceptance scenarios, edge cases, success criteria, and assumptions.
+- All items PASS. Clarifications resolved in research and propagated to spec:
+	- Pricing reveal: inline estimate + gated breakdown
+	- Payments scope: quote‑only for MVP
+	- Geography: initial counties Dublin, Wicklow, Kildare
 
 Update: Additional acceptance criteria integrated for Homepage, Product discovery, Prefab path, Gallery overlay, Contact flow, Mobile/Accessibility, Admin dashboard, and Post‑MVP 3D acceptance. Clarifications remain capped at three (pricing reveal, payments scope, geography) and are pending your decisions.
 
-Update 2: Success Indicators and Objectives & Success Metrics incorporated. Success Criteria updated to reflect 95%+ quote completion, 100% inbox delivery, homepage click‑through, and traffic target 20K/month within 6 months.
+Update 2: Success Indicators and Objectives & Success Metrics incorporated. Success Criteria updated to reflect 95%+ quote completion, 100% inbox delivery (monitored), homepage click‑through, and traffic target 20K/month within 6 months.

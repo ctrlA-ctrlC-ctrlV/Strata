@@ -1,0 +1,161 @@
+openapi: 3.0.3
+info:
+  title: Static Web App API
+  version: 0.1.0
+  description: Minimal API for quotes, contact, and admin content metadata
+servers:
+  - url: https://api.example.com
+paths:
+  /quotes:
+    post:
+      summary: Submit a quote request
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QuoteRequestInput'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuoteSubmissionResult'
+  /contact:
+    post:
+      summary: Submit a contact inquiry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactInput'
+      responses:
+        '202':
+          description: Accepted
+  /admin/assets:
+    get:
+      summary: List admin-managed assets (metadata only)
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AdminAsset'
+components:
+  schemas:
+    QuoteRequestInput:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/ProductConfiguration'
+        customer:
+          $ref: '#/components/schemas/CustomerInfo'
+        desiredInstallTimeframe:
+          type: string
+        geography:
+          type: object
+          properties:
+            county:
+              type: string
+            lat:
+              type: number
+            lng:
+              type: number
+      required: [config, customer]
+    QuoteSubmissionResult:
+      type: object
+      properties:
+        quoteNumber:
+          type: string
+        submittedAt:
+          type: string
+          format: date-time
+      required: [quoteNumber, submittedAt]
+    ContactInput:
+      type: object
+      properties:
+        name: { type: string }
+        email: { type: string, format: email }
+        phone: { type: string }
+        address: { type: string }
+        message: { type: string }
+      required: [name, email]
+    ProductConfiguration:
+      type: object
+      properties:
+        productType:
+          type: string
+          enum: [garden-room, house-extension, house-build]
+        size:
+          type: object
+          properties:
+            widthMm: { type: integer }
+            depthMm: { type: integer }
+          required: [widthMm, depthMm]
+        openings:
+          type: object
+          properties:
+            front:
+              type: object
+              properties:
+                doors: { type: integer }
+                windows: { type: integer }
+              required: [doors, windows]
+            sides:
+              type: object
+              properties:
+                leftWindows: { type: integer }
+                rightWindows: { type: integer }
+              required: [leftWindows, rightWindows]
+        claddingColor: { type: string }
+        bathroom:
+          type: object
+          properties:
+            included: { type: boolean }
+            options:
+              type: array
+              items: { type: string }
+        floorType: { type: string }
+        extras:
+          type: array
+          items:
+            type: object
+            properties:
+              code: { type: string }
+              title: { type: string }
+              description: { type: string }
+              priceIncVat: { type: number }
+            required: [code, title, priceIncVat]
+        estimate:
+          type: object
+          properties:
+            subtotalExVat: { type: number }
+            vatRate: { type: number }
+            totalIncVat: { type: number }
+      required: [productType, size]
+    CustomerInfo:
+      type: object
+      properties:
+        name: { type: string }
+        email: { type: string, format: email }
+        phone: { type: string }
+        address: { type: string }
+        eircode: { type: string }
+      required: [name, email]
+    AdminAsset:
+      type: object
+      properties:
+        id: { type: string }
+        kind: { type: string, enum: [logo, banner, gallery, other] }
+        url: { type: string }
+        alt: { type: string }
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+        published: { type: boolean }

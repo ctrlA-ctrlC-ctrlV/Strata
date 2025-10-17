@@ -10,7 +10,7 @@ The website will act as a marketing and lead generation tool, showcasing product
 - Primary business objective: Drive high-quality, intent-driven quote requests by maximizing organic (SEO) traffic and optimizing for conversion through intuitive user experience. The site will act as the primary lead generation channel, with social media and word-of-mouth acting as secondary acquisition sources. SEO performance and UX must work together, high traffic is only useful if it converts efficiently.
 - Product success metrics: We will track both traffic generation and quote conversion to measure product success:
   - Organic traffic growth: Baseline monthly visits from search (target: 5K → 20K in first 3–6 months)
-  - Traffic-to-quote conversion rate: % of visitors who complete a quote request after engaging with the configurator (target TBD)
+  - Traffic-to-quote conversion rate: % of visitors who complete a quote request after engaging with the configurator (target: ≥3%)
   - Drop-off analysis: Funnel tracking to identify the most common abandonment points before quote submission
   - Configurator engagement: % of visitors who interact with the room visualizer or product preview.
 - Guardrail metrics: To protect the user experience and avoid friction with a potentially less tech-savvy audience:
@@ -38,7 +38,7 @@ Core user value: This product simplifies decision-making with guided, no-pressur
 
 ### User Story 1 - Configure and Get Instant Estimate (Priority: P1)
 
-A first‑time visitor explores garden room options (size, layout, finishes, add‑ons) using a guided configurator and sees a running price estimate. They can submit a quote request with their chosen configuration in a single, frictionless flow.
+A first‑time visitor explores garden room options (size, layout, finishes, add‑ons; each choice contain an image for clarity) using a guided configurator and sees a running price estimate. They can submit a quote request with their chosen configuration in a single, frictionless flow.
 
 **Why this priority**: This is the primary conversion path and the highest predictor of sales intent; it directly drives qualified quote submissions.
 
@@ -89,7 +89,6 @@ A hesitant visitor browses past builds, image galleries, and testimonials to ass
 
 ---
 
-[Add more user stories as needed, each with an assigned priority]
 
 ### User Story 4 - Admin Manages Content and Quotes (Priority: P2)
 
@@ -151,24 +150,6 @@ A visitor reaches the contact page and submits a message, receiving confirmation
 1. **Given** a visitor on any page, **When** they click Contact, **Then** they reach the contact form with hours and location context.
 2. **Given** a completed contact form, **When** it is submitted, **Then** the visitor sees a success confirmation and the team receives the inquiry.
 
-### User Story 4 - Admin Manages Content and Quotes (Priority: P2)
-
-An internal admin updates product images, website assets, testimonials, and manages quotes through a simple dashboard without technical assistance.
-
-**Why this priority**: Enables rapid content iteration, keeps galleries and testimonials fresh, and supports daily operations for leads and sales.
-
-**Independent Test**: An admin can access a basic dashboard, upload a product image, edit a testimonial, view new quotes with unique IDs, and export/print a quote receipt.
-
-**Acceptance Scenarios**:
-
-1. **Given** an authenticated admin, **When** they upload or replace a product image, **Then** the change appears on the public site after save/publish.
-2. **Given** a new quote submission, **When** the admin views it, **Then** the system shows a unique quote number, configuration snapshot, and contact details.
-3. **Given** a confirmed sale, **When** the admin generates a final quote receipt, **Then** a formatted document (print/email‑ready) includes specifications, VAT, discounts (if any), totals, and customer details.
-
----
-
-[Add more user stories as needed, each with an assigned priority]
-
 ### Edge Cases
 
 - Visitors with JavaScript disabled can still access core content and initiate contact/quote.
@@ -213,11 +194,11 @@ An internal admin updates product images, website assets, testimonials, and mana
 - **FR-020**: System MUST allow generation of a final quote receipt upon sale confirmation containing selected specs, totals, VAT, discount amount (if applicable), and customer details in a format suitable for print and email.
 - **FR-021**: A basic admin dashboard MUST allow authorized users to upload/update/remove product images and site assets; and to edit Products, Quotes, and Testimonials via simple tables.
 
-Unclear but critical scope decisions (clarifications needed):
+Unclear but critical scope decisions (resolved):
 
-- **FR-022**: System MUST reveal pricing as [NEEDS CLARIFICATION: indicative estimates inline vs only after form submission?]
-- **FR-023**: System MUST support purchase initiation [NEEDS CLARIFICATION: include deposit/payment now or strictly collect quotes?]
-- **FR-024**: System MUST constrain serviceable geography [NEEDS CLARIFICATION: Ireland nationwide vs specific counties/regions?]
+- **FR-022**: System MUST reveal pricing as inline indicative estimate with gated breakdown (breakdown available after short form).
+- **FR-023**: System MUST operate quote‑only in MVP (no deposits or payments collected online).
+- **FR-024**: System MUST constrain serviceable geography initially to specific counties: Dublin, Wicklow, Kildare (configurable).
 
 ### Non‑Functional Requirements
 
