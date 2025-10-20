@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get a Quote - Strata Garden Rooms</title>
+    <meta name="description" content="Get an instant quote for your garden room, house extension, or custom build project in Dublin, Wicklow, and Kildare.">
+    
+    <!-- Basic styling for no-JS experience -->
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #2D5A3D;
+        }
+        
+        .header h1 {
+            color: #2D5A3D;
+            margin: 0;
+        }
+        
+        .form-container {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #2D5A3D;
+        }
+        
+        .section h3 {
+            color: #2D5A3D;
+            margin-top: 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #2D5A3D;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #2D5A3D;
+            box-shadow: 0 0 0 3px rgba(45, 90, 61, 0.1);
+        }
+        
+        .required {
+            color: #d32f2f;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .form-row-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+        
+        .submit-btn {
+            background: #2D5A3D;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .submit-btn:hover {
+            background: #1f3d2a;
+        }
+        
+        .price-note {
+            background: #e8f3ea;
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .price-note h3 {
+            color: #2D5A3D;
+            margin-top: 0;
+        }
+        
+        .info-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .form-row, .form-row-3 {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-container, .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Get Your Garden Room Quote</h1>
+        <p>Tell us about your project and get a detailed quote within 24 hours</p>
+    </div>
+
+    <div class="price-note">
+        <h3>💡 Quick Estimate</h3>
+        <p>For an instant estimate, try our <a href="/configurator.html" style="color: #2D5A3D; font-weight: bold;">Interactive Configurator</a></p>
+        <p>Or fill out this form for a comprehensive, personalized quote</p>
+    </div>
+
+    <div class="form-container">
+        <form action="/api/quotes" method="POST" accept-charset="UTF-8">
+            <!-- Project Details Section -->
+            <div class="section">
+                <h3>Project Details</h3>
+                
+                <div class="form-group">
+                    <label for="projectType">
+                        Project Type <span class="required">*</span>
+                    </label>
+                    <select id="projectType" name="projectType" required>
+                        <option value="">Select your project type</option>
+                        <option value="garden-room">Garden Room</option>
+                        <option value="house-extension">House Extension</option>
+                        <option value="house-build">Custom House Build</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="sizeWidth">
+                            Approximate Width (meters) <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="number" 
+                            id="sizeWidth" 
+                            name="sizeWidth" 
+                            required 
+                            min="2" 
+                            max="20" 
+                            step="0.5"
+                            placeholder="e.g. 4.5"
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sizeDepth">
+                            Approximate Depth (meters) <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="number" 
+                            id="sizeDepth" 
+                            name="sizeDepth" 
+                            required 
+                            min="2" 
+                            max="20" 
+                            step="0.5"
+                            placeholder="e.g. 3.5"
+                        >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Features & Options</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="bathroom" name="features" value="bathroom">
+                            <label for="bathroom">Bathroom/WC</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="kitchenette" name="features" value="kitchenette">
+                            <label for="kitchenette">Kitchenette</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="insulation" name="features" value="insulation">
+                            <label for="insulation">Premium Insulation</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="heating" name="features" value="heating">
+                            <label for="heating">Heating System</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="electrical" name="features" value="electrical">
+                            <label for="electrical">Full Electrical</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="bifold" name="features" value="bifold">
+                            <label for="bifold">Bi-fold Doors</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">
+                        Project Description <span class="required">*</span>
+                    </label>
+                    <textarea 
+                        id="description" 
+                        name="description" 
+                        required 
+                        maxlength="2000"
+                        rows="5"
+                        placeholder="Please describe your project in detail - intended use, any specific requirements, site conditions, access considerations, etc."
+                    ></textarea>
+                </div>
+            </div>
+
+            <!-- Contact Information Section -->
+            <div class="section">
+                <h3>Contact Information</h3>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">
+                            First Name <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="firstName" 
+                            name="firstName" 
+                            required 
+                            maxlength="50"
+                            autocomplete="given-name"
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastName">
+                            Last Name <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="lastName" 
+                            name="lastName" 
+                            required 
+                            maxlength="50"
+                            autocomplete="family-name"
+                        >
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">
+                            Email Address <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            required 
+                            maxlength="100"
+                            autocomplete="email"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">
+                            Phone Number <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            name="phone" 
+                            required 
+                            maxlength="20"
+                            autocomplete="tel"
+                            placeholder="e.g. 01 123 4567"
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <!-- Location Section -->
+            <div class="section">
+                <h3>Project Location</h3>
+                
+                <div class="info-box">
+                    <strong>Service Areas:</strong> We serve Dublin, Wicklow, and Kildare counties.
+                </div>
+
+                <div class="form-row-3">
+                    <div class="form-group">
+                        <label for="county">
+                            County <span class="required">*</span>
+                        </label>
+                        <select id="county" name="county" required>
+                            <option value="">Select county</option>
+                            <option value="dublin">Dublin</option>
+                            <option value="wicklow">Wicklow</option>
+                            <option value="kildare">Kildare</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="eircode">
+                            Eircode <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="eircode" 
+                            name="eircode" 
+                            required
+                            maxlength="8"
+                            pattern="[A-Za-z][0-9]{2}[A-Za-z0-9]{4}"
+                            autocomplete="postal-code"
+                            placeholder="e.g. D02 XY45"
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="timeframe">
+                            Project Timeframe
+                        </label>
+                        <select id="timeframe" name="timeframe">
+                            <option value="">When to start?</option>
+                            <option value="asap">ASAP</option>
+                            <option value="3-months">3 months</option>
+                            <option value="6-months">6 months</option>
+                            <option value="12-months">12+ months</option>
+                            <option value="exploring">Exploring</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">
+                        Property Address
+                    </label>
+                    <textarea 
+                        id="address" 
+                        name="address" 
+                        maxlength="200"
+                        rows="3"
+                        placeholder="Full address for site survey (optional but helpful for accurate quote)"
+                    ></textarea>
+                </div>
+            </div>
+
+            <!-- Consent Section -->
+            <div class="section">
+                <h3>Consent & Preferences</h3>
+                
+                <div class="form-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="consent" name="consent" value="true" required>
+                        <label for="consent">
+                            I consent to Strata Garden Rooms contacting me about this quote <span class="required">*</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="newsletter" name="newsletter" value="true">
+                        <label for="newsletter">
+                            Send me updates about new products and services
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="siteSurvey" name="siteSurvey" value="true">
+                        <label for="siteSurvey">
+                            I'd like to arrange a free site survey for a more accurate quote
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden fields -->
+            <input type="hidden" name="source" value="quote-page">
+            <input type="hidden" name="formType" value="quote">
+
+            <button type="submit" class="submit-btn">
+                Request Detailed Quote
+            </button>
+        </form>
+    </div>
+
+    <script>
+        // Progressive enhancement
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            const eircodeField = document.getElementById('eircode');
+            const countyField = document.getElementById('county');
+            const sizeWidth = document.getElementById('sizeWidth');
+            const sizeDepth = document.getElementById('sizeDepth');
+
+            // Eircode formatting
+            if (eircodeField) {
+                eircodeField.addEventListener('input', function(e) {
+                    let value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+                    if (value.length > 3) {
+                        value = value.substr(0, 3) + ' ' + value.substr(3, 4);
+                    }
+                    e.target.value = value;
+                });
+            }
+
+            // County-based Eircode validation
+            function validateEircode() {
+                const county = countyField.value;
+                const eircode = eircodeField.value.replace(/\s/g, '');
+                
+                if (county && eircode && eircode.length >= 3) {
+                    const prefix = eircode.substr(0, 1).toUpperCase();
+                    let validPrefixes = [];
+                    
+                    switch(county) {
+                        case 'dublin':
+                            validPrefixes = ['D', 'K'];
+                            break;
+                        case 'wicklow':
+                            validPrefixes = ['A', 'Y'];
+                            break;
+                        case 'kildare':
+                            validPrefixes = ['R', 'W'];
+                            break;
+                    }
+                    
+                    if (validPrefixes.length > 0 && !validPrefixes.includes(prefix)) {
+                        eircodeField.setCustomValidity(`Eircode doesn't match ${county}. Expected prefixes: ${validPrefixes.join(', ')}`);
+                    } else {
+                        eircodeField.setCustomValidity('');
+                    }
+                }
+            }
+            
+            if (countyField && eircodeField) {
+                countyField.addEventListener('change', validateEircode);
+                eircodeField.addEventListener('blur', validateEircode);
+            }
+
+            // Simple area calculation display
+            function updateAreaEstimate() {
+                const width = parseFloat(sizeWidth.value) || 0;
+                const depth = parseFloat(sizeDepth.value) || 0;
+                
+                if (width > 0 && depth > 0) {
+                    const area = width * depth;
+                    const estimate = area * 1500; // Rough €1500/sqm estimate
+                    
+                    let display = document.getElementById('area-estimate');
+                    if (!display) {
+                        display = document.createElement('div');
+                        display.id = 'area-estimate';
+                        display.style.cssText = 'background: #e8f3ea; padding: 10px; border-radius: 4px; margin-top: 10px; text-align: center;';
+                        sizeDepth.parentNode.parentNode.appendChild(display);
+                    }
+                    
+                    display.innerHTML = `
+                        <strong>Estimated area:</strong> ${area.toFixed(1)} m² <br>
+                        <strong>Rough price guide:</strong> €${estimate.toLocaleString()} - €${(estimate * 1.5).toLocaleString()} <br>
+                        <em>Final quote will include detailed breakdown</em>
+                    `;
+                }
+            }
+            
+            if (sizeWidth && sizeDepth) {
+                sizeWidth.addEventListener('input', updateAreaEstimate);
+                sizeDepth.addEventListener('input', updateAreaEstimate);
+            }
+        });
+    </script>
+</body>
+</html>

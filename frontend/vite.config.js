@@ -8,13 +8,12 @@ export default defineConfig({
     })
   ],
   build: {
-    target: 'esnext',
+    target: 'esnext', 
     minify: 'terser',
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['axios'] // if we add any vendor deps later
-        }
+        // Will add vendor deps when we have them
+        manualChunks: undefined
       }
     },
     // Performance budget

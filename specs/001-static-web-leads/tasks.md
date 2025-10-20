@@ -23,17 +23,17 @@
 - [x] T013-1 [P] Define repositories skeletons in backend/src/db/repos/quotes.ts
 - [x] T013-2 [P] Define repositories skeletons in backend/src/db/repos/assets.ts,content.ts
 - [x] T013-3 [P] Define repositories skeletons in backend/src/db/repos/content.ts
-- [ ] T014 Add validation schemas (zod) in backend/src/services/validation.ts
-- [ ] T015 Configure mailer service (SMTP) in backend/src/services/mailer.ts
+- [x] T014 Add validation schemas (zod) in backend/src/services/validation.ts
+- [x] T015 Configure mailer service (SMTP) in backend/src/services/mailer.ts
 - [x] T016 Add security middleware (CSP, rate limit) in backend/src/security/security.ts
 - [x] T017 Add .env.example and dotenv loading in backend
-- [ ] T018 Add Playwright setup for e2e tests in frontend/tests/e2e/
-- [ ] T019 Add axe-core a11y test helper in frontend/tests/
-- [ ] T067 Provide no-JS fallback contact form at frontend/public/contact.html posting to backend/src/api/contact.ts (server-rendered success)
-- [ ] T068 Provide no-JS minimal quote form at frontend/public/quote.html posting to backend/src/api/quotes.ts (captures essentials; server-rendered confirmation)
+- [x] T018 Add Playwright setup for e2e tests in frontend/tests/e2e/
+- [x] T019 Add axe-core a11y test helper in frontend/tests/
+- [x] T067 Provide no-JS fallback contact form at frontend/public/contact.html posting to backend/src/api/contact.ts (server-rendered success)
+- [x] T068 Provide no-JS minimal quote form at frontend/public/quote.html posting to backend/src/api/quotes.ts (captures essentials; server-rendered confirmation)
 - [x] T069-1 [P] Add server-rendered success templates for contact/quote in backend/src/api/views/contact-success.html
 - [x] T069-2 [P] Add server-rendered success templates for contact/quote in backend/src/api/views/quote-success.html
-- [ ] T070 Enforce county/Eircode constraints (Dublin, Wicklow, Kildare) in backend/src/services/validation.ts with clear error messages
+- [x] T070 Enforce county/Eircode constraints (Dublin, Wicklow, Kildare) in backend/src/services/validation.ts with clear error messages
 
 ## Phase 3: User Story 1 (P1) – Configure and Get Instant Estimate
 Goal: Guided configurator with live estimate (VAT toggle) and quote submission

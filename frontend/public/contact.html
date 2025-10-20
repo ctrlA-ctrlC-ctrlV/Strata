@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Strata Garden Rooms</title>
+    <meta name="description" content="Get in touch with Strata Garden Rooms for bespoke garden rooms, house extensions, and custom builds in Dublin, Wicklow, and Kildare.">
+    
+    <!-- Basic styling for no-JS experience -->
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #2D5A3D;
+        }
+        
+        .header h1 {
+            color: #2D5A3D;
+            margin: 0;
+        }
+        
+        .form-container {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #2D5A3D;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #2D5A3D;
+            box-shadow: 0 0 0 3px rgba(45, 90, 61, 0.1);
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .required {
+            color: #d32f2f;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .submit-btn {
+            background: #2D5A3D;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .submit-btn:hover {
+            background: #1f3d2a;
+        }
+        
+        .contact-info {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .contact-info h2 {
+            color: #2D5A3D;
+            margin-top: 0;
+        }
+        
+        .info-item {
+            margin-bottom: 15px;
+        }
+        
+        .info-item strong {
+            color: #2D5A3D;
+        }
+        
+        .service-areas {
+            background: #e8f3ea;
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        
+        .service-areas h3 {
+            margin-top: 0;
+            color: #2D5A3D;
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .form-container, .contact-info {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Contact Strata Garden Rooms</h1>
+        <p>Get in touch to discuss your garden room, house extension, or custom build project</p>
+    </div>
+
+    <div class="form-container">
+        <h2>Send us a message</h2>
+        <form action="/api/contact" method="POST" accept-charset="UTF-8">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">
+                        First Name <span class="required">*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="firstName" 
+                        name="firstName" 
+                        required 
+                        maxlength="50"
+                        autocomplete="given-name"
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="lastName">
+                        Last Name <span class="required">*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="lastName" 
+                        name="lastName" 
+                        required 
+                        maxlength="50"
+                        autocomplete="family-name"
+                    >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">
+                    Email Address <span class="required">*</span>
+                </label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    required 
+                    maxlength="100"
+                    autocomplete="email"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="phone">
+                    Phone Number <span class="required">*</span>
+                </label>
+                <input 
+                    type="tel" 
+                    id="phone" 
+                    name="phone" 
+                    required 
+                    maxlength="20"
+                    autocomplete="tel"
+                    placeholder="e.g. 01 123 4567 or 087 123 4567"
+                >
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="county">
+                        County <span class="required">*</span>
+                    </label>
+                    <select id="county" name="county" required>
+                        <option value="">Select your county</option>
+                        <option value="dublin">Dublin</option>
+                        <option value="wicklow">Wicklow</option>
+                        <option value="kildare">Kildare</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="eircode">
+                        Eircode
+                    </label>
+                    <input 
+                        type="text" 
+                        id="eircode" 
+                        name="eircode" 
+                        maxlength="8"
+                        pattern="[A-Za-z][0-9]{2}[A-Za-z0-9]{4}"
+                        autocomplete="postal-code"
+                        placeholder="e.g. D02 XY45"
+                    >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="projectType">
+                    Project Type <span class="required">*</span>
+                </label>
+                <select id="projectType" name="projectType" required>
+                    <option value="">What are you interested in?</option>
+                    <option value="garden-room">Garden Room</option>
+                    <option value="house-extension">House Extension</option>
+                    <option value="house-build">Custom House Build</option>
+                    <option value="consultation">General Consultation</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="timeframe">
+                    Project Timeframe
+                </label>
+                <select id="timeframe" name="timeframe">
+                    <option value="">When would you like to start?</option>
+                    <option value="asap">As soon as possible</option>
+                    <option value="3-months">Within 3 months</option>
+                    <option value="6-months">Within 6 months</option>
+                    <option value="12-months">Within 12 months</option>
+                    <option value="exploring">Just exploring options</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="message">
+                    Message <span class="required">*</span>
+                </label>
+                <textarea 
+                    id="message" 
+                    name="message" 
+                    required 
+                    maxlength="2000"
+                    placeholder="Please tell us about your project, any specific requirements, budget considerations, or questions you have..."
+                ></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="consent" value="true" required>
+                    I consent to Strata Garden Rooms contacting me about my enquiry <span class="required">*</span>
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="newsletter" value="true">
+                    I'd like to receive updates about new products and services
+                </label>
+            </div>
+
+            <!-- Hidden fields for form processing -->
+            <input type="hidden" name="source" value="contact-page">
+            <input type="hidden" name="formType" value="contact">
+
+            <button type="submit" class="submit-btn">
+                Send Message
+            </button>
+        </form>
+    </div>
+
+    <div class="contact-info">
+        <h2>Get in Touch</h2>
+        
+        <div class="info-item">
+            <strong>Email:</strong> info@stratagarden.ie
+        </div>
+        
+        <div class="info-item">
+            <strong>Phone:</strong> +353 1 234 5678
+        </div>
+        
+        <div class="info-item">
+            <strong>Office Hours:</strong><br>
+            Monday - Friday: 9:00 AM - 6:00 PM<br>
+            Saturday: 10:00 AM - 4:00 PM<br>
+            Sunday: Closed
+        </div>
+        
+        <div class="info-item">
+            <strong>Address:</strong><br>
+            Strata Garden Rooms<br>
+            Unit 12, Business Park<br>
+            Dublin 18, Ireland
+        </div>
+
+        <div class="service-areas">
+            <h3>Service Areas</h3>
+            <p>We proudly serve customers throughout:</p>
+            <ul>
+                <li><strong>Dublin:</strong> All Dublin postcodes and surrounding areas</li>
+                <li><strong>Wicklow:</strong> Bray, Greystones, Wicklow town, and surrounding areas</li>
+                <li><strong>Kildare:</strong> Naas, Newbridge, Maynooth, and surrounding areas</li>
+            </ul>
+            <p><em>Site surveys and consultations available throughout our service area.</em></p>
+        </div>
+    </div>
+
+    <script>
+        // Progressive enhancement: Add enhanced functionality if JS available
+        document.addEventListener('DOMContentLoaded', function() {
+            // Enhanced form validation
+            const form = document.querySelector('form');
+            const eircodeField = document.getElementById('eircode');
+            const countyField = document.getElementById('county');
+
+            // Eircode formatting
+            if (eircodeField) {
+                eircodeField.addEventListener('input', function(e) {
+                    let value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+                    if (value.length > 3) {
+                        value = value.substr(0, 3) + ' ' + value.substr(3, 4);
+                    }
+                    e.target.value = value;
+                });
+            }
+
+            // County-based Eircode validation
+            if (countyField && eircodeField) {
+                function validateEircode() {
+                    const county = countyField.value;
+                    const eircode = eircodeField.value.replace(/\s/g, '');
+                    
+                    if (county && eircode && eircode.length >= 3) {
+                        const prefix = eircode.substr(0, 1).toUpperCase();
+                        let validPrefixes = [];
+                        
+                        switch(county) {
+                            case 'dublin':
+                                validPrefixes = ['D', 'K'];
+                                break;
+                            case 'wicklow':
+                                validPrefixes = ['A', 'Y'];
+                                break;
+                            case 'kildare':
+                                validPrefixes = ['R', 'W'];
+                                break;
+                        }
+                        
+                        if (validPrefixes.length > 0 && !validPrefixes.includes(prefix)) {
+                            eircodeField.setCustomValidity(`Eircode doesn't match selected county. ${county.charAt(0).toUpperCase() + county.slice(1)} postcodes typically start with: ${validPrefixes.join(', ')}`);
+                        } else {
+                            eircodeField.setCustomValidity('');
+                        }
+                    }
+                }
+                
+                countyField.addEventListener('change', validateEircode);
+                eircodeField.addEventListener('blur', validateEircode);
+            }
+        });
+    </script>
+</body>
+</html>
