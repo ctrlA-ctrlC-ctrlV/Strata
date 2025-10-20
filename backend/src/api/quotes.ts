@@ -14,6 +14,34 @@ function escapeHtml(s: string) {
     .replace(/'/g, '&#39;');
 }
 
+function generatePriceBreakdown(body: any): string {
+  if (!body.widthM || !body.depthM) return '';
+  
+  const widthM = parseFloat(body.widthM);
+  const depthM = parseFloat(body.depthM);
+  const vat = body.vat === 'true';
+  
+  // Simple estimate calculation (matches frontend logic)
+  const area = widthM * depthM;
+  const basePrice = 15000 + (area - 9) * 800;
+  const subtotal = Math.max(basePrice, 12000);
+  const vatAmount = vat ? subtotal * 0.23 : 0;
+  const total = subtotal + vatAmount;
+  
+  return `
+    <h3>Price Breakdown</h3>
+    <table style="border-collapse: collapse; margin: 10px 0;">
+      <tr><td style="padding: 4px 8px; border-bottom: 1px solid #ddd;">Base structure</td><td style="padding: 4px 8px; border-bottom: 1px solid #ddd;">€${(subtotal * 0.6).toFixed(2)}</td></tr>
+      <tr><td style="padding: 4px 8px; border-bottom: 1px solid #ddd;">Materials & finishing</td><td style="padding: 4px 8px; border-bottom: 1px solid #ddd;">€${(subtotal * 0.25).toFixed(2)}</td></tr>
+      <tr><td style="padding: 4px 8px; border-bottom: 1px solid #ddd;">Installation & labor</td><td style="padding: 4px 8px; border-bottom: 1px solid #ddd;">€${(subtotal * 0.15).toFixed(2)}</td></tr>
+      <tr><td style="padding: 4px 8px; border-bottom: 2px solid #333;"><strong>Subtotal</strong></td><td style="padding: 4px 8px; border-bottom: 2px solid #333;"><strong>€${subtotal.toFixed(2)}</strong></td></tr>
+      ${vat ? `<tr><td style="padding: 4px 8px; border-bottom: 1px solid #ddd;">VAT (23%)</td><td style="padding: 4px 8px; border-bottom: 1px solid #ddd;">€${vatAmount.toFixed(2)}</td></tr>` : ''}
+      <tr><td style="padding: 4px 8px; border-bottom: 2px solid #333;"><strong>Total</strong></td><td style="padding: 4px 8px; border-bottom: 2px solid #333;"><strong>€${total.toFixed(2)}</strong></td></tr>
+    </table>
+    <p><small><em>*Estimate only. Final quote may vary based on site conditions and specifications.</em></small></p>
+  `;
+}
+
 router.post('/quotes', async (req: Request, res: Response) => {
   const parse = QuoteSchema.safeParse(req.body);
   if (!parse.success) {
@@ -54,6 +82,7 @@ router.post('/quotes', async (req: Request, res: Response) => {
           <li><strong>County:</strong> ${escapeHtml(data.county)}</li>
         </ul>
         ${designBits ? `<h2>Design Summary</h2><ul>${designBits}</ul>` : ''}
+        ${generatePriceBreakdown(req.body)}
       `;
       sendMail({ to: String(internalTo), subject: `New quote ${created.quoteNumber}`, html }).catch(() => {});
     }

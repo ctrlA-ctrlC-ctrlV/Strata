@@ -13,7 +13,7 @@ export function renderQuoteForm(el: HTMLElement, opts: QuoteFormOptions = {}) {
       <label>Email <input type="email" name="email" required></label>
       <label>Phone <input name="phone"></label>
       <label>Address <input name="address"></label>
-      <label>Eircode <input name="eircode" required></label>
+      <label>Eircode <input name="eircode" required aria-describedby="eircode-help"><small id="eircode-help">Format like A65 F4E2</small></label>
       <label>County
         <select name="county" required>
           <option value="">Select</option>
@@ -35,6 +35,10 @@ export function renderQuoteForm(el: HTMLElement, opts: QuoteFormOptions = {}) {
     </form>
   `;
   const form = el.querySelector<HTMLFormElement>('#quote-form')!;
+  const eircodeInput = form.querySelector<HTMLInputElement>('input[name=eircode]')!;
+  const countySelect = form.querySelector<HTMLSelectElement>('select[name=county]')!;
+  const EIRCODE_REGEX = /^(?:D6W|[AC-FHKNPRTV-Y][0-9]{2})\s?[0-9AC-FHKNPRTV-Y]{4}$/i;
+  const allowedCounties = new Set(['Dublin','Wicklow','Kildare']);
   // Attach design state as hidden inputs for backend emails/storage
   if (opts.state) {
     const hidden = (name: string, value: string) => {
@@ -58,6 +62,23 @@ export function renderQuoteForm(el: HTMLElement, opts: QuoteFormOptions = {}) {
   form.addEventListener('submit', async (e) => {
     try {
       e.preventDefault();
+      // client-side validation
+      let valid = true;
+      if (!EIRCODE_REGEX.test(eircodeInput.value.trim())) {
+        eircodeInput.setCustomValidity('Please enter a valid Eircode (e.g., A65 F4E2)');
+        eircodeInput.reportValidity();
+        valid = false;
+      } else {
+        eircodeInput.setCustomValidity('');
+      }
+      if (!allowedCounties.has(countySelect.value)) {
+        countySelect.setCustomValidity('Please select Dublin, Wicklow, or Kildare');
+        countySelect.reportValidity();
+        valid = false;
+      } else {
+        countySelect.setCustomValidity('');
+      }
+      if (!valid) return;
       const res = await fetch(form.action, { method: 'POST', body: new FormData(form) });
       if (!res.ok) throw new Error('Submit failed');
       opts.onSubmitted?.();

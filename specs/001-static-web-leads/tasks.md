@@ -44,21 +44,21 @@ Independent Test: Start configurator → select options → see estimate → sub
 - [x] T021 [P] [US1] Build step components (size, openings, cladding, bathroom, floor, extras) in frontend/src/components/configurator/
 - [x] T022 [US1] Implement progress bar UI in frontend/src/components/progress.ts
 - [x] T023 [US1] Wire price calc and VAT toggle in frontend/src/lib/price.ts and components
-- [ ] T024 [US1] Build summary view before submission in frontend/src/components/configurator/summary.ts
-- [ ] T025 [US1] Implement quote form (name, email, phone, address, eircode, timeframe) in frontend/src/components/configurator/quote-form.ts
+- [x] T024 [US1] Build summary view before submission in frontend/src/components/configurator/summary.ts
+- [x] T025 [US1] Implement quote form (name, email, phone, address, eircode, timeframe) in frontend/src/components/configurator/quote-form.ts
 - [x] T026 [US1] Implement POST /quotes client in frontend/src/lib/api.ts
 - [x] T027 [US1] Backend: implement POST /quotes in backend/src/api/quotes.ts
 - [x] T028 [US1] Backend: generate quoteNumber and persist QuoteRequest in backend/src/db/repos/quotes.ts
-- [ ] T029 [US1] Backend: send confirmation emails (user + internal) in backend/src/services/mailer.ts
-- [ ] T030 [US1] Show on-screen confirmation with human-readable summary in frontend/src/components/configurator/confirmation.ts
-- [ ] T031 [US1] Implement “Email Design” (send config snapshot) in frontend/src/components/configurator/email-design.ts
+- [x] T029 [US1] Backend: send confirmation emails (user + internal) in backend/src/services/mailer.ts
+- [x] T030 [US1] Show on-screen confirmation with human-readable summary in frontend/src/components/configurator/confirmation.ts
+- [x] T031 [US1] Implement “Email Design” (send config snapshot) in frontend/src/components/configurator/email-design.ts
 
 - [x] T099 [P][US1] Write tests first: create E2E happy path for configurator and unit tests for price util in frontend/tests/e2e/us1-configurator.spec.ts and frontend/tests/unit/price.spec.ts
 
-- [ ] T072 [US1] Persist configuration to sessionStorage and restore on return with resume prompt in frontend/src/components/configurator/state.ts
-- [ ] T073 [US1] Implement option tooltips and image previews with accessible labels in frontend/src/components/configurator/ui-helpers.ts
-- [ ] T074 [US1] Implement gated price breakdown: short form capture then reveal breakdown; include in emails (frontend/src/components/configurator/breakdown.ts; backend/src/services/mailer.ts)
-- [ ] T075 [US1] Client-side enforce county/Eircode constraints on quote form with inline messaging in frontend/src/components/configurator/quote-form.ts
+- [x] T072 [US1] Persist configuration to sessionStorage and restore on return with resume prompt in frontend/src/components/configurator/state.ts
+- [x] T073 [US1] Implement option tooltips and image previews with accessible labels in frontend/src/components/configurator/ui-helpers.ts
+- [x] T074 [US1] Implement gated price breakdown: short form capture then reveal breakdown; include in emails (frontend/src/components/configurator/breakdown.ts; backend/src/services/mailer.ts)
+- [x] T075 [US1] Client-side enforce county/Eircode constraints on quote form with inline messaging in frontend/src/components/configurator/quote-form.ts
 
 ## Phase 4: User Story 2 (P2) – Discover via SEO Landing Pages
 Goal: Use case pages funnel to configurator with context

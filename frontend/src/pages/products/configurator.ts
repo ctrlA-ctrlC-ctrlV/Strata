@@ -12,6 +12,7 @@ import { renderSummary } from '../../components/configurator/summary';
 import { renderQuoteForm } from '../../components/configurator/quote-form';
 import { renderConfirmation } from '../../components/configurator/confirmation';
 import { attachEmailDesignButtons } from '../../components/configurator/email-design';
+import { loadState, saveState, clearState } from '../../components/configurator/state';
 
 const stepsEl = document.getElementById('steps')!;
 const summaryEl = document.getElementById('summary')!;
@@ -30,10 +31,17 @@ let state: ConfigState = {
 };
 let stepIndex = 0;
 
+// Attempt restore
+const restored = loadState();
+if (restored) {
+  const resume = window.confirm('Resume your previous configuration?');
+  if (resume) state = restored;
+}
+
 function render() {
   stepsEl.innerHTML = `<div id="step"></div><div id="nav"><button id="prev" ${stepIndex===0?'disabled':''}>Back</button><button id="next">Next</button><button id="summ" ${stepIndex<5?'disabled':''}>Summary</button></div>`;
   const stepRoot = stepsEl.querySelector('#step') as HTMLElement;
-  const onChange = (patch: Partial<ConfigState>) => { state = { ...state, ...patch }; updateEstimate(); };
+  const onChange = (patch: Partial<ConfigState>) => { state = { ...state, ...patch }; saveState(state); updateEstimate(); };
   const steps = [
     () => renderSizeStep(stepRoot, state, onChange),
     () => renderOpeningsStep(stepRoot, state, onChange),
@@ -65,6 +73,7 @@ function showSummary() {
         stepsEl.hidden = true;
         renderConfirmation(confirmationEl as HTMLElement);
         confirmationEl.scrollIntoView({ behavior: 'smooth' });
+        clearState();
       }
     });
   }
