@@ -31,7 +31,13 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- Static-First: Core UX works without runtime server; no-JS fallbacks for critical flows
+- Performance Budgets: FCP ≤ 1.5s (slow 3G), LCP ≤ 2.5s, TTI ≤ 3.5s; bundles ≤ 500KB (compressed)
+- Progressive Enhancement: Key paths function without JS; keyboard accessibility ensured
+- TDD: Tests exist and fail prior to implementation; visual and accessibility checks included
+- Build-Time Optimization: Minification, tree-shaking, critical CSS, responsive images
+- Security: Strict CSP, HTTPS-only, SRI for third-party, secure headers (HSTS, XFO, XCTO, Referrer-Policy)
+- Quality Gates: Lighthouse ≥ 90 (Perf, A11y, Best Practices), SEO = 100
 
 ## Project Structure
 
