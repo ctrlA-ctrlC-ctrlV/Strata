@@ -5,12 +5,12 @@
 
 ## Phase 1: Setup (Shared Infrastructure)
 
-- [ ] T001 Initialize Git branch protections and CI placeholders
-- [ ] T002 Create frontend project structure per plan in frontend/
-- [ ] T003 Create backend project structure per plan in backend/
-- [ ] T004 Add base README sections referencing quickstart.md
-- [ ] T005 Configure .editorconfig and basic linting rules for JS/CSS/MD
-- [ ] T006 Add LICENSE and CONTRIBUTING basics
+- [x] T001 Initialize Git branch protections and CI placeholders
+- [x] T002 Create frontend project structure per plan in frontend/
+- [x] T003 Create backend project structure per plan in backend/
+- [x] T004 Add base README sections referencing quickstart.md
+- [x] T005 Configure .editorconfig and basic linting rules for JS/CSS/MD
+- [x] T006 Add LICENSE and CONTRIBUTING basics
 
 ## Phase 2: Foundational (Blocking Prerequisites)
 
@@ -29,7 +29,6 @@
 - [ ] T017 Add .env.example and dotenv loading in backend
 - [ ] T018 Add Playwright setup for e2e tests in frontend/tests/e2e/
 - [ ] T019 Add axe-core a11y test helper in frontend/tests/
-
 - [ ] T067 Provide no-JS fallback contact form at frontend/public/contact.html posting to backend/src/api/contact.ts (server-rendered success)
 - [ ] T068 Provide no-JS minimal quote form at frontend/public/quote.html posting to backend/src/api/quotes.ts (captures essentials; server-rendered confirmation)
 - [ ] T069-1 [P] Add server-rendered success templates for contact/quote in backend/src/api/views/contact-success.html
@@ -70,8 +69,32 @@ Independent Test: Land on use case page → understand value → one-click to co
 - [ ] T033 [US2] Add credible content blocks and CTAs in frontend/src/components/use cases/
 - [ ] T034 [US2] Preselect configurator templates via URL params in frontend/src/pages/products/configurator.html
 
+## Phase 5: User Story 8 (P2) – Product Pages Layout & Conversion Flow
+Goal: Consistent product pages (Garden Room, House Extension, House Build) driving users to configure or contact
+Independent Test: From any product page, hero CTA scrolls to configuration; about section (carousel + inclusions + gallery CTA) works; example gallery supports drag + hover/tap enlarge; testimonials present; user can configure or contact
 
-## Phase 5: User Story 3 (P3) – Galleries & Testimonials
+- [ ] T106 [US8] Create Garden Room product page shell in frontend/src/pages/products/garden-room/index.html
+- [ ] T107 [US8] Create House Extension product page shell in frontend/src/pages/products/house-extension/index.html
+- [ ] T108 [US8] Create House Build product page shell in frontend/src/pages/products/house-build/index.html
+
+- [ ] T109 [P] [US8] Implement shared product hero with CTA scroll to #configuration in frontend/src/components/product/hero.ts
+- [ ] T110 [P] [US8] Implement "About our [product]" section with sliding carousel and inclusions list in frontend/src/components/product/about.ts
+- [ ] T111 [US8] Wire "View gallery" CTA to filter gallery by product via query (e.g., ?category=garden-rooms) in frontend/src/pages/gallery/index.html
+- [ ] T112 [US8] Add configuration section anchor (#configuration) and start configurator hook on each product page in frontend/src/pages/products/*/index.html
+- [ ] T113 [US8] Add CTA "Don't have time for this — Contact us" linking to /contact in frontend/src/pages/products/*/index.html
+
+- [ ] T114 [P] [US8] Implement example gallery: horizontal drag-scroll masonry in frontend/src/components/product/example-gallery.ts
+- [ ] T115 [P] [US8] Add hover (desktop) / tap (mobile) smooth enlargement without layout shift in frontend/src/components/product/example-gallery.ts
+- [ ] T116 [US8] Ensure keyboard operability (focusable items, arrow-key navigation, visible focus) in frontend/src/components/product/example-gallery.ts
+- [ ] T117 [US8] Provide no-JS fallback (static grid with next/prev) and ensure hero CTA anchor works without JS in frontend/src/pages/products/*/index.html
+
+- [ ] T118 [US8] Add testimonials section component with attribution and onward CTA in frontend/src/components/product/testimonials.ts
+
+- [ ] T119 [P] [US8] E2E: hero scroll, gallery drag, contact CTA in frontend/tests/e2e/us8-product-pages.spec.ts
+- [ ] T120 [P] [US8] A11y: keyboard navigation and focus visibility for example gallery in frontend/tests/a11y/us8-gallery.spec.ts
+- [ ] T121 [P] [US8] Performance budget checks (Lighthouse) for 3 product pages in tests/perf/lh-product-pages.yml
+
+## Phase 6: User Story 3 (P3) – Galleries & Testimonials
 Goal: Trust-building galleries and testimonials with overlay CTA
 Independent Test: Browse gallery → open overlay → submit interest with job reference
 
@@ -83,7 +106,7 @@ Independent Test: Browse gallery → open overlay → submit interest with job r
 
 - [ ] T101 [P][US3] Write tests first: E2E test for gallery overlay and CTA submission including job reference in frontend/tests/e2e/us3-gallery.spec.ts
 
-## Phase 6: User Story 4 (P2) – Admin Manages Content & Quotes
+## Phase 7: User Story 4 (P2) – Admin Manages Content & Quotes
 Goal: Basic admin dashboard for metadata edits and quote management
 Independent Test: Upload/edit assets, edit testimonials, view quotes with IDs, generate final quote receipt
 
@@ -108,7 +131,7 @@ Independent Test: Upload/edit assets, edit testimonials, view quotes with IDs, g
 - [ ] T084 [US4] Implement scheduled retention cleanup for expired quotes in backend/src/services/retention.ts (node-cron) with config in .env
 
 
-## Phase 7: User Story 5 (P2) – Prefab Path
+## Phase 8: User Story 5 (P2) – Prefab Path
 Goal: Prefab size selection with allowed options and itemized quote
 Independent Test: Select prefab → adjust allowed options → submit → itemized quote
 
@@ -118,7 +141,7 @@ Independent Test: Select prefab → adjust allowed options → submit → itemiz
 
 - [ ] T103 [P][US5] Write tests first: E2E test for prefab constraints and itemized summary in frontend/tests/e2e/us5-prefab.spec.ts
 
-## Phase 8: User Story 6 (P2) – Homepage & First Impression
+## Phase 9: User Story 6 (P2) – Homepage & First Impression
 Goal: Clear offerings, trust signals, easy navigation
 Independent Test: See categories/testimonials/trust signals; one-click nav to key pages
 
@@ -128,7 +151,7 @@ Independent Test: See categories/testimonials/trust signals; one-click nav to ke
 
 - [ ] T104 [P][US6] Write tests first: E2E test for homepage navigation and trust signals visibility in frontend/tests/e2e/us6-home.spec.ts
 
-## Phase 9: User Story 7 (P2) – Contact Flow
+## Phase 10: User Story 7 (P2) – Contact Flow
 Goal: Submit contact with confirmation; fast internal delivery
 Independent Test: Submit contact → user sees confirmation; internal team receives email promptly
 
@@ -141,7 +164,7 @@ Independent Test: Submit contact → user sees confirmation; internal team recei
 - [ ] T087 [US7] Add hours and bank holiday note to contact page; include location context in frontend/src/pages/contact/index.html
 - [ ] T088 [US7] Add privacy-friendly map (static map or no-cookie embed) with fallback in frontend/src/pages/contact/index.html
 
-## Phase 10: Non‑Functional & Cross‑Cutting
+## Phase 11: Non‑Functional & Cross‑Cutting
 
 - [ ] T057 Production hardening for security headers and CSP in backend/src/security/security.ts (finalize directives; move CSP from report-only to enforce; add CI checks)
 - [ ] T058 Configure SRI for third-party assets in frontend/public/
@@ -165,31 +188,6 @@ Independent Test: Submit contact → user sees confirmation; internal team recei
 
 - [ ] T097 Add Permitted Development guidance component and include on configurator and use-case pages in frontend/src/components/guidance/pd-guidance.ts (import into frontend/src/pages/products/configurator.html and frontend/src/pages/use-cases/*)
 - [ ] T098 Add newsletter signup component and integrate into footer in frontend/src/components/newsletter-signup.ts and frontend/src/components/footer.ts
-
-## Phase 11: User Story 8 (P2) – Product Pages Layout & Conversion Flow
-Goal: Consistent product pages (Garden Room, House Extension, House Build) driving users to configure or contact
-Independent Test: From any product page, hero CTA scrolls to configuration; about section (carousel + inclusions + gallery CTA) works; example gallery supports drag + hover/tap enlarge; testimonials present; user can configure or contact
-
-- [ ] T106 [US8] Create Garden Room product page shell in frontend/src/pages/products/garden-room/index.html
-- [ ] T107 [US8] Create House Extension product page shell in frontend/src/pages/products/house-extension/index.html
-- [ ] T108 [US8] Create House Build product page shell in frontend/src/pages/products/house-build/index.html
-
-- [ ] T109 [P] [US8] Implement shared product hero with CTA scroll to #configuration in frontend/src/components/product/hero.ts
-- [ ] T110 [P] [US8] Implement "About our [product]" section with sliding carousel and inclusions list in frontend/src/components/product/about.ts
-- [ ] T111 [US8] Wire "View gallery" CTA to filter gallery by product via query (e.g., ?category=garden-rooms) in frontend/src/pages/gallery/index.html
-- [ ] T112 [US8] Add configuration section anchor (#configuration) and start configurator hook on each product page in frontend/src/pages/products/*/index.html
-- [ ] T113 [US8] Add CTA "Don't have time for this — Contact us" linking to /contact in frontend/src/pages/products/*/index.html
-
-- [ ] T114 [P] [US8] Implement example gallery: horizontal drag-scroll masonry in frontend/src/components/product/example-gallery.ts
-- [ ] T115 [P] [US8] Add hover (desktop) / tap (mobile) smooth enlargement without layout shift in frontend/src/components/product/example-gallery.ts
-- [ ] T116 [US8] Ensure keyboard operability (focusable items, arrow-key navigation, visible focus) in frontend/src/components/product/example-gallery.ts
-- [ ] T117 [US8] Provide no-JS fallback (static grid with next/prev) and ensure hero CTA anchor works without JS in frontend/src/pages/products/*/index.html
-
-- [ ] T118 [US8] Add testimonials section component with attribution and onward CTA in frontend/src/components/product/testimonials.ts
-
-- [ ] T119 [P] [US8] E2E: hero scroll, gallery drag, contact CTA in frontend/tests/e2e/us8-product-pages.spec.ts
-- [ ] T120 [P] [US8] A11y: keyboard navigation and focus visibility for example gallery in frontend/tests/a11y/us8-gallery.spec.ts
-- [ ] T121 [P] [US8] Performance budget checks (Lighthouse) for 3 product pages in tests/perf/lh-product-pages.yml
 
 ## Dependencies (Story Order)
 1) US1 → 2) US2 → 3) US8 → 4) US6 → 5) US3 → 6) US7 → 7) US5 → 8) US4

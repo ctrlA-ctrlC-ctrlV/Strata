@@ -1,0 +1,35 @@
+{
+  "name": "strata-frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "lint": "eslint . --ext js,ts,vue --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --ext js,ts,vue --fix",
+    "e2e": "playwright test",
+    "e2e:ui": "playwright test --ui",
+    "test:a11y": "playwright test tests/a11y/"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@vitejs/plugin-legacy": "^5.0.0",
+    "axe-core": "^4.8.0",
+    "axe-playwright": "^2.0.0",
+    "eslint": "^8.55.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^16.4.0",
+    "eslint-plugin-promise": "^6.1.0",
+    "vite": "^5.0.0",
+    "vitest": "^1.0.0",
+    "@vitest/coverage-v8": "^1.0.0",
+    "@vitest/ui": "^1.0.0"
+  },
+  "dependencies": {}
+}

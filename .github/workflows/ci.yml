@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [20.x]
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    
+    # Frontend tests
+    - name: Install frontend dependencies
+      run: cd frontend && npm ci
+      
+    - name: Run frontend tests
+      run: cd frontend && npm test
+      
+    - name: Run frontend build
+      run: cd frontend && npm run build
+    
+    # Backend tests
+    - name: Install backend dependencies
+      run: cd backend && npm ci
+      
+    - name: Run backend tests
+      run: cd backend && npm test
+    
+    # E2E tests
+    - name: Install Playwright
+      run: cd frontend && npx playwright install
+      
+    - name: Run E2E tests
+      run: cd frontend && npm run e2e
+
+  lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Use Node.js 20.x
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20.x
+        cache: 'npm'
+    
+    - name: Install frontend dependencies
+      run: cd frontend && npm ci
+      
+    - name: Run frontend linting
+      run: cd frontend && npm run lint
+      
+    - name: Install backend dependencies
+      run: cd backend && npm ci
+      
+    - name: Run backend linting
+      run: cd backend && npm run lint
