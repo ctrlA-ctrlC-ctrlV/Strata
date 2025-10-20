@@ -5,60 +5,60 @@
 
 ## Phase 1: Setup (Shared Infrastructure)
 
-- [x] T001 Initialize Git branch protections and CI placeholders
-- [x] T002 Create frontend project structure per plan in frontend/
-- [x] T003 Create backend project structure per plan in backend/
-- [x] T004 Add base README sections referencing quickstart.md
-- [x] T005 Configure .editorconfig and basic linting rules for JS/CSS/MD
-- [x] T006 Add LICENSE and CONTRIBUTING basics
+- [ ] T001 Initialize Git branch protections and CI placeholders
+- [ ] T002 Create frontend project structure per plan in frontend/
+- [ ] T003 Create backend project structure per plan in backend/
+- [ ] T004 Add base README sections referencing quickstart.md
+- [ ] T005 Configure .editorconfig and basic linting rules for JS/CSS/MD
+- [ ] T006 Add LICENSE and CONTRIBUTING basics
 
 ## Phase 2: Foundational (Blocking Prerequisites)
 
-- [x] T007 Configure Vite in frontend/ (vanilla template, minimal plugins)
-- [x] T008 Add global styles and critical CSS scaffolding in frontend/src/styles/
-- [x] T009 [P] Implement price calculation utility scaffold in frontend/src/lib/price.ts
-- [x] T010 Implement analytics dispatcher wrapper in frontend/src/analytics/events.ts
-- [x] T011 Set up Express app in backend/src/api/server.ts with secure headers
-- [x] T012 Implement Mongo connection module in backend/src/db/mongo.ts
-- [x] T013-1 [P] Define repositories skeletons in backend/src/db/repos/quotes.ts
-- [x] T013-2 [P] Define repositories skeletons in backend/src/db/repos/assets.ts,content.ts
-- [x] T013-3 [P] Define repositories skeletons in backend/src/db/repos/content.ts
-- [x] T014 Add validation schemas (zod) in backend/src/services/validation.ts
-- [x] T015 Configure mailer service (SMTP) in backend/src/services/mailer.ts
-- [x] T016 Add security middleware (CSP, rate limit) in backend/src/security/security.ts
-- [x] T017 Add .env.example and dotenv loading in backend
-- [x] T018 Add Playwright setup for e2e tests in frontend/tests/e2e/
-- [x] T019 Add axe-core a11y test helper in frontend/tests/
+- [ ] T007 Configure Vite in frontend/ (vanilla template, minimal plugins)
+- [ ] T008 Add global styles and critical CSS scaffolding in frontend/src/styles/
+- [ ] T009 [P] Implement price calculation utility scaffold in frontend/src/lib/price.ts
+- [ ] T010 Implement analytics dispatcher wrapper in frontend/src/analytics/events.ts
+- [ ] T011 Set up Express app in backend/src/api/server.ts with secure headers
+- [ ] T012 Implement Mongo connection module in backend/src/db/mongo.ts
+- [ ] T013-1 [P] Define repositories skeletons in backend/src/db/repos/quotes.ts
+- [ ] T013-2 [P] Define repositories skeletons in backend/src/db/repos/assets.ts,content.ts
+- [ ] T013-3 [P] Define repositories skeletons in backend/src/db/repos/content.ts
+- [ ] T014 Add validation schemas (zod) in backend/src/services/validation.ts
+- [ ] T015 Configure mailer service (SMTP) in backend/src/services/mailer.ts
+- [ ] T016 Add security middleware (CSP, rate limit) in backend/src/security/security.ts
+- [ ] T017 Add .env.example and dotenv loading in backend
+- [ ] T018 Add Playwright setup for e2e tests in frontend/tests/e2e/
+- [ ] T019 Add axe-core a11y test helper in frontend/tests/
 
-- [x] T067 Provide no-JS fallback contact form at frontend/public/contact.html posting to backend/src/api/contact.ts (server-rendered success)
-- [x] T068 Provide no-JS minimal quote form at frontend/public/quote.html posting to backend/src/api/quotes.ts (captures essentials; server-rendered confirmation)
-- [x] T069-1 [P] Add server-rendered success templates for contact/quote in backend/src/api/views/contact-success.html
-- [x] T069-2 [P] Add server-rendered success templates for contact/quote in backend/src/api/views/quote-success.html
-- [x] T070 Enforce county/Eircode constraints (Dublin, Wicklow, Kildare) in backend/src/services/validation.ts with clear error messages
+- [ ] T067 Provide no-JS fallback contact form at frontend/public/contact.html posting to backend/src/api/contact.ts (server-rendered success)
+- [ ] T068 Provide no-JS minimal quote form at frontend/public/quote.html posting to backend/src/api/quotes.ts (captures essentials; server-rendered confirmation)
+- [ ] T069-1 [P] Add server-rendered success templates for contact/quote in backend/src/api/views/contact-success.html
+- [ ] T069-2 [P] Add server-rendered success templates for contact/quote in backend/src/api/views/quote-success.html
+- [ ] T070 Enforce county/Eircode constraints (Dublin, Wicklow, Kildare) in backend/src/services/validation.ts with clear error messages
 
 ## Phase 3: User Story 1 (P1) – Configure and Get Instant Estimate
 Goal: Guided configurator with live estimate (VAT toggle) and quote submission
 Independent Test: Start configurator → select options → see estimate → submit quote → get confirmation
 
-- [x] T020 [US1] Create configurator page shell in frontend/src/pages/products/configurator.html
-- [x] T021 [P] [US1] Build step components (size, openings, cladding, bathroom, floor, extras) in frontend/src/components/configurator/
-- [x] T022 [US1] Implement progress bar UI in frontend/src/components/progress.ts
-- [x] T023 [US1] Wire price calc and VAT toggle in frontend/src/lib/price.ts and components
-- [x] T024 [US1] Build summary view before submission in frontend/src/components/configurator/summary.ts
-- [x] T025 [US1] Implement quote form (name, email, phone, address, eircode, timeframe) in frontend/src/components/configurator/quote-form.ts
-- [x] T026 [US1] Implement POST /quotes client in frontend/src/lib/api.ts
-- [x] T027 [US1] Backend: implement POST /quotes in backend/src/api/quotes.ts
-- [x] T028 [US1] Backend: generate quoteNumber and persist QuoteRequest in backend/src/db/repos/quotes.ts
-- [x] T029 [US1] Backend: send confirmation emails (user + internal) in backend/src/services/mailer.ts
-- [x] T030 [US1] Show on-screen confirmation with human-readable summary in frontend/src/components/configurator/confirmation.ts
-- [x] T031 [US1] Implement “Email Design” (send config snapshot) in frontend/src/components/configurator/email-design.ts
+- [ ] T020 [US1] Create configurator page shell in frontend/src/pages/products/configurator.html
+- [ ] T021 [P] [US1] Build step components (size, openings, cladding, bathroom, floor, extras) in frontend/src/components/configurator/
+- [ ] T022 [US1] Implement progress bar UI in frontend/src/components/progress.ts
+- [ ] T023 [US1] Wire price calc and VAT toggle in frontend/src/lib/price.ts and components
+- [ ] T024 [US1] Build summary view before submission in frontend/src/components/configurator/summary.ts
+- [ ] T025 [US1] Implement quote form (name, email, phone, address, eircode, timeframe) in frontend/src/components/configurator/quote-form.ts
+- [ ] T026 [US1] Implement POST /quotes client in frontend/src/lib/api.ts
+- [ ] T027 [US1] Backend: implement POST /quotes in backend/src/api/quotes.ts
+- [ ] T028 [US1] Backend: generate quoteNumber and persist QuoteRequest in backend/src/db/repos/quotes.ts
+- [ ] T029 [US1] Backend: send confirmation emails (user + internal) in backend/src/services/mailer.ts
+- [ ] T030 [US1] Show on-screen confirmation with human-readable summary in frontend/src/components/configurator/confirmation.ts
+- [ ] T031 [US1] Implement “Email Design” (send config snapshot) in frontend/src/components/configurator/email-design.ts
 
-- [x] T099 [P][US1] Write tests first: create E2E happy path for configurator and unit tests for price util in frontend/tests/e2e/us1-configurator.spec.ts and frontend/tests/unit/price.spec.ts
+- [ ] T099 [P][US1] Write tests first: create E2E happy path for configurator and unit tests for price util in frontend/tests/e2e/us1-configurator.spec.ts and frontend/tests/unit/price.spec.ts
 
-- [x] T072 [US1] Persist configuration to sessionStorage and restore on return with resume prompt in frontend/src/components/configurator/state.ts
-- [x] T073 [US1] Implement option tooltips and image previews with accessible labels in frontend/src/components/configurator/ui-helpers.ts
-- [x] T074 [US1] Implement gated price breakdown: short form capture then reveal breakdown; include in emails (frontend/src/components/configurator/breakdown.ts; backend/src/services/mailer.ts)
-- [x] T075 [US1] Client-side enforce county/Eircode constraints on quote form with inline messaging in frontend/src/components/configurator/quote-form.ts
+- [ ] T072 [US1] Persist configuration to sessionStorage and restore on return with resume prompt in frontend/src/components/configurator/state.ts
+- [ ] T073 [US1] Implement option tooltips and image previews with accessible labels in frontend/src/components/configurator/ui-helpers.ts
+- [ ] T074 [US1] Implement gated price breakdown: short form capture then reveal breakdown; include in emails (frontend/src/components/configurator/breakdown.ts; backend/src/services/mailer.ts)
+- [ ] T075 [US1] Client-side enforce county/Eircode constraints on quote form with inline messaging in frontend/src/components/configurator/quote-form.ts
 
 ## Phase 4: User Story 2 (P2) – Discover via SEO Landing Pages
 Goal: Use case pages funnel to configurator with context
@@ -166,14 +166,40 @@ Independent Test: Submit contact → user sees confirmation; internal team recei
 - [ ] T097 Add Permitted Development guidance component and include on configurator and use-case pages in frontend/src/components/guidance/pd-guidance.ts (import into frontend/src/pages/products/configurator.html and frontend/src/pages/use-cases/*)
 - [ ] T098 Add newsletter signup component and integrate into footer in frontend/src/components/newsletter-signup.ts and frontend/src/components/footer.ts
 
+## Phase 11: User Story 8 (P2) – Product Pages Layout & Conversion Flow
+Goal: Consistent product pages (Garden Room, House Extension, House Build) driving users to configure or contact
+Independent Test: From any product page, hero CTA scrolls to configuration; about section (carousel + inclusions + gallery CTA) works; example gallery supports drag + hover/tap enlarge; testimonials present; user can configure or contact
+
+- [ ] T106 [US8] Create Garden Room product page shell in frontend/src/pages/products/garden-room/index.html
+- [ ] T107 [US8] Create House Extension product page shell in frontend/src/pages/products/house-extension/index.html
+- [ ] T108 [US8] Create House Build product page shell in frontend/src/pages/products/house-build/index.html
+
+- [ ] T109 [P] [US8] Implement shared product hero with CTA scroll to #configuration in frontend/src/components/product/hero.ts
+- [ ] T110 [P] [US8] Implement "About our [product]" section with sliding carousel and inclusions list in frontend/src/components/product/about.ts
+- [ ] T111 [US8] Wire "View gallery" CTA to filter gallery by product via query (e.g., ?category=garden-rooms) in frontend/src/pages/gallery/index.html
+- [ ] T112 [US8] Add configuration section anchor (#configuration) and start configurator hook on each product page in frontend/src/pages/products/*/index.html
+- [ ] T113 [US8] Add CTA "Don't have time for this — Contact us" linking to /contact in frontend/src/pages/products/*/index.html
+
+- [ ] T114 [P] [US8] Implement example gallery: horizontal drag-scroll masonry in frontend/src/components/product/example-gallery.ts
+- [ ] T115 [P] [US8] Add hover (desktop) / tap (mobile) smooth enlargement without layout shift in frontend/src/components/product/example-gallery.ts
+- [ ] T116 [US8] Ensure keyboard operability (focusable items, arrow-key navigation, visible focus) in frontend/src/components/product/example-gallery.ts
+- [ ] T117 [US8] Provide no-JS fallback (static grid with next/prev) and ensure hero CTA anchor works without JS in frontend/src/pages/products/*/index.html
+
+- [ ] T118 [US8] Add testimonials section component with attribution and onward CTA in frontend/src/components/product/testimonials.ts
+
+- [ ] T119 [P] [US8] E2E: hero scroll, gallery drag, contact CTA in frontend/tests/e2e/us8-product-pages.spec.ts
+- [ ] T120 [P] [US8] A11y: keyboard navigation and focus visibility for example gallery in frontend/tests/a11y/us8-gallery.spec.ts
+- [ ] T121 [P] [US8] Performance budget checks (Lighthouse) for 3 product pages in tests/perf/lh-product-pages.yml
+
 ## Dependencies (Story Order)
-1) US1 → 2) US2 → 3) US6 → 4) US3 → 5) US7 → 6) US5 → 7) US4
+1) US1 → 2) US2 → 3) US8 → 4) US6 → 5) US3 → 6) US7 → 7) US5 → 8) US4
 
 ## Parallel Execution Examples
 - T021 [US1] step components and T022 [US1] progress bar can proceed in parallel
 - T033 [US2] content blocks and T034 [US2] template preselect can proceed in parallel
 - T036 [US3] tabs and T037 [US3] grid can proceed in parallel
 - Backend routes in US4 (T044–T046) can be implemented in parallel once repos are ready
+ - US8: T109 hero and T110 about section can proceed in parallel; T114 example gallery and T118 testimonials can also proceed in parallel
 
 ## Implementation Strategy
 - Deliver MVP with US1 first (Configurator + Quote). Then funnel pages (US2), Homepage (US6), Trust (US3), Contact (US7). Add Prefab path (US5) and Admin (US4) after MVP.

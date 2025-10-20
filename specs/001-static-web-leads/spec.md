@@ -150,6 +150,34 @@ A visitor reaches the contact page and submits a message, receiving confirmation
 1. **Given** a visitor on any page, **When** they click Contact, **Then** they reach the contact form with hours and location context.
 2. **Given** a completed contact form, **When** it is submitted, **Then** the visitor sees a success confirmation and the team receives the inquiry.
 
+---
+
+### User Story 8 - Product Pages Layout & Conversion Flow (Priority: P2)
+
+A visitor lands on a product page for Garden Room, House Extension, or House Build and experiences a consistent layout that leads them to configure or contact with minimal friction.
+
+**Why this priority**: Clear, consistent product pages are essential for SEO entry and conversion to configurator or direct contact, beyond the garden room use case.
+
+**Independent Test**: Starting from any of the three product pages, a test user can scroll from the hero to the configuration section via the CTA, explore the "About our [product]" content and gallery link, interact with the example gallery, read testimonials, and either configure or contact.
+
+**Acceptance Scenarios**:
+
+1. Hero Scroll CTA
+  - **Given** a product page hero, **When** the visitor clicks the "Configure yours today" button, **Then** the page scrolls to the configuration section on the same page.
+2. About Section with Sliding Images and Inclusions
+  - **Given** the "About our [product]" section, **When** the visitor views the section, **Then** a sliding carousel of previous builds is visible, a concise text block explains the product, and a bullet list clearly outlines inclusions for that product type.
+  - **And** **When** the visitor clicks the "View gallery" CTA, **Then** they navigate to the main gallery page filtered to the relevant product category.
+3. Configuration Section Anchor
+  - **Given** the configuration section is present, **When** the visitor follows the hero CTA or scrolls, **Then** the configuration controls and guidance are immediately visible with clear headings and context for the product type.
+4. Contact CTA
+  - **Given** the CTA "Don't have time for this — contact us", **When** the visitor clicks the button, **Then** they are taken to the Contact page.
+5. Example Gallery (Horizontal Masonry with Drag + Hover/Tap)
+  - **Given** the example gallery on the product page, **When** the visitor drags horizontally (mouse on desktop, touch on mobile), **Then** the gallery scrolls within a fixed-height container displaying masonry-like rows where images may have variable heights.
+  - **And** **When** hovering an image on desktop, **Then** it enlarges slightly with smooth scaling without obstructing adjacent content; **When** tapping on mobile, **Then** the same enlargement occurs without requiring a long press.
+  - **And** the gallery is operable with keyboard controls (e.g., focus + arrow keys) and provides accessible labels for images.
+6. Testimonials Presence
+  - **Given** a "Testimonials" section, **When** the visitor reaches it, **Then** a curated set of quotes is visible with attribution and optional project context, plus a CTA onward to configure or contact.
+
 ### Edge Cases
 
 - Visitors with JavaScript disabled can still access core content and initiate contact/quote.
@@ -161,6 +189,9 @@ A visitor reaches the contact page and submits a message, receiving confirmation
 - Visitor prefers phone contact; provide a clear contact option and capture intent for manual follow‑up.
 - Visitor only explores gallery and exits; ensure CTAs are discoverable throughout the overlay and detail views.
 - Mobile access: layouts remain clear and functional; controls are touch‑friendly; images and interactive elements are accessible with labels.
+- Horizontal example gallery: keyboard-only users can navigate (e.g., arrow keys), focus is visible, and enlargement does not trap focus or obscure adjacent content.
+- Horizontal example gallery: on small screens the fixed-height container does not hide essential content; images scale gracefully without pixelation.
+- JS disabled: example gallery degrades to an accessible static grid with next/previous controls; hero CTA still jumps to configuration content.
 
 ## Requirements *(mandatory)*
 
@@ -194,6 +225,15 @@ A visitor reaches the contact page and submits a message, receiving confirmation
 - **FR-020**: System MUST allow generation of a final quote receipt upon sale confirmation containing selected specs, totals, VAT, discount amount (if applicable), and customer details in a format suitable for print and email.
 - **FR-021**: A basic admin dashboard MUST allow authorized users to upload/update/remove product images and site assets; and to edit Products, Quotes, and Testimonials via simple tables.
 
+- **FR-025**: System MUST provide separate product pages for Garden Room, House Extension, and House Build, each following a consistent layout.
+- **FR-026**: Each product page MUST include a Hero section with image, headline, sub-headline, and a primary CTA button labeled "Configure yours today" that scrolls to the configuration section on the same page.
+- **FR-027**: Each product page MUST include an "About our [product]" section with: (a) sliding carousel of previous builds for that product; (b) explanatory text; (c) a bullet list of what's included; and (d) a CTA button linking to the main Gallery filtered to that product category.
+- **FR-028**: Each product page MUST include a dedicated Configuration section for that product that integrates with the configurator wizard (or starts the wizard) and is reachable via the hero CTA anchor.
+- **FR-029**: Each product page MUST include a clear CTA "Don't have time for this — Contact us" linking to the Contact page.
+- **FR-030**: The Example Gallery on each product page MUST be a horizontally scrollable, fixed-height container that displays a masonry-style arrangement of images with variable heights and supports drag navigation (mouse drag on desktop, touch drag on mobile).
+- **FR-031**: In the Example Gallery, hovering an image on desktop MUST enlarge it slightly with smooth scaling without causing layout shift; on mobile, tapping MUST trigger the same enlargement behavior.
+- **FR-032**: Each product page MUST include a "Testimonials" section featuring selected quotes with attribution and, where possible, associated project context; include a CTA onward to configure or contact.
+
 Unclear but critical scope decisions (resolved):
 
 - **FR-022**: System MUST reveal pricing as inline indicative estimate with gated breakdown (breakdown available after short form).
@@ -208,6 +248,7 @@ Unclear but critical scope decisions (resolved):
   - Assets: optimize; lazy‑load images; use modern formats; cache effectively
 - Accessibility
   - Target WCAG 2.1 AA; all images have alt text; keyboard navigation for configurator; clear labels
+  - Horizontal gallery interactions must be keyboard-operable and provide accessible names/labels; hover/tap enlargement must not remove focus visibility.
 - Reliability
   - Static‑friendly deployment with CDN; uptime target 99.9%; graceful fallback to form configurator if any advanced visuals fail
   - Quote confirmation emails delivered to user and internal inbox promptly (target within 1 minute)
