@@ -1,0 +1,10 @@
+node_modules/
+dist/
+build/
+coverage/
+frontend/dist/
+frontend/.vite/
+backend/dist/
+playwright-report/
+.vscode/
+.idea/

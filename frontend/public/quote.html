@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quote (No‑JS)</title>
+  <link rel="stylesheet" href="/src/styles/global.css">
+</head>
+<body>
+  <main>
+    <h1>Request a Quote</h1>
+    <form method="post" action="/api/quotes" novalidate>
+      <label>Name <input name="name" required></label>
+      <label>Email <input type="email" name="email" required></label>
+      <label>Phone <input name="phone"></label>
+      <label>Address <input name="address"></label>
+      <label>Eircode <input name="eircode" required></label>
+      <label>County
+        <select name="county" required>
+          <option value="">Select</option>
+          <option>Dublin</option>
+          <option>Wicklow</option>
+          <option>Kildare</option>
+        </select>
+      </label>
+      <button type="submit">Get Quote</button>
+    </form>
+  </main>
+</body>
+</html>
