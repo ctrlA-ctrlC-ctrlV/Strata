@@ -1,0 +1,18 @@
+<testsuites id="" name="" tests="4" failures="0" skipped="1" errors="0" time="2.479635">
+<testsuite name="homepage.spec.ts" timestamp="2025-10-21T13:58:18.934Z" hostname="chromium" tests="4" failures="0" skipped="1" time="1.372" errors="0">
+<testcase name="Homepage › should load basic HTML structure" classname="homepage.spec.ts" time="0.451">
+</testcase>
+<testcase name="Homepage › should navigate to configurator from CTA" classname="homepage.spec.ts" time="0.427">
+</testcase>
+<testcase name="Homepage › should be accessible" classname="homepage.spec.ts" time="0.288">
+</testcase>
+<testcase name="Homepage › should work on mobile" classname="homepage.spec.ts" time="0.206">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+</testsuites>

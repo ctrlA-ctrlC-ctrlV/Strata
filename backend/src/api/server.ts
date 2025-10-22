@@ -70,7 +70,7 @@ app.use((req, res, next) => {
 // Security middleware
 setupSecurityMiddleware(app)
 
-// Health check
+// Health check endpoints
 app.get('/health', (req, res) => {
   res.json({ 
     status: 'ok', 
@@ -79,10 +79,26 @@ app.get('/health', (req, res) => {
   })
 })
 
-// API routes will be added here
-// app.use('/api/quotes', quotesRouter)
-// app.use('/api/contact', contactRouter)
-// app.use('/api/admin', adminRouter)
+app.get('/api/health', (req, res) => {
+  res.json({ 
+    status: 'ok', 
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV,
+    services: {
+      database: 'connected', // Could add actual DB health check here
+      api: 'operational'
+    }
+  })
+})
+
+// Import API routes
+import quotesRouter from './quotes.js'
+import contactRouter from './contact.js'
+
+// Mount API routes
+app.use('/api', quotesRouter)
+app.use('/api', contactRouter)
+// app.use('/api/admin', adminRouter) // Will be added later
 
 // Serve static success pages for no-JS fallbacks
 app.get('/contact-success', (req, res) => {

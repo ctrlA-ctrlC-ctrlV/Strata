@@ -25,14 +25,14 @@ async function initializeRepo() {
 
 /**
  * POST /api/quotes
- * Handle quote request submissions (supports both configurator and simple forms)
+ * Handle configurator quote submissions (new format from configurator)
  */
 router.post('/quotes', async (req, res) => {
   try {
     // Initialize repository
     const repo = await initializeRepo()
     
-    // Check if this is a configurator quote (has configurator-specific fields)
+    // Check if this is a configurator quote (has includeVat, basePrice, etc.)
     const isConfiguratorQuote = req.body.hasOwnProperty('includeVat') && 
                                req.body.hasOwnProperty('basePrice') &&
                                req.body.hasOwnProperty('configurationData')
@@ -41,7 +41,7 @@ router.post('/quotes', async (req, res) => {
       // Handle configurator quote submission
       return await handleConfiguratorQuote(req, res, repo)
     } else {
-      // Handle simple quote form submission
+      // Handle simple quote form submission (existing logic)
       return await handleSimpleQuote(req, res, repo)
     }
     
@@ -62,8 +62,8 @@ async function handleConfiguratorQuote(req: express.Request, res: express.Respon
     // Validate configurator quote data
     const quoteData = ConfiguratorQuoteFormSchema.parse(req.body)
     
-    // Generate quote number using repository method
-    const quoteNumber = await repo.generateQuoteNumber()
+    // Generate quote number
+    const quoteNumber = `STR-${Date.now()}-${Math.random().toString(36).substr(2, 4).toUpperCase()}`
     
     // Parse configuration data
     let parsedConfig = {}
@@ -135,7 +135,9 @@ async function handleConfiguratorQuote(req: express.Request, res: express.Respon
         sizeWidth: 0, // Will be in configuration data
         sizeDepth: 0, // Will be in configuration data
         description: `Configurator quote - €${quoteData.totalPrice} ${quoteData.includeVat ? 'inc VAT' : 'ex VAT'}`,
-        features: [] // Features will be in configuration data
+        features: [], // Features will be in configuration data
+        totalPrice: quoteData.totalPrice,
+        configuration: parsedConfig
       }
     })
     
@@ -187,8 +189,8 @@ async function handleSimpleQuote(req: express.Request, res: express.Response, re
     // Validate request body
     const quoteData = QuoteRequestSchema.parse(req.body)
     
-    // Generate quote number using repository method
-    const quoteNumber = await repo.generateQuoteNumber()
+    // Generate quote number
+    const quoteNumber = `STR-${Date.now()}-${Math.random().toString(36).substr(2, 4).toUpperCase()}`
     
     // Create simplified quote request object for basic quote form
     const quoteRequest = {
@@ -259,7 +261,7 @@ async function handleSimpleQuote(req: express.Request, res: express.Response, re
     }
     
   } catch (error) {
-    console.error('Simple quote submission error:', error)
+    console.error('Quote submission error:', error)
     
     if (error instanceof z.ZodError) {
       const acceptsHTML = req.headers.accept?.includes('text/html')
@@ -340,6 +342,7 @@ async function handleSimpleQuote(req: express.Request, res: express.Response, re
     }
   }
 }
+}
 
 /**
  * GET /api/quotes/:quoteNumber
@@ -352,8 +355,8 @@ router.get('/quotes/:quoteNumber', async (req, res) => {
     
     const { quoteNumber } = req.params
     
-    // Basic format validation (Q1-2025-00001)
-    if (!/^Q[1-4]-\d{4}-\d{5}$/.test(quoteNumber)) {
+    // Basic format validation
+    if (!/^STR-\d+-[A-Z0-9]{4}$/.test(quoteNumber)) {
       return res.status(400).json({
         success: false,
         message: 'Invalid quote number format'
@@ -386,54 +389,6 @@ router.get('/quotes/:quoteNumber', async (req, res) => {
     return res.status(500).json({
       success: false,
       message: 'Error retrieving quote information'
-    })
-  }
-})
-
-/**
- * GET /api/quotes/:quoteNumber/status
- * Get quote status for the frontend API client
- */
-router.get('/quotes/:quoteNumber/status', async (req, res) => {
-  try {
-    // Initialize repository
-    const repo = await initializeRepo()
-    
-    const { quoteNumber } = req.params
-    
-    // Basic format validation (Q1-2025-00001)
-    if (!/^Q[1-4]-\d{4}-\d{5}$/.test(quoteNumber)) {
-      return res.status(400).json({
-        success: false,
-        message: 'Invalid quote number format'
-      })
-    }
-    
-    const quote = await repo.getQuoteRequestByNumber(quoteNumber)
-    
-    if (!quote) {
-      return res.status(404).json({
-        success: false,
-        message: 'Quote not found'
-      })
-    }
-    
-    // Return status information for API client
-    return res.json({
-      status: quote.payment.status,
-      lastUpdated: quote.payment.updatedAt.toISOString(),
-      details: {
-        quoteNumber: quote.quoteNumber,
-        submittedAt: quote.submittedAt.toISOString(),
-        hasConfiguration: !!quote.configId
-      }
-    })
-    
-  } catch (error) {
-    console.error('Quote status lookup error:', error)
-    return res.status(500).json({
-      success: false,
-      message: 'Error retrieving quote status'
     })
   }
 })

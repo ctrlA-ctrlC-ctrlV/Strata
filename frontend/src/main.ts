@@ -1,4 +1,4 @@
-// Main JavaScript entry point
+// Main TypeScript entry point
 console.log('Strata Garden Rooms - Frontend Loaded')
 
 // Basic initialization
@@ -10,12 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeAccessibility()
 })
 
-function initializeNavigation() {
+function initializeNavigation(): void {
   // Add active state to current page
-  const currentPath = window.location.pathname
-  const navLinks = document.querySelectorAll('nav a')
+  const currentPath: string = window.location.pathname
+  const navLinks: NodeListOf<HTMLAnchorElement> = document.querySelectorAll('nav a')
   
-  navLinks.forEach(link => {
+  navLinks.forEach((link: HTMLAnchorElement) => {
     if (link.getAttribute('href') === currentPath) {
       link.setAttribute('aria-current', 'page')
       link.style.backgroundColor = '#e5e7eb'
@@ -23,13 +23,13 @@ function initializeNavigation() {
   })
 }
 
-function initializeAccessibility() {
+function initializeAccessibility(): void {
   // Add skip link functionality
-  const skipLink = document.querySelector('.skip-link')
+  const skipLink: HTMLElement | null = document.querySelector('.skip-link')
   if (skipLink) {
-    skipLink.addEventListener('click', (e) => {
+    skipLink.addEventListener('click', (e: Event) => {
       e.preventDefault()
-      const target = document.querySelector('#main-content')
+      const target: HTMLElement | null = document.querySelector('#main-content')
       if (target) {
         target.focus()
         target.scrollIntoView()

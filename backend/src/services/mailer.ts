@@ -32,13 +32,39 @@ interface EmailTemplate {
   text: string
 }
 
+interface PriceBreakdownItem {
+  category: string
+  description: string
+  quantity: number
+  unitPrice: number
+  totalPrice: number
+  unit?: string
+  notes?: string
+}
+
+interface PriceBreakdown {
+  subtotal: number
+  vatAmount: number
+  vatRate: number
+  total: number
+  items: PriceBreakdownItem[]
+  discounts?: Array<{
+    description: string
+    amount: number
+    type: 'fixed' | 'percentage'
+  }>
+}
+
 interface QuoteEmailData {
   customerName: string
   customerEmail: string
+  customerPhone?: string
+  customerPostcode: string
   quoteNumber: string
   productType: string
   estimatedTotal: string
   configSummary: string
+  priceBreakdown?: PriceBreakdown
   timestamp: string
 }
 
@@ -180,7 +206,9 @@ class MailerService {
         productType: data.productType,
         estimatedTotal: data.estimatedTotal,
         configSummary: data.configSummary,
-        timestamp: data.timestamp
+        timestamp: data.timestamp,
+        priceBreakdownHtml: data.priceBreakdown ? this.generateBreakdownHtml(data.priceBreakdown) : '',
+        priceBreakdownText: data.priceBreakdown ? this.generateBreakdownText(data.priceBreakdown) : ''
       }
 
       const mailOptions = {
@@ -217,10 +245,13 @@ class MailerService {
       const templateData = {
         customerName: data.customerName,
         customerEmail: data.customerEmail,
+        customerPhone: data.customerPhone || 'Not provided',
+        customerPostcode: data.customerPostcode,
         quoteNumber: data.quoteNumber,
         productType: data.productType,
         estimatedTotal: data.estimatedTotal,
         configSummary: data.configSummary,
+        priceBreakdownHtml: data.priceBreakdown ? this.generateBreakdownHtml(data.priceBreakdown) : '',
         timestamp: data.timestamp
       }
 
@@ -341,45 +372,85 @@ class MailerService {
           .header { background: #2563eb; color: white; padding: 20px; text-align: center; }
           .content { padding: 20px; }
           .quote-details { background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0; }
+          .breakdown-section { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; margin: 20px 0; overflow: hidden; }
+          .breakdown-header { background: #f8f9fa; padding: 15px; border-bottom: 1px solid #e5e7eb; }
+          .breakdown-items { padding: 0; }
+          .breakdown-category { border-bottom: 1px solid #f3f4f6; }
+          .category-header { background: #f9fafb; padding: 10px 15px; font-weight: 600; color: #374151; }
+          .breakdown-item { display: flex; justify-content: space-between; padding: 8px 15px; border-bottom: 1px solid #f9fafb; }
+          .item-description { flex: 2; }
+          .item-quantity { flex: 1; text-align: center; }
+          .item-price { flex: 1; text-align: right; font-weight: 500; }
+          .breakdown-summary { background: #f8f9fa; padding: 15px; }
+          .summary-line { display: flex; justify-content: space-between; margin-bottom: 5px; }
+          .summary-total { font-weight: 600; font-size: 1.1em; border-top: 1px solid #d1d5db; padding-top: 10px; margin-top: 10px; }
           .footer { background: #f8f9fa; padding: 20px; text-align: center; font-size: 14px; }
         </style>
       </head>
       <body>
         <div class="container">
           <div class="header">
-            <h1>Quote Confirmation</h1>
-            <p>Thank you for your interest in Strata Garden Rooms</p>
+            <h1>Your Garden Room Quote</h1>
+            <p>Detailed Breakdown & Next Steps</p>
           </div>
           
           <div class="content">
             <p>Dear {{customerName}},</p>
             
-            <p>Thank you for submitting your garden room configuration. We've received your request and our team will prepare a detailed quote for you.</p>
+            <p>Thank you for your interest in Strata Garden Rooms. Below is your personalized quote breakdown based on your configuration.</p>
             
             <div class="quote-details">
-              <h3>Quote Details</h3>
+              <h3>Quote Summary</h3>
               <p><strong>Quote Number:</strong> {{quoteNumber}}</p>
               <p><strong>Product Type:</strong> {{productType}}</p>
-              <p><strong>Estimated Total:</strong> {{estimatedTotal}}</p>
+              <p><strong>Total Investment:</strong> {{estimatedTotal}}</p>
               <p><strong>Configuration:</strong> {{configSummary}}</p>
-              <p><strong>Submitted:</strong> {{timestamp}}</p>
+              <p><strong>Generated:</strong> {{timestamp}}</p>
             </div>
+
+            {{priceBreakdownHtml}}
             
-            <h3>What Happens Next?</h3>
+            <h3>What's Included</h3>
             <ul>
-              <li>We'll review your configuration and prepare a detailed quote</li>
-              <li>Our team will contact you within 1 business day</li>
-              <li>We'll discuss your requirements and answer any questions</li>
-              <li>We can arrange a site survey if needed</li>
+              <li>Complete design and planning service</li>
+              <li>All materials and components as specified</li>
+              <li>Professional installation by certified teams</li>
+              <li>Building regulation compliance support</li>
+              <li>12-month comprehensive warranty</li>
+              <li>Ongoing support and maintenance guidance</li>
+            </ul>
+
+            <h3>Important Notes</h3>
+            <ul>
+              <li>Prices are estimates based on your configuration</li>
+              <li>Final pricing may vary based on site conditions</li>
+              <li>Installation and delivery charges may apply</li>
+              <li>Prices valid for 30 days from quote date</li>
+              <li>Planning permission may be required (we can advise)</li>
             </ul>
             
-            <p>If you have any immediate questions, please don't hesitate to contact us.</p>
+            <h3>Next Steps</h3>
+            <ol>
+              <li><strong>Site Survey:</strong> We'll arrange a free site visit to confirm details</li>
+              <li><strong>Final Quote:</strong> Receive your confirmed pricing and timeline</li>
+              <li><strong>Planning Support:</strong> We'll help with any required permissions</li>
+              <li><strong>Installation:</strong> Professional build by our certified teams</li>
+            </ol>
+            
+            <p>Our team will contact you within 1 business day to discuss your project and answer any questions.</p>
+            
+            <p style="background: #ecfdf5; padding: 15px; border-radius: 6px; border-left: 4px solid #10b981;">
+              <strong>Ready to proceed?</strong> Simply reply to this email or call us to schedule your free site survey.
+            </p>
           </div>
           
           <div class="footer">
             <p><strong>Strata Garden Rooms</strong></p>
-            <p>Phone: +353 1 XXX XXXX | Email: info@stratagarden.ie</p>
-            <p>Your quote reference: {{quoteNumber}}</p>
+            <p>📞 +353 1 XXX XXXX | ✉️ info@stratagarden.ie</p>
+            <p>🌐 www.stratagarden.ie</p>
+            <p style="margin-top: 15px; font-size: 12px; color: #6b7280;">
+              Quote Reference: {{quoteNumber}} | Keep this reference for all communications
+            </p>
           </div>
         </div>
       </body>
@@ -389,30 +460,51 @@ class MailerService {
 
   private getQuoteCustomerTemplateText(): string {
     return `
-Quote Confirmation - Strata Garden Rooms
+Your Garden Room Quote - Strata Garden Rooms
 
 Dear {{customerName}},
 
-Thank you for submitting your garden room configuration. We've received your request and our team will prepare a detailed quote for you.
+Thank you for your interest in Strata Garden Rooms. Below is your personalized quote breakdown based on your configuration.
 
-Quote Details:
+Quote Summary:
 - Quote Number: {{quoteNumber}}
 - Product Type: {{productType}}
-- Estimated Total: {{estimatedTotal}}
+- Total Investment: {{estimatedTotal}}
 - Configuration: {{configSummary}}
-- Submitted: {{timestamp}}
+- Generated: {{timestamp}}
 
-What Happens Next?
-- We'll review your configuration and prepare a detailed quote
-- Our team will contact you within 1 business day
-- We'll discuss your requirements and answer any questions
-- We can arrange a site survey if needed
+{{priceBreakdownText}}
 
-If you have any immediate questions, please contact us at +353 1 XXX XXXX or info@stratagarden.ie.
+What's Included:
+- Complete design and planning service
+- All materials and components as specified
+- Professional installation by certified teams
+- Building regulation compliance support
+- 12-month comprehensive warranty
+- Ongoing support and maintenance guidance
 
-Your quote reference: {{quoteNumber}}
+Important Notes:
+- Prices are estimates based on your configuration
+- Final pricing may vary based on site conditions
+- Installation and delivery charges may apply
+- Prices valid for 30 days from quote date
+- Planning permission may be required (we can advise)
+
+Next Steps:
+1. Site Survey: We'll arrange a free site visit to confirm details
+2. Final Quote: Receive your confirmed pricing and timeline
+3. Planning Support: We'll help with any required permissions
+4. Installation: Professional build by our certified teams
+
+Our team will contact you within 1 business day to discuss your project and answer any questions.
+
+Ready to proceed? Simply reply to this email or call us to schedule your free site survey.
 
 Strata Garden Rooms
+Phone: +353 1 XXX XXXX | Email: info@stratagarden.ie
+Website: www.stratagarden.ie
+
+Quote Reference: {{quoteNumber}} | Keep this reference for all communications
     `
   }
 
@@ -443,6 +535,8 @@ Strata Garden Rooms
               <h3>Customer Information</h3>
               <p><strong>Name:</strong> {{customerName}}</p>
               <p><strong>Email:</strong> {{customerEmail}}</p>
+              <p><strong>Phone:</strong> {{customerPhone}}</p>
+              <p><strong>Postcode:</strong> {{customerPostcode}}</p>
               
               <h3>Quote Details</h3>
               <p><strong>Quote Number:</strong> {{quoteNumber}}</p>
@@ -451,6 +545,8 @@ Strata Garden Rooms
               <p><strong>Configuration:</strong> {{configSummary}}</p>
               <p><strong>Submitted:</strong> {{timestamp}}</p>
             </div>
+
+            {{priceBreakdownHtml}}
             
             <p><strong>Action Required:</strong> Please review this quote request and contact the customer within 1 business day.</p>
           </div>
@@ -610,6 +706,136 @@ Submission Details:
 Action Required: Please respond to this inquiry within 1 business day.
     `
   }
+
+  private generateBreakdownHtml(breakdown: PriceBreakdown): string {
+    if (!breakdown.items || breakdown.items.length === 0) {
+      return ''
+    }
+
+    // Group items by category
+    const categorizedItems = breakdown.items.reduce((acc, item) => {
+      if (!acc[item.category]) {
+        acc[item.category] = []
+      }
+      acc[item.category].push(item)
+      return acc
+    }, {} as Record<string, PriceBreakdownItem[]>)
+
+    const categoryHtml = Object.entries(categorizedItems).map(([category, items]) => {
+      const categorySubtotal = items.reduce((sum, item) => sum + item.totalPrice, 0)
+      
+      const itemsHtml = items.map(item => `
+        <div class="breakdown-item">
+          <div class="item-description">
+            <strong>${item.description}</strong>
+            ${item.notes ? `<br><small style="color: #6b7280;">${item.notes}</small>` : ''}
+          </div>
+          <div class="item-quantity">${item.quantity} ${item.unit || 'item(s)'}</div>
+          <div class="item-price">£${item.totalPrice.toLocaleString()}</div>
+        </div>
+      `).join('')
+
+      return `
+        <div class="breakdown-category">
+          <div class="category-header">${category}</div>
+          ${itemsHtml}
+          <div class="breakdown-item" style="font-weight: 600; background: #f9fafb;">
+            <div class="item-description">${category} Subtotal</div>
+            <div class="item-quantity"></div>
+            <div class="item-price">£${categorySubtotal.toLocaleString()}</div>
+          </div>
+        </div>
+      `
+    }).join('')
+
+    const discountsHtml = breakdown.discounts && breakdown.discounts.length > 0 
+      ? breakdown.discounts.map(discount => `
+          <div class="summary-line" style="color: #dc2626;">
+            <span>${discount.description}</span>
+            <span>-£${discount.amount.toLocaleString()}</span>
+          </div>
+        `).join('')
+      : ''
+
+    return `
+      <div class="breakdown-section">
+        <div class="breakdown-header">
+          <h3 style="margin: 0;">Detailed Price Breakdown</h3>
+        </div>
+        <div class="breakdown-items">
+          ${categoryHtml}
+        </div>
+        <div class="breakdown-summary">
+          <div class="summary-line">
+            <span>Subtotal (ex VAT)</span>
+            <span>£${breakdown.subtotal.toLocaleString()}</span>
+          </div>
+          ${discountsHtml}
+          <div class="summary-line">
+            <span>VAT (${(breakdown.vatRate * 100).toFixed(0)}%)</span>
+            <span>£${breakdown.vatAmount.toLocaleString()}</span>
+          </div>
+          <div class="summary-line summary-total">
+            <span><strong>Total Investment</strong></span>
+            <span><strong>£${breakdown.total.toLocaleString()}</strong></span>
+          </div>
+        </div>
+      </div>
+    `
+  }
+
+  private generateBreakdownText(breakdown: PriceBreakdown): string {
+    if (!breakdown.items || breakdown.items.length === 0) {
+      return 'Detailed breakdown not available'
+    }
+
+    // Group items by category
+    const categorizedItems = breakdown.items.reduce((acc, item) => {
+      if (!acc[item.category]) {
+        acc[item.category] = []
+      }
+      acc[item.category].push(item)
+      return acc
+    }, {} as Record<string, PriceBreakdownItem[]>)
+
+    let text = 'DETAILED PRICE BREAKDOWN:\n\n'
+
+    // Add each category
+    Object.entries(categorizedItems).forEach(([category, items]) => {
+      text += `${category.toUpperCase()}:\n`
+      text += ''.padEnd(category.length + 1, '-') + '\n'
+      
+      items.forEach(item => {
+        const qty = `${item.quantity} ${item.unit || 'item(s)'}`
+        const price = `£${item.totalPrice.toLocaleString()}`
+        text += `  ${item.description.padEnd(30)} ${qty.padStart(8)} ${price.padStart(12)}\n`
+        if (item.notes) {
+          text += `    (${item.notes})\n`
+        }
+      })
+
+      const categorySubtotal = items.reduce((sum, item) => sum + item.totalPrice, 0)
+      text += `  ${''.padEnd(30)} ${''.padStart(8)} ${''.padStart(12, '-')}\n`
+      text += `  ${(category + ' Subtotal').padEnd(30)} ${''.padStart(8)} £${categorySubtotal.toLocaleString().padStart(11)}\n\n`
+    })
+
+    // Add summary
+    text += 'SUMMARY:\n'
+    text += '--------\n'
+    text += `Subtotal (ex VAT): £${breakdown.subtotal.toLocaleString()}\n`
+    
+    if (breakdown.discounts && breakdown.discounts.length > 0) {
+      breakdown.discounts.forEach(discount => {
+        text += `${discount.description}: -£${discount.amount.toLocaleString()}\n`
+      })
+    }
+    
+    text += `VAT (${(breakdown.vatRate * 100).toFixed(0)}%): £${breakdown.vatAmount.toLocaleString()}\n`
+    text += ''.padEnd(40, '=') + '\n'
+    text += `TOTAL INVESTMENT: £${breakdown.total.toLocaleString()}\n`
+
+    return text
+  }
 }
 
 /**
@@ -627,6 +853,9 @@ export async function sendQuoteEmail(options: EmailOptions): Promise<void> {
   const mailer = MailerService.getInstance()
   await mailer.sendEmail(options)
 }
+
+// Export interfaces for use in other modules
+export type { PriceBreakdown, PriceBreakdownItem, QuoteEmailData }
 
 // Export singleton instance
 export const mailerService = new MailerService()

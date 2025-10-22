@@ -210,6 +210,56 @@ export const ContactRequestSchema = z.object({
   path: ['eircode']
 })
 
+// Configurator quote form validation (from the configurator component)
+export const ConfiguratorQuoteFormSchema = z.object({
+  // Customer information
+  firstName: z.string().min(1, 'First name is required').max(50, 'First name too long'),
+  lastName: z.string().min(1, 'Last name is required').max(50, 'Last name too long'),
+  email: EmailSchema,
+  phone: z.string().regex(PHONE_PATTERN, 'Invalid phone number format'),
+  address: z.string().min(1, 'Address is required').max(200, 'Address too long'),
+  city: z.string().min(1, 'City is required').max(100, 'City too long'),
+  county: CountySchema,
+  eircode: EircodeSchema,
+  
+  // Configuration and pricing
+  includeVat: z.boolean(),
+  basePrice: z.number().min(0, 'Base price cannot be negative'),
+  vatAmount: z.number().min(0, 'VAT amount cannot be negative'),
+  totalPrice: z.number().min(0, 'Total price cannot be negative'),
+  configurationData: z.string().min(1, 'Configuration data is required'), // JSON string
+  
+  // Additional info
+  desiredInstallTimeframe: z.string().optional(),
+  marketingConsent: z.boolean().default(false),
+  termsAccepted: z.boolean().refine(val => val === true, 'Terms must be accepted'),
+  
+  // Metadata
+  source: z.string().optional(),
+  userAgent: z.string().optional(),
+  referrer: z.string().optional()
+}).refine((data) => {
+  // Validate eircode matches county
+  const eircode = data.eircode.replace(/\s/g, '').toUpperCase()
+  const firstChar = eircode.charAt(0)
+  
+  const countyPrefixes: Record<string, string[]> = {
+    'dublin': ['D', 'K'],
+    'wicklow': ['A', 'Y'], 
+    'kildare': ['R', 'W'],
+  }
+  
+  const validPrefixes = countyPrefixes[data.county.toLowerCase()]
+  if (!validPrefixes) {
+    return false
+  }
+  
+  return validPrefixes.includes(firstChar)
+}, {
+  message: "Eircode doesn't match selected county. Dublin: D/K, Wicklow: A/Y, Kildare: R/W",
+  path: ['eircode']
+})
+
 // Enhanced quote request validation for quote page
 export const QuoteRequestSchema = z.object({
   // Project details
@@ -333,6 +383,7 @@ export const validators = {
   productConfiguration: ProductConfigurationSchema,
   customerInfo: CustomerInfoSchema,
   configuratorQuoteRequest: ConfiguratorQuoteRequestSchema,
+  configuratorQuoteForm: ConfiguratorQuoteFormSchema,
   quoteRequest: QuoteRequestSchema,
   contactRequest: ContactRequestSchema,
   adminAsset: AdminAssetSchema,
@@ -343,6 +394,7 @@ export const validators = {
 export type ProductConfiguration = z.infer<typeof ProductConfigurationSchema>
 export type CustomerInfo = z.infer<typeof CustomerInfoSchema>
 export type ConfiguratorQuoteRequest = z.infer<typeof ConfiguratorQuoteRequestSchema>
+export type ConfiguratorQuoteForm = z.infer<typeof ConfiguratorQuoteFormSchema>
 export type QuoteRequest = z.infer<typeof QuoteRequestSchema>
 export type ContactRequest = z.infer<typeof ContactRequestSchema>
 export type AdminAsset = z.infer<typeof AdminAssetSchema>

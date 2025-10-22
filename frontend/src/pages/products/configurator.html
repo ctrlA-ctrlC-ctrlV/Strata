@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garden Room Configurator - Strata</title>
+    <meta name="description" content="Configure your perfect garden room with our interactive tool. Get instant pricing and submit a quote in minutes.">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/src/styles/critical.css" as="style">
+    <link rel="preload" href="/src/main.js" as="script" type="module">
+    
+    <!-- Critical CSS inlined for performance -->
+    <link rel="stylesheet" href="/src/styles/critical.css">
+    <link rel="stylesheet" href="/src/styles/main.css">
+    
+    <!-- Progressive enhancement - load configurator styles -->
+    <link rel="stylesheet" href="/src/styles/configurator.css">
+    
+    <!-- Security headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+</head>
+<body class="configurator-page">
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header -->
+    <header class="site-header" role="banner">
+        <div class="container">
+            <nav class="header-nav" role="navigation" aria-label="Main navigation">
+                <a href="/" class="logo" aria-label="Strata Home">
+                    <img src="/images/logo.svg" alt="Strata" width="120" height="40">
+                </a>
+                
+                <div class="nav-menu">
+                    <a href="/products/garden-room" class="nav-link">Garden Rooms</a>
+                    <a href="/products/house-extension" class="nav-link">House Extensions</a>
+                    <a href="/products/house-build" class="nav-link">House Builds</a>
+                    <a href="/gallery" class="nav-link">Gallery</a>
+                    <a href="/contact" class="nav-link">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main id="main-content" class="main-content" role="main">
+        <!-- Page header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Configure Your Garden Room</h1>
+                <p class="page-description">
+                    Design your perfect garden room with our interactive configurator. 
+                    Get live pricing and submit your quote in just a few minutes.
+                </p>
+                
+                <!-- Progress indicator -->
+                <div class="progress-container" role="progressbar" aria-valuemin="0" aria-valuemax="6" aria-valuenow="1" aria-label="Configuration progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 16.67%"></div>
+                    </div>
+                    <div class="progress-steps">
+                        <span class="step active" data-step="1">Size</span>
+                        <span class="step" data-step="2">Openings</span>
+                        <span class="step" data-step="3">Cladding</span>
+                        <span class="step" data-step="4">Bathroom</span>
+                        <span class="step" data-step="5">Floor</span>
+                        <span class="step" data-step="6">Extras</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Configurator container -->
+        <section class="configurator-section">
+            <div class="container">
+                <div class="configurator-layout">
+                    <!-- Step content area -->
+                    <div class="step-container" id="step-container" aria-live="polite">
+                        <!-- Step content will be dynamically loaded here -->
+                        <div class="loading-state">
+                            <p>Loading configurator...</p>
+                        </div>
+                    </div>
+
+                    <!-- Price preview sidebar -->
+                    <aside class="price-sidebar" role="complementary" aria-labelledby="price-title">
+                        <div class="price-card">
+                            <h2 id="price-title">Instant Estimate</h2>
+                            
+                            <div class="price-display">
+                                <div class="price-loading">
+                                    <span>Calculating...</span>
+                                </div>
+                                
+                                <div class="price-breakdown" style="display: none;">
+                                    <div class="price-line subtotal">
+                                        <span class="label">Subtotal (ex VAT):</span>
+                                        <span class="value" id="price-subtotal">€0</span>
+                                    </div>
+                                    <div class="price-line vat">
+                                        <span class="label">VAT (13.5%):</span>
+                                        <span class="value" id="price-vat">€0</span>
+                                    </div>
+                                    <div class="price-line total">
+                                        <span class="label">Total (inc VAT):</span>
+                                        <span class="value total-amount" id="price-total">€0</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="vat-toggle">
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="vat-inclusive" checked data-testid="vat-toggle">
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-label">Include VAT</span>
+                                </label>
+                            </div>
+
+                            <div class="price-disclaimer">
+                                <small>
+                                    * This is an estimate. Final pricing may vary based on site conditions and specific requirements.
+                                </small>
+                            </div>
+                        </div>
+
+                        <!-- Configuration summary (collapsed initially) -->
+                        <div class="config-summary" style="display: none;">
+                            <h3>Your Configuration</h3>
+                            <div class="summary-items" id="config-summary-items">
+                                <!-- Summary items will be populated dynamically -->
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+
+                <!-- Navigation controls -->
+                <div class="nav-controls">
+                    <button type="button" class="btn btn-secondary" id="prev-step" data-testid="prev-step" disabled>
+                        <span class="icon">←</span> Previous
+                    </button>
+                    
+                    <div class="step-indicator">
+                        <span id="current-step">1</span> of <span id="total-steps">6</span>
+                    </div>
+                    
+                    <button type="button" class="btn btn-primary" id="next-step" data-testid="next-step">
+                        Next <span class="icon">→</span>
+                    </button>
+                    
+                    <button type="button" class="btn btn-success" id="get-quote" data-testid="get-quote" style="display: none;">
+                        Get Quote <span class="icon">✓</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- No-JS fallback -->
+        <noscript>
+            <section class="no-js-fallback">
+                <div class="container">
+                    <h2>JavaScript Required</h2>
+                    <p>Our interactive configurator requires JavaScript to provide live pricing and configuration options.</p>
+                    <p>If you prefer, you can:</p>
+                    <ul>
+                        <li><a href="/contact">Contact us directly</a> to discuss your requirements</li>
+                        <li><a href="/quote.html">Use our basic quote form</a> for essential information</li>
+                        <li>Call us at <a href="tel:+353-1-234-5678">+353 1 234 5678</a></li>
+                    </ul>
+                </div>
+            </section>
+        </noscript>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="/products/garden-room">Garden Rooms</a></li>
+                        <li><a href="/products/house-extension">House Extensions</a></li>
+                        <li><a href="/products/house-build">House Builds</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="/contact">Contact Us</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/gallery">Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="/about">About Strata</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>Phone: <a href="tel:+353-1-234-5678">+353 1 234 5678</a></p>
+                    <p>Email: <a href="mailto:info@strata.ie">info@strata.ie</a></p>
+                    <p>Serving Dublin, Wicklow & Kildare</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Strata. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/pages/configurator.ts"></script>
+    
+    <!-- Analytics (if enabled) -->
+    <script type="module">
+        import { trackPageView } from '/src/analytics/events.ts';
+        trackPageView('configurator', {
+            page_title: 'Garden Room Configurator',
+            page_location: window.location.href
+        });
+    </script>
+</body>
+</html>

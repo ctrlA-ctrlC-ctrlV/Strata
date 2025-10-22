@@ -128,7 +128,7 @@ class AnalyticsDispatcher {
     return consent === 'granted'
   }
 
-  private scrubPiiFromValue(value: any): any {
+  private scrubPiiFromValue(value: unknown): unknown {
     if (typeof value !== 'string') return value
     
     let scrubbed = value
@@ -139,8 +139,8 @@ class AnalyticsDispatcher {
     return scrubbed
   }
 
-  private scrubEvent(event: any): any {
-    const scrubbed = { ...event }
+  private scrubEvent(event: AnalyticsEvent): AnalyticsEvent {
+    const scrubbed: Record<string, unknown> = { ...event }
     
     // Remove blocked fields
     BLOCKED_FIELDS.forEach(field => {
@@ -156,7 +156,7 @@ class AnalyticsDispatcher {
       })
     }
     
-    return scrubbed
+    return scrubbed as unknown as AnalyticsEvent
   }
 
   private async sendEvents(events: AnalyticsEvent[]): Promise<void> {

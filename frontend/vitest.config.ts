@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig } from 'vite'
 import legacy from '@vitejs/plugin-legacy'
 
@@ -7,6 +8,25 @@ export default defineConfig({
       targets: ['defaults', 'not IE 11']
     })
   ],
+  test: {
+    // Only include unit tests for vitest
+    include: ['tests/unit/**/*.{test,spec}.{js,ts}'],
+    exclude: [
+      'tests/e2e/**/*',
+      'tests/a11y/**/*',
+      'node_modules/**/*'
+    ],
+    environment: 'jsdom',
+    globals: true,
+    coverage: {
+      reporter: ['text', 'json', 'html'],
+      exclude: [
+        'node_modules/',
+        'tests/',
+        'dist/'
+      ]
+    }
+  },
   build: {
     target: 'esnext', 
     minify: 'terser',
