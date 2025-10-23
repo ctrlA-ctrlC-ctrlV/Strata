@@ -1,43 +1,51 @@
-# Implementation Plan: [FEATURE]
+# Implementation Plan: Migrate from DigitalOcean MongoDB to Supabase
 
-**Branch**: `[###-feature-name]` | **Date**: [DATE] | **Spec**: [link]
-**Input**: Feature specification from `/specs/[###-feature-name]/spec.md`
+**Branch**: `main` | **Date**: 2025-10-22 | **Spec**: [./spec.md](./spec.md)
+**Input**: Feature specification from `/specs/main/spec.md`
 
 **Note**: This template is filled in by the `/speckit.plan` command. See `.specify/templates/commands/plan.md` for the execution workflow.
 
 ## Summary
 
-[Extract from feature spec: primary requirement + technical approach from research]
+Replace the Strata application's data persistence layer from DigitalOcean hosted MongoDB to Supabase (PostgreSQL + Auth + Real-time). Since the current database is empty, this is primarily a technology migration involving replacing the MongoDB repository layer with Supabase client operations, implementing the new PostgreSQL schema, and maintaining API compatibility while improving type safety and developer experience. **No data migration is required** - focus is on proper Supabase setup and integration.
 
 ## Technical Context
 
-<!--
-  ACTION REQUIRED: Replace the content in this section with the technical details
-  for the project. The structure here is presented in advisory capacity to guide
-  the iteration process.
--->
-
-**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]  
-**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]  
-**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]  
-**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]  
-**Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
-**Project Type**: [single/web/mobile - determines source structure]  
-**Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]  
-**Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]  
-**Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
+**Language/Version**: TypeScript 5.x, Node.js 18+ (current setup)  
+**Primary Dependencies**: Supabase JavaScript client v2.x + Supabase client library, PostgreSQL drivers, existing Express.js backend  
+**Storage**: Migration from MongoDB 6.3.x to Supabase (PostgreSQL 15+)  
+**Testing**: Jest with TypeScript support, existing test infrastructure  
+**Target Platform**: Linux server (current deployment), Node.js runtime  
+**Project Type**: Web application (backend + frontend structure)  
+**Performance Goals**: Maintain current API response times (<200ms p95), support existing load patterns  
+**Constraints**: Backward API compatibility, proper Supabase configuration and linking (no data migration needed)  
+**Scale/Scope**: Current MongoDB collections (product_configurations, quote_requests), ~2-3 repository classes, existing Express API endpoints
 
 ## Constitution Check
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-- Static-First: Core UX works without runtime server; no-JS fallbacks for critical flows
-- Performance Budgets: FCP ≤ 1.5s (slow 3G), LCP ≤ 2.5s, TTI ≤ 3.5s; bundles ≤ 500KB (compressed)
-- Progressive Enhancement: Key paths function without JS; keyboard accessibility ensured
-- TDD: Tests exist and fail prior to implementation; visual and accessibility checks included
-- Build-Time Optimization: Minification, tree-shaking, critical CSS, responsive images
-- Security: Strict CSP, HTTPS-only, SRI for third-party, secure headers (HSTS, XFO, XCTO, Referrer-Policy)
-- Quality Gates: Lighthouse ≥ 90 (Perf, A11y, Best Practices), SEO = 100
+- ✅ Static-First: Backend migration does not impact frontend static delivery; API endpoints remain unchanged
+- ✅ Performance Budgets: Backend change only; frontend performance budgets maintained
+- ✅ Progressive Enhancement: No frontend changes; existing progressive enhancement preserved
+- ✅ TDD: Will write failing tests for new Supabase repository implementations before migration
+- ✅ Build-Time Optimization: No impact on frontend build optimization
+- ✅ Security: Supabase provides HTTPS, encryption at rest/transit, RLS policies enhance security
+- ✅ Quality Gates: No frontend changes; Lighthouse scores unaffected by backend migration
+
+**Gate Status**: PASS - Backend-only migration maintains all constitutional principles
+
+### Post-Phase 1 Re-evaluation
+
+- ✅ Static-First: API contracts preserved, no frontend impact, static delivery maintained
+- ✅ Performance Budgets: PostgreSQL query optimization planned, response time targets maintained  
+- ✅ Progressive Enhancement: No changes to frontend progressive enhancement
+- ✅ TDD: Test strategy defined with unit/integration tests for new Supabase repositories
+- ✅ Build-Time Optimization: No impact on frontend build processes
+- ✅ Security: Enhanced with PostgreSQL RLS policies, Supabase managed encryption, HTTPS enforced
+- ✅ Quality Gates: No frontend changes, backend API contract compatibility ensured
+
+**Final Gate Status**: PASS - All constitutional principles maintained with security enhancements
 
 ## Project Structure
 
@@ -54,58 +62,42 @@ specs/[###-feature]/
 ```
 
 ### Source Code (repository root)
-<!--
-  ACTION REQUIRED: Replace the placeholder tree below with the concrete layout
-  for this feature. Delete unused options and expand the chosen structure with
-  real paths (e.g., apps/admin, packages/something). The delivered plan must
-  not include Option labels.
--->
 
 ```
-# [REMOVE IF UNUSED] Option 1: Single project (DEFAULT)
-src/
-├── models/
-├── services/
-├── cli/
-└── lib/
-
-tests/
-├── contract/
-├── integration/
-└── unit/
-
-# [REMOVE IF UNUSED] Option 2: Web application (when "frontend" + "backend" detected)
 backend/
 ├── src/
-│   ├── models/
-│   ├── services/
-│   └── api/
+│   ├── db/
+│   │   ├── supabase.ts           # New: Supabase client setup (replaces mongo.ts)
+│   │   └── repos/
+│   │       ├── quotes.ts         # Modified: Supabase-based repository
+│   │       ├── assets.ts         # Modified: Migrate to Supabase
+│   │       └── content.ts        # Modified: Migrate to Supabase
+│   ├── api/
+│   │   ├── quotes.ts            # Modified: Update to use new repositories
+│   │   ├── contact.ts           # No changes expected
+│   │   └── server.ts            # Modified: Update database connection
+│   └── migrations/
+│       ├── validate-schema.ts    # New: Schema validation scripts
+│       └── schema/
+│           └── supabase.sql      # New: PostgreSQL schema definitions
 └── tests/
+    ├── integration/
+    │   └── supabase-setup.test.ts  # New: Supabase setup testing
+    └── unit/
+        └── repos/
+            ├── quotes.test.ts    # Modified: Update for Supabase
+            └── supabase.test.ts  # New: Supabase client tests
 
 frontend/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   └── services/
-└── tests/
-
-# [REMOVE IF UNUSED] Option 3: Mobile + API (when "iOS/Android" detected)
-api/
-└── [same as backend above]
-
-ios/ or android/
-└── [platform-specific structure: feature modules, UI flows, platform tests]
+├── src/                         # No changes - API contracts preserved
+└── tests/                       # No changes - frontend unaffected
 ```
 
-**Structure Decision**: [Document the selected structure and reference the real
-directories captured above]
+**Structure Decision**: Web application structure with backend-focused changes. The technology replacement primarily affects the `backend/src/db/` directory, replacing MongoDB-specific code with Supabase client implementations while preserving existing API contracts and frontend compatibility. Since no data migration is required, focus is on proper setup, configuration, and integration testing.
 
 ## Complexity Tracking
 
-*Fill ONLY if Constitution Check has violations that must be justified*
+*No constitutional violations requiring justification.*
 
-| Violation | Why Needed | Simpler Alternative Rejected Because |
-|-----------|------------|-------------------------------------|
-| [e.g., 4th project] | [current need] | [why 3 projects insufficient] |
-| [e.g., Repository pattern] | [specific problem] | [why direct DB access insufficient] |
+✅ All principles maintained during backend migration design.
 

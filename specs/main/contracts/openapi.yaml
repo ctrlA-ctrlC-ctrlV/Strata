@@ -1,0 +1,925 @@
+openapi: 3.0.3
+info:
+  title: Strata Garden Rooms API
+  description: API for managing garden room quotes and configurations with Supabase backend
+  version: 2.0.0
+  contact:
+    name: Strata Development Team
+    email: dev@strata-gardenrooms.ie
+
+servers:
+  - url: https://api.strata-gardenrooms.ie/v1
+    description: Production server
+  - url: https://staging-api.strata-gardenrooms.ie/v1
+    description: Staging server
+  - url: http://localhost:3001/api
+    description: Development server
+
+paths:
+  /quotes:
+    post:
+      summary: Create a new quote request
+      description: Creates a new quote request with product configuration
+      operationId: createQuote
+      tags:
+        - Quotes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateQuoteRequest'
+      responses:
+        '201':
+          description: Quote created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuoteResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+    get:
+      summary: List quotes with pagination and filtering
+      description: Retrieve quotes with optional filtering and pagination
+      operationId: listQuotes
+      tags:
+        - Quotes
+      parameters:
+        - name: page
+          in: query
+          description: Page number (1-based)
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+        - name: limit
+          in: query
+          description: Number of items per page
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+        - name: status
+          in: query
+          description: Filter by payment status
+          schema:
+            $ref: '#/components/schemas/PaymentStatus'
+        - name: sortBy
+          in: query
+          description: Field to sort by
+          schema:
+            type: string
+            enum: [createdAt, updatedAt, quoteNumber, customerEmail]
+            default: createdAt
+        - name: sortOrder
+          in: query
+          description: Sort order
+          schema:
+            type: string
+            enum: [asc, desc]
+            default: desc
+      responses:
+        '200':
+          description: List of quotes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuoteListResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /quotes/{quoteId}:
+    get:
+      summary: Get quote by ID
+      description: Retrieve a specific quote by its ID
+      operationId: getQuoteById
+      tags:
+        - Quotes
+      parameters:
+        - name: quoteId
+          in: path
+          required: true
+          description: Quote ID (UUID)
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Quote details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuoteResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+    put:
+      summary: Update quote
+      description: Update an existing quote
+      operationId: updateQuote
+      tags:
+        - Quotes
+      parameters:
+        - name: quoteId
+          in: path
+          required: true
+          description: Quote ID (UUID)
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateQuoteRequest'
+      responses:
+        '200':
+          description: Quote updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuoteResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /quotes/number/{quoteNumber}:
+    get:
+      summary: Get quote by quote number
+      description: Retrieve a specific quote by its quote number
+      operationId: getQuoteByNumber
+      tags:
+        - Quotes
+      parameters:
+        - name: quoteNumber
+          in: path
+          required: true
+          description: Quote number (e.g., Q1-2024-00001)
+          schema:
+            type: string
+            pattern: '^Q[1-4]-\d{4}-\d{5}$'
+      responses:
+        '200':
+          description: Quote details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuoteResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /configurations:
+    post:
+      summary: Create product configuration
+      description: Create a new product configuration
+      operationId: createConfiguration
+      tags:
+        - Configurations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateConfigurationRequest'
+      responses:
+        '201':
+          description: Configuration created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConfigurationResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /configurations/{configId}:
+    get:
+      summary: Get configuration by ID
+      description: Retrieve a specific configuration by its ID
+      operationId: getConfigurationById
+      tags:
+        - Configurations
+      parameters:
+        - name: configId
+          in: path
+          required: true
+          description: Configuration ID (UUID)
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Configuration details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConfigurationResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+    put:
+      summary: Update configuration
+      description: Update an existing configuration
+      operationId: updateConfiguration
+      tags:
+        - Configurations
+      parameters:
+        - name: configId
+          in: path
+          required: true
+          description: Configuration ID (UUID)
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateConfigurationRequest'
+      responses:
+        '200':
+          description: Configuration updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConfigurationResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /contact:
+    post:
+      summary: Submit contact form
+      description: Submit a contact form (unchanged from MongoDB implementation)
+      operationId: submitContactForm
+      tags:
+        - Contact
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactRequest'
+      responses:
+        '201':
+          description: Contact form submitted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+components:
+  schemas:
+    # Core entities
+    ProductConfiguration:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier (UUID)
+        productType:
+          $ref: '#/components/schemas/ProductType'
+        size:
+          $ref: '#/components/schemas/Size'
+        cladding:
+          $ref: '#/components/schemas/Cladding'
+        bathroom:
+          $ref: '#/components/schemas/Bathroom'
+        electrical:
+          $ref: '#/components/schemas/Electrical'
+        internalDoors:
+          type: integer
+          minimum: 0
+        internalWall:
+          $ref: '#/components/schemas/InternalWall'
+        heaters:
+          type: integer
+          minimum: 0
+        glazing:
+          $ref: '#/components/schemas/Glazing'
+        floor:
+          $ref: '#/components/schemas/Floor'
+        delivery:
+          $ref: '#/components/schemas/Delivery'
+        extras:
+          $ref: '#/components/schemas/Extras'
+        estimate:
+          $ref: '#/components/schemas/Estimate'
+        notes:
+          type: string
+          default: ""
+        permittedDevelopmentFlags:
+          type: array
+          items:
+            $ref: '#/components/schemas/PermittedDevelopmentFlag'
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - productType
+        - size
+        - cladding
+        - bathroom
+        - electrical
+        - internalDoors
+        - internalWall
+        - heaters
+        - glazing
+        - floor
+        - delivery
+        - extras
+        - estimate
+        - notes
+        - permittedDevelopmentFlags
+        - createdAt
+        - updatedAt
+
+    QuoteRequest:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier (UUID)
+        configId:
+          type: string
+          format: uuid
+          description: Reference to product configuration
+        customer:
+          $ref: '#/components/schemas/Customer'
+        desiredInstallTimeframe:
+          type: string
+        quoteNumber:
+          type: string
+          pattern: '^Q[1-4]-\d{4}-\d{5}$'
+          example: "Q1-2024-00001"
+        payment:
+          $ref: '#/components/schemas/Payment'
+        retention:
+          $ref: '#/components/schemas/Retention'
+        submittedAt:
+          type: string
+          format: date-time
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - configId
+        - customer
+        - desiredInstallTimeframe
+        - quoteNumber
+        - payment
+        - retention
+        - submittedAt
+        - createdAt
+        - updatedAt
+
+    # Nested objects
+    ProductType:
+      type: string
+      enum: [garden-room, house-extension, house-build]
+
+    Size:
+      type: object
+      properties:
+        widthM:
+          type: number
+          minimum: 0.1
+        depthM:
+          type: number
+          minimum: 0.1
+      required: [widthM, depthM]
+
+    Cladding:
+      type: object
+      properties:
+        areaSqm:
+          type: number
+          minimum: 0
+      required: [areaSqm]
+
+    Bathroom:
+      type: object
+      properties:
+        half:
+          type: integer
+          minimum: 0
+        threeQuarter:
+          type: integer
+          minimum: 0
+      required: [half, threeQuarter]
+
+    Electrical:
+      type: object
+      properties:
+        switches:
+          type: integer
+          minimum: 0
+        sockets:
+          type: integer
+          minimum: 0
+        heater:
+          type: integer
+          minimum: 0
+          nullable: true
+        undersinkHeater:
+          type: integer
+          minimum: 0
+          nullable: true
+        elecBoiler:
+          type: integer
+          minimum: 0
+          nullable: true
+      required: [switches, sockets]
+
+    InternalWall:
+      type: object
+      properties:
+        finish:
+          type: string
+          enum: [none, panel, skimPaint]
+        areaSqM:
+          type: number
+          minimum: 0
+          nullable: true
+      required: [finish]
+
+    Glazing:
+      type: object
+      properties:
+        windows:
+          type: array
+          items:
+            $ref: '#/components/schemas/GlazingElement'
+        externalDoors:
+          type: array
+          items:
+            $ref: '#/components/schemas/GlazingElement'
+        skylights:
+          type: array
+          items:
+            $ref: '#/components/schemas/GlazingElement'
+      required: [windows, externalDoors, skylights]
+
+    GlazingElement:
+      type: object
+      properties:
+        widthM:
+          type: number
+          minimum: 0.1
+        heightM:
+          type: number
+          minimum: 0.1
+      required: [widthM, heightM]
+
+    Floor:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [none, wooden, tile]
+        areaSqM:
+          type: number
+          minimum: 0
+      required: [type, areaSqM]
+
+    Delivery:
+      type: object
+      properties:
+        distanceKm:
+          type: number
+          minimum: 0
+          nullable: true
+        cost:
+          type: number
+          minimum: 0
+      required: [cost]
+
+    Extras:
+      type: object
+      properties:
+        espInsulation:
+          type: integer
+          minimum: 0
+          nullable: true
+        render:
+          type: integer
+          minimum: 0
+          nullable: true
+        steelDoor:
+          type: integer
+          minimum: 0
+          nullable: true
+        other:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExtraItem'
+      required: [other]
+
+    ExtraItem:
+      type: object
+      properties:
+        title:
+          type: string
+        cost:
+          type: number
+          minimum: 0
+      required: [title, cost]
+
+    Estimate:
+      type: object
+      properties:
+        currency:
+          type: string
+          default: "EUR"
+          minLength: 3
+          maxLength: 3
+        subtotalExVat:
+          type: number
+          minimum: 0
+        vatRate:
+          type: number
+          minimum: 0
+          maximum: 1
+        totalIncVat:
+          type: number
+          minimum: 0
+      required: [currency, subtotalExVat, vatRate, totalIncVat]
+
+    PermittedDevelopmentFlag:
+      type: object
+      properties:
+        code:
+          type: string
+        label:
+          type: string
+      required: [code, label]
+
+    Customer:
+      type: object
+      properties:
+        firstName:
+          type: string
+          minLength: 1
+          maxLength: 100
+        lastName:
+          type: string
+          minLength: 1
+          maxLength: 100
+        email:
+          type: string
+          format: email
+          maxLength: 255
+        phone:
+          $ref: '#/components/schemas/Phone'
+        addressLine1:
+          type: string
+          minLength: 1
+          maxLength: 200
+        addressLine2:
+          type: string
+          maxLength: 200
+          nullable: true
+        town:
+          type: string
+          maxLength: 100
+          nullable: true
+        county:
+          type: string
+          maxLength: 100
+          nullable: true
+        eircode:
+          type: string
+          pattern: '^[A-Z0-9]{7}$'
+      required: [firstName, lastName, email, phone, addressLine1, eircode]
+
+    Phone:
+      type: object
+      properties:
+        countryPrefix:
+          type: string
+          maxLength: 10
+        phoneNum:
+          type: string
+          maxLength: 20
+      required: [countryPrefix, phoneNum]
+
+    PaymentStatus:
+      type: string
+      enum: [pre-quote, quoted, deposit-paid, installments, paid, overdue, refunded]
+
+    Payment:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/PaymentStatus'
+        totalPaid:
+          type: number
+          minimum: 0
+        expectedInstallments:
+          type: integer
+          minimum: 1
+          nullable: true
+        lastPaymentAt:
+          type: string
+          format: date-time
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        history:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaymentHistoryItem'
+      required: [status, totalPaid, createdAt, updatedAt, history]
+
+    PaymentHistoryItem:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        type:
+          type: string
+          enum: [DEPOSIT, INSTALLMENT, FINAL, REFUND, ADJUSTMENT]
+        amount:
+          type: number
+        timestamp:
+          type: string
+          format: date-time
+        note:
+          type: string
+          nullable: true
+        installmentNo:
+          type: integer
+          minimum: 1
+          nullable: true
+        recordedBy:
+          type: string
+          nullable: true
+      required: [id, type, amount, timestamp]
+
+    Retention:
+      type: object
+      properties:
+        expiresAt:
+          type: string
+          format: date-time
+      required: [expiresAt]
+
+    # Request/Response schemas
+    CreateQuoteRequest:
+      type: object
+      properties:
+        configuration:
+          $ref: '#/components/schemas/CreateConfigurationRequest'
+        customer:
+          $ref: '#/components/schemas/Customer'
+        desiredInstallTimeframe:
+          type: string
+      required: [configuration, customer, desiredInstallTimeframe]
+
+    CreateConfigurationRequest:
+      allOf:
+        - $ref: '#/components/schemas/ProductConfiguration'
+        - type: object
+          properties:
+            id:
+              readOnly: true
+            createdAt:
+              readOnly: true
+            updatedAt:
+              readOnly: true
+
+    UpdateQuoteRequest:
+      type: object
+      properties:
+        customer:
+          $ref: '#/components/schemas/Customer'
+        desiredInstallTimeframe:
+          type: string
+        payment:
+          type: object
+          properties:
+            status:
+              $ref: '#/components/schemas/PaymentStatus'
+            totalPaid:
+              type: number
+              minimum: 0
+            expectedInstallments:
+              type: integer
+              minimum: 1
+              nullable: true
+            lastPaymentAt:
+              type: string
+              format: date-time
+              nullable: true
+
+    UpdateConfigurationRequest:
+      allOf:
+        - $ref: '#/components/schemas/CreateConfigurationRequest'
+
+    QuoteResponse:
+      allOf:
+        - $ref: '#/components/schemas/QuoteRequest'
+        - type: object
+          properties:
+            configuration:
+              $ref: '#/components/schemas/ProductConfiguration'
+
+    ConfigurationResponse:
+      $ref: '#/components/schemas/ProductConfiguration'
+
+    QuoteListResponse:
+      type: object
+      properties:
+        quotes:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuoteResponse'
+        pagination:
+          $ref: '#/components/schemas/PaginationInfo'
+      required: [quotes, pagination]
+
+    PaginationInfo:
+      type: object
+      properties:
+        total:
+          type: integer
+          minimum: 0
+        page:
+          type: integer
+          minimum: 1
+        totalPages:
+          type: integer
+          minimum: 0
+      required: [total, page, totalPages]
+
+    ContactRequest:
+      type: object
+      properties:
+        firstName:
+          type: string
+          minLength: 1
+          maxLength: 100
+        lastName:
+          type: string
+          minLength: 1
+          maxLength: 100
+        email:
+          type: string
+          format: email
+          maxLength: 255
+        phone:
+          type: string
+          maxLength: 20
+        message:
+          type: string
+          minLength: 10
+          maxLength: 2000
+      required: [firstName, lastName, email, message]
+
+    ContactResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+        id:
+          type: string
+          format: uuid
+      required: [success, message]
+
+    # Error schemas
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+        details:
+          type: object
+          additionalProperties: true
+        timestamp:
+          type: string
+          format: date-time
+      required: [error, message, timestamp]
+
+    ValidationErrorResponse:
+      allOf:
+        - $ref: '#/components/schemas/ErrorResponse'
+        - type: object
+          properties:
+            validation:
+              type: array
+              items:
+                type: object
+                properties:
+                  field:
+                    type: string
+                  message:
+                    type: string
+                  value:
+                    anyOf:
+                      - type: string
+                      - type: number
+                      - type: boolean
+                      - type: object
+                      - type: array
+                required: [field, message]
+
+  responses:
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
+    ValidationError:
+      description: Validation error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ValidationErrorResponse'
+
+    InternalServerError:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: API key for service authentication (future implementation)
+
+security:
+  - ApiKeyAuth: []
+    
+tags:
+  - name: Quotes
+    description: Quote and configuration management
+  - name: Configurations
+    description: Product configuration operations
+  - name: Contact
+    description: Contact form operations
