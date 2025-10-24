@@ -4,11 +4,10 @@
 
 import nodemailer from 'nodemailer'
 import { readFileSync } from 'fs'
-import { fileURLToPath } from 'url'
-import { dirname, join } from 'path'
+import { dirname, join, resolve } from 'path'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+// Use __dirname for CommonJS compatibility
+const currentDir = resolve(dirname(''))
 
 interface EmailConfig {
   provider: 'smtp' | 'postmark'

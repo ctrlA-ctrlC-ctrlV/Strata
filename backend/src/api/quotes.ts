@@ -2,26 +2,18 @@ import express from 'express'
 import { z } from 'zod'
 import { QuoteRequestSchema, ConfiguratorQuoteFormSchema } from '../services/validation.js'
 import { sendQuoteEmail } from '../services/mailer.js'
-import { QuotesRepository } from '../db/repos/quotes.js'
-import { connectToMongo } from '../db/mongo.js'
+import { QuotesService } from '../services/quotes.js'
 import path from 'path'
-import { fileURLToPath } from 'url'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+import type { 
+  CreateProductConfigurationInput,
+  CreateQuoteRequestInput,
+  Customer
+} from '../types/entities.js'
 
 const router = express.Router()
 
-// Initialize repository with database connection
-let quotesRepo: QuotesRepository
-
-async function initializeRepo() {
-  if (!quotesRepo) {
-    const db = await connectToMongo()
-    quotesRepo = new QuotesRepository(db)
-  }
-  return quotesRepo
-}
+// Initialize service layer
+const quotesService = new QuotesService()
 
 /**
  * POST /api/quotes
@@ -29,9 +21,6 @@ async function initializeRepo() {
  */
 router.post('/quotes', async (req, res) => {
   try {
-    // Initialize repository
-    const repo = await initializeRepo()
-    
     // Check if this is a configurator quote (has configurator-specific fields)
     const isConfiguratorQuote = req.body.hasOwnProperty('includeVat') && 
                                req.body.hasOwnProperty('basePrice') &&
@@ -39,10 +28,10 @@ router.post('/quotes', async (req, res) => {
     
     if (isConfiguratorQuote) {
       // Handle configurator quote submission
-      return await handleConfiguratorQuote(req, res, repo)
+      return await handleConfiguratorQuote(req, res)
     } else {
       // Handle simple quote form submission
-      return await handleSimpleQuote(req, res, repo)
+      return await handleSimpleQuote(req, res)
     }
     
   } catch (error) {
@@ -57,83 +46,142 @@ router.post('/quotes', async (req, res) => {
 /**
  * Handle configurator quote submission
  */
-async function handleConfiguratorQuote(req: express.Request, res: express.Response, repo: QuotesRepository) {
+async function handleConfiguratorQuote(req: express.Request, res: express.Response) {
   try {
     // Validate configurator quote data
     const quoteData = ConfiguratorQuoteFormSchema.parse(req.body)
     
-    // Generate quote number using repository method
-    const quoteNumber = await repo.generateQuoteNumber()
-    
     // Parse configuration data
-    let parsedConfig = {}
+    let parsedConfig: any = {}
     try {
       parsedConfig = JSON.parse(quoteData.configurationData)
     } catch (error) {
       console.error('Failed to parse configuration data:', error)
+      return res.status(400).json({
+        success: false,
+        message: 'Invalid configuration data format'
+      })
     }
-    
-    // Create quote request object for configurator
-    const quoteRequest = {
-      quoteNumber,
-      configId: `cfg-${Date.now()}`, // Generate unique config ID
-      customer: {
-        firstName: quoteData.firstName,
-        lastName: quoteData.lastName,
-        email: quoteData.email,
-        phone: { countryPrefix: '+353', phoneNum: quoteData.phone },
-        addressLine1: quoteData.address,
-        addressLine2: undefined,
-        town: quoteData.city,
-        county: quoteData.county,
-        eircode: quoteData.eircode
+
+    // Create product configuration
+    const configurationInput: CreateProductConfigurationInput = {
+      productType: parsedConfig.productType || 'garden-room',
+      size: {
+        widthM: parsedConfig.size?.widthM || 0,
+        depthM: parsedConfig.size?.depthM || 0,
+        heightM: parsedConfig.size?.heightM || 2.5
       },
-      desiredInstallTimeframe: quoteData.desiredInstallTimeframe || 'exploring',
-      configuration: parsedConfig,
-      pricing: {
-        includeVat: quoteData.includeVat,
-        basePrice: quoteData.basePrice,
-        vatAmount: quoteData.vatAmount,
-        totalPrice: quoteData.totalPrice,
+      cladding: {
+        areaSqm: parsedConfig.cladding?.areaSqm || 0
+      },
+      bathroom: {
+        half: parsedConfig.bathroom?.half || 0,
+        threeQuarter: parsedConfig.bathroom?.threeQuarter || 0
+      },
+      electrical: {
+        switches: parsedConfig.electrical?.switches || 0,
+        sockets: parsedConfig.electrical?.sockets || 0,
+        downlight: parsedConfig.electrical?.downlight || 0,
+        heater: parsedConfig.electrical?.heater,
+        undersinkHeater: parsedConfig.electrical?.undersinkHeater,
+        elecBoiler: parsedConfig.electrical?.elecBoiler
+      },
+      internalDoors: parsedConfig.internalDoors || 0,
+      internalWall: {
+        finish: parsedConfig.internalWall?.finish || 'none',
+        areaSqM: parsedConfig.internalWall?.areaSqM
+      },
+      heaters: parsedConfig.heaters || 0,
+      glazing: {
+        windows: parsedConfig.glazing?.windows || [],
+        externalDoors: parsedConfig.glazing?.externalDoors || [],
+        skylights: parsedConfig.glazing?.skylights || []
+      },
+      floor: {
+        type: parsedConfig.floor?.type || 'none',
+        areaSqM: parsedConfig.floor?.areaSqM || 0
+      },
+      delivery: {
+        distanceKm: parsedConfig.delivery?.distanceKm,
+        cost: parsedConfig.delivery?.cost || 0
+      },
+      extras: {
+        espInsulation: parsedConfig.extras?.espInsulation,
+        render: parsedConfig.extras?.render,
+        steelDoor: parsedConfig.extras?.steelDoor,
+        other: parsedConfig.extras?.other || []
+      },
+      estimate: {
         currency: 'EUR',
-        calculatedAt: new Date()
+        subtotalExVat: quoteData.basePrice || 0,
+        vatRate: quoteData.includeVat ? 0.23 : 0,
+        totalIncVat: quoteData.totalPrice || 0
       },
-      consent: {
-        marketing: quoteData.marketingConsent,
-        terms: quoteData.termsAccepted,
-        timestamp: new Date()
-      },
-      metadata: {
-        source: quoteData.source || 'configurator',
-        userAgent: quoteData.userAgent,
-        referrer: quoteData.referrer,
-        submissionId: `sub-${Date.now()}`
-      },
-      payment: {
-        status: 'pre-quote' as const,
-        totalPaid: 0,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        history: []
-      },
-      retention: { expiresAt: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000) }, // 30 days
-      submittedAt: new Date()
+      notes: `Configurator quote - ${quoteData.source || 'web'}`,
+      permittedDevelopmentFlags: parsedConfig.permittedDevelopmentFlags || []
     }
+
+    // Create the product configuration
+    const configResult = await quotesService.createProductConfiguration(configurationInput)
     
-    // Save to database
-    await repo.createQuoteRequest(quoteRequest)
+    if (!configResult.success || !configResult.data) {
+      console.error('Failed to create product configuration:', configResult.error)
+      return res.status(configResult.error?.httpStatus || 500).json({
+        success: false,
+        message: configResult.error?.message || 'Failed to create configuration'
+      })
+    }
+
+    // Create customer data
+    const customer: Customer = {
+      firstName: quoteData.firstName,
+      lastName: quoteData.lastName,
+      email: quoteData.email,
+      phone: { countryPrefix: '+353', phoneNum: quoteData.phone },
+      addressLine1: quoteData.address,
+      addressLine2: undefined,
+      town: quoteData.city,
+      county: quoteData.county,
+      eircode: quoteData.eircode
+    }
+
+    // Create quote request
+    const quoteRequestInput: CreateQuoteRequestInput = {
+      configurationId: configResult.data.id,
+      customer,
+      payment: {
+        status: 'pre-quote',
+        totalPaid: 0,
+        expectedInstallments: null
+      },
+      retention: {
+        expiresAt: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString() // 30 days
+      },
+      requestedAt: new Date().toISOString()
+    }
+
+    // Save quote request to database
+    const quoteResult = await quotesService.createQuoteRequest(quoteRequestInput)
+    
+    if (!quoteResult.success || !quoteResult.data) {
+      console.error('Failed to create quote request:', quoteResult.error)
+      return res.status(quoteResult.error?.httpStatus || 500).json({
+        success: false,
+        message: quoteResult.error?.message || 'Failed to create quote request'
+      })
+    }
     
     // Send confirmation email to customer
     await sendQuoteEmail({
       to: quoteData.email,
       type: 'quote_confirmation',
       data: {
-        quoteNumber,
+        quoteNumber: quoteResult.data.id.slice(-8).toUpperCase(), // Use last 8 chars of UUID as quote number
         firstName: quoteData.firstName,
         lastName: quoteData.lastName,
         projectType: 'garden-room', // Default for configurator
-        sizeWidth: 0, // Will be in configuration data
-        sizeDepth: 0, // Will be in configuration data
+        sizeWidth: parsedConfig.size?.widthM || 0,
+        sizeDepth: parsedConfig.size?.depthM || 0,
         description: `Configurator quote - €${quoteData.totalPrice} ${quoteData.includeVat ? 'inc VAT' : 'ex VAT'}`,
         features: [] // Features will be in configuration data
       }
@@ -143,14 +191,15 @@ async function handleConfiguratorQuote(req: express.Request, res: express.Respon
     await sendQuoteEmail({
       to: process.env.INTERNAL_EMAIL || 'quotes@stratagarden.ie',
       type: 'quote_notification',
-      data: quoteRequest
+      data: quoteResult.data
     })
     
     // Return JSON response for configurator
     return res.status(201).json({
       success: true,
       message: 'Quote request submitted successfully',
-      quoteId: quoteNumber,
+      quoteId: quoteResult.data.id,
+      configId: configResult.data.id,
       estimatedResponse: '24-48 hours'
     })
     
@@ -167,7 +216,7 @@ async function handleConfiguratorQuote(req: express.Request, res: express.Respon
       
       return res.status(400).json({
         success: false,
-        message: 'Please check your form data',
+        error: 'Validation failed: ' + error.errors.map(err => `${err.path.join('.')}: ${err.message}`).join(', '),
         errors: fieldErrors
       })
     }
@@ -182,43 +231,117 @@ async function handleConfiguratorQuote(req: express.Request, res: express.Respon
 /**
  * Handle simple quote form submission (existing logic)
  */
-async function handleSimpleQuote(req: express.Request, res: express.Response, repo: QuotesRepository) {
+async function handleSimpleQuote(req: express.Request, res: express.Response) {
   try {
     // Validate request body
     const quoteData = QuoteRequestSchema.parse(req.body)
     
-    // Generate quote number using repository method
-    const quoteNumber = await repo.generateQuoteNumber()
+    // Create basic product configuration for simple quote
+    const configurationInput: CreateProductConfigurationInput = {
+      productType: quoteData.projectType === 'house-extension' ? 'house-extension' :
+                   quoteData.projectType === 'house-build' ? 'house-build' : 'garden-room',
+      size: {
+        widthM: quoteData.sizeWidth || 4,
+        depthM: quoteData.sizeDepth || 3,
+        heightM: 2.5
+      },
+      cladding: {
+        areaSqm: (quoteData.sizeWidth || 4) * (quoteData.sizeDepth || 3) * 4 // Rough estimate
+      },
+      bathroom: {
+        half: 0,
+        threeQuarter: 0
+      },
+      electrical: {
+        switches: 2,
+        sockets: 4,
+        downlight: 4
+      },
+      internalDoors: 1,
+      internalWall: {
+        finish: 'panel',
+        areaSqM: 20
+      },
+      heaters: 1,
+      glazing: {
+        windows: [{ elementType: 'window', widthM: 1.2, heightM: 1.5 }],
+        externalDoors: [{ elementType: 'external_door', widthM: 0.9, heightM: 2.1 }],
+        skylights: []
+      },
+      floor: {
+        type: 'wooden',
+        areaSqM: (quoteData.sizeWidth || 4) * (quoteData.sizeDepth || 3)
+      },
+      delivery: {
+        distanceKm: 50, // Default estimate
+        cost: 500 // Default estimate
+      },
+      extras: {
+        other: []
+      },
+      estimate: {
+        currency: 'EUR',
+        subtotalExVat: 25000, // Default estimate
+        vatRate: 0.23,
+        totalIncVat: 30750 // Default estimate
+      },
+      notes: `Simple quote request: ${quoteData.description || 'No description provided'}`,
+      permittedDevelopmentFlags: []
+    }
+
+    // Create the product configuration
+    const configResult = await quotesService.createProductConfiguration(configurationInput)
     
-    // Create simplified quote request object for basic quote form
-    const quoteRequest = {
-      quoteNumber,
-      configId: '', // Simple quote doesn't have a full config yet - will be generated later
-      customer: {
-        firstName: quoteData.firstName,
-        lastName: quoteData.lastName,
-        email: quoteData.email,
-        phone: { countryPrefix: '+353', phoneNum: quoteData.phone },
-        addressLine1: quoteData.address || '',
-        county: quoteData.county,
-        eircode: quoteData.eircode
-      },
-      desiredInstallTimeframe: quoteData.timeframe || 'exploring',
+    if (!configResult.success || !configResult.data) {
+      console.error('Failed to create product configuration:', configResult.error)
+      return res.status(configResult.error?.httpStatus || 500).json({
+        success: false,
+        message: configResult.error?.message || 'Failed to create configuration'
+      })
+    }
+
+    // Create customer data
+    const customer: Customer = {
+      firstName: quoteData.firstName,
+      lastName: quoteData.lastName,
+      email: quoteData.email,
+      phone: { countryPrefix: '+353', phoneNum: quoteData.phone },
+      addressLine1: quoteData.address || '',
+      addressLine2: undefined,
+      town: undefined,
+      county: quoteData.county,
+      eircode: quoteData.eircode
+    }
+
+    // Create quote request
+    const quoteRequestInput: CreateQuoteRequestInput = {
+      configurationId: configResult.data.id,
+      customer,
       payment: {
-        status: 'pre-quote' as const,
+        status: 'pre-quote',
         totalPaid: 0,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        history: []
+        expectedInstallments: null
       },
-      retention: { expiresAt: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000) }, // 30 days
-      submittedAt: new Date()
+      retention: {
+        expiresAt: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString() // 30 days
+      },
+      requestedAt: new Date().toISOString()
+    }
+
+    // Save quote request to database
+    const quoteResult = await quotesService.createQuoteRequest(quoteRequestInput)
+    
+    if (!quoteResult.success || !quoteResult.data) {
+      console.error('Failed to create quote request:', quoteResult.error)
+      return res.status(quoteResult.error?.httpStatus || 500).json({
+        success: false,
+        message: quoteResult.error?.message || 'Failed to create quote request'
+      })
     }
     
-    // Save to database
-    await repo.createQuoteRequest(quoteRequest)
-    
     // Send confirmation email to customer
+    const quoteNumber = quoteResult.data.id.slice(-8).toUpperCase()
+    
     await sendQuoteEmail({
       to: quoteData.email,
       type: 'quote_confirmation',
@@ -238,7 +361,7 @@ async function handleSimpleQuote(req: express.Request, res: express.Response, re
     await sendQuoteEmail({
       to: process.env.INTERNAL_EMAIL || 'quotes@stratagarden.ie',
       type: 'quote_notification',
-      data: quoteRequest
+      data: quoteResult.data
     })
     
     // Handle response based on request type
@@ -253,7 +376,8 @@ async function handleSimpleQuote(req: express.Request, res: express.Response, re
       return res.status(201).json({
         success: true,
         message: 'Quote request submitted successfully',
-        quoteNumber,
+        quoteNumber: quoteResult.data.id,
+        configId: configResult.data.id,
         estimatedResponse: '24-48 hours'
       })
     }
@@ -295,7 +419,7 @@ async function handleSimpleQuote(req: express.Request, res: express.Response, re
       } else {
         return res.status(400).json({
           success: false,
-          message: 'Please check your form data',
+          error: 'Validation failed: ' + error.errors.map(err => `${err.path.join('.')}: ${err.message}`).join(', '),
           errors: error.errors.map(err => ({
             field: err.path.join('.'),
             message: err.message
@@ -342,27 +466,24 @@ async function handleSimpleQuote(req: express.Request, res: express.Response, re
 }
 
 /**
- * GET /api/quotes/:quoteNumber
+ * GET /api/quotes/:id
  * Retrieve quote status (for customer reference)
  */
-router.get('/quotes/:quoteNumber', async (req, res) => {
+router.get('/quotes/:id', async (req, res) => {
   try {
-    // Initialize repository
-    const repo = await initializeRepo()
+    const { id } = req.params
     
-    const { quoteNumber } = req.params
-    
-    // Basic format validation (Q1-2025-00001)
-    if (!/^Q[1-4]-\d{4}-\d{5}$/.test(quoteNumber)) {
+    // Basic UUID validation - return 400 only for clearly malformed UUIDs
+    if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id)) {
       return res.status(400).json({
         success: false,
-        message: 'Invalid quote number format'
+        message: 'Invalid quote ID format'
       })
     }
     
-    const quote = await repo.getQuoteRequestByNumber(quoteNumber)
+    const result = await quotesService.getCompleteQuoteRequest(id)
     
-    if (!quote) {
+    if (!result.success || !result.data) {
       return res.status(404).json({
         success: false,
         message: 'Quote not found'
@@ -370,14 +491,19 @@ router.get('/quotes/:quoteNumber', async (req, res) => {
     }
     
     // Return limited public information
+    const quote = result.data.quoteRequest
     return res.json({
       success: true,
       quote: {
-        quoteNumber: quote.quoteNumber,
+        id: quote.id,
         status: quote.payment.status,
-        createdAt: quote.submittedAt,
-        // Basic quote info - detailed project info would be in the associated config
-        hasConfig: !!quote.configId
+        createdAt: quote.requestedAt,
+        customer: quote.customer,
+        configuration: {
+          id: result.data.configuration.id,
+          productType: result.data.configuration.productType,
+          estimate: result.data.configuration.estimate
+        }
       }
     })
     
@@ -391,41 +517,40 @@ router.get('/quotes/:quoteNumber', async (req, res) => {
 })
 
 /**
- * GET /api/quotes/:quoteNumber/status
+ * GET /api/quotes/:id/status
  * Get quote status for the frontend API client
  */
-router.get('/quotes/:quoteNumber/status', async (req, res) => {
+router.get('/quotes/:id/status', async (req, res) => {
   try {
-    // Initialize repository
-    const repo = await initializeRepo()
+    const { id } = req.params
     
-    const { quoteNumber } = req.params
-    
-    // Basic format validation (Q1-2025-00001)
-    if (!/^Q[1-4]-\d{4}-\d{5}$/.test(quoteNumber)) {
+    // Basic UUID validation
+    if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(id)) {
       return res.status(400).json({
         success: false,
-        message: 'Invalid quote number format'
+        message: 'Invalid quote ID format'
       })
     }
     
-    const quote = await repo.getQuoteRequestByNumber(quoteNumber)
+    const result = await quotesService.getQuoteRequest(id)
     
-    if (!quote) {
-      return res.status(404).json({
+    if (!result.success || !result.data) {
+      return res.status(result.error?.httpStatus || 404).json({
         success: false,
-        message: 'Quote not found'
+        message: result.error?.message || 'Quote not found'
       })
     }
+    
+    const quote = result.data
     
     // Return status information for API client
     return res.json({
       status: quote.payment.status,
-      lastUpdated: quote.payment.updatedAt.toISOString(),
+      lastUpdated: quote.payment.updatedAt,
       details: {
-        quoteNumber: quote.quoteNumber,
-        submittedAt: quote.submittedAt.toISOString(),
-        hasConfiguration: !!quote.configId
+        id: quote.id,
+        configurationId: quote.configurationId,
+        requestedAt: quote.requestedAt
       }
     })
     

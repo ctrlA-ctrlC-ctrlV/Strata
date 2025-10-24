@@ -96,7 +96,10 @@ export function getDatabaseInfo() {
 
 // Error handling utilities for Supabase-specific errors
 export function isSupabaseError(error: unknown): error is { message: string; code?: string } {
-  return typeof error === 'object' && error !== null && 'message' in error
+  return typeof error === 'object' && 
+         error !== null && 
+         'message' in error && 
+         (('code' in error) || ('details' in error) || ('hint' in error))
 }
 
 export function handleSupabaseError(error: unknown): {

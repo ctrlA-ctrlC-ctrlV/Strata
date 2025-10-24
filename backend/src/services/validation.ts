@@ -3,6 +3,7 @@
  */
 
 import { z } from 'zod'
+import type { Request, Response, NextFunction } from 'express'
 
 // Irish Eircode validation pattern
 const EIRCODE_PATTERN = /^[A-Z]\d{2}\s?[A-Z0-9]{4}$/i
@@ -359,17 +360,18 @@ export function validateRequest<T>(schema: z.ZodSchema<T>, data: unknown): { suc
 }
 
 export function createValidationMiddleware<T>(schema: z.ZodSchema<T>) {
-  return (req: any, res: any, next: any) => {
+  return (req: Request, res: Response, next: NextFunction): void => {
     const validation = validateRequest(schema, req.body)
     
     if (!validation.success) {
-      return res.status(400).json({
+      res.status(400).json({
         error: 'Validation failed',
         details: validation.errors
       })
+      return
     }
     
-    req.validatedBody = validation.data
+    ;(req as any).validatedBody = validation.data
     next()
   }
 }

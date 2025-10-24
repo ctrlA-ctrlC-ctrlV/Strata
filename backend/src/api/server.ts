@@ -2,6 +2,7 @@ import 'dotenv/config'
 import express from 'express'
 import helmet from 'helmet'
 import rateLimit from 'express-rate-limit'
+import path from 'path'
 import { initializeDatabase, checkDatabaseConnection } from '../db/supabase.js'
 import { setupSecurityMiddleware } from '../security/security.js'
 
@@ -117,11 +118,11 @@ app.use('/api', contactRouter)
 
 // Serve static success pages for no-JS fallbacks
 app.get('/contact-success', (req, res) => {
-  res.sendFile(new URL('../api/views/contact-success.html', import.meta.url).pathname)
+  res.sendFile(path.resolve(__dirname, '../api/views/contact-success.html'))
 })
 
 app.get('/quote-success', (req, res) => {
-  res.sendFile(new URL('../api/views/quote-success.html', import.meta.url).pathname)
+  res.sendFile(path.resolve(__dirname, '../api/views/quote-success.html'))
 })
 
 // 404 handler
@@ -175,7 +176,8 @@ process.on('SIGINT', () => {
   process.exit(0)
 })
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+// Start server if this file is run directly
+if (require.main === module) {
   startServer()
 }
 
