@@ -2,7 +2,7 @@ import 'dotenv/config'
 import express from 'express'
 import helmet from 'helmet'
 import rateLimit from 'express-rate-limit'
-import { connectToMongo } from '../db/mongo.js'
+import { initializeDatabase, checkDatabaseConnection } from '../db/supabase.js'
 import { setupSecurityMiddleware } from '../security/security.js'
 
 const app = express()
@@ -71,22 +71,37 @@ app.use((req, res, next) => {
 setupSecurityMiddleware(app)
 
 // Health check endpoints
-app.get('/health', (req, res) => {
+app.get('/health', async (req, res) => {
+  const dbHealth = await checkDatabaseConnection()
+  
   res.json({ 
-    status: 'ok', 
+    status: dbHealth.isHealthy ? 'ok' : 'error',
     timestamp: new Date().toISOString(),
-    environment: process.env.NODE_ENV 
+    environment: process.env.NODE_ENV,
+    database: {
+      healthy: dbHealth.isHealthy,
+      latency: dbHealth.latency,
+      error: dbHealth.error
+    }
   })
 })
 
-app.get('/api/health', (req, res) => {
+app.get('/api/health', async (req, res) => {
+  const dbHealth = await checkDatabaseConnection()
+  
   res.json({ 
-    status: 'ok', 
+    status: dbHealth.isHealthy ? 'ok' : 'error',
     timestamp: new Date().toISOString(),
     environment: process.env.NODE_ENV,
     services: {
-      database: 'connected', // Could add actual DB health check here
+      database: dbHealth.isHealthy ? 'connected' : 'error',
       api: 'operational'
+    },
+    details: {
+      database: {
+        latency: dbHealth.latency,
+        error: dbHealth.error
+      }
     }
   })
 })
@@ -132,15 +147,16 @@ app.use((err: Error, req: express.Request, res: express.Response, next: express.
 // Start server
 async function startServer() {
   try {
-    // Connect to MongoDB
-    await connectToMongo()
-    console.log('Connected to MongoDB')
+    // Initialize Supabase connection
+    await initializeDatabase()
+    console.log('Connected to Supabase PostgreSQL')
     
     // Start HTTP server
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`)
       console.log(`Environment: ${process.env.NODE_ENV}`)
       console.log(`Health check: http://localhost:${PORT}/health`)
+      console.log(`Database: Supabase PostgreSQL`)
     })
   } catch (error) {
     console.error('Failed to start server:', error)
