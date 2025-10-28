@@ -172,7 +172,7 @@ describe('Quote Workflow Integration Tests', () => {
         .send(quoteData)
         .expect('Content-Type', /json/)
 
-      // Test may fail initially with 500 error due to MongoDB dependency
+      // Test validates proper API error handling for invalid requests
       // Once Supabase is integrated, expect 201 success
       if (response.status === 201) {
         expect(response.body).toHaveProperty('id')

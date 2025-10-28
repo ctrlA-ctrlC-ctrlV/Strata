@@ -1,4 +1,4 @@
-// Quotes service layer for MongoDB to Supabase migration
+// Quotes service layer for Supabase PostgreSQL database
 // Business logic layer that coordinates between API and repository
 // Date: 2025-10-23
 

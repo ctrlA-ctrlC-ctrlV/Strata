@@ -1,10 +1,14 @@
 import { config } from 'dotenv'
 
-// Load environment variables for testing
+// Load environment variables for testing - try .env.test first, then .env
 config({ path: '.env.test' })
+config({ path: '.env' })
 
-// Set test environment variables if not already set
+// Set test environment
 process.env.NODE_ENV = 'test'
-process.env.SUPABASE_URL = process.env.SUPABASE_URL || 'https://test.supabase.co'
-process.env.SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRlc3QiLCJyb2xlIjoiYW5vbiIsImlhdCI6MTY0NzI0ODQyMCwiZXhwIjoxOTYyODI0NDIwfQ.test'
-process.env.SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRlc3QiLCJyb2xlIjoic2VydmljZV9yb2xlIiwiaWF0IjoxNjQ3MjQ4NDIwLCJleHAiOjE5NjI4MjQ0MjB9.test'
+
+// Validate that Supabase environment variables are available
+if (!process.env.SUPABASE_URL || !process.env.SUPABASE_ANON_KEY || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+  console.warn('⚠️  Supabase environment variables not found. Tests may fail.')
+  console.warn('Make sure .env file has: SUPABASE_URL, SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY')
+}

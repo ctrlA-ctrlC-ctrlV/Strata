@@ -1,5 +1,5 @@
-// Supabase client setup for MongoDB to Supabase migration
-// Replaces MongoDB connection with Supabase PostgreSQL client
+// Supabase PostgreSQL client configuration
+// Primary database connection for the application
 // Date: 2025-10-23
 
 import { createClient } from '@supabase/supabase-js'

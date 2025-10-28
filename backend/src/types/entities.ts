@@ -1,4 +1,4 @@
-// Entity interfaces for MongoDB to Supabase migration
+// Entity interfaces for Supabase PostgreSQL database
 // These interfaces match the database schema and provide type safety
 // Date: 2025-10-23
 

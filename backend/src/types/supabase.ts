@@ -1,5 +1,5 @@
 // TypeScript types generated from Supabase PostgreSQL schema
-// Generated for MongoDB to Supabase migration
+// Auto-generated database type definitions
 // Date: 2025-10-23
 
 export type Json =

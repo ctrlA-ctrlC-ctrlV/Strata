@@ -1,4 +1,4 @@
-// Supabase-based quotes repository for MongoDB to Supabase migration
+// Supabase-based quotes repository for PostgreSQL database operations
 // Implements comprehensive quote management with PostgreSQL database
 // Date: 2025-10-23
 
