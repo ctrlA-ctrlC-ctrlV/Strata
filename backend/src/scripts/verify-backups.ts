@@ -7,7 +7,7 @@
  * and provides information about backup status and recovery options.
  */
 
-import { supabase } from '../db/supabase'
+import { supabase } from '../db/supabase.js'
 
 interface BackupStatus {
   timestamp: string

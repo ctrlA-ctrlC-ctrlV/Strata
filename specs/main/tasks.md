@@ -83,17 +83,17 @@
 
 ### Tests for User Story 2 (MANDATORY per constitution) ⚠️
 
-- [ ] T024 [P] [US2] Create monitoring test script in backend/src/scripts/health-check.ts
-- [ ] T025 [P] [US2] Create database performance test in backend/tests/integration/database-performance.test.ts
+- [x] T024 [P] [US2] Create monitoring test script in backend/src/scripts/health-check.ts
+- [x] T025 [P] [US2] Create database performance test in backend/tests/integration/database-performance.test.ts
 
 ### Implementation for User Story 2  
 
-- [ ] T026 [P] [US2] Configure Supabase project monitoring and alerting in dashboard
-- [ ] T027 [P] [US2] Create database backup verification script in backend/src/scripts/verify-backups.ts
-- [ ] T028 [US2] Document database administration procedures in backend/docs/database-admin.md
-- [ ] T029 [US2] Create query performance monitoring setup using Supabase dashboard
-- [ ] T030 [US2] Set up automated database health checks in production environment
-- [ ] T031 [US2] Configure log aggregation and error tracking for database operations
+- [x] T026 [P] [US2] Configure Supabase project monitoring and alerting in dashboard
+- [x] T027 [P] [US2] Create database backup verification script in backend/src/scripts/verify-backups.ts
+- [x] T028 [US2] Document database administration procedures in backend/docs/database-admin.md
+- [x] T029 [US2] Create query performance monitoring setup using Supabase dashboard
+- [x] T030 [US2] Set up automated database health checks in production environment
+- [x] T031 [US2] Configure log aggregation and error tracking for database operations
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently with full admin capabilities
 

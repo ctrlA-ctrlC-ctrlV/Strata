@@ -5,7 +5,7 @@
  * Validates Supabase connection and basic operations
  */
 
-import { supabase } from '../db/supabase'
+import { supabase } from '../db/supabase.js'
 
 interface HealthCheckResult {
   timestamp: string
