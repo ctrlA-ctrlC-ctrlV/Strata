@@ -14,94 +14,140 @@ Notes
 
 ## Phase 1 — Setup
 
+- [ ] T079 Create Phase 1 smoke tests scaffold in frontend/tests/e2e/setup.smoke.spec.ts
+
 - [ ] T001 Configure Tailwind project files in frontend/tailwind.config.cjs
 - [ ] T002 Add Tailwind base stylesheet in frontend/src/styles/tailwind.css
-- [ ] T003 Wire Tailwind into Vite entry in frontend/src/main.ts
+- [ ] T003 Wire Tailwind into Vite entry in frontend/src/main.tsx
 - [ ] T004 Add Bootstrap Reboot (self-hosted) to frontend/public/css/bootstrap-reboot.min.css
 - [ ] T005 Include CSS links (Tailwind build + Bootstrap Reboot) in frontend/index.html
 - [ ] T006 Create images directory structure in frontend/public/images/{hero,gallery,projects,testimonials,logos}
-- [ ] T007 Add CSP meta and required security headers in frontend/index.html (meta tags) and docs/deployment notes
+- [ ] T007 Add CSP meta tag (tight baseline) in frontend/index.html (document-only; real enforcement via server/CDN)
+- [ ] T078 Create deployment security headers config (Nginx/hosting) with HSTS, CSP, SRI, and secure headers in docs/deployment-static-security-headers.md
 - [ ] T008 Add accessibility tooling hooks (axe in Playwright) in frontend/tests/helpers/axe.ts
 - [ ] T009 Prepare Lighthouse config for CI (doc stub) in docs/production-health-automation.md
 - [ ] T010 Add privacy & terms links placeholders in frontend/index.html
 
+- [ ] T080 Run Phase 1 tests (smoke, lint, typecheck)
+
 ## Phase 2 — Foundational
+
+- [ ] T081 Create Phase 2 foundational tests scaffold in frontend/tests/e2e/foundational.spec.ts
 
 - [ ] T011 Create base layout container and grid utilities in frontend/src/styles/layout.css
 - [ ] T012 [P] Add utility classes for scroll-snap and reduced-motion in frontend/src/styles/utilities.css
-- [ ] T013 Implement Sticky Header shell in frontend/src/components/Header.ts
-- [ ] T014 [P] Implement Footer shell with NAP/socials in frontend/src/components/Footer.ts
-- [ ] T015 Implement Hero shell (H1, sub, CTA, trust minis) in frontend/src/components/Hero.ts
-- [ ] T016 [P] Wire page composition in frontend/src/pages/home.ts (assemble sections)
+- [ ] T013 Implement Sticky Header shell in frontend/src/components/Header.tsx
+- [ ] T014 [P] Implement Footer shell with NAP/socials in frontend/src/components/Footer.tsx
+- [ ] T015 Implement Hero shell (H1, sub, CTA, trust minis) in frontend/src/components/Hero.tsx
+- [ ] T016 [P] Wire page composition in frontend/src/pages/home.tsx (assemble sections)
 - [ ] T017 Add anchor target for "Get a Quote" (#quote) in frontend/index.html
 - [ ] T018 [P] Add semantics and skip-to-content link in frontend/index.html
-- [ ] T019 Create BenefitsGrid base with 6 items in frontend/src/components/BenefitsGrid.ts
-- [ ] T020 [P] Add Problem→Outcome strip component in frontend/src/components/ProblemOutcome.ts
+- [ ] T019 Create BenefitsGrid base with 6 items in frontend/src/components/BenefitsGrid.tsx
+- [ ] T020 [P] Add Problem→Outcome strip component in frontend/src/components/ProblemOutcome.tsx
+
+- [ ] T103 Add hero text-on-image contrast check tests in frontend/tests/e2e/hero-contrast.spec.ts
+- [ ] T104 A11y verify icon semantics (aria-hidden or labels) for BenefitsGrid and trust minis in frontend/tests/e2e/icons-a11y.spec.ts
+
+- [ ] T082 Run Phase 2 tests (foundational, a11y)
 
 ## Phase 3 — User Story 1 (P1): Request a Quote
 
-- [ ] T021 [US1] Create QuoteForm component shell in frontend/src/components/QuoteForm.ts
-- [ ] T022 [P] [US1] Add required fields (First name, Phone, Email, Address line 1, Eircode) and optional fields in frontend/src/components/QuoteForm.ts
-- [ ] T023 [US1] Implement client-side validation rules and aria-describedby in frontend/src/components/QuoteForm.ts
-- [ ] T024 [P] [US1] Add no-JS baseline (form action=mailto:… with subject/body template) in frontend/src/components/QuoteForm.ts
-- [ ] T025 [US1] Add JS-enhanced submit with inline success/failure to backend POST /api/quote-leads in frontend/src/components/QuoteForm.ts
-- [ ] T026 [P] [US1] Ensure header CTA scrolls to form and focuses first field in frontend/src/components/Header.ts
-- [ ] T027 [US1] Implement success state message block and next steps UI in frontend/src/components/QuoteForm.ts
-- [ ] T028 [US1] Add keyboard navigation and visible focus styles in frontend/src/components/QuoteForm.ts
+- [ ] T083 [US1] Author failing tests first for quote form (validation, success, a11y) in frontend/tests/e2e/quote-form.spec.ts and frontend/tests/e2e/quote-form-a11y.spec.ts
+
+- [ ] T021 [US1] Create QuoteForm component shell in frontend/src/components/QuoteForm.tsx
+- [ ] T022 [P] [US1] Add required fields (First name, Phone, Email, Address line 1, Eircode) and optional fields in frontend/src/components/QuoteForm.tsx
+- [ ] T023 [US1] Implement client-side validation rules and aria-describedby in frontend/src/components/QuoteForm.tsx
+- [ ] T024 [P] [US1] Add no-JS baseline (form action=mailto:… with subject/body template) in frontend/src/components/QuoteForm.tsx
+- [ ] T025 [US1] Add JS-enhanced submit with inline success/failure to backend POST /api/quote-leads in frontend/src/components/QuoteForm.tsx
+- [ ] T026 [P] [US1] Ensure header CTA scrolls to form and focuses first field in frontend/src/components/Header.tsx
+- [ ] T027 [US1] Implement success state message block and next steps UI in frontend/src/components/QuoteForm.tsx
+- [ ] T028 [US1] Add keyboard navigation and visible focus styles in frontend/src/components/QuoteForm.tsx
+- [ ] T084 [US1] Add optional newsletter opt-in checkbox to QuoteForm in frontend/src/components/QuoteForm.tsx
+- [ ] T085 [US1] Add “I have read Terms of Service & Privacy Policy” notice with links in frontend/src/components/QuoteForm.tsx
 - [ ] T029 [P] [US1] Backend: scaffold POST /api/quote-leads per contracts in backend/src/api/quotes.ts
 - [ ] T030 [US1] Backend: basic validation and 201 response shape in backend/src/api/quotes.ts
 - [ ] T031 [US1] Playwright: form validation and success flow test in frontend/tests/e2e/quote-form.spec.ts
 - [ ] T032 [P] [US1] Axe: a11y checks for form labels/errors in frontend/tests/e2e/quote-form-a11y.spec.ts
+- [ ] T086 [US1] Run Phase 3 (US1) tests
 
 ## Phase 4 — User Story 2 (P1): Explore Product Sections
 
-- [ ] T033 [US2] Create Garden Rooms section (2-col layout) with image left in frontend/src/components/ProductSectionGardenRooms.ts
-- [ ] T034 [P] [US2] Add right-column content flow (label, H2/H3, brand paragraph, primary CTA) in frontend/src/components/ProductSectionGardenRooms.ts
-- [ ] T035 [US2] Add secondary heading, supporting paragraph, underlined "For more details" link in frontend/src/components/ProductSectionGardenRooms.ts
-- [ ] T036 [P] [US2] Create Home Extensions section (2-col layout) in frontend/src/components/ProductSectionHomeExtensions.ts
-- [ ] T037 [US2] Mirror right-column flow for Home Extensions in frontend/src/components/ProductSectionHomeExtensions.ts
+- [ ] T087 [US2] Author failing tests first for product sections (a11y, tab order, links) in frontend/tests/e2e/product-sections-a11y.spec.ts
+
+- [ ] T033 [US2] Create Garden Rooms section (2-col layout) with image left in frontend/src/components/ProductSectionGardenRooms.tsx
+- [ ] T034 [P] [US2] Add right-column content flow (label, H2/H3, brand paragraph, primary CTA) in frontend/src/components/ProductSectionGardenRooms.tsx
+- [ ] T035 [US2] Add secondary heading, supporting paragraph, underlined "For more details" link in frontend/src/components/ProductSectionGardenRooms.tsx
+- [ ] T036 [P] [US2] Create Home Extensions section (2-col layout) in frontend/src/components/ProductSectionHomeExtensions.tsx
+- [ ] T037 [US2] Mirror right-column flow for Home Extensions in frontend/src/components/ProductSectionHomeExtensions.tsx
 - [ ] T038 [US2] Define details link destinations (temporary anchors or dedicated pages) in frontend/index.html
 - [ ] T039 [P] [US2] Ensure 4.5:1 contrast and readable line-lengths in frontend/src/styles/product-sections.css
 - [ ] T040 [US2] Keyboard/tab order tests for CTAs and links in frontend/tests/e2e/product-sections-a11y.spec.ts
 
+- [ ] T088 [US2] Run Phase 4 (US2) tests
+
 ## Phase 5 — User Story 3 (P2): Explore Projects Gallery
 
-- [ ] T041 [US3] Create Gallery container with fixed height and scroll-snap in frontend/src/components/Gallery.ts
-- [ ] T042 [P] [US3] Implement variable-height tiles and lazy-loading images in frontend/src/components/Gallery.ts
-- [ ] T043 [US3] Add keyboard focusable tiles and outline styles in frontend/src/components/Gallery.ts
-- [ ] T044 [P] [US3] JS enhancement: drag-to-scroll and next/prev controls in frontend/src/components/Gallery.ts
-- [ ] T045 [US3] Respect prefers-reduced-motion and disable inertia in frontend/src/components/Gallery.ts
+- [ ] T089 [US3] Author failing tests first for gallery (drag/swipe, a11y) in frontend/tests/e2e/gallery.spec.ts and frontend/tests/e2e/gallery-a11y.spec.ts
+
+- [ ] T041 [US3] Create Gallery container with fixed height and scroll-snap in frontend/src/components/Gallery.tsx
+- [ ] T042 [P] [US3] Implement variable-height tiles and lazy-loading images in frontend/src/components/Gallery.tsx
+- [ ] T043 [US3] Add keyboard focusable tiles and outline styles in frontend/src/components/Gallery.tsx
+- [ ] T044 [P] [US3] JS enhancement: drag-to-scroll and next/prev controls in frontend/src/components/Gallery.tsx
+- [ ] T045 [US3] Respect prefers-reduced-motion and disable inertia in frontend/src/components/Gallery.tsx
 - [ ] T046 [P] [US3] Backend: GET /api/projects (optional enhancement) in backend/src/api/projects.ts
-- [ ] T047 [US3] Wire gallery to static images first; then optional fetch path in frontend/src/components/Gallery.ts
+- [ ] T047 [US3] Wire gallery to static images first; then optional fetch path in frontend/src/components/Gallery.tsx
+- [ ] T090 [US3] Implement and test graceful image placeholders for failed loads in frontend/src/components/Gallery.tsx and frontend/tests/e2e/gallery-placeholders.spec.ts
 - [ ] T048 [US3] Playwright: desktop drag and mobile swipe interaction tests in frontend/tests/e2e/gallery.spec.ts
 - [ ] T049 [P] [US3] Axe: a11y checks for gallery controls and focus in frontend/tests/e2e/gallery-a11y.spec.ts
 
+- [ ] T091 [US3] Run Phase 5 (US3) tests
+
 ## Phase 6 — User Story 4 (P2): Build Trust
 
-- [ ] T050 [US4] Add trust minis (rating, projects, warranty, planning) to Hero in frontend/src/components/Hero.ts
-- [ ] T051 [P] [US4] Create Testimonial list baseline in frontend/src/components/Testimonial.ts
-- [ ] T052 [US4] JS enhancement: next/prev and announcement to SR in frontend/src/components/Testimonial.ts
+- [ ] T092 [US4] Author failing tests first for testimonials and trust minis in frontend/tests/e2e/testimonial-a11y.spec.ts and frontend/tests/e2e/hero-visual.spec.ts
+
+- [ ] T050 [US4] Add trust minis (rating, projects, warranty, planning) to Hero in frontend/src/components/Hero.tsx
+- [ ] T051 [P] [US4] Create Testimonial list baseline in frontend/src/components/Testimonial.tsx
+- [ ] T052 [US4] JS enhancement: next/prev and announcement to SR in frontend/src/components/Testimonial.tsx
 - [ ] T053 [P] [US4] Backend: GET /api/testimonials (optional enhancement) in backend/src/api/testimonials.ts
 - [ ] T054 [US4] A11y test: testimonial controls operable via keyboard in frontend/tests/e2e/testimonial-a11y.spec.ts
 - [ ] T055 [US4] Visual test: hero trust minis visible and readable in frontend/tests/e2e/hero-visual.spec.ts
 
-## Phase 7 — User Story 5 (P3): Self-Serve Answers (Mini-FAQ)
+- [ ] T093 [US4] Run Phase 6 (US4) tests
 
-- [ ] T056 [US5] Implement FAQ using <details><summary> baseline in frontend/src/components/FAQ.ts
+## Phase 7 — Process (User Story Neutral)
+
+- [ ] T094 Create failing tests first for Process steps (1–4) in frontend/tests/e2e/process.spec.ts
+- [ ] T095 Implement Process component with four stages and concise copy in frontend/src/components/Process.tsx
+- [ ] T096 Ensure a11y and keyboard navigation for Process in frontend/src/components/Process.tsx
+- [ ] T097 Integrate Process component into page flow in frontend/src/pages/home.tsx
+- [ ] T098 Run Phase 7 (Process) tests
+
+## Phase 8 — User Story 5 (P3): Self-Serve Answers (Mini-FAQ)
+
+- [ ] T099 [US5] Author failing tests first for FAQ expand/collapse and SR announcements in frontend/tests/e2e/faq-a11y.spec.ts
+
+- [ ] T056 [US5] Implement FAQ using <details><summary> baseline in frontend/src/components/FAQ.tsx
 - [ ] T057 [P] [US5] Style summary focus/hover and expanded states in frontend/src/styles/faq.css
-- [ ] T058 [US5] Ensure multiple items can be open; update behavior in frontend/src/components/FAQ.ts
+- [ ] T058 [US5] Ensure multiple items can be open; update behavior in frontend/src/components/FAQ.tsx
 - [ ] T059 [P] [US5] Add keyboard navigation tests for FAQ in frontend/tests/e2e/faq-a11y.spec.ts
-- [ ] T060 [US5] Content placeholders for top 3 planning/regs questions in frontend/src/components/FAQ.ts
+- [ ] T060 [US5] Content placeholders for top 3 planning/regs questions in frontend/src/components/FAQ.tsx
 
-## Phase 8 — User Story 6 (P3): Subscribe for Offers (Newsletter)
+- [ ] T100 [US5] Run Phase 8 (US5) tests
 
-- [ ] T061 [US6] Create Newsletter form with email field and policy link in frontend/src/components/Newsletter.ts
-- [ ] T062 [P] [US6] Add client-side validation and inline error in frontend/src/components/Newsletter.ts
-- [ ] T063 [US6] Single opt-in inline success state in frontend/src/components/Newsletter.ts
-- [ ] T064 [P] [US6] JS enhancement: POST /api/newsletter-subscriptions in frontend/src/components/Newsletter.ts
-- [ ] T065 [US6] No-JS baseline behavior (fallback note and contact email) in frontend/src/components/Newsletter.ts
+## Phase 9 — User Story 6 (P3): Subscribe for Offers (Newsletter)
+
+- [ ] T101 [US6] Author failing tests first for newsletter (validation, links) in frontend/tests/e2e/newsletter-a11y.spec.ts
+
+- [ ] T061 [US6] Create Newsletter form with email field and policy link in frontend/src/components/Newsletter.tsx
+- [ ] T062 [P] [US6] Add client-side validation and inline error in frontend/src/components/Newsletter.tsx
+- [ ] T063 [US6] Single opt-in inline success state in frontend/src/components/Newsletter.tsx
+- [ ] T064 [P] [US6] JS enhancement: POST /api/newsletter-subscriptions in frontend/src/components/Newsletter.tsx
+- [ ] T065 [US6] No-JS baseline behavior (fallback note and contact email) in frontend/src/components/Newsletter.tsx
 - [ ] T066 [P] [US6] Backend: scaffold POST /api/newsletter-subscriptions in backend/src/api/newsletter.ts
 - [ ] T067 [US6] A11y test: form label, error text, focus order in frontend/tests/e2e/newsletter-a11y.spec.ts
+
+- [ ] T102 [US6] Run Phase 9 (US6) tests
 
 ## Final Phase — Polish & Cross-Cutting
 
@@ -111,8 +157,8 @@ Notes
 - [ ] T071 [P] Lighthouse audits: Perf/A11y/Best Practices ≥ 90; SEO = 100 in frontend/tests/e2e/lighthouse.spec.ts
 - [ ] T072 Add visible skip links and verify headings order in frontend/index.html
 - [ ] T073 [P] Ensure all interactive elements have visible focus styles across components in frontend/src/styles/accessibility.css
-- [ ] T074 Verify prefers-reduced-motion across gallery/testimonial in frontend/src/components/{Gallery,Testimonial}.ts
-- [ ] T075 [P] Document deployment caching and immutable assets in docs/deployment-mongodb-removal-report.md
+- [ ] T074 Verify prefers-reduced-motion across gallery/testimonial in frontend/src/components/{Gallery,Testimonial}.tsx
+- [ ] T075 [P] Document deployment caching and immutable assets in docs/deployment-static-site.md
 - [ ] T076 Update README with build/run steps and feature link in README.md
 - [ ] T077 [P] Final spec conformance check vs FR and SC in specs/002-home-landing-page/spec.md
 

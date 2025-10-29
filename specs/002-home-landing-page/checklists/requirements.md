@@ -35,4 +35,4 @@ Clarifications resolved and applied to spec:
 
 - Dedicated product sections replace the split module for Garden Rooms and Home Extensions with specified 2-column layout and content flow.
 - Newsletter uses single opt-in and links to the privacy & data policy.
-- Quote form fields set: Required (First name, Phone number, Email, Address line 1, Eircode); Optional (Second name, Address line 2, Note).
+- Quote form fields set: Required (First name, Phone number, Email, Address line 1, Eircode); Optional (Surname name, Address line 2, Note).
