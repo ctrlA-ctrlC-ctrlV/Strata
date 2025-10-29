@@ -32,23 +32,23 @@ Notes
 
 ## Phase 2 — Foundational
 
-- [ ] T081 Create Phase 2 foundational tests scaffold in frontend/tests/e2e/foundational.spec.ts
+- [X] T081 Create Phase 2 foundational tests scaffold in frontend/tests/e2e/foundational.spec.ts
 
-- [ ] T011 Create base layout container and grid utilities in frontend/src/styles/layout.css
-- [ ] T012 [P] Add utility classes for scroll-snap and reduced-motion in frontend/src/styles/utilities.css
-- [ ] T013 Implement Sticky Header shell in frontend/src/components/Header.tsx
-- [ ] T014 [P] Implement Footer shell with NAP/socials in frontend/src/components/Footer.tsx
-- [ ] T015 Implement Hero shell (H1, sub, CTA, trust minis) in frontend/src/components/Hero.tsx
-- [ ] T016 [P] Wire page composition in frontend/src/pages/home.tsx (assemble sections)
-- [ ] T017 Add anchor target for "Get a Quote" (#quote) in frontend/index.html
-- [ ] T018 [P] Add semantics and skip-to-content link in frontend/index.html
-- [ ] T019 Create BenefitsGrid base with 6 items in frontend/src/components/BenefitsGrid.tsx
-- [ ] T020 [P] Add Problem→Outcome strip component in frontend/src/components/ProblemOutcome.tsx
+- [X] T011 Create base layout container and grid utilities in frontend/src/styles/layout.css
+- [X] T012 [P] Add utility classes for scroll-snap and reduced-motion in frontend/src/styles/utilities.css
+- [X] T013 Implement Sticky Header shell in frontend/src/components/Header.tsx
+- [X] T014 [P] Implement Footer shell with NAP/socials in frontend/src/components/Footer.tsx
+- [X] T015 Implement Hero shell (H1, sub, CTA, trust minis) in frontend/src/components/Hero.tsx
+- [X] T016 [P] Wire page composition in frontend/src/pages/home.tsx (assemble sections)
+- [X] T017 Add anchor target for "Get a Quote" (#quote) in frontend/index.html
+- [X] T018 [P] Add semantics and skip-to-content link in frontend/index.html
+- [X] T019 Create BenefitsGrid base with 6 items in frontend/src/components/BenefitsGrid.tsx
+- [X] T020 [P] Add Problem→Outcome strip component in frontend/src/components/ProblemOutcome.tsx
 
-- [ ] T103 Add hero text-on-image contrast check tests in frontend/tests/e2e/hero-contrast.spec.ts
-- [ ] T104 A11y verify icon semantics (aria-hidden or labels) for BenefitsGrid and trust minis in frontend/tests/e2e/icons-a11y.spec.ts
+- [X] T103 Add hero text-on-image contrast check tests in frontend/tests/e2e/hero-contrast.spec.ts
+- [X] T104 A11y verify icon semantics (aria-hidden or labels) for BenefitsGrid and trust minis in frontend/tests/e2e/icons-a11y.spec.ts
 
-- [ ] T082 Run Phase 2 tests (foundational, a11y)
+- [X] T082 Run Phase 2 tests (foundational, a11y)
 
 ## Phase 3 — User Story 1 (P1): Request a Quote
 

@@ -7,7 +7,8 @@
   <!-- Security: Content Security Policy (baseline for development) -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' data: https:; connect-src 'self'; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self';">
   
-  <title>Strata Garden Rooms</title>
+  <title>Strata Garden Rooms - Premium Garden Rooms & Home Extensions in Ireland</title>
+  <meta name="description" content="Professional design and construction services for garden rooms, home offices, and extensions across Ireland. Planning permission handled. Get your free quote today.">
   
   <!-- Bootstrap Reboot for consistent base styles -->
   <link rel="stylesheet" href="/css/bootstrap-reboot.min.css">
@@ -15,38 +16,219 @@
   <!-- Main styles will be injected by Vite (includes Tailwind) -->
 </head>
 <body>
-  <div id="app">
-    <header>
-      <h1>Strata Garden Rooms</h1>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/src/pages/products/configurator.html">Configure</a>
-        <a href="/src/pages/contact/index.html">Contact</a>
-      </nav>
-    </header>
+  <!-- Skip to content link for accessibility -->
+  <a href="#main" class="skip-link" data-testid="skip-link">
+    Skip to main content
+  </a>
+
+  <!-- Main content will be managed by TypeScript components -->
+  <main id="main" role="main" aria-label="Main content" tabindex="-1">
+    <!-- Content sections will be injected here -->
     
-    <main>
-      <h2>Welcome to Strata Garden Rooms</h2>
-      <p>Design your perfect garden room with our interactive configurator.</p>
-      <a href="/src/pages/products/configurator.html" class="cta-button">Start Configuration</a>
-    </main>
-  </div>
-  
-  <!-- Footer with legal links -->
-  <footer>
-    <div class="container-custom">
-      <nav aria-label="Legal">
-        <ul>
-          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="/terms-of-service.html">Terms of Service</a></li>
-          <li><a href="/cookie-policy.html">Cookie Policy</a></li>
-        </ul>
-      </nav>
-      <p>&copy; 2025 Strata Garden Rooms. All rights reserved.</p>
-    </div>
-  </footer>
+    <!-- Quote section anchor target -->
+    <section id="quote" class="section quote-section" data-testid="quote-section">
+      <div class="container">
+        <div class="quote-section__content">
+          <div class="quote-section__header">
+            <h2 class="quote-section__title">Get Your Free Quote</h2>
+            <p class="quote-section__subtitle">
+              Ready to transform your garden? Get a personalized quote for your garden room or home extension project.
+            </p>
+          </div>
+          
+          <div class="quote-section__placeholder">
+            <!-- Quote form component will be injected here when implemented -->
+            <div class="quote-form-placeholder">
+              <p>Quote form will be available here soon.</p>
+              <p>For now, please contact us directly:</p>
+              <div class="contact-fallback">
+                <p>
+                  <strong>Email:</strong> 
+                  <a href="mailto:info@strata.ie?subject=Garden Room Quote Request&body=Hi, I'm interested in getting a quote for a garden room/home extension. Please contact me to discuss my requirements.">
+                    info@strata.ie
+                  </a>
+                </p>
+                <p>
+                  <strong>Phone:</strong> 
+                  <a href="tel:+35312345678">+353 1 234 5678</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional section anchors for navigation -->
+    <section id="garden-rooms" class="section placeholder-section">
+      <div class="container">
+        <h2>Garden Rooms</h2>
+        <p>Premium garden room solutions coming soon.</p>
+      </div>
+    </section>
+
+    <section id="home-extensions" class="section placeholder-section">
+      <div class="container">
+        <h2>Home Extensions</h2>
+        <p>Professional home extension services coming soon.</p>
+      </div>
+    </section>
+
+    <section id="gallery" class="section placeholder-section">
+      <div class="container">
+        <h2>Projects Gallery</h2>
+        <p>View our completed projects coming soon.</p>
+      </div>
+    </section>
+
+    <section id="about" class="section placeholder-section">
+      <div class="container">
+        <h2>About Us</h2>
+        <p>Learn about our company and expertise coming soon.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section placeholder-section">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>Get in touch with us coming soon.</p>
+      </div>
+    </section>
+
+    <section id="newsletter" class="section placeholder-section">
+      <div class="container">
+        <h2>Newsletter</h2>
+        <p>Subscribe to our newsletter coming soon.</p>
+      </div>
+    </section>
+  </main>
   
   <!-- Vite will inject the main script -->
   <script type="module" src="/src/main.ts"></script>
+
+  <style>
+    /* Skip link for accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 6px;
+      background: #000;
+      color: #fff;
+      padding: 8px;
+      text-decoration: none;
+      z-index: 100;
+      border-radius: 0 0 4px 4px;
+      font-weight: 600;
+      transition: top 0.3s ease;
+    }
+
+    .skip-link:focus {
+      top: 0;
+      outline: 2px solid #fff;
+      outline-offset: 2px;
+    }
+
+    /* Basic styling for placeholder sections */
+    .section {
+      padding: 3rem 0;
+      min-height: 60vh;
+    }
+
+    .quote-section {
+      background-color: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .quote-section__content {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .quote-section__title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #1a1a1a;
+    }
+
+    .quote-section__subtitle {
+      font-size: 1.25rem;
+      color: #6b7280;
+      margin-bottom: 3rem;
+      line-height: 1.6;
+    }
+
+    .quote-form-placeholder {
+      background: white;
+      padding: 2rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e5e7eb;
+    }
+
+    .contact-fallback {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .contact-fallback p {
+      margin: 0.5rem 0;
+    }
+
+    .contact-fallback a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-fallback a:hover,
+    .contact-fallback a:focus {
+      text-decoration: underline;
+      outline: 2px solid #2563eb;
+      outline-offset: 2px;
+    }
+
+    .placeholder-section {
+      background-color: #ffffff;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .placeholder-section:nth-child(even) {
+      background-color: #f9fafb;
+    }
+
+    .placeholder-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #1a1a1a;
+    }
+
+    .placeholder-section p {
+      font-size: 1.125rem;
+      color: #6b7280;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .quote-section__title {
+        font-size: 2rem;
+      }
+
+      .quote-section__subtitle {
+        font-size: 1.125rem;
+      }
+
+      .section {
+        padding: 2rem 0;
+        min-height: 40vh;
+      }
+    }
+  </style>
 </body>
 </html>
