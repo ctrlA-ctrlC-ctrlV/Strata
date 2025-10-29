@@ -1,3 +1,6 @@
+// Import Tailwind CSS
+import './styles/tailwind.css'
+
 // Main TypeScript entry point
 console.log('Strata Garden Rooms - Frontend Loaded')
 

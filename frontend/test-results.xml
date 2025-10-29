@@ -1,18 +1,2072 @@
-<testsuites id="" name="" tests="4" failures="0" skipped="1" errors="0" time="2.479635">
-<testsuite name="homepage.spec.ts" timestamp="2025-10-21T13:58:18.934Z" hostname="chromium" tests="4" failures="0" skipped="1" time="1.372" errors="0">
-<testcase name="Homepage › should load basic HTML structure" classname="homepage.spec.ts" time="0.451">
+<testsuites id="" name="" tests="56" failures="56" skipped="0" errors="0" time="163.03162199999997">
+<testsuite name="setup.smoke.spec.ts" timestamp="2025-10-29T15:20:01.960Z" hostname="chromium" tests="8" failures="8" skipped="0" time="26.315" errors="0">
+<testcase name="Phase 1 Setup - Smoke Tests › should load the homepage without errors" classname="setup.smoke.spec.ts" time="3.935">
+<failure message="setup.smoke.spec.ts:15:3 should load the homepage without errors" type="FAILURE">
+<![CDATA[  [chromium] › setup.smoke.spec.ts:15:3 › Phase 1 Setup - Smoke Tests › should load the homepage without errors 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-chromium\video.webm]]
+]]>
+</system-out>
 </testcase>
-<testcase name="Homepage › should navigate to configurator from CTA" classname="homepage.spec.ts" time="0.427">
+<testcase name="Phase 1 Setup - Smoke Tests › should have Tailwind CSS loaded" classname="setup.smoke.spec.ts" time="3.936">
+<failure message="setup.smoke.spec.ts:31:3 should have Tailwind CSS loaded" type="FAILURE">
+<![CDATA[  [chromium] › setup.smoke.spec.ts:31:3 › Phase 1 Setup - Smoke Tests › should have Tailwind CSS loaded 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-chromium\video.webm]]
+]]>
+</system-out>
 </testcase>
-<testcase name="Homepage › should be accessible" classname="homepage.spec.ts" time="0.288">
+<testcase name="Phase 1 Setup - Smoke Tests › should have Bootstrap Reboot styles loaded" classname="setup.smoke.spec.ts" time="3.093">
+<failure message="setup.smoke.spec.ts:53:3 should have Bootstrap Reboot styles loaded" type="FAILURE">
+<![CDATA[  [chromium] › setup.smoke.spec.ts:53:3 › Phase 1 Setup - Smoke Tests › should have Bootstrap Reboot styles loaded 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-chromium\video.webm]]
+]]>
+</system-out>
 </testcase>
-<testcase name="Homepage › should work on mobile" classname="homepage.spec.ts" time="0.206">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
+<testcase name="Phase 1 Setup - Smoke Tests › should have proper security headers structure" classname="setup.smoke.spec.ts" time="2.982">
+<failure message="setup.smoke.spec.ts:67:3 should have proper security headers structure" type="FAILURE">
+<![CDATA[  [chromium] › setup.smoke.spec.ts:67:3 › Phase 1 Setup - Smoke Tests › should have proper security headers structure 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-chromium\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have images directory structure accessible" classname="setup.smoke.spec.ts" time="3.044">
+<failure message="setup.smoke.spec.ts:77:3 should have images directory structure accessible" type="FAILURE">
+<![CDATA[  [chromium] › setup.smoke.spec.ts:77:3 › Phase 1 Setup - Smoke Tests › should have images directory structure accessible 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-chromium\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have privacy and terms link placeholders" classname="setup.smoke.spec.ts" time="3.046">
+<failure message="setup.smoke.spec.ts:95:3 should have privacy and terms link placeholders" type="FAILURE">
+<![CDATA[  [chromium] › setup.smoke.spec.ts:95:3 › Phase 1 Setup - Smoke Tests › should have privacy and terms link placeholders 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-chromium\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have accessible main content structure" classname="setup.smoke.spec.ts" time="3.156">
+<failure message="setup.smoke.spec.ts:105:3 should have accessible main content structure" type="FAILURE">
+<![CDATA[  [chromium] › setup.smoke.spec.ts:105:3 › Phase 1 Setup - Smoke Tests › should have accessible main content structure 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-chromium\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have proper DOCTYPE and language" classname="setup.smoke.spec.ts" time="3.123">
+<failure message="setup.smoke.spec.ts:118:3 should have proper DOCTYPE and language" type="FAILURE">
+<![CDATA[  [chromium] › setup.smoke.spec.ts:118:3 › Phase 1 Setup - Smoke Tests › should have proper DOCTYPE and language 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-chromium\video.webm]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="setup.smoke.spec.ts" timestamp="2025-10-29T15:20:01.960Z" hostname="firefox" tests="8" failures="8" skipped="0" time="33.53" errors="0">
+<testcase name="Phase 1 Setup - Smoke Tests › should load the homepage without errors" classname="setup.smoke.spec.ts" time="4.297">
+<failure message="setup.smoke.spec.ts:15:3 should load the homepage without errors" type="FAILURE">
+<![CDATA[  [firefox] › setup.smoke.spec.ts:15:3 › Phase 1 Setup - Smoke Tests › should load the homepage without errors 
+
+    Error: page.goto: NS_ERROR_CONNECTION_REFUSED
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-firefox\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-firefox\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-firefox\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-firefox\video.webm]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-firefox\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have Tailwind CSS loaded" classname="setup.smoke.spec.ts" time="4.337">
+<failure message="setup.smoke.spec.ts:31:3 should have Tailwind CSS loaded" type="FAILURE">
+<![CDATA[  [firefox] › setup.smoke.spec.ts:31:3 › Phase 1 Setup - Smoke Tests › should have Tailwind CSS loaded 
+
+    Error: page.goto: NS_ERROR_CONNECTION_REFUSED
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-firefox\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-firefox\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-firefox\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-firefox\video.webm]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-firefox\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have Bootstrap Reboot styles loaded" classname="setup.smoke.spec.ts" time="4.226">
+<failure message="setup.smoke.spec.ts:53:3 should have Bootstrap Reboot styles loaded" type="FAILURE">
+<![CDATA[  [firefox] › setup.smoke.spec.ts:53:3 › Phase 1 Setup - Smoke Tests › should have Bootstrap Reboot styles loaded 
+
+    Error: page.goto: NS_ERROR_CONNECTION_REFUSED
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-firefox\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-firefox\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-firefox\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-firefox\video.webm]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-firefox\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have proper security headers structure" classname="setup.smoke.spec.ts" time="4.158">
+<failure message="setup.smoke.spec.ts:67:3 should have proper security headers structure" type="FAILURE">
+<![CDATA[  [firefox] › setup.smoke.spec.ts:67:3 › Phase 1 Setup - Smoke Tests › should have proper security headers structure 
+
+    Error: page.goto: NS_ERROR_CONNECTION_REFUSED
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-firefox\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-firefox\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-firefox\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-firefox\video.webm]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-firefox\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have images directory structure accessible" classname="setup.smoke.spec.ts" time="4.174">
+<failure message="setup.smoke.spec.ts:77:3 should have images directory structure accessible" type="FAILURE">
+<![CDATA[  [firefox] › setup.smoke.spec.ts:77:3 › Phase 1 Setup - Smoke Tests › should have images directory structure accessible 
+
+    Error: page.goto: NS_ERROR_CONNECTION_REFUSED
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-firefox\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-firefox\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-firefox\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-firefox\video.webm]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-firefox\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have privacy and terms link placeholders" classname="setup.smoke.spec.ts" time="4.236">
+<failure message="setup.smoke.spec.ts:95:3 should have privacy and terms link placeholders" type="FAILURE">
+<![CDATA[  [firefox] › setup.smoke.spec.ts:95:3 › Phase 1 Setup - Smoke Tests › should have privacy and terms link placeholders 
+
+    Error: page.goto: NS_ERROR_CONNECTION_REFUSED
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-firefox\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-firefox\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-firefox\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-firefox\video.webm]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-firefox\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have accessible main content structure" classname="setup.smoke.spec.ts" time="3.981">
+<failure message="setup.smoke.spec.ts:105:3 should have accessible main content structure" type="FAILURE">
+<![CDATA[  [firefox] › setup.smoke.spec.ts:105:3 › Phase 1 Setup - Smoke Tests › should have accessible main content structure 
+
+    Error: page.goto: NS_ERROR_CONNECTION_REFUSED
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-firefox\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-firefox\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-firefox\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-firefox\video.webm]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-firefox\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have proper DOCTYPE and language" classname="setup.smoke.spec.ts" time="4.121">
+<failure message="setup.smoke.spec.ts:118:3 should have proper DOCTYPE and language" type="FAILURE">
+<![CDATA[  [firefox] › setup.smoke.spec.ts:118:3 › Phase 1 Setup - Smoke Tests › should have proper DOCTYPE and language 
+
+    Error: page.goto: NS_ERROR_CONNECTION_REFUSED
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-firefox\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-firefox\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-firefox\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-firefox\video.webm]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-firefox\error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="setup.smoke.spec.ts" timestamp="2025-10-29T15:20:01.960Z" hostname="webkit" tests="8" failures="8" skipped="0" time="23.842" errors="0">
+<testcase name="Phase 1 Setup - Smoke Tests › should load the homepage without errors" classname="setup.smoke.spec.ts" time="3.385">
+<failure message="setup.smoke.spec.ts:15:3 should load the homepage without errors" type="FAILURE">
+<![CDATA[  [webkit] › setup.smoke.spec.ts:15:3 › Phase 1 Setup - Smoke Tests › should load the homepage without errors 
+
+    Error: page.goto: Could not connect to server
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-webkit\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-webkit\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have Tailwind CSS loaded" classname="setup.smoke.spec.ts" time="2.884">
+<failure message="setup.smoke.spec.ts:31:3 should have Tailwind CSS loaded" type="FAILURE">
+<![CDATA[  [webkit] › setup.smoke.spec.ts:31:3 › Phase 1 Setup - Smoke Tests › should have Tailwind CSS loaded 
+
+    Error: page.goto: Could not connect to server
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-webkit\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-webkit\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have Bootstrap Reboot styles loaded" classname="setup.smoke.spec.ts" time="2.906">
+<failure message="setup.smoke.spec.ts:53:3 should have Bootstrap Reboot styles loaded" type="FAILURE">
+<![CDATA[  [webkit] › setup.smoke.spec.ts:53:3 › Phase 1 Setup - Smoke Tests › should have Bootstrap Reboot styles loaded 
+
+    Error: page.goto: Could not connect to server
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-webkit\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-webkit\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have proper security headers structure" classname="setup.smoke.spec.ts" time="2.874">
+<failure message="setup.smoke.spec.ts:67:3 should have proper security headers structure" type="FAILURE">
+<![CDATA[  [webkit] › setup.smoke.spec.ts:67:3 › Phase 1 Setup - Smoke Tests › should have proper security headers structure 
+
+    Error: page.goto: Could not connect to server
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-webkit\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-webkit\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have images directory structure accessible" classname="setup.smoke.spec.ts" time="2.972">
+<failure message="setup.smoke.spec.ts:77:3 should have images directory structure accessible" type="FAILURE">
+<![CDATA[  [webkit] › setup.smoke.spec.ts:77:3 › Phase 1 Setup - Smoke Tests › should have images directory structure accessible 
+
+    Error: page.goto: Could not connect to server
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-webkit\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-webkit\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have privacy and terms link placeholders" classname="setup.smoke.spec.ts" time="2.96">
+<failure message="setup.smoke.spec.ts:95:3 should have privacy and terms link placeholders" type="FAILURE">
+<![CDATA[  [webkit] › setup.smoke.spec.ts:95:3 › Phase 1 Setup - Smoke Tests › should have privacy and terms link placeholders 
+
+    Error: page.goto: Could not connect to server
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-webkit\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-webkit\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have accessible main content structure" classname="setup.smoke.spec.ts" time="2.93">
+<failure message="setup.smoke.spec.ts:105:3 should have accessible main content structure" type="FAILURE">
+<![CDATA[  [webkit] › setup.smoke.spec.ts:105:3 › Phase 1 Setup - Smoke Tests › should have accessible main content structure 
+
+    Error: page.goto: Could not connect to server
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-webkit\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-webkit\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have proper DOCTYPE and language" classname="setup.smoke.spec.ts" time="2.931">
+<failure message="setup.smoke.spec.ts:118:3 should have proper DOCTYPE and language" type="FAILURE">
+<![CDATA[  [webkit] › setup.smoke.spec.ts:118:3 › Phase 1 Setup - Smoke Tests › should have proper DOCTYPE and language 
+
+    Error: page.goto: Could not connect to server
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-webkit\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-webkit\video.webm]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="setup.smoke.spec.ts" timestamp="2025-10-29T15:20:01.960Z" hostname="Mobile Chrome" tests="8" failures="8" skipped="0" time="24.107" errors="0">
+<testcase name="Phase 1 Setup - Smoke Tests › should load the homepage without errors" classname="setup.smoke.spec.ts" time="2.99">
+<failure message="setup.smoke.spec.ts:15:3 should load the homepage without errors" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › setup.smoke.spec.ts:15:3 › Phase 1 Setup - Smoke Tests › should load the homepage without errors 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-Mobile-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-Mobile-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-Mobile-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-Mobile-Chrome\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have Tailwind CSS loaded" classname="setup.smoke.spec.ts" time="3.029">
+<failure message="setup.smoke.spec.ts:31:3 should have Tailwind CSS loaded" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › setup.smoke.spec.ts:31:3 › Phase 1 Setup - Smoke Tests › should have Tailwind CSS loaded 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-Mobile-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-Mobile-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-Mobile-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-Mobile-Chrome\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have Bootstrap Reboot styles loaded" classname="setup.smoke.spec.ts" time="3.021">
+<failure message="setup.smoke.spec.ts:53:3 should have Bootstrap Reboot styles loaded" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › setup.smoke.spec.ts:53:3 › Phase 1 Setup - Smoke Tests › should have Bootstrap Reboot styles loaded 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-Mobile-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-Mobile-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-Mobile-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-Mobile-Chrome\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have proper security headers structure" classname="setup.smoke.spec.ts" time="3.024">
+<failure message="setup.smoke.spec.ts:67:3 should have proper security headers structure" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › setup.smoke.spec.ts:67:3 › Phase 1 Setup - Smoke Tests › should have proper security headers structure 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-Mobile-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-Mobile-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-Mobile-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-Mobile-Chrome\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have images directory structure accessible" classname="setup.smoke.spec.ts" time="3.083">
+<failure message="setup.smoke.spec.ts:77:3 should have images directory structure accessible" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › setup.smoke.spec.ts:77:3 › Phase 1 Setup - Smoke Tests › should have images directory structure accessible 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-Mobile-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-Mobile-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-Mobile-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-Mobile-Chrome\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have privacy and terms link placeholders" classname="setup.smoke.spec.ts" time="2.887">
+<failure message="setup.smoke.spec.ts:95:3 should have privacy and terms link placeholders" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › setup.smoke.spec.ts:95:3 › Phase 1 Setup - Smoke Tests › should have privacy and terms link placeholders 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-Mobile-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-Mobile-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-Mobile-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-Mobile-Chrome\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have accessible main content structure" classname="setup.smoke.spec.ts" time="3.093">
+<failure message="setup.smoke.spec.ts:105:3 should have accessible main content structure" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › setup.smoke.spec.ts:105:3 › Phase 1 Setup - Smoke Tests › should have accessible main content structure 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-Mobile-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-Mobile-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-Mobile-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-Mobile-Chrome\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have proper DOCTYPE and language" classname="setup.smoke.spec.ts" time="2.98">
+<failure message="setup.smoke.spec.ts:118:3 should have proper DOCTYPE and language" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › setup.smoke.spec.ts:118:3 › Phase 1 Setup - Smoke Tests › should have proper DOCTYPE and language 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-Mobile-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-Mobile-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-Mobile-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-Mobile-Chrome\video.webm]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="setup.smoke.spec.ts" timestamp="2025-10-29T15:20:01.960Z" hostname="Mobile Safari" tests="8" failures="8" skipped="0" time="22.736" errors="0">
+<testcase name="Phase 1 Setup - Smoke Tests › should load the homepage without errors" classname="setup.smoke.spec.ts" time="2.912">
+<failure message="setup.smoke.spec.ts:15:3 should load the homepage without errors" type="FAILURE">
+<![CDATA[  [Mobile Safari] › setup.smoke.spec.ts:15:3 › Phase 1 Setup - Smoke Tests › should load the homepage without errors 
+
+    Error: page.goto: Could not connect to server
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-Mobile-Safari\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-Mobile-Safari\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-Mobile-Safari\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-Mobile-Safari\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have Tailwind CSS loaded" classname="setup.smoke.spec.ts" time="2.92">
+<failure message="setup.smoke.spec.ts:31:3 should have Tailwind CSS loaded" type="FAILURE">
+<![CDATA[  [Mobile Safari] › setup.smoke.spec.ts:31:3 › Phase 1 Setup - Smoke Tests › should have Tailwind CSS loaded 
+
+    Error: page.goto: Could not connect to server
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-Mobile-Safari\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-Mobile-Safari\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-Mobile-Safari\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-Mobile-Safari\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have Bootstrap Reboot styles loaded" classname="setup.smoke.spec.ts" time="2.812">
+<failure message="setup.smoke.spec.ts:53:3 should have Bootstrap Reboot styles loaded" type="FAILURE">
+<![CDATA[  [Mobile Safari] › setup.smoke.spec.ts:53:3 › Phase 1 Setup - Smoke Tests › should have Bootstrap Reboot styles loaded 
+
+    Error: page.goto: Could not connect to server
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-Mobile-Safari\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-Mobile-Safari\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-Mobile-Safari\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-Mobile-Safari\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have proper security headers structure" classname="setup.smoke.spec.ts" time="2.835">
+<failure message="setup.smoke.spec.ts:67:3 should have proper security headers structure" type="FAILURE">
+<![CDATA[  [Mobile Safari] › setup.smoke.spec.ts:67:3 › Phase 1 Setup - Smoke Tests › should have proper security headers structure 
+
+    Error: page.goto: Could not connect to server
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-Mobile-Safari\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-Mobile-Safari\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-Mobile-Safari\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-Mobile-Safari\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have images directory structure accessible" classname="setup.smoke.spec.ts" time="2.866">
+<failure message="setup.smoke.spec.ts:77:3 should have images directory structure accessible" type="FAILURE">
+<![CDATA[  [Mobile Safari] › setup.smoke.spec.ts:77:3 › Phase 1 Setup - Smoke Tests › should have images directory structure accessible 
+
+    Error: page.goto: Could not connect to server
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-Mobile-Safari\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-Mobile-Safari\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-Mobile-Safari\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-Mobile-Safari\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have privacy and terms link placeholders" classname="setup.smoke.spec.ts" time="2.776">
+<failure message="setup.smoke.spec.ts:95:3 should have privacy and terms link placeholders" type="FAILURE">
+<![CDATA[  [Mobile Safari] › setup.smoke.spec.ts:95:3 › Phase 1 Setup - Smoke Tests › should have privacy and terms link placeholders 
+
+    Error: page.goto: Could not connect to server
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-Mobile-Safari\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-Mobile-Safari\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-Mobile-Safari\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-Mobile-Safari\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have accessible main content structure" classname="setup.smoke.spec.ts" time="2.841">
+<failure message="setup.smoke.spec.ts:105:3 should have accessible main content structure" type="FAILURE">
+<![CDATA[  [Mobile Safari] › setup.smoke.spec.ts:105:3 › Phase 1 Setup - Smoke Tests › should have accessible main content structure 
+
+    Error: page.goto: Could not connect to server
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-Mobile-Safari\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-Mobile-Safari\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-Mobile-Safari\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-Mobile-Safari\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have proper DOCTYPE and language" classname="setup.smoke.spec.ts" time="2.774">
+<failure message="setup.smoke.spec.ts:118:3 should have proper DOCTYPE and language" type="FAILURE">
+<![CDATA[  [Mobile Safari] › setup.smoke.spec.ts:118:3 › Phase 1 Setup - Smoke Tests › should have proper DOCTYPE and language 
+
+    Error: page.goto: Could not connect to server
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-Mobile-Safari\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-Mobile-Safari\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-Mobile-Safari\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-Mobile-Safari\video.webm]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="setup.smoke.spec.ts" timestamp="2025-10-29T15:20:01.960Z" hostname="Microsoft Edge" tests="8" failures="8" skipped="0" time="28.386" errors="0">
+<testcase name="Phase 1 Setup - Smoke Tests › should load the homepage without errors" classname="setup.smoke.spec.ts" time="3.886">
+<failure message="setup.smoke.spec.ts:15:3 should load the homepage without errors" type="FAILURE">
+<![CDATA[  [Microsoft Edge] › setup.smoke.spec.ts:15:3 › Phase 1 Setup - Smoke Tests › should load the homepage without errors 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-Microsoft-Edge\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-Microsoft-Edge\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-Microsoft-Edge\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-Microsoft-Edge\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-Microsoft-Edge\video.webm]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-Microsoft-Edge\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have Tailwind CSS loaded" classname="setup.smoke.spec.ts" time="4.142">
+<failure message="setup.smoke.spec.ts:31:3 should have Tailwind CSS loaded" type="FAILURE">
+<![CDATA[  [Microsoft Edge] › setup.smoke.spec.ts:31:3 › Phase 1 Setup - Smoke Tests › should have Tailwind CSS loaded 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-Microsoft-Edge\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-Microsoft-Edge\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-Microsoft-Edge\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-Microsoft-Edge\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-Microsoft-Edge\video.webm]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-Microsoft-Edge\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have Bootstrap Reboot styles loaded" classname="setup.smoke.spec.ts" time="3.228">
+<failure message="setup.smoke.spec.ts:53:3 should have Bootstrap Reboot styles loaded" type="FAILURE">
+<![CDATA[  [Microsoft Edge] › setup.smoke.spec.ts:53:3 › Phase 1 Setup - Smoke Tests › should have Bootstrap Reboot styles loaded 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-Microsoft-Edge\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-Microsoft-Edge\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-Microsoft-Edge\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-Microsoft-Edge\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-Microsoft-Edge\video.webm]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-Microsoft-Edge\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have proper security headers structure" classname="setup.smoke.spec.ts" time="3.196">
+<failure message="setup.smoke.spec.ts:67:3 should have proper security headers structure" type="FAILURE">
+<![CDATA[  [Microsoft Edge] › setup.smoke.spec.ts:67:3 › Phase 1 Setup - Smoke Tests › should have proper security headers structure 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-Microsoft-Edge\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-Microsoft-Edge\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-Microsoft-Edge\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-Microsoft-Edge\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-Microsoft-Edge\video.webm]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-Microsoft-Edge\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have images directory structure accessible" classname="setup.smoke.spec.ts" time="3.31">
+<failure message="setup.smoke.spec.ts:77:3 should have images directory structure accessible" type="FAILURE">
+<![CDATA[  [Microsoft Edge] › setup.smoke.spec.ts:77:3 › Phase 1 Setup - Smoke Tests › should have images directory structure accessible 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-Microsoft-Edge\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-Microsoft-Edge\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-Microsoft-Edge\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-Microsoft-Edge\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-Microsoft-Edge\video.webm]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-Microsoft-Edge\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have privacy and terms link placeholders" classname="setup.smoke.spec.ts" time="3.225">
+<failure message="setup.smoke.spec.ts:95:3 should have privacy and terms link placeholders" type="FAILURE">
+<![CDATA[  [Microsoft Edge] › setup.smoke.spec.ts:95:3 › Phase 1 Setup - Smoke Tests › should have privacy and terms link placeholders 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-Microsoft-Edge\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-Microsoft-Edge\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-Microsoft-Edge\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-Microsoft-Edge\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-Microsoft-Edge\video.webm]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-Microsoft-Edge\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have accessible main content structure" classname="setup.smoke.spec.ts" time="3.309">
+<failure message="setup.smoke.spec.ts:105:3 should have accessible main content structure" type="FAILURE">
+<![CDATA[  [Microsoft Edge] › setup.smoke.spec.ts:105:3 › Phase 1 Setup - Smoke Tests › should have accessible main content structure 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-Microsoft-Edge\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-Microsoft-Edge\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-Microsoft-Edge\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-Microsoft-Edge\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-Microsoft-Edge\video.webm]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-Microsoft-Edge\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have proper DOCTYPE and language" classname="setup.smoke.spec.ts" time="4.09">
+<failure message="setup.smoke.spec.ts:118:3 should have proper DOCTYPE and language" type="FAILURE">
+<![CDATA[  [Microsoft Edge] › setup.smoke.spec.ts:118:3 › Phase 1 Setup - Smoke Tests › should have proper DOCTYPE and language 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-Microsoft-Edge\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-Microsoft-Edge\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-Microsoft-Edge\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-Microsoft-Edge\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-Microsoft-Edge\video.webm]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-Microsoft-Edge\error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="setup.smoke.spec.ts" timestamp="2025-10-29T15:20:01.960Z" hostname="Google Chrome" tests="8" failures="8" skipped="0" time="25.181" errors="0">
+<testcase name="Phase 1 Setup - Smoke Tests › should load the homepage without errors" classname="setup.smoke.spec.ts" time="3.294">
+<failure message="setup.smoke.spec.ts:15:3 should load the homepage without errors" type="FAILURE">
+<![CDATA[  [Google Chrome] › setup.smoke.spec.ts:15:3 › Phase 1 Setup - Smoke Tests › should load the homepage without errors 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-Google-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-Google-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-Google-Chrome\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-Google-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-Google-Chrome\video.webm]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--997b2-the-homepage-without-errors-Google-Chrome\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have Tailwind CSS loaded" classname="setup.smoke.spec.ts" time="3.352">
+<failure message="setup.smoke.spec.ts:31:3 should have Tailwind CSS loaded" type="FAILURE">
+<![CDATA[  [Google Chrome] › setup.smoke.spec.ts:31:3 › Phase 1 Setup - Smoke Tests › should have Tailwind CSS loaded 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-Google-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-Google-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-Google-Chrome\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-Google-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-Google-Chrome\video.webm]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--24b95-ld-have-Tailwind-CSS-loaded-Google-Chrome\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have Bootstrap Reboot styles loaded" classname="setup.smoke.spec.ts" time="3.252">
+<failure message="setup.smoke.spec.ts:53:3 should have Bootstrap Reboot styles loaded" type="FAILURE">
+<![CDATA[  [Google Chrome] › setup.smoke.spec.ts:53:3 › Phase 1 Setup - Smoke Tests › should have Bootstrap Reboot styles loaded 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-Google-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-Google-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-Google-Chrome\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-Google-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-Google-Chrome\video.webm]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--0806b-tstrap-Reboot-styles-loaded-Google-Chrome\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have proper security headers structure" classname="setup.smoke.spec.ts" time="3.098">
+<failure message="setup.smoke.spec.ts:67:3 should have proper security headers structure" type="FAILURE">
+<![CDATA[  [Google Chrome] › setup.smoke.spec.ts:67:3 › Phase 1 Setup - Smoke Tests › should have proper security headers structure 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-Google-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-Google-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-Google-Chrome\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-Google-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-Google-Chrome\video.webm]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--d869d--security-headers-structure-Google-Chrome\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have images directory structure accessible" classname="setup.smoke.spec.ts" time="3.039">
+<failure message="setup.smoke.spec.ts:77:3 should have images directory structure accessible" type="FAILURE">
+<![CDATA[  [Google Chrome] › setup.smoke.spec.ts:77:3 › Phase 1 Setup - Smoke Tests › should have images directory structure accessible 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-Google-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-Google-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-Google-Chrome\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-Google-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-Google-Chrome\video.webm]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--398da-ectory-structure-accessible-Google-Chrome\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have privacy and terms link placeholders" classname="setup.smoke.spec.ts" time="3.052">
+<failure message="setup.smoke.spec.ts:95:3 should have privacy and terms link placeholders" type="FAILURE">
+<![CDATA[  [Google Chrome] › setup.smoke.spec.ts:95:3 › Phase 1 Setup - Smoke Tests › should have privacy and terms link placeholders 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-Google-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-Google-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-Google-Chrome\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-Google-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-Google-Chrome\video.webm]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--b3f13-and-terms-link-placeholders-Google-Chrome\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have accessible main content structure" classname="setup.smoke.spec.ts" time="3.146">
+<failure message="setup.smoke.spec.ts:105:3 should have accessible main content structure" type="FAILURE">
+<![CDATA[  [Google Chrome] › setup.smoke.spec.ts:105:3 › Phase 1 Setup - Smoke Tests › should have accessible main content structure 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-Google-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-Google-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-Google-Chrome\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-Google-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-Google-Chrome\video.webm]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--92732-ible-main-content-structure-Google-Chrome\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Phase 1 Setup - Smoke Tests › should have proper DOCTYPE and language" classname="setup.smoke.spec.ts" time="2.948">
+<failure message="setup.smoke.spec.ts:118:3 should have proper DOCTYPE and language" type="FAILURE">
+<![CDATA[  [Google Chrome] › setup.smoke.spec.ts:118:3 › Phase 1 Setup - Smoke Tests › should have proper DOCTYPE and language 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      10 | test.describe('Phase 1 Setup - Smoke Tests', () => {
+      11 |   test.beforeEach(async ({ page }) => {
+    > 12 |     await page.goto('/');
+         |                ^
+      13 |   });
+      14 |
+      15 |   test('should load the homepage without errors', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\setup.smoke.spec.ts:12:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-Google-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-Google-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-Google-Chrome\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-Google-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-Google-Chrome\video.webm]]
+
+[[ATTACHMENT|test-results\setup.smoke-Phase-1-Setup--e6625-proper-DOCTYPE-and-language-Google-Chrome\error-context.md]]
+]]>
+</system-out>
 </testcase>
 </testsuite>
 </testsuites>

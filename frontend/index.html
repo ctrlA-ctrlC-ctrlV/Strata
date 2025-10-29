@@ -3,8 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Security: Content Security Policy (baseline for development) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' data: https:; connect-src 'self'; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self';">
+  
   <title>Strata Garden Rooms</title>
-  <link rel="stylesheet" href="/src/styles/main.css">
+  
+  <!-- Bootstrap Reboot for consistent base styles -->
+  <link rel="stylesheet" href="/css/bootstrap-reboot.min.css">
+  
+  <!-- Main styles will be injected by Vite (includes Tailwind) -->
 </head>
 <body>
   <div id="app">
@@ -24,6 +32,21 @@
     </main>
   </div>
   
-  <script type="module" src="/src/main.js"></script>
+  <!-- Footer with legal links -->
+  <footer>
+    <div class="container-custom">
+      <nav aria-label="Legal">
+        <ul>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms-of-service.html">Terms of Service</a></li>
+          <li><a href="/cookie-policy.html">Cookie Policy</a></li>
+        </ul>
+      </nav>
+      <p>&copy; 2025 Strata Garden Rooms. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- Vite will inject the main script -->
+  <script type="module" src="/src/main.ts"></script>
 </body>
 </html>

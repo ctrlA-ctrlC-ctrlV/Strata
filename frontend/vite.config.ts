@@ -1,8 +1,10 @@
 import { defineConfig } from 'vite'
 import legacy from '@vitejs/plugin-legacy'
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [
+    tailwindcss(),
     legacy({
       targets: ['defaults', 'not IE 11']
     })

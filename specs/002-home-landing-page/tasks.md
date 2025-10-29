@@ -14,21 +14,21 @@ Notes
 
 ## Phase 1 — Setup
 
-- [ ] T079 Create Phase 1 smoke tests scaffold in frontend/tests/e2e/setup.smoke.spec.ts
+- [X] T079 Create Phase 1 smoke tests scaffold in frontend/tests/e2e/setup.smoke.spec.ts
 
-- [ ] T001 Configure Tailwind project files in frontend/tailwind.config.cjs
-- [ ] T002 Add Tailwind base stylesheet in frontend/src/styles/tailwind.css
-- [ ] T003 Wire Tailwind into Vite entry in frontend/src/main.tsx
-- [ ] T004 Add Bootstrap Reboot (self-hosted) to frontend/public/css/bootstrap-reboot.min.css
-- [ ] T005 Include CSS links (Tailwind build + Bootstrap Reboot) in frontend/index.html
-- [ ] T006 Create images directory structure in frontend/public/images/{hero,gallery,projects,testimonials,logos}
-- [ ] T007 Add CSP meta tag (tight baseline) in frontend/index.html (document-only; real enforcement via server/CDN)
-- [ ] T078 Create deployment security headers config (Nginx/hosting) with HSTS, CSP, SRI, and secure headers in docs/deployment-static-security-headers.md
-- [ ] T008 Add accessibility tooling hooks (axe in Playwright) in frontend/tests/helpers/axe.ts
-- [ ] T009 Prepare Lighthouse config for CI (doc stub) in docs/production-health-automation.md
-- [ ] T010 Add privacy & terms links placeholders in frontend/index.html
+- [X] T001 Configure Tailwind (Tailwind V4.0) project files in frontend/tailwind.config.cjs
+- [X] T002 Add Tailwind base stylesheet in frontend/src/styles/tailwind.css
+- [X] T003 Wire Tailwind into Vite entry in frontend/src/main.tsx
+- [X] T004 Add Bootstrap (Bootstrap V5.3.8) Reboot (self-hosted) to frontend/public/css/bootstrap-reboot.min.css
+- [X] T005 Include CSS links (Tailwind build + Bootstrap Reboot) in frontend/index.html
+- [X] T006 Create images directory structure in frontend/public/images/{hero,gallery,projects,testimonials,logos}
+- [X] T007 Add CSP meta tag (tight baseline) in frontend/index.html (document-only; real enforcement via server/CDN)
+- [X] T078 Create deployment security headers config (Nginx/hosting) with HSTS, CSP, SRI, and secure headers in docs/deployment-static-security-headers.md
+- [X] T008 Add accessibility tooling hooks (axe in Playwright) in frontend/tests/helpers/axe.ts
+- [X] T009 Prepare Lighthouse config for CI (doc stub) in docs/production-health-automation.md
+- [X] T010 Add privacy & terms links placeholders in frontend/index.html
 
-- [ ] T080 Run Phase 1 tests (smoke, lint, typecheck)
+- [X] T080 Run Phase 1 tests (smoke, lint, typecheck)
 
 ## Phase 2 — Foundational
 
