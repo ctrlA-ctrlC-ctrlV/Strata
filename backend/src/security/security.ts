@@ -1,4 +1,5 @@
 import { Express, Request, Response, NextFunction } from 'express'
+import type { ParsedQs } from 'qs'
 
 export function setupSecurityMiddleware(app: Express): void {
   // Custom security headers
@@ -37,14 +38,14 @@ export function setupSecurityMiddleware(app: Express): void {
 // Input sanitization middleware
 export function sanitizeInput(req: Request, res: Response, next: NextFunction): void {
   // Basic XSS protection - strip HTML tags from string inputs
-  function sanitizeValue(value: any): any {
+  function sanitizeValue(value: unknown): unknown {
     if (typeof value === 'string') {
       return value.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
                   .replace(/<[^>]*>/g, '') // Remove HTML tags
                   .trim()
     }
     if (typeof value === 'object' && value !== null) {
-      const sanitized: any = {}
+      const sanitized: Record<string, unknown> = {}
       for (const [key, val] of Object.entries(value)) {
         sanitized[key] = sanitizeValue(val)
       }
@@ -54,11 +55,11 @@ export function sanitizeInput(req: Request, res: Response, next: NextFunction): 
   }
 
   if (req.body && typeof req.body === 'object') {
-    req.body = sanitizeValue(req.body)
+    req.body = sanitizeValue(req.body) as Record<string, unknown>
   }
 
   if (req.query && typeof req.query === 'object') {
-    req.query = sanitizeValue(req.query)
+    req.query = sanitizeValue(req.query) as ParsedQs
   }
 
   next()

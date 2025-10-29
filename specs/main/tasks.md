@@ -107,17 +107,17 @@
 
 ### Tests for User Story 3 (MANDATORY per constitution) ⚠️
 
-- [ ] T032 [P] [US3] Create deployment validation test in backend/tests/integration/deployment.test.ts  
-- [ ] T033 [P] [US3] Create cost monitoring script in backend/src/scripts/cost-analysis.ts
+- [x] T032 [P] [US3] Create deployment validation test in backend/tests/integration/deployment.test.ts  
+- [x] T033 [P] [US3] Create cost monitoring script in backend/src/scripts/cost-analysis.ts
 
 ### Implementation for User Story 3
 
-- [ ] T034 [P] [US3] Remove MongoDB dependencies from backend/package.json
-- [ ] T035 [P] [US3] Delete MongoDB connection files: backend/src/db/mongo.ts
-- [ ] T036 [US3] Update deployment configuration to remove MongoDB connection strings
-- [ ] T037 [US3] Document cost savings and complexity reduction in backend/docs/migration-benefits.md  
-- [ ] T038 [US3] Update deployment scripts to use only Supabase configuration
-- [ ] T039 [US3] Validate production deployment with simplified infrastructure
+- [x] T034 [P] [US3] Remove MongoDB dependencies from backend/package.json
+- [x] T035 [P] [US3] Delete MongoDB connection files: backend/src/db/mongo.ts
+- [x] T036 [US3] Update deployment configuration to remove MongoDB connection strings
+- [x] T037 [US3] Document cost savings and complexity reduction in backend/docs/migration-benefits.md  
+- [x] T038 [US3] Update deployment scripts to use only Supabase configuration
+- [x] T039 [US3] Validate production deployment with simplified infrastructure
 
 **Checkpoint**: All user stories should now be independently functional with reduced operational overhead
 
@@ -127,13 +127,13 @@
 
 **Purpose**: Final improvements and cleanup that affect multiple user stories
 
-- [ ] T040 [P] Update API documentation in specs/main/contracts/openapi.yaml to reflect Supabase implementation
-- [ ] T041 [P] Code cleanup: remove all MongoDB-related imports and references
-- [ ] T042 [P] Performance optimization: verify query performance meets <200ms p95 targets  
-- [ ] T043 [P] Update developer onboarding documentation in specs/main/quickstart.md
-- [ ] T044 Security review: validate RLS policies and environment variable security
-- [ ] T045 [P] Final integration test: run complete test suite and verify all functionality
-- [ ] T046 Update deployment pipeline to exclude MongoDB configuration
+- [x] T040 [P] Update API documentation in specs/main/contracts/openapi.yaml to reflect Supabase implementation
+- [x] T041 [P] Code cleanup: remove all MongoDB-related imports and references
+- [x] T042 [P] Performance optimization: verify query performance meets <200ms p95 targets  
+- [x] T043 [P] Update developer onboarding documentation in specs/main/quickstart.md
+- [x] T044 Security review: validate RLS policies and environment variable security
+- [x] T045 [P] Final integration test: run complete test suite and verify all functionality
+- [x] T046 Update deployment pipeline to exclude MongoDB configuration
 
 ---
 

@@ -1,7 +1,26 @@
 openapi: 3.0.3
 info:
   title: Strata Garden Rooms API
-  description: API for managing garden room quotes and configurations with Supabase backend
+  description: |
+    API for managing garden room quotes and configurations with Supabase PostgreSQL backend.
+    
+    ## Backend Technology
+    
+    This API is powered by Supabase, providing:
+    - PostgreSQL database with Row Level Security (RLS)
+    - Real-time subscriptions
+    - Automatic API generation
+    - Built-in authentication and authorization
+    - Type-safe database operations with TypeScript
+    
+    ## Data Types
+    
+    All entity IDs are UUIDs (format: `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`)
+    Timestamps are in ISO 8601 format with timezone information
+    
+    ## Performance
+    
+    Target response times: <200ms p95 for all endpoints
   version: 2.0.0
   contact:
     name: Strata Development Team
@@ -279,7 +298,7 @@ paths:
   /contact:
     post:
       summary: Submit contact form
-      description: Submit a contact form (unchanged from MongoDB implementation)
+      description: Submit a contact form with Supabase backend integration
       operationId: submitContactForm
       tags:
         - Contact

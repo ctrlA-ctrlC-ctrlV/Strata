@@ -1,559 +1,535 @@
-# Quickstart: MongoDB to Supabase Migration
+# Developer Onboarding: Strata Garden Rooms - Supabase Backend
 
-**Feature**: Migrate from DigitalOcean MongoDB to Supabase  
-**Date**: 2025-10-22  
+**Feature**: Supabase PostgreSQL Backend  
+**Status**: ✅ Migration Complete  
+**Date**: 2025-10-28  
 **Prerequisites**: Node.js 18+, npm/yarn, Git access to Strata repository
 
 ## Overview
 
-This quickstart guide provides step-by-step instructions for developers to set up and integrate Supabase as the new database backend for Strata. Since the current MongoDB database is empty, this is a clean technology replacement that maintains all existing API contracts while providing better type safety and developer experience.
+This guide helps new developers quickly get up to speed with the Strata Garden Rooms codebase, which uses Supabase PostgreSQL as the backend database. The migration from MongoDB to Supabase has been completed, providing better type safety, performance, and developer experience.
 
-## What's Being Changed
+## Technology Stack
 
-### Before (MongoDB)
-- DigitalOcean hosted MongoDB cluster
-- MongoDB Node.js driver with ObjectIds
-- Document-based data storage
-- Manual connection pooling and error handling
+### Backend
+- **Database**: Supabase PostgreSQL with Row Level Security (RLS)
+- **API**: Express.js with TypeScript
+- **ORM**: Supabase JavaScript client v2.x with auto-generated types
+- **Authentication**: JWT tokens with bcrypt password hashing
+- **Email**: Nodemailer with SMTP configuration
+- **Testing**: Jest with integration test suite
 
-### After (Supabase)
-- Supabase PostgreSQL database with auto-generated APIs
-- Supabase JavaScript client with TypeScript support
-- Relational data model with foreign keys and constraints
-- Built-in connection pooling, auth, and real-time capabilities
+### Frontend  
+- **Framework**: Vanilla TypeScript with Vite build system
+- **Styling**: CSS modules with critical CSS optimization
+- **Testing**: Playwright for E2E testing, Vitest for unit tests
+- **Analytics**: Custom event tracking system
 
-## Prerequisites Setup
+## Quick Start (5 minutes)
 
-### 1. Install Supabase CLI
-
-**Windows (PowerShell):**
-```powershell
-# Using Chocolatey (recommended)
-choco install supabase
-
-# Or using npm
-npm install -g supabase
-```
-
-**Verify installation:**
-```powershell
-supabase --version
-```
-
-### 2. Create Supabase Account and Project
-
-1. Go to [https://supabase.com](https://supabase.com)
-2. Sign up/login with GitHub account
-3. Create new project:
-   - Name: `strata-garden-rooms-dev`
-   - Database password: Generate secure password
-   - Region: Choose closest to Ireland (eu-west-1)
-
-### 3. Get Project Configuration
-
-From your Supabase project dashboard:
-1. Go to Settings → API
-2. Copy the following values:
-   - **Project URL**: `https://your-project.supabase.co`
-   - **Anon (public) key**: `eyJ...` (public key)
-   - **Service role key**: `eyJ...` (secret key - for server use only)
-
-## Local Development Setup
-
-### 1. Clone and Setup Repository
+### 1. Environment Setup
 
 ```powershell
-# Navigate to the backend directory
-cd "E:\Zhaoxiang_Qiu\work\SDeal\Strata\backend"
+# Clone and navigate to the project
+cd "E:\Zhaoxiang_Qiu\work\SDeal\Strata"
 
-# Install new dependencies
-npm install @supabase/supabase-js
-npm install --save-dev supabase
+# Install backend dependencies
+cd backend
+npm install
+
+# Install frontend dependencies  
+cd ../frontend
+npm install
 ```
 
 ### 2. Environment Configuration
 
-Create/update `.env` file in backend directory:
+Create `backend/.env` file:
 
 ```env
-# Supabase Configuration (Primary Database)
+# Supabase Configuration (Required)
 SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_ANON_KEY=eyJ_your_anon_key_here
-SUPABASE_SERVICE_KEY=eyJ_your_service_key_here
+SUPABASE_SERVICE_ROLE_KEY=eyJ_your_service_key_here
 
-# Optional: Keep MongoDB config for reference during transition
-# MONGODB_URI=your_existing_mongodb_uri
-# MONGODB_DB_NAME=strata_garden_rooms
-
-# Application Settings
+# Application Configuration
 NODE_ENV=development
 PORT=3001
+CORS_ORIGIN=http://localhost:3000
+
+# Email Configuration (Optional for local development)
+EMAIL_PROVIDER=smtp
+SMTP_HOST=localhost
+SMTP_PORT=1025
+EMAIL_FROM=dev@stratagarden.ie
+
+# Security Configuration
+JWT_SECRET=your_super_secret_jwt_key_minimum_32_characters
+BCRYPT_ROUNDS=12
 ```
 
-### 3. Initialize Local Supabase (Optional)
+### 3. Database Schema Setup
 
-For complete local development:
+The database schema is already defined in `backend/supabase/migrations/20251023001000_initial_schema.sql`.
 
+**Option A: Use Remote Supabase Project**
 ```powershell
-# Initialize Supabase in project root
-cd "E:\Zhaoxiang_Qiu\work\SDeal\Strata"
-supabase init
+# Link to your Supabase project
+cd backend
+npx supabase link --project-ref your-project-ref
 
-# Start local Supabase stack (PostgreSQL, API, Dashboard)
-supabase start
+# Apply the schema migration
+npx supabase db push
 ```
 
-This creates:
-- Local PostgreSQL on `postgresql://postgres:postgres@localhost:54322/postgres`
-- Local API server on `http://localhost:54321`
-- Local dashboard on `http://localhost:54323`
-
-## Database Schema Setup
-
-### 1. Apply Schema Migrations
-
-**Using Remote Supabase:**
+**Option B: Use Local Supabase (Recommended for Development)**
 ```powershell
-# Link to your remote project
-supabase link --project-ref your-project-ref
+# Start local Supabase stack
+cd backend
+npx supabase start
 
-# Create and run migration
-supabase migration new initial_schema
+# Schema is automatically applied to local instance
+# Local services will be available at:
+# - Database: postgresql://postgres:postgres@localhost:54322/postgres
+# - API: http://localhost:54321
+# - Dashboard: http://localhost:54323
 ```
 
-**Copy the schema from `data-model.md` into the migration file**, then:
+### 4. Generate TypeScript Types
 
 ```powershell
-# Apply migration to remote database
-supabase db push
-```
-
-**Using Local Supabase:**
-```powershell
-# Migration is applied automatically to local DB
-supabase migration up
-```
-
-### 2. Generate TypeScript Types
-
-```powershell
-# Generate types from database schema
-supabase gen types typescript --linked > src/types/supabase.ts
+# Generate types from your database schema
+npx supabase gen types typescript --linked > src/types/supabase.ts
 
 # Or for local development
-supabase gen types typescript --local > src/types/supabase.ts
+npx supabase gen types typescript --local > src/types/supabase.ts
 ```
 
-## Code Implementation Guide
+### 5. Run the Application
 
-### 1. Supabase Client Setup
+```powershell
+# Terminal 1: Start backend server
+cd backend
+npm run dev
 
-Create `src/db/supabase.ts`:
+# Terminal 2: Start frontend development server  
+cd frontend
+npm run dev
+
+# Terminal 3: Run tests (optional)
+cd backend
+npm test
+```
+
+The application will be available at:
+- **Frontend**: http://localhost:3000
+- **Backend API**: http://localhost:3001
+- **Supabase Dashboard**: http://localhost:54323 (if using local setup)
+
+## Project Structure
+
+## Project Structure
+
+```
+Strata/
+├── backend/                    # Express.js API server
+│   ├── src/
+│   │   ├── api/               # API route handlers
+│   │   │   ├── quotes.ts      # Quote management endpoints
+│   │   │   ├── contact.ts     # Contact form endpoints
+│   │   │   └── server.ts      # Express server setup
+│   │   ├── db/                # Database layer
+│   │   │   ├── supabase.ts    # Supabase client configuration
+│   │   │   └── repos/         # Repository pattern implementations
+│   │   │       └── quotes.ts  # Quote data access layer
+│   │   ├── services/          # Business logic layer
+│   │   │   ├── quotes.ts      # Quote processing logic
+│   │   │   ├── mailer.ts      # Email service
+│   │   │   └── validation.ts  # Input validation schemas
+│   │   ├── types/             # TypeScript type definitions
+│   │   │   ├── entities.ts    # Business entity types
+│   │   │   └── supabase.ts    # Auto-generated DB types
+│   │   ├── security/          # Security middleware
+│   │   │   └── security.ts    # Rate limiting, sanitization
+│   │   ├── scripts/           # Utility scripts
+│   │   │   ├── health-check.ts       # Database health validation
+│   │   │   ├── performance-*.ts      # Performance testing tools
+│   │   │   └── migration-validator.ts # Migration completeness check
+│   │   └── migrations/        # Database migration utilities
+│   ├── supabase/              # Supabase configuration
+│   │   ├── config.toml        # Local Supabase settings
+│   │   └── migrations/        # SQL schema migrations
+│   ├── tests/                 # Test suite
+│   │   ├── integration/       # API integration tests
+│   │   └── unit/              # Unit tests
+│   └── docs/                  # Backend documentation
+├── frontend/                  # Vite + TypeScript frontend
+│   ├── src/
+│   │   ├── components/        # Reusable UI components
+│   │   ├── pages/             # Page-specific components
+│   │   ├── lib/               # Utility libraries
+│   │   └── styles/            # CSS modules and styles
+│   ├── public/                # Static assets
+│   └── tests/                 # Frontend tests
+└── specs/                     # Project specifications
+    └── main/                  # Main feature specifications
+        ├── contracts/         # API documentation (OpenAPI)
+        ├── data-model.md      # Database schema documentation
+        ├── plan.md            # Technical architecture plan
+        ├── tasks.md           # Implementation task breakdown
+        └── quickstart.md      # This file
+```
+
+## Core Concepts
+
+### 1. Repository Pattern
+
+The codebase uses the repository pattern to abstract database operations:
 
 ```typescript
-import { createClient } from '@supabase/supabase-js'
-import type { Database } from '../types/supabase'
+// Example: backend/src/db/repos/quotes.ts
+export class QuotesRepository {
+  async createQuoteRequest(input: CreateQuoteRequestInput): Promise<RepositoryResult<QuoteRequest>> {
+    try {
+      const { data, error } = await supabase
+        .from('quote_requests')
+        .insert(input)
+        .select()
+        .single()
 
-const supabaseUrl = process.env.SUPABASE_URL!
-const supabaseKey = process.env.SUPABASE_SERVICE_KEY! // Use service key for server-side
+      if (error) {
+        return { success: false, error: { message: error.message, code: error.code } }
+      }
 
-export const supabase = createClient<Database>(supabaseUrl, supabaseKey)
-
-// For API operations that need elevated permissions
-export const adminSupabase = supabase
-
-// Health check function
-export async function checkConnection() {
-  try {
-    const { data, error } = await supabase.from('product_configurations').select('count').limit(1)
-    if (error) throw error
-    console.log('Supabase connection successful')
-    return true
-  } catch (error) {
-    console.error('Supabase connection failed:', error)
-    return false
+      return { success: true, data }
+    } catch (error) {
+      return { success: false, error: { message: 'Database operation failed' } }
+    }
   }
 }
 ```
 
-### 2. Update Repository Pattern
+### 2. Type Safety
 
-Example for `src/db/repos/quotes.ts`:
+All database operations are fully typed using auto-generated types:
 
 ```typescript
-import { supabase } from '../supabase'
-import type { Database } from '../../types/supabase'
+// Auto-generated from database schema
+import type { Database } from '../types/supabase'
 
 type QuoteRequest = Database['public']['Tables']['quote_requests']['Row']
 type QuoteInsert = Database['public']['Tables']['quote_requests']['Insert']
 type QuoteUpdate = Database['public']['Tables']['quote_requests']['Update']
-
-export class QuotesRepository {
-  
-  async createQuoteRequest(quote: QuoteInsert): Promise<string> {
-    const { data, error } = await supabase
-      .from('quote_requests')
-      .insert(quote)
-      .select('id')
-      .single()
-    
-    if (error) throw error
-    return data.id
-  }
-
-  async getQuoteRequest(id: string): Promise<QuoteRequest | null> {
-    const { data, error } = await supabase
-      .from('quote_requests')
-      .select(`
-        *,
-        product_configurations(*),
-        payment_history(*)
-      `)
-      .eq('id', id)
-      .single()
-    
-    if (error) {
-      if (error.code === 'PGRST116') return null // Not found
-      throw error
-    }
-    
-    return data
-  }
-
-  async listQuotes(options: ListOptions = {}): Promise<ListResult> {
-    let query = supabase
-      .from('quote_requests')
-      .select(`
-        *,
-        product_configurations(*),
-        payment_history(*)
-      `, { count: 'exact' })
-
-    // Apply filters
-    if (options.status) {
-      query = query.eq('payment_status', options.status)
-    }
-
-    // Apply sorting
-    const sortBy = options.sortBy || 'created_at'
-    const ascending = options.sortOrder === 'asc'
-    query = query.order(sortBy, { ascending })
-
-    // Apply pagination
-    const page = options.page || 1
-    const limit = options.limit || 20
-    const from = (page - 1) * limit
-    const to = from + limit - 1
-    
-    query = query.range(from, to)
-
-    const { data, error, count } = await query
-    
-    if (error) throw error
-
-    return {
-      quotes: data || [],
-      total: count || 0,
-      page,
-      totalPages: Math.ceil((count || 0) / limit)
-    }
-  }
-}
 ```
 
-### 3. Update API Routes
+### 3. Error Handling
 
-Example for `src/api/quotes.ts`:
+Consistent error handling pattern throughout the application:
 
 ```typescript
-import { QuotesRepository } from '../db/repos/quotes'
-
-const quotesRepo = new QuotesRepository()
-
-// Existing route handlers work with minimal changes
-export async function createQuote(req: Request, res: Response) {
-  try {
-    const quoteId = await quotesRepo.createQuoteRequest(req.body)
-    
-    res.status(201).json({
-      success: true,
-      id: quoteId,
-      message: 'Quote created successfully'
-    })
-  } catch (error) {
-    console.error('Create quote error:', error)
-    res.status(500).json({
-      error: 'INTERNAL_ERROR',
-      message: 'Failed to create quote'
-    })
+interface RepositoryResult<T> {
+  success: boolean
+  data?: T
+  error?: {
+    message: string
+    code?: string
+    httpStatus?: number
   }
-}
-```
-
-## Testing Strategy
-
-### 1. Unit Tests
-
-Update existing tests to work with Supabase:
-
-```typescript
-// tests/unit/repos/quotes.test.ts
-import { QuotesRepository } from '../../../src/db/repos/quotes'
-
-describe('QuotesRepository', () => {
-  beforeEach(async () => {
-    // Clean up test data
-    await supabase.from('quote_requests').delete().neq('id', '')
-  })
-
-  it('should create a quote request', async () => {
-    const repo = new QuotesRepository()
-    const quote = { /* test data */ }
-    
-    const id = await repo.createQuoteRequest(quote)
-    
-    expect(id).toBeDefined()
-    expect(typeof id).toBe('string')
-  })
-})
-```
-
-### 2. Integration Tests
-
-Test complete API workflows:
-
-```typescript
-// tests/integration/quotes-api.test.ts
-import request from 'supertest'
-import app from '../../src/api/server'
-
-describe('Quotes API', () => {
-  it('should create and retrieve a quote', async () => {
-    // Create quote
-    const createResponse = await request(app)
-      .post('/api/quotes')
-      .send(testQuoteData)
-      .expect(201)
-
-    const quoteId = createResponse.body.id
-
-    // Retrieve quote
-    const getResponse = await request(app)
-      .get(`/api/quotes/${quoteId}`)
-      .expect(200)
-
-    expect(getResponse.body.id).toBe(quoteId)
-  })
-})
-```
-
-## Database Setup Validation
-
-### 1. Test Schema Creation
-
-```typescript
-// src/migrations/validate-schema.ts
-import { supabase } from '../db/supabase'
-
-async function validateSchema() {
-  try {
-    // Test basic table access
-    const { data, error } = await supabase
-      .from('product_configurations')
-      .select('count')
-      .limit(1)
-    
-    if (error) throw error
-    console.log('✅ product_configurations table accessible')
-    
-    // Test other tables
-    const tables = ['quote_requests', 'glazing_elements', 'payment_history']
-    for (const table of tables) {
-      const { error } = await supabase.from(table).select('count').limit(1)
-      if (error) throw error
-      console.log(`✅ ${table} table accessible`)
-    }
-    
-    console.log('🎉 All tables are properly configured')
-  } catch (error) {
-    console.error('❌ Schema validation failed:', error)
-  }
-}
-```
-
-### 2. Test Sample Data Operations
-
-```typescript
-// src/migrations/test-operations.ts
-import { supabase } from '../db/supabase'
-
-async function testOperations() {
-  // Test insert
-  const { data: config, error: insertError } = await supabase
-    .from('product_configurations')
-    .insert({
-      product_type: 'garden-room',
-      width_m: 5.0,
-      depth_m: 3.0,
-      cladding_area_sqm: 30.0,
-      // ... other required fields
-    })
-    .select()
-    .single()
-  
-  if (insertError) throw insertError
-  console.log('✅ Insert operation successful')
-  
-  // Test read
-  const { data: readConfig, error: readError } = await supabase
-    .from('product_configurations')
-    .select('*')
-    .eq('id', config.id)
-    .single()
-  
-  if (readError) throw readError
-  console.log('✅ Read operation successful')
-  
-  // Clean up
-  await supabase.from('product_configurations').delete().eq('id', config.id)
-  console.log('✅ Delete operation successful')
 }
 ```
 
 ## Development Workflow
 
-### 1. Daily Development
+### 1. Making Code Changes
 
 ```powershell
-# Start development environment
-cd "E:\Zhaoxiang_Qiu\work\SDeal\Strata\backend"
+# Create a feature branch
+git checkout -b feature/new-functionality
 
-# Start local Supabase (if using local setup)
-supabase start
+# Make your changes
+# ...
 
-# Run development server
-npm run dev
+# Run tests to ensure everything works
+cd backend
+npm test
 
-# In another terminal, run tests
+# Run linting
+npm run lint
+
+# Build the project
+npm run build
+
+# Commit your changes
+git add .
+git commit -m "feat: add new functionality"
+```
+
+### 2. Database Schema Changes
+
+```powershell
+# Create a new migration
+cd backend
+npx supabase migration new add_new_table
+
+# Edit the generated migration file in supabase/migrations/
+# Add your SQL DDL statements
+
+# Test the migration locally
+npx supabase db reset  # Resets and applies all migrations
+
+# Generate updated TypeScript types
+npx supabase gen types typescript --local > src/types/supabase.ts
+
+# Update your code to use the new schema
+# Run tests to ensure compatibility
+npm test
+```
+
+### 3. Testing Strategy
+
+**Unit Tests**: Test individual functions and classes
+```powershell
+# Run specific test file
+npm test -- quotes.test.ts
+
+# Run tests in watch mode
 npm test -- --watch
+
+# Run tests with coverage
+npm run test:coverage
 ```
 
-### 2. Making Schema Changes
-
+**Integration Tests**: Test complete API workflows
 ```powershell
-# Create new migration
-supabase migration new add_user_table
+# Run integration tests
+npm test -- tests/integration/
 
-# Edit the migration file, then apply
-supabase db push
-
-# Update TypeScript types
-supabase gen types typescript --linked > src/types/supabase.ts
+# Test specific endpoint
+npm test -- tests/integration/quotes-api.test.ts
 ```
 
-### 3. Debugging
-
-**Check Supabase Dashboard:**
-- Local: `http://localhost:54323`
-- Remote: Your project dashboard on supabase.com
-
-**Useful CLI commands:**
+**Performance Tests**: Validate response times and load capacity
 ```powershell
-# View logs
-supabase logs
+# Run performance validation
+npm run performance-validator
+
+# Run migration completeness check
+npm run migration-validator
+
+# Run health check
+npm run health-check
+```
+
+## Available Scripts
+
+### Backend Scripts
+
+```powershell
+cd backend
+
+# Development
+npm run dev                    # Start development server with hot reload
+npm run build                  # Build TypeScript to JavaScript
+npm start                      # Start production server
+
+# Testing
+npm test                       # Run all tests
+npm run test:watch            # Run tests in watch mode
+npm run test:coverage         # Run tests with coverage report
+
+# Code Quality
+npm run lint                   # Run ESLint
+npm run lint:fix              # Fix ESLint issues automatically
+npm run type-check            # Run TypeScript compiler check
+
+# Database & Performance
+npm run health-check          # Check database connectivity and health
+npm run performance-monitor   # Monitor system performance
+npm run performance-validator # Validate query performance
+npm run migration-validator   # Check migration completeness
+npm run cost-analysis         # Analyze infrastructure costs
+```
+
+### Frontend Scripts
+
+```powershell
+cd frontend
+
+# Development
+npm run dev                   # Start development server
+npm run build                 # Build for production
+npm run preview              # Preview production build
+
+# Testing
+npm test                     # Run unit tests
+npm run test:e2e            # Run end-to-end tests
+npm run test:ui             # Run tests with UI
+
+# Code Quality
+npm run lint                # Run linting
+npm run type-check         # TypeScript type checking
+```
+
+## Common Development Tasks
+
+### 1. Adding a New API Endpoint
+
+1. **Define types** in `backend/src/types/entities.ts`
+2. **Add repository method** in appropriate repository class
+3. **Create API handler** in `backend/src/api/`
+4. **Add validation schema** in `backend/src/services/validation.ts`
+5. **Write tests** in `backend/tests/`
+6. **Update API documentation** in `specs/main/contracts/openapi.yaml`
+
+### 2. Adding a New Database Table
+
+1. **Create migration** with `npx supabase migration new table_name`
+2. **Write SQL DDL** in the migration file
+3. **Apply migration** with `npx supabase db push`
+4. **Generate types** with `npx supabase gen types typescript`
+5. **Update entity types** in `backend/src/types/entities.ts`
+6. **Create repository class** for the new entity
+7. **Write tests** for the new functionality
+
+### 3. Debugging Issues
+
+**Database Issues:**
+```powershell
+# Check Supabase connection
+npm run health-check
+
+# View local Supabase logs
+npx supabase logs
 
 # Reset local database
-supabase db reset
-
-# Check status
-supabase status
+npx supabase db reset
 ```
 
-## Performance Considerations
+**API Issues:**
+```powershell
+# Check server logs
+npm run dev  # Watch for error messages
 
-### 1. Query Optimization
-- Use `select()` to fetch only needed columns
-- Use `single()` when expecting one result
-- Implement proper pagination with `range()`
+# Run specific test
+npm test -- --testNamePattern="your test name"
 
-### 2. Connection Pooling
-- Supabase handles this automatically
-- Monitor connection usage in dashboard
-- Use read replicas for heavy read workloads (production)
-
-### 3. Caching Strategy
-```typescript
-// Example: Cache frequently accessed configurations
-const configCache = new Map<string, Configuration>()
-
-async function getCachedConfiguration(id: string) {
-  if (configCache.has(id)) {
-    return configCache.get(id)
-  }
-  
-  const config = await quotesRepo.getConfiguration(id)
-  if (config) {
-    configCache.set(id, config)
-  }
-  
-  return config
-}
+# Check TypeScript errors
+npm run type-check
 ```
 
-## Troubleshooting
+**Performance Issues:**
+```powershell
+# Run performance validation
+npm run performance-validator
+
+# Check query performance
+npm run performance-monitor
+
+# Analyze response times
+curl -w "@curl-format.txt" -o /dev/null -s "http://localhost:3001/api/quotes"
+```
+
+## Best Practices
+
+### 1. Code Style
+- Use TypeScript strict mode
+- Follow ESLint configuration
+- Use meaningful variable and function names
+- Add JSDoc comments for public APIs
+- **Avoid `any` type** - use proper TypeScript types
+
+### 2. Database Operations
+- Always handle errors gracefully
+- Use transactions for multi-step operations
+- Implement proper pagination for list endpoints
+- Use database constraints and indexes
+- Follow the repository pattern for data access
+
+### 3. API Design
+- Follow RESTful conventions
+- Use consistent error response format
+- Implement proper HTTP status codes
+- Add request validation and sanitization
+- Include comprehensive API documentation
+
+### 4. Testing
+- Write tests before implementing features (TDD)
+- Aim for high test coverage (>80%)
+- Use realistic test data
+- Test error scenarios and edge cases
+- Keep tests fast and isolated
+
+## Troubleshooting Guide
 
 ### Common Issues
 
-1. **Connection Errors**
-   - Check environment variables are set correctly
-   - Verify network connectivity to Supabase
-   - Check project URL and keys in dashboard
+**1. Supabase Connection Errors**
+```
+Error: Missing SUPABASE_URL environment variable
+```
+Solution: Ensure `.env` file exists with correct Supabase credentials
 
-2. **Type Errors**
-   - Regenerate types: `supabase gen types typescript`
-   - Ensure schema changes are applied
-   - Check TypeScript version compatibility
+**2. TypeScript Compilation Errors**
+```
+Property 'xyz' does not exist on type 'unknown'
+```
+Solution: Regenerate types with `npx supabase gen types typescript`
 
-3. **Migration Issues**
-   - Verify data transformation logic
-   - Check foreign key constraints
-   - Review error logs in Supabase dashboard
+**3. Migration Errors**
+```
+Migration failed: table "xyz" already exists
+```
+Solution: Check migration history and adjust migration scripts
+
+**4. Test Failures**
+```
+Tests are failing after database changes
+```
+Solution: Update test data and expectations to match new schema
 
 ### Getting Help
 
-- **Supabase Docs**: [https://supabase.com/docs](https://supabase.com/docs)
-- **Community**: [https://github.com/supabase/supabase/discussions](https://github.com/supabase/supabase/discussions)
-- **Project Issues**: Use repository issue tracker
+- **Project Documentation**: Check `specs/main/` directory
+- **Supabase Docs**: https://supabase.com/docs
+- **Team Knowledge Base**: Check repository issues and discussions
+- **Local Setup Issues**: Use `npm run health-check` for diagnostics
 
-## Next Steps
+## Performance Targets
 
-1. **Implement Repository Classes**: Start with `QuotesRepository`
-2. **Create Migration Scripts**: For data transfer
-3. **Update API Routes**: Maintain existing contracts
-4. **Add Comprehensive Tests**: Unit and integration
-5. **Performance Testing**: Ensure response times meet requirements
-6. **Documentation**: Update API docs and deployment guides
+The application is designed to meet these performance targets:
 
-## Useful Commands Reference
+- **API Response Time**: <200ms p95 for all endpoints
+- **Database Queries**: <50ms average response time
+- **Frontend Load Time**: <2s initial page load
+- **Test Suite**: <30s for complete test run
+
+Use the performance monitoring scripts to validate these targets:
 
 ```powershell
-# Supabase CLI
-supabase start              # Start local stack
-supabase stop               # Stop local stack
-supabase status             # Check status
-supabase logs               # View logs
-supabase migration new      # Create migration
-supabase db push            # Apply migrations
-supabase gen types          # Generate TypeScript types
+# Full performance validation
+npm run performance-validator
 
-# Development
-npm run dev                 # Start dev server
-npm test                    # Run tests
-npm run build               # Build for production
-npm run lint                # Run linting
-
-# Database
-supabase db reset           # Reset local database
-supabase db dump            # Dump database
-supabase db restore         # Restore database
+# Quick health check
+npm run health-check
 ```
+
+## Security Considerations
+
+- All user inputs are validated and sanitized
+- Rate limiting is applied to prevent abuse
+- Environment variables store sensitive configuration
+- HTTPS is required in production
+- Row Level Security (RLS) policies protect data access
+- JWT tokens are used for session management
+
+## Next Steps for New Developers
+
+1. **Complete the Quick Start** (above) to get a working local environment
+2. **Run the test suite** to ensure everything is working: `npm test`
+3. **Make a small change** to familiarize yourself with the codebase
+4. **Read the API documentation** in `specs/main/contracts/openapi.yaml`
+5. **Review the database schema** in `specs/main/data-model.md`
+6. **Join the team standup** to understand current priorities
+7. **Pick up a good first issue** from the project backlog
+
+Welcome to the Strata team! 🏡✨

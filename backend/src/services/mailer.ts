@@ -70,7 +70,7 @@ interface QuoteEmailData {
 interface EmailOptions {
   to: string
   type: 'contact_confirmation' | 'contact_notification' | 'quote_confirmation' | 'quote_notification'
-  data: any
+  data: Record<string, unknown>
 }
 
 interface ContactEmailData {
@@ -176,13 +176,13 @@ class MailerService {
   async sendEmail(options: EmailOptions): Promise<{ success: boolean; messageId?: string; error?: string }> {
     switch (options.type) {
       case 'contact_confirmation':
-        return this.sendContactConfirmation(options.data)
+        return this.sendContactConfirmation(options.data as unknown as ContactEmailData)
       case 'contact_notification':
-        return this.sendContactNotificationToAdmin(options.data)
+        return this.sendContactNotificationToAdmin(options.data as unknown as ContactEmailData)
       case 'quote_confirmation':
-        return this.sendQuoteConfirmation(options.data)
+        return this.sendQuoteConfirmation(options.data as unknown as QuoteEmailData)
       case 'quote_notification':
-        return this.sendQuoteNotificationToAdmin(options.data)
+        return this.sendQuoteNotificationToAdmin(options.data as unknown as QuoteEmailData)
       default:
         throw new Error(`Unknown email type: ${options.type}`)
     }

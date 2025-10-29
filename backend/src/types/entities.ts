@@ -369,28 +369,34 @@ export interface ApiListResponse<T> {
 
 // Type guards for runtime type checking
 export function isProductConfiguration(obj: unknown): obj is ProductConfiguration {
+  if (!obj || typeof obj !== 'object') return false
+  
+  const candidate = obj as Record<string, unknown>
+  
   return Boolean(
-    obj &&
-    typeof obj === 'object' &&
-    typeof (obj as any).id === 'string' &&
-    typeof (obj as any).productType === 'string' &&
-    (obj as any).size &&
-    typeof (obj as any).size.widthM === 'number' &&
-    typeof (obj as any).size.depthM === 'number' &&
-    typeof (obj as any).estimate === 'object' &&
-    typeof (obj as any).estimate.totalIncVat === 'number'
+    typeof candidate.id === 'string' &&
+    typeof candidate.productType === 'string' &&
+    candidate.size &&
+    typeof candidate.size === 'object' &&
+    typeof (candidate.size as Record<string, unknown>).widthM === 'number' &&
+    typeof (candidate.size as Record<string, unknown>).depthM === 'number' &&
+    candidate.estimate &&
+    typeof candidate.estimate === 'object' &&
+    typeof (candidate.estimate as Record<string, unknown>).totalIncVat === 'number'
   )
 }
 
 export function isGlazingElement(obj: unknown): obj is GlazingElement {
+  if (!obj || typeof obj !== 'object') return false
+  
+  const candidate = obj as Record<string, unknown>
+  
   return Boolean(
-    obj &&
-    typeof obj === 'object' &&
-    typeof (obj as any).id === 'string' &&
-    typeof (obj as any).configurationId === 'string' &&
-    typeof (obj as any).elementType === 'string' &&
-    typeof (obj as any).widthM === 'number' &&
-    typeof (obj as any).heightM === 'number'
+    typeof candidate.id === 'string' &&
+    typeof candidate.configurationId === 'string' &&
+    typeof candidate.elementType === 'string' &&
+    typeof candidate.widthM === 'number' &&
+    typeof candidate.heightM === 'number'
   )
 }
 

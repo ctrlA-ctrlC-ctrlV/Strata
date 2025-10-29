@@ -241,9 +241,7 @@ async function main() {
 }
 
 // Only run if this file is executed directly
-// Use require.main for CommonJS compatibility instead of import.meta
-if (typeof require !== 'undefined' && require.main === module) {
-  main()
-}
+// For ES modules, always run main when script is executed
+main()
 
 export { verifyBackupConfiguration, testBackupRecoveryScenario, type BackupStatus }

@@ -923,7 +923,7 @@ export class QuotesRepository {
 
   private async createGlazingElementsForConfiguration(
     configurationId: string, 
-    elements: (CreateGlazingElementInput & { elementType: any })[]
+    elements: (CreateGlazingElementInput & { elementType: string })[]
   ): Promise<RepositoryResult<GlazingElement[]>> {
     if (elements.length === 0) return { success: true, data: [] }
 

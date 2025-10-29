@@ -7,7 +7,8 @@ import path from 'path'
 import type { 
   CreateProductConfigurationInput,
   CreateQuoteRequestInput,
-  Customer
+  Customer,
+  CreateGlazingElementInput
 } from '../types/entities.js'
 
 const router = express.Router()
@@ -52,9 +53,9 @@ async function handleConfiguratorQuote(req: express.Request, res: express.Respon
     const quoteData = ConfiguratorQuoteFormSchema.parse(req.body)
     
     // Parse configuration data
-    let parsedConfig: any = {}
+    let parsedConfig: Record<string, unknown> = {}
     try {
-      parsedConfig = JSON.parse(quoteData.configurationData)
+      parsedConfig = JSON.parse(quoteData.configurationData) as Record<string, unknown>
     } catch (error) {
       console.error('Failed to parse configuration data:', error)
       return res.status(400).json({
@@ -63,53 +64,67 @@ async function handleConfiguratorQuote(req: express.Request, res: express.Respon
       })
     }
 
+    // Helper function for safe property access
+    const getProperty = (obj: unknown, path: string, defaultValue?: unknown): unknown => {
+      const keys = path.split('.')
+      let current = obj
+      for (const key of keys) {
+        if (current && typeof current === 'object' && key in current) {
+          current = (current as Record<string, unknown>)[key]
+        } else {
+          return defaultValue
+        }
+      }
+      return current
+    }
+
     // Create product configuration
     const configurationInput: CreateProductConfigurationInput = {
-      productType: parsedConfig.productType || 'garden-room',
+      productType: getProperty(parsedConfig, 'productType', 'garden-room') as any,
       size: {
-        widthM: parsedConfig.size?.widthM || 0,
-        depthM: parsedConfig.size?.depthM || 0,
-        heightM: parsedConfig.size?.heightM || 2.5
+        widthM: getProperty(parsedConfig, 'size.widthM', 0) as number,
+        depthM: getProperty(parsedConfig, 'size.depthM', 0) as number,
+        heightM: getProperty(parsedConfig, 'size.heightM', 2.5) as number
       },
       cladding: {
-        areaSqm: parsedConfig.cladding?.areaSqm || 0
+        areaSqm: getProperty(parsedConfig, 'cladding.areaSqm', 0) as number
       },
       bathroom: {
-        half: parsedConfig.bathroom?.half || 0,
-        threeQuarter: parsedConfig.bathroom?.threeQuarter || 0
+        half: getProperty(parsedConfig, 'bathroom.half', 0) as number,
+        threeQuarter: getProperty(parsedConfig, 'bathroom.threeQuarter', 0) as number
       },
       electrical: {
-        switches: parsedConfig.electrical?.switches || 0,
-        sockets: parsedConfig.electrical?.sockets || 0,
-        downlight: parsedConfig.electrical?.downlight || 0,
-        heater: parsedConfig.electrical?.heater,
-        undersinkHeater: parsedConfig.electrical?.undersinkHeater,
-        elecBoiler: parsedConfig.electrical?.elecBoiler
+        switches: getProperty(parsedConfig, 'electrical.switches', 0) as number,
+        sockets: getProperty(parsedConfig, 'electrical.sockets', 0) as number,
+        downlight: getProperty(parsedConfig, 'electrical.downlight', 0) as number,
+        heater: getProperty(parsedConfig, 'electrical.heater') as number | null | undefined,
+        undersinkHeater: getProperty(parsedConfig, 'electrical.undersinkHeater') as number | null | undefined,
+        elecBoiler: getProperty(parsedConfig, 'electrical.elecBoiler') as number | null | undefined
       },
-      internalDoors: parsedConfig.internalDoors || 0,
+      internalDoors: getProperty(parsedConfig, 'internalDoors', 0) as number,
       internalWall: {
-        finish: parsedConfig.internalWall?.finish || 'none',
-        areaSqM: parsedConfig.internalWall?.areaSqM
+        finish: getProperty(parsedConfig, 'internalWall.finish', 'none') as any,
+        areaSqM: getProperty(parsedConfig, 'internalWall.areaSqM') as number | undefined
       },
-      heaters: parsedConfig.heaters || 0,
+      heaters: getProperty(parsedConfig, 'heaters', 0) as number,
       glazing: {
-        windows: parsedConfig.glazing?.windows || [],
-        externalDoors: parsedConfig.glazing?.externalDoors || [],
-        skylights: parsedConfig.glazing?.skylights || []
+        windows: getProperty(parsedConfig, 'glazing.windows', []) as CreateGlazingElementInput[],
+        externalDoors: getProperty(parsedConfig, 'glazing.externalDoors', []) as CreateGlazingElementInput[],
+        skylights: getProperty(parsedConfig, 'glazing.skylights', []) as CreateGlazingElementInput[]
       },
       floor: {
-        type: parsedConfig.floor?.type || 'none',
-        areaSqM: parsedConfig.floor?.areaSqM || 0
+        type: getProperty(parsedConfig, 'floor.type', 'none') as any,
+        areaSqM: getProperty(parsedConfig, 'floor.areaSqM', 0) as number
       },
       delivery: {
-        distanceKm: parsedConfig.delivery?.distanceKm,
-        cost: parsedConfig.delivery?.cost || 0
+        distanceKm: getProperty(parsedConfig, 'delivery.distanceKm') as number | undefined,
+        cost: getProperty(parsedConfig, 'delivery.cost', 0) as number
       },
       extras: {
-        espInsulation: parsedConfig.extras?.espInsulation,
-        render: parsedConfig.extras?.render,
-        steelDoor: parsedConfig.extras?.steelDoor,
-        other: parsedConfig.extras?.other || []
+        espInsulation: getProperty(parsedConfig, 'extras.espInsulation') as number | null | undefined,
+        render: getProperty(parsedConfig, 'extras.render') as number | null | undefined,
+        steelDoor: getProperty(parsedConfig, 'extras.steelDoor') as number | null | undefined,
+        other: getProperty(parsedConfig, 'extras.other', []) as any[]
       },
       estimate: {
         currency: 'EUR',
@@ -118,7 +133,7 @@ async function handleConfiguratorQuote(req: express.Request, res: express.Respon
         totalIncVat: quoteData.totalPrice || 0
       },
       notes: `Configurator quote - ${quoteData.source || 'web'}`,
-      permittedDevelopmentFlags: parsedConfig.permittedDevelopmentFlags || []
+      permittedDevelopmentFlags: getProperty(parsedConfig, 'permittedDevelopmentFlags', []) as any[]
     }
 
     // Create the product configuration
@@ -180,8 +195,8 @@ async function handleConfiguratorQuote(req: express.Request, res: express.Respon
         firstName: quoteData.firstName,
         lastName: quoteData.lastName,
         projectType: 'garden-room', // Default for configurator
-        sizeWidth: parsedConfig.size?.widthM || 0,
-        sizeDepth: parsedConfig.size?.depthM || 0,
+        sizeWidth: getProperty(parsedConfig, 'size.widthM', 0) as number,
+        sizeDepth: getProperty(parsedConfig, 'size.depthM', 0) as number,
         description: `Configurator quote - €${quoteData.totalPrice} ${quoteData.includeVat ? 'inc VAT' : 'ex VAT'}`,
         features: [] // Features will be in configuration data
       }
@@ -191,7 +206,7 @@ async function handleConfiguratorQuote(req: express.Request, res: express.Respon
     await sendQuoteEmail({
       to: process.env.INTERNAL_EMAIL || 'quotes@stratagarden.ie',
       type: 'quote_notification',
-      data: quoteResult.data
+      data: quoteResult.data as any
     })
     
     // Return JSON response for configurator
@@ -361,7 +376,7 @@ async function handleSimpleQuote(req: express.Request, res: express.Response) {
     await sendQuoteEmail({
       to: process.env.INTERNAL_EMAIL || 'quotes@stratagarden.ie',
       type: 'quote_notification',
-      data: quoteResult.data
+      data: quoteResult.data as any
     })
     
     // Handle response based on request type

@@ -252,8 +252,7 @@ async function main() {
 }
 
 // Only run if this file is executed directly
-if (typeof require !== 'undefined' && require.main === module) {
-  main()
-}
+// For ES modules, always run main when script is executed
+main()
 
 export { gatherPerformanceMetrics, generatePerformanceReport, type QueryPerformanceMetrics }

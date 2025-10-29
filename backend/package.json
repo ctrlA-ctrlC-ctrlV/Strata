@@ -16,6 +16,11 @@
     "health-check": "node --loader ts-node/esm src/scripts/health-check.ts",
     "verify-backups": "node --loader ts-node/esm src/scripts/verify-backups.ts",
     "performance-monitor": "node --loader ts-node/esm src/scripts/performance-monitor.ts",
+    "performance-benchmark": "node --loader ts-node/esm src/scripts/performance-benchmark.ts",
+    "performance-validator": "node --loader ts-node/esm src/scripts/performance-validator.ts",
+    "migration-validator": "node --loader ts-node/esm src/scripts/migration-validator.ts",
+    "simple-performance-test": "node --loader ts-node/esm src/scripts/simple-performance-test.ts",
+    "cost-analysis": "node --loader ts-node/esm src/scripts/cost-analysis.ts",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
@@ -29,7 +34,7 @@
     "jsonwebtoken": "^9.0.2",
     "multer": "^1.4.5-lts.1",
     "node-cron": "^3.0.3",
-    "nodemailer": "^6.9.8",
+    "nodemailer": "^7.0.10",
     "sharp": "^0.33.1",
     "uuid": "^9.0.1",
     "zod": "^3.22.4"

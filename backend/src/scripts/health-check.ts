@@ -148,24 +148,24 @@ async function performHealthCheck(): Promise<HealthCheckResult> {
 
 async function main() {
   try {
-    console.log('🏥 Running Supabase Health Check...')
+    console.log('Running Supabase Health Check...')
     console.log('=' .repeat(50))
     
     const result = await performHealthCheck()
     
     // Output results
-    console.log(`📊 Health Check Results (${result.timestamp})`)
-    console.log(`🚦 Overall Status: ${result.status.toUpperCase()}`)
+    console.log(`Health Check Results (${result.timestamp})`)
+    console.log(`Overall Status: ${result.status.toUpperCase()}`)
     console.log('')
     
-    console.log('✅ Component Health:')
+    console.log('Component Health:')
     Object.entries(result.checks).forEach(([check, passed]) => {
       const icon = passed ? '✅' : '❌'
       console.log(`  ${icon} ${check.replace('_', ' ')}: ${passed ? 'PASS' : 'FAIL'}`)
     })
     
     console.log('')
-    console.log('⏱️  Response Times:')
+    console.log('Response Times:')
     Object.entries(result.response_times).forEach(([operation, time]) => {
       const status = time < 100 ? '🟢' : time < 500 ? '🟡' : '🔴'
       console.log(`  ${status} ${operation.replace('_', ' ')}: ${time}ms`)
@@ -173,7 +173,7 @@ async function main() {
     
     if (result.errors.length > 0) {
       console.log('')
-      console.log('🚨 Errors:')
+      console.log('Errors:')
       result.errors.forEach(error => console.log(`  ❌ ${error}`))
     }
     
@@ -191,9 +191,7 @@ async function main() {
 }
 
 // Only run if this file is executed directly
-// Use require.main for CommonJS compatibility instead of import.meta
-if (typeof require !== 'undefined' && require.main === module) {
-  main()
-}
+// For ES modules, always run main when script is executed
+main()
 
 export { performHealthCheck, type HealthCheckResult }

@@ -24,17 +24,16 @@ The migration from DigitalOcean MongoDB to Supabase PostgreSQL has successfully 
 
 | Service Category | Before (MongoDB) | After (Supabase) | Monthly Savings |
 |------------------|------------------|------------------|-----------------|
-| **Database Hosting** | $50/month | $0/month (Free tier) | **$50** |
-| **Backup Storage** | $15/month | $0/month (Included) | **$15** |
-| **Monitoring Tools** | $25/month | $0/month (Built-in) | **$25** |
-| **Security Features** | $20/month | $0/month (Included) | **$20** |
-| **API Gateway** | $30/month | $0/month (Built-in) | **$30** |
-| **Total Monthly** | **$140** | **$0** | **$140** |
+| **Database Hosting** | $25/month | $0/month (Free tier) | **$25** |
+| **Backup Storage** | $10/month | $0/month (Included) | **$10** |
+| **Monitoring Tools** | $15/month | $0/month (Built-in) | **$15** |
+| **Maintenance Labor** | $600/month | $75/month | **$525** |
+| **Total Monthly** | **$650** | **$75** | **$575** |
 
 ### Annual Cost Impact
 
-- **Year 1 Savings**: $1,680 USD
-- **3-Year Projection**: $5,040 USD
+- **Year 1 Savings**: $6,900 USD
+- **3-Year Projection**: $20,700 USD
 - **Break-even**: Immediate (no migration costs)
 
 ### Hidden Cost Savings
