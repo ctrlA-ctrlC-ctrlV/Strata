@@ -1,0 +1,137 @@
+openapi: 3.0.3
+info:
+  title: Home Landing Page APIs (Enhanced, Non-Critical)
+  version: 1.0.0
+  description: |
+    Optional runtime APIs used as progressive enhancements for the static-first landing page.
+    Critical paths have no-JS fallbacks (e.g., mailto), so these endpoints are not required.
+servers:
+  - url: https://example.com
+paths:
+  /api/quote-leads:
+    post:
+      summary: Create a quote lead
+      description: Capture a prospect lead submitted from the landing page quote form.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProspectLeadInput'
+      responses:
+        '201':
+          description: Lead created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProspectLeadResponse'
+        '400':
+          description: Validation error
+  /api/newsletter-subscriptions:
+    post:
+      summary: Subscribe to newsletter (single opt-in)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email]
+              properties:
+                email:
+                  type: string
+                  format: email
+      responses:
+        '201':
+          description: Subscription accepted
+        '400':
+          description: Validation error
+  /api/projects:
+    get:
+      summary: List projects for gallery
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 50
+          description: Max number of projects
+      responses:
+        '200':
+          description: Project list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+  /api/testimonials:
+    get:
+      summary: List testimonials
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 50
+      responses:
+        '200':
+          description: Testimonials list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Testimonial'
+components:
+  schemas:
+    ProspectLeadInput:
+      type: object
+      required: [firstName, phone, email, addressLine1, eircode]
+      properties:
+        firstName: { type: string }
+        secondName: { type: string }
+        phone: { type: string }
+        email: { type: string, format: email }
+        addressLine1: { type: string }
+        addressLine2: { type: string }
+        eircode: { type: string }
+        note: { type: string }
+    ProspectLeadResponse:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        createdAt: { type: string, format: date-time }
+    Project:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        title: { type: string }
+        location: { type: string }
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/Image'
+        tags:
+          type: array
+          items: { type: string }
+    Testimonial:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        quote: { type: string }
+        rating: { type: integer, minimum: 1, maximum: 5 }
+        authorFirstName: { type: string }
+        authorInitial: { type: string }
+        projectArea: { type: string }
+        image: { $ref: '#/components/schemas/Image' }
+    Image:
+      type: object
+      properties:
+        src: { type: string }
+        alt: { type: string }
+        width: { type: integer }
+        height: { type: integer }
+        srcset: { type: string }
