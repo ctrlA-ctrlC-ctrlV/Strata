@@ -25,29 +25,15 @@
   <main id="main" role="main" aria-label="Main content" tabindex="-1">
     <!-- Content sections will be injected here -->
     
+    <!-- Hidden div to ensure Tailwind classes are included in build -->
+    <div class="hidden bg-blue-500 text-white p-4" style="display: none !important;" aria-hidden="true">
+      <!-- This ensures Tailwind CSS classes are not purged -->
+    </div>
+    
     <!-- Quote section anchor target -->
-    <section id="quote" class="section quote-section" data-testid="quote-section">
-      <div class="container">
-        <div class="quote-section__content">
-          <div class="quote-section__header">
-            <h2 class="quote-section__title">Get Your Free Quote</h2>
-            <p class="quote-section__subtitle">
-              Ready to transform your garden? Get a personalized quote for your garden room or home extension project.
-            </p>
-          </div>
-          
-          <div class="quote-section__placeholder">
-            <!-- Quote form component will be injected here when implemented -->
-            <div class="quote-form-placeholder">
-              <p>Quote form will be available here soon.</p>
-              <p>For now, please contact us directly:</p>
-              <div class="contact-fallback">
-                <p>
-                  <strong>Email:</strong> 
-                  <a href="mailto:info@strata.ie?subject=Garden Room Quote Request&body=Hi, I'm interested in getting a quote for a garden room/home extension. Please contact me to discuss my requirements.">
-                    info@strata.ie
-                  </a>
-                </p>
+    <section id="quote" class="section quote-section">
+      <!-- QuoteForm component will be rendered here -->
+    </section>
                 <p>
                   <strong>Phone:</strong> 
                   <a href="tel:+35312345678">+353 1 234 5678</a>

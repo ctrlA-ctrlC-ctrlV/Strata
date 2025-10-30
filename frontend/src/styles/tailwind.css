@@ -1,190 +1,24 @@
-/* Tailwind CSS Base Styles */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Tailwind CSS v4 - Import base styles */
+@import "tailwindcss";
 
-/* Base layer customizations */
-@layer base {
-  /* Ensure consistent box-sizing and scroll behavior */
-  html {
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-  }
-  
-  /* Respect reduced motion preferences */
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
-    
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
-  }
-
-  /* Improve text rendering */
-  body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeSpeed;
-  }
-  
-  /* Focus styles for better accessibility */
-  *:focus {
-    outline: 2px solid theme('colors.primary.500');
-    outline-offset: 2px;
-  }
-  
-  /* Remove focus outline for mouse users */
-  *:focus:not(:focus-visible) {
-    outline: none;
-  }
-  
-  /* High contrast focus for keyboard users */
-  *:focus-visible {
-    outline: 2px solid theme('colors.primary.500');
-    outline-offset: 2px;
-  }
+/* Test styles to verify CSS loading */
+.test-css-loaded {
+  color: red !important;
 }
 
-/* Component layer for reusable patterns */
-@layer components {
-  /* Button variants */
-  .btn-primary {
-    @apply bg-primary-600 text-white px-6 py-3 rounded-lg font-medium transition-colors hover:bg-primary-700 focus:bg-primary-700 disabled:bg-neutral-300 disabled:cursor-not-allowed;
-  }
-  
-  .btn-secondary {
-    @apply bg-white text-primary-600 border-2 border-primary-600 px-6 py-3 rounded-lg font-medium transition-colors hover:bg-primary-50 focus:bg-primary-50 disabled:bg-neutral-100 disabled:text-neutral-400 disabled:border-neutral-300 disabled:cursor-not-allowed;
-  }
-  
-  .btn-ghost {
-    @apply bg-transparent text-primary-600 px-6 py-3 rounded-lg font-medium transition-colors hover:bg-primary-50 focus:bg-primary-50 disabled:text-neutral-400 disabled:cursor-not-allowed;
-  }
-  
-  /* Form input styles */
-  .form-input {
-    @apply block w-full px-4 py-3 border border-neutral-300 rounded-lg shadow-sm focus:border-primary-500 focus:ring-1 focus:ring-primary-500 disabled:bg-neutral-100 disabled:cursor-not-allowed;
-  }
-  
-  .form-label {
-    @apply block text-sm font-medium text-neutral-700 mb-2;
-  }
-  
-  .form-error {
-    @apply text-sm text-red-600 mt-1;
-  }
-  
-  /* Card component */
-  .card {
-    @apply bg-white rounded-xl shadow-lg border border-neutral-200 overflow-hidden;
-  }
-  
-  .card-header {
-    @apply px-6 py-4 border-b border-neutral-200;
-  }
-  
-  .card-body {
-    @apply px-6 py-4;
-  }
-  
-  .card-footer {
-    @apply px-6 py-4 border-t border-neutral-200 bg-neutral-50;
-  }
-  
-  /* Section spacing */
-  .section {
-    @apply py-16 lg:py-24;
-  }
-  
-  .section-sm {
-    @apply py-12 lg:py-16;
-  }
-  
-  .section-lg {
-    @apply py-20 lg:py-32;
-  }
-  
-  /* Container with consistent max-width */
-  .container-custom {
-    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
-  }
-  
-  /* Skip link for accessibility */
-  .skip-link {
-    @apply absolute left-4 top-4 z-50 bg-primary-600 text-white px-4 py-2 rounded-lg font-medium transform -translate-y-16 focus:translate-y-0 transition-transform;
-  }
+/* Explicitly include test classes to prevent purging */
+.hidden {
+  display: none !important;
 }
 
-/* Utility layer for project-specific utilities */
-@layer utilities {
-  /* Scroll snap utilities */
-  .scroll-snap-x {
-    scroll-snap-type: x mandatory;
-  }
-  
-  .scroll-snap-y {
-    scroll-snap-type: y mandatory;
-  }
-  
-  .scroll-snap-start {
-    scroll-snap-align: start;
-  }
-  
-  .scroll-snap-center {
-    scroll-snap-align: center;
-  }
-  
-  .scroll-snap-end {
-    scroll-snap-align: end;
-  }
-  
-  /* Hide scrollbar while maintaining functionality */
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-  
-  /* Text balance for better typography */
-  .text-balance {
-    text-wrap: balance;
-  }
-  
-  /* Aspect ratio utilities (fallback for older browsers) */
-  .aspect-square {
-    aspect-ratio: 1 / 1;
-  }
-  
-  .aspect-video {
-    aspect-ratio: 16 / 9;
-  }
-  
-  .aspect-photo {
-    aspect-ratio: 4 / 3;
-  }
-  
-  /* Safe area utilities for mobile devices */
-  .pt-safe {
-    padding-top: env(safe-area-inset-top);
-  }
-  
-  .pb-safe {
-    padding-bottom: env(safe-area-inset-bottom);
-  }
-  
-  .pl-safe {
-    padding-left: env(safe-area-inset-left);
-  }
-  
-  .pr-safe {
-    padding-right: env(safe-area-inset-right);
-  }
+.bg-blue-500 {
+  background-color: #3b82f6 !important;
+}
+
+.text-white {
+  color: white !important;
+}
+
+.p-4 {
+  padding: 1rem !important;
 }

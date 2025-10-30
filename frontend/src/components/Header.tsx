@@ -60,7 +60,7 @@ export class Header {
 
             <!-- CTA Button -->
             <div class="header__cta">
-              <a href="${this.config.ctaHref}" class="btn btn--primary header__cta-btn" aria-label="${this.config.ctaText} - scroll to quote form">
+              <a href="${this.config.ctaHref}" class="btn btn--primary header__cta-btn" aria-label="${this.config.ctaText} - scroll to quote form" data-testid="header-quote-cta">
                 ${this.config.ctaText}
               </a>
             </div>
@@ -402,19 +402,6 @@ export class Header {
         }
       }
     `;
-  }
-}
-
-// Auto-initialize if DOM is ready
-if (typeof document !== 'undefined') {
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      const header = new Header();
-      header.mount('body');
-    });
-  } else {
-    const header = new Header();
-    header.mount('body');
   }
 }
 

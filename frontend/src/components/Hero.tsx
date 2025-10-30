@@ -550,17 +550,4 @@ export class Hero {
   }
 }
 
-// Auto-initialize if DOM is ready
-if (typeof document !== 'undefined') {
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      const hero = new Hero();
-      hero.mount('#main');
-    });
-  } else {
-    const hero = new Hero();
-    hero.mount('#main');
-  }
-}
-
 export default Hero;

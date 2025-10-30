@@ -1,4 +1,5 @@
 import express from 'express'
+import { randomUUID } from 'node:crypto'
 import { z } from 'zod'
 import { QuoteRequestSchema, ConfiguratorQuoteFormSchema } from '../services/validation.js'
 import { sendQuoteEmail } from '../services/mailer.js'
@@ -579,3 +580,42 @@ router.get('/quotes/:id/status', async (req, res) => {
 })
 
 export default router
+
+/**
+ * Minimal lead capture endpoint for landing page QuoteForm
+ * POST /api/quote-leads
+ * Validates request and returns 201 with id and createdAt.
+ * Note: Persistence is intentionally omitted for this phase; integrate DB later.
+ */
+const ProspectLeadInputSchema = z.object({
+  firstName: z.string().min(1, 'First name is required'),
+  secondName: z.string().optional(),
+  phone: z.string().min(7, 'Phone is required'),
+  email: z.string().email('Invalid email address'),
+  addressLine1: z.string().min(1, 'Address line 1 is required'),
+  addressLine2: z.string().optional(),
+  eircode: z.string().regex(/^[A-Z0-9]{3}\s?[A-Z0-9]{4}$/i, 'Invalid Eircode'),
+  note: z.string().optional()
+})
+
+router.post('/quote-leads', async (req, res) => {
+  try {
+    const lead = ProspectLeadInputSchema.parse(req.body)
+
+    // Here we could persist to DB or enqueue for processing.
+    // For now, return a created response with an id and timestamp.
+    const id = randomUUID()
+    const createdAt = new Date().toISOString()
+
+    return res.status(201).json({ id, createdAt })
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      return res.status(400).json({
+        error: 'Validation error',
+        errors: error.errors.map(e => ({ field: e.path.join('.'), message: e.message }))
+      })
+    }
+    console.error('quote-leads error:', error)
+    return res.status(500).json({ error: 'Internal server error' })
+  }
+})

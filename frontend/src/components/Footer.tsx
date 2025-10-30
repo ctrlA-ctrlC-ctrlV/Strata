@@ -465,17 +465,4 @@ export class Footer {
   }
 }
 
-// Auto-initialize if DOM is ready
-if (typeof document !== 'undefined') {
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      const footer = new Footer();
-      footer.mount('body');
-    });
-  } else {
-    const footer = new Footer();
-    footer.mount('body');
-  }
-}
-
 export default Footer;

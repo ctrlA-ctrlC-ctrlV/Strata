@@ -52,23 +52,23 @@ Notes
 
 ## Phase 3 — User Story 1 (P1): Request a Quote
 
-- [ ] T083 [US1] Author failing tests first for quote form (validation, success, a11y) in frontend/tests/e2e/quote-form.spec.ts and frontend/tests/e2e/quote-form-a11y.spec.ts
+- [X] T083 [US1] Author failing tests first for quote form (validation, success, a11y) in frontend/tests/e2e/quote-form.spec.ts and frontend/tests/e2e/quote-form-a11y.spec.ts
 
-- [ ] T021 [US1] Create QuoteForm component shell in frontend/src/components/QuoteForm.tsx
-- [ ] T022 [P] [US1] Add required fields (First name, Phone, Email, Address line 1, Eircode) and optional fields in frontend/src/components/QuoteForm.tsx
-- [ ] T023 [US1] Implement client-side validation rules and aria-describedby in frontend/src/components/QuoteForm.tsx
-- [ ] T024 [P] [US1] Add no-JS baseline (form action=mailto:… with subject/body template) in frontend/src/components/QuoteForm.tsx
-- [ ] T025 [US1] Add JS-enhanced submit with inline success/failure to backend POST /api/quote-leads in frontend/src/components/QuoteForm.tsx
-- [ ] T026 [P] [US1] Ensure header CTA scrolls to form and focuses first field in frontend/src/components/Header.tsx
-- [ ] T027 [US1] Implement success state message block and next steps UI in frontend/src/components/QuoteForm.tsx
-- [ ] T028 [US1] Add keyboard navigation and visible focus styles in frontend/src/components/QuoteForm.tsx
-- [ ] T084 [US1] Add optional newsletter opt-in checkbox to QuoteForm in frontend/src/components/QuoteForm.tsx
-- [ ] T085 [US1] Add “I have read Terms of Service & Privacy Policy” notice with links in frontend/src/components/QuoteForm.tsx
-- [ ] T029 [P] [US1] Backend: scaffold POST /api/quote-leads per contracts in backend/src/api/quotes.ts
-- [ ] T030 [US1] Backend: basic validation and 201 response shape in backend/src/api/quotes.ts
-- [ ] T031 [US1] Playwright: form validation and success flow test in frontend/tests/e2e/quote-form.spec.ts
-- [ ] T032 [P] [US1] Axe: a11y checks for form labels/errors in frontend/tests/e2e/quote-form-a11y.spec.ts
-- [ ] T086 [US1] Run Phase 3 (US1) tests
+- [X] T021 [US1] Create QuoteForm component shell in frontend/src/components/QuoteForm.tsx
+- [X] T022 [P] [US1] Add required fields (First name, Phone, Email, Address line 1, Eircode) and optional fields in frontend/src/components/QuoteForm.tsx
+- [X] T023 [US1] Implement client-side validation rules and aria-describedby in frontend/src/components/QuoteForm.tsx
+- [X] T024 [P] [US1] Add no-JS baseline (form action=mailto:… with subject/body template) in frontend/src/components/QuoteForm.tsx
+- [X] T025 [US1] Add JS-enhanced submit with inline success/failure to backend POST /api/quote-leads in frontend/src/components/QuoteForm.tsx
+- [X] T026 [P] [US1] Ensure header CTA scrolls to form and focuses first field in frontend/src/components/Header.tsx
+- [X] T027 [US1] Implement success state message block and next steps UI in frontend/src/components/QuoteForm.tsx
+- [X] T028 [US1] Add keyboard navigation and visible focus styles in frontend/src/components/QuoteForm.tsx
+- [X] T084 [US1] Add optional newsletter opt-in checkbox to QuoteForm in frontend/src/components/QuoteForm.tsx
+- [X] T085 [US1] Add “I have read Terms of Service & Privacy Policy” notice with links in frontend/src/components/QuoteForm.tsx
+- [X] T029 [P] [US1] Backend: scaffold POST /api/quote-leads per contracts in backend/src/api/quotes.ts
+- [X] T030 [US1] Backend: basic validation and 201 response shape in backend/src/api/quotes.ts
+- [X] T031 [US1] Playwright: form validation and success flow test in frontend/tests/e2e/quote-form.spec.ts
+- [X] T032 [P] [US1] Axe: a11y checks for form labels/errors in frontend/tests/e2e/quote-form-a11y.spec.ts
+- [X] T086 [US1] Run Phase 3 (US1) tests
 
 ## Phase 4 — User Story 2 (P1): Explore Product Sections
 

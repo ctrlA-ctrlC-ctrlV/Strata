@@ -1,0 +1,235 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - link "Strata - Home" [ref=e6]:
+        - /url: "#main"
+        - text: Strata
+      - navigation "Main navigation" [ref=e7]:
+        - list [ref=e8]:
+          - listitem [ref=e9]:
+            - link "Garden Rooms" [ref=e10]:
+              - /url: "#garden-rooms"
+          - listitem [ref=e11]:
+            - link "Home Extensions" [ref=e12]:
+              - /url: "#home-extensions"
+          - listitem [ref=e13]:
+            - link "Projects" [ref=e14]:
+              - /url: "#gallery"
+          - listitem [ref=e15]:
+            - link "About" [ref=e16]:
+              - /url: "#about"
+          - listitem [ref=e17]:
+            - link "Contact" [ref=e18]:
+              - /url: "#contact"
+      - link "Get a Quote - scroll to quote form" [ref=e20] [cursor=pointer]:
+        - /url: "#quote"
+        - text: Get a Quote
+  - link "Skip to main content" [ref=e21]:
+    - /url: "#main"
+  - main "Main content" [ref=e22]:
+    - generic [ref=e23]:
+      - generic [ref=e26]:
+        - generic [ref=e27]:
+          - heading "Transform Your Garden with Premium Garden Rooms & Home Extensions" [level=1] [ref=e28]
+          - paragraph [ref=e29]: Professional design and construction services for garden rooms, home offices, and extensions across Ireland. Planning permission handled.
+          - link "Get Your Free Quote - scroll to quote form" [ref=e31] [cursor=pointer]:
+            - /url: "#quote"
+            - text: Get Your Free Quote
+        - generic [ref=e33]:
+          - generic [ref=e34]:
+            - generic [ref=e35]: ⭐
+            - generic [ref=e36]:
+              - generic [ref=e37]: 4.9/5
+              - generic [ref=e38]: Rating
+              - generic [ref=e39]: Based on 127+ reviews
+          - generic [ref=e40]:
+            - generic [ref=e41]: 🏠
+            - generic [ref=e42]:
+              - generic [ref=e43]: 500+
+              - generic [ref=e44]: Projects
+              - generic [ref=e45]: Completed successfully
+          - generic [ref=e46]:
+            - generic [ref=e47]: 🛡️
+            - generic [ref=e48]:
+              - generic [ref=e49]: 10 Years
+              - generic [ref=e50]: Warranty
+              - generic [ref=e51]: Structural guarantee
+          - generic [ref=e52]:
+            - generic [ref=e53]: 📋
+            - generic [ref=e54]:
+              - generic [ref=e55]: Included
+              - generic [ref=e56]: Planning
+              - generic [ref=e57]: Permission handled
+      - button "Scroll to content" [ref=e59] [cursor=pointer]:
+        - generic [ref=e60]: ↓
+    - generic [ref=e64]:
+      - generic [ref=e65]:
+        - heading "Get Your Free Quote" [level=2] [ref=e66]
+        - paragraph [ref=e67]: Tell us about your project and we'll provide a personalized quote within 24 hours.
+      - generic [ref=e68]:
+        - generic [ref=e70]:
+          - group "Personal Information" [ref=e71]:
+            - generic [ref=e72]: Personal Information
+            - generic [ref=e73]:
+              - generic [ref=e74]:
+                - generic [ref=e75]: First Name *
+                - textbox "First Name *" [ref=e76]: John
+              - generic [ref=e77]:
+                - generic [ref=e78]: Surname
+                - textbox "Surname" [ref=e79]
+          - group "Contact Information" [ref=e80]:
+            - generic [ref=e81]: Contact Information
+            - generic [ref=e82]:
+              - generic [ref=e83]:
+                - generic [ref=e84]: Phone Number *
+                - textbox "Phone Number *" [ref=e85]:
+                  - /placeholder: 087 123 4567
+                  - text: 087 123 4567
+              - generic [ref=e86]:
+                - generic [ref=e87]: Email Address *
+                - textbox "Email Address *" [ref=e88]:
+                  - /placeholder: your@email.com
+                  - text: john@example.com
+          - group "Project Address" [ref=e89]:
+            - generic [ref=e90]: Project Address
+            - generic [ref=e91]:
+              - generic [ref=e92]:
+                - generic [ref=e93]: Address Line 1 *
+                - textbox "Address Line 1 *" [ref=e94]:
+                  - /placeholder: 123 Main Street
+                  - text: 123 Main Street
+              - generic [ref=e95]:
+                - generic [ref=e96]: Address Line 2
+                - textbox "Address Line 2" [ref=e97]:
+                  - /placeholder: Apartment, suite, etc. (optional)
+              - generic [ref=e98]:
+                - generic [ref=e99]: Eircode *
+                - textbox "Eircode *" [ref=e100]:
+                  - /placeholder: D02 XY45
+                  - text: D02 XY45
+          - group "Project Details" [ref=e101]:
+            - generic [ref=e102]: Project Details
+            - generic [ref=e103]:
+              - generic [ref=e104]: Tell us about your project
+              - textbox "Tell us about your project" [ref=e105]:
+                - /placeholder: Describe your garden room or extension requirements, preferred timeline, budget considerations, etc.
+              - generic [ref=e106]: This helps us provide a more accurate quote
+          - group "Stay Updated" [ref=e107]:
+            - generic [ref=e108]: Stay Updated
+            - generic [ref=e109]:
+              - checkbox "Yes, I'd like to receive occasional updates about new products and special offers" [ref=e110]
+              - generic [ref=e111]: Yes, I'd like to receive occasional updates about new products and special offers
+              - generic [ref=e112]:
+                - text: You can unsubscribe at any time. See our
+                - link "Privacy Policy" [ref=e113]:
+                  - /url: /privacy-policy.html
+                - text: .
+        - generic [active] [ref=e114]:
+          - heading "Something went wrong" [level=3] [ref=e115]
+          - paragraph [ref=e116]: There was a problem submitting your request. Please try again or contact us directly.
+        - button "Get My Free Quote" [ref=e118] [cursor=pointer]
+        - paragraph [ref=e120]:
+          - text: By submitting this form, you confirm that you have read our
+          - link "Terms of Service" [ref=e121]:
+            - /url: /terms-of-service.html
+          - text: and
+          - link "Privacy Policy" [ref=e122]:
+            - /url: /privacy-policy.html
+          - text: .
+    - paragraph [ref=e123]:
+      - strong [ref=e124]: "Phone:"
+      - link "+353 1 234 5678" [ref=e125]:
+        - /url: tel:+35312345678
+    - generic [ref=e127]:
+      - heading "Garden Rooms" [level=2] [ref=e128]
+      - paragraph [ref=e129]: Premium garden room solutions coming soon.
+    - generic [ref=e131]:
+      - heading "Home Extensions" [level=2] [ref=e132]
+      - paragraph [ref=e133]: Professional home extension services coming soon.
+    - generic [ref=e135]:
+      - heading "Projects Gallery" [level=2] [ref=e136]
+      - paragraph [ref=e137]: View our completed projects coming soon.
+    - generic [ref=e139]:
+      - heading "About Us" [level=2] [ref=e140]
+      - paragraph [ref=e141]: Learn about our company and expertise coming soon.
+    - generic [ref=e143]:
+      - heading "Contact" [level=2] [ref=e144]
+      - paragraph [ref=e145]: Get in touch with us coming soon.
+    - generic [ref=e147]:
+      - heading "Newsletter" [level=2] [ref=e148]
+      - paragraph [ref=e149]: Subscribe to our newsletter coming soon.
+  - contentinfo [ref=e150]:
+    - generic [ref=e151]:
+      - generic [ref=e152]:
+        - generic [ref=e153]:
+          - heading "Contact" [level=3] [ref=e154]
+          - generic [ref=e155]:
+            - strong [ref=e157]: Strata Garden Rooms
+            - generic [ref=e158]:
+              - generic [ref=e159]: 123 Business Park
+              - generic [ref=e160]: Unit 4
+              - generic [ref=e161]: Dublin, County Dublin
+              - generic [ref=e162]: D01 A123
+              - generic [ref=e163]: Ireland
+            - generic [ref=e164]:
+              - link "📞 +353 1 234 5678" [ref=e166]:
+                - /url: tel:+35312345678
+                - generic [ref=e167]: 📞
+                - generic [ref=e168]: +353 1 234 5678
+              - link "✉️ info@strata.ie" [ref=e170]:
+                - /url: mailto:info@strata.ie
+                - generic [ref=e171]: ✉️
+                - generic [ref=e172]: info@strata.ie
+        - generic [ref=e173]:
+          - heading "Services" [level=3] [ref=e174]
+          - list [ref=e175]:
+            - listitem [ref=e176]:
+              - link "Garden Rooms" [ref=e177]:
+                - /url: "#garden-rooms"
+            - listitem [ref=e178]:
+              - link "Home Extensions" [ref=e179]:
+                - /url: "#home-extensions"
+            - listitem [ref=e180]:
+              - link "Projects Gallery" [ref=e181]:
+                - /url: "#gallery"
+            - listitem [ref=e182]:
+              - link "Get a Quote" [ref=e183]:
+                - /url: "#quote"
+        - generic [ref=e184]:
+          - heading "Social" [level=3] [ref=e185]
+          - generic [ref=e186]:
+            - link "Follow us on Facebook" [ref=e187]:
+              - /url: https://facebook.com/strata
+              - generic [ref=e188]: 📘
+              - generic [ref=e189]: Facebook
+            - link "Follow us on Instagram" [ref=e190]:
+              - /url: https://instagram.com/strata
+              - generic [ref=e191]: 📷
+              - generic [ref=e192]: Instagram
+            - link "Connect with us on LinkedIn" [ref=e193]:
+              - /url: https://linkedin.com/company/strata
+              - generic [ref=e194]: 💼
+              - generic [ref=e195]: LinkedIn
+        - generic [ref=e196]:
+          - heading "Stay Updated" [level=3] [ref=e197]
+          - paragraph [ref=e198]: Get the latest news and offers
+          - paragraph [ref=e201]:
+            - link "Subscribe to Newsletter" [ref=e202]:
+              - /url: "#newsletter"
+      - generic [ref=e204]:
+        - navigation "Legal" [ref=e205]:
+          - list [ref=e206]:
+            - listitem [ref=e207]:
+              - link "Privacy Policy" [ref=e208]:
+                - /url: /privacy-policy.html
+            - listitem [ref=e209]:
+              - link "Terms of Service" [ref=e210]:
+                - /url: /terms-of-service.html
+            - listitem [ref=e211]:
+              - link "Cookie Policy" [ref=e212]:
+                - /url: /cookie-policy.html
+        - paragraph [ref=e214]: © 2025 Strata Garden Rooms. All rights reserved.
+```

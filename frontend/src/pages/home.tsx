@@ -12,6 +12,7 @@ export class HomePage {
     header?: any;
     hero?: any;
     footer?: any;
+    quoteForm?: any;
   } = {};
 
   constructor(config: HomePageConfig = {}) {
@@ -73,9 +74,10 @@ export class HomePage {
   private async initializeComponents(): Promise<void> {
     try {
       // Dynamic imports to avoid compilation issues
-      const { default: Header } = await import('../components/Header.tsx');
-      const { default: Hero } = await import('../components/Hero.tsx');
-      const { default: Footer } = await import('../components/Footer.tsx');
+      const { default: Header } = await import('../components/Header');
+      const { default: Hero } = await import('../components/Hero');
+      const { default: Footer } = await import('../components/Footer');
+      const { QuoteForm } = await import('../components/QuoteForm');
 
       // Initialize Header
       this.components.header = new Header({
@@ -101,6 +103,15 @@ export class HomePage {
         backgroundImage: '/images/hero/garden-room-hero.jpg'
       });
       this.components.hero.mount('#main');
+
+      // Initialize QuoteForm
+      this.components.quoteForm = new QuoteForm({
+        enableJavaScriptEnhancements: this.config.enableJavaScriptEnhancements ?? true,
+        apiEndpoint: '/api/quote-leads',
+        newsletterEndpoint: '/api/newsletter-subscriptions',
+        mailtoFallback: 'quotes@stratagardnerooms.ie'
+      });
+      await this.components.quoteForm.initialize();
 
       // Initialize Footer
       this.components.footer = new Footer({
@@ -130,7 +141,6 @@ export class HomePage {
     console.log('Using fallback component initialization');
     
     // Add basic page structure manually
-    const body = document.body;
     const main = document.querySelector('#main');
     
     if (main && main.innerHTML.trim() === '') {
@@ -422,12 +432,6 @@ export class HomePage {
       }
     `;
   }
-}
-
-// Auto-initialize the home page
-if (typeof document !== 'undefined') {
-  const homePage = new HomePage();
-  homePage.initialize();
 }
 
 export default HomePage;
