@@ -17,6 +17,7 @@ export class HomePage {
     homeExtensionsSection?: any;
     gallery?: any;
     testimonials?: any;
+    process?: any;
   } = {};
 
   constructor(config: HomePageConfig = {}) {
@@ -86,6 +87,7 @@ export class HomePage {
       const { ProductSectionHomeExtensions } = await import('../components/ProductSectionHomeExtensions');
       const { default: Gallery } = await import('../components/Gallery');
       const { default: Testimonial } = await import('../components/Testimonial');
+      const { default: Process } = await import('../components/Process');
 
       // Initialize Header
       this.components.header = new Header({
@@ -159,6 +161,13 @@ export class HomePage {
         enableKeyboardNavigation: true
       });
       this.components.testimonials.mount('#main');
+
+      // Initialize Process (before quote form for logical flow)
+      this.components.process = new Process({
+        title: 'Our Process',
+        subtitle: 'From initial consultation to project completion, we guide you through every step of creating your perfect garden room or home extension'
+      });
+      this.components.process.mount('#main');
 
       // Initialize QuoteForm
       this.components.quoteForm = new QuoteForm({

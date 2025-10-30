@@ -117,11 +117,11 @@ Notes
 
 ## Phase 7 — Process (User Story Neutral)
 
-- [ ] T094 Create failing tests first for Process steps (1–4) in frontend/tests/e2e/process.spec.ts
-- [ ] T095 Implement Process component with four stages and concise copy in frontend/src/components/Process.tsx
-- [ ] T096 Ensure a11y and keyboard navigation for Process in frontend/src/components/Process.tsx
-- [ ] T097 Integrate Process component into page flow in frontend/src/pages/home.tsx
-- [ ] T098 Run Phase 7 (Process) tests
+- [X] T094 Create failing tests first for Process steps (1–4) in frontend/tests/e2e/process.spec.ts
+- [X] T095 Implement Process component with four stages and concise copy in frontend/src/components/Process.tsx
+- [X] T096 Ensure a11y and keyboard navigation for Process in frontend/src/components/Process.tsx
+- [X] T097 Integrate Process component into page flow in frontend/src/pages/home.tsx
+- [X] T098 Run Phase 7 (Process) tests
 
 ## Phase 8 — User Story 5 (P3): Self-Serve Answers (Mini-FAQ)
 
