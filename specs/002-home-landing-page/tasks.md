@@ -87,33 +87,33 @@ Notes
 
 ## Phase 5 — User Story 3 (P2): Explore Projects Gallery
 
-- [ ] T089 [US3] Author failing tests first for gallery (drag/swipe, a11y) in frontend/tests/e2e/gallery.spec.ts and frontend/tests/e2e/gallery-a11y.spec.ts
+- [X] T089 [US3] Author failing tests first for gallery (drag/swipe, a11y) in frontend/tests/e2e/gallery.spec.ts and frontend/tests/e2e/gallery-a11y.spec.ts
 
-- [ ] T041 [US3] Create Gallery container with fixed height and scroll-snap in frontend/src/components/Gallery.tsx
-- [ ] T042 [P] [US3] Implement variable-height tiles and lazy-loading images in frontend/src/components/Gallery.tsx
-- [ ] T043 [US3] Add keyboard focusable tiles and outline styles in frontend/src/components/Gallery.tsx
-- [ ] T044 [P] [US3] JS enhancement: drag-to-scroll and next/prev controls in frontend/src/components/Gallery.tsx
-- [ ] T045 [US3] Respect prefers-reduced-motion and disable inertia in frontend/src/components/Gallery.tsx
-- [ ] T046 [P] [US3] Backend: GET /api/projects (optional enhancement) in backend/src/api/projects.ts
-- [ ] T047 [US3] Wire gallery to static images first; then optional fetch path in frontend/src/components/Gallery.tsx
-- [ ] T090 [US3] Implement and test graceful image placeholders for failed loads in frontend/src/components/Gallery.tsx and frontend/tests/e2e/gallery-placeholders.spec.ts
-- [ ] T048 [US3] Playwright: desktop drag and mobile swipe interaction tests in frontend/tests/e2e/gallery.spec.ts
-- [ ] T049 [P] [US3] Axe: a11y checks for gallery controls and focus in frontend/tests/e2e/gallery-a11y.spec.ts
+- [X] T041 [US3] Create Gallery container with fixed height and scroll-snap in frontend/src/components/Gallery.tsx
+- [X] T042 [P] [US3] Implement variable-height tiles and lazy-loading images in frontend/src/components/Gallery.tsx
+- [X] T043 [US3] Add keyboard focusable tiles and outline styles in frontend/src/components/Gallery.tsx
+- [X] T044 [P] [US3] JS enhancement: drag-to-scroll and next/prev controls in frontend/src/components/Gallery.tsx
+- [X] T045 [US3] Respect prefers-reduced-motion and disable inertia in frontend/src/components/Gallery.tsx
+- [X] T046 [P] [US3] Backend: GET /api/projects (optional enhancement) in backend/src/api/projects.ts
+- [X] T047 [US3] Wire gallery to static images first; then optional fetch path in frontend/src/components/Gallery.tsx
+- [X] T090 [US3] Implement and test graceful image placeholders for failed loads in frontend/src/components/Gallery.tsx and frontend/tests/e2e/gallery-placeholders.spec.ts
+- [X] T048 [US3] Playwright: desktop drag and mobile swipe interaction tests in frontend/tests/e2e/gallery.spec.ts
+- [X] T049 [P] [US3] Axe: a11y checks for gallery controls and focus in frontend/tests/e2e/gallery-a11y.spec.ts
 
-- [ ] T091 [US3] Run Phase 5 (US3) tests
+- [X] T091 [US3] Run Phase 5 (US3) tests
 
 ## Phase 6 — User Story 4 (P2): Build Trust
 
-- [ ] T092 [US4] Author failing tests first for testimonials and trust minis in frontend/tests/e2e/testimonial-a11y.spec.ts and frontend/tests/e2e/hero-visual.spec.ts
+- [X] T092 [US4] Author failing tests first for testimonials and trust minis in frontend/tests/e2e/testimonial-a11y.spec.ts and frontend/tests/e2e/hero-visual.spec.ts
 
-- [ ] T050 [US4] Add trust minis (rating, projects, warranty, planning) to Hero in frontend/src/components/Hero.tsx
-- [ ] T051 [P] [US4] Create Testimonial list baseline in frontend/src/components/Testimonial.tsx
-- [ ] T052 [US4] JS enhancement: next/prev and announcement to SR in frontend/src/components/Testimonial.tsx
-- [ ] T053 [P] [US4] Backend: GET /api/testimonials (optional enhancement) in backend/src/api/testimonials.ts
-- [ ] T054 [US4] A11y test: testimonial controls operable via keyboard in frontend/tests/e2e/testimonial-a11y.spec.ts
-- [ ] T055 [US4] Visual test: hero trust minis visible and readable in frontend/tests/e2e/hero-visual.spec.ts
+- [X] T050 [US4] Add trust minis (rating, projects, warranty, planning) to Hero in frontend/src/components/Hero.tsx
+- [X] T051 [P] [US4] Create Testimonial list baseline in frontend/src/components/Testimonial.tsx
+- [X] T052 [US4] JS enhancement: next/prev and announcement to SR in frontend/src/components/Testimonial.tsx
+- [X] T053 [P] [US4] Backend: GET /api/testimonials (optional enhancement) in backend/src/api/testimonials.ts
+- [X] T054 [US4] A11y test: testimonial controls operable via keyboard in frontend/tests/e2e/testimonial-a11y.spec.ts
+- [X] T055 [US4] Visual test: hero trust minis visible and readable in frontend/tests/e2e/hero-visual.spec.ts
 
-- [ ] T093 [US4] Run Phase 6 (US4) tests
+- [X] T093 [US4] Run Phase 6 (US4) tests
 
 ## Phase 7 — Process (User Story Neutral)
 

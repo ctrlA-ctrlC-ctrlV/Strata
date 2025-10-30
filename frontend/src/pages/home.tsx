@@ -16,6 +16,7 @@ export class HomePage {
     gardenRoomsSection?: any;
     homeExtensionsSection?: any;
     gallery?: any;
+    testimonials?: any;
   } = {};
 
   constructor(config: HomePageConfig = {}) {
@@ -84,6 +85,7 @@ export class HomePage {
       const { ProductSectionGardenRooms } = await import('../components/ProductSectionGardenRooms');
       const { ProductSectionHomeExtensions } = await import('../components/ProductSectionHomeExtensions');
       const { default: Gallery } = await import('../components/Gallery');
+      const { default: Testimonial } = await import('../components/Testimonial');
 
       // Initialize Header
       this.components.header = new Header({
@@ -149,6 +151,14 @@ export class HomePage {
       // Initialize Gallery
       this.components.gallery = new Gallery();
       this.components.gallery.mount(document.querySelector('#main')!);
+
+      // Initialize Testimonials
+      this.components.testimonials = new Testimonial({
+        showNavigation: true,
+        autoRotate: false,
+        enableKeyboardNavigation: true
+      });
+      this.components.testimonials.mount('#main');
 
       // Initialize QuoteForm
       this.components.quoteForm = new QuoteForm({

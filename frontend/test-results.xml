@@ -1,41 +1,1734 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="5.206895">
-<testsuite name="gallery.spec.ts" timestamp="2025-10-30T14:40:46.027Z" hostname="chromium" tests="1" failures="1" skipped="0" time="1.066" errors="0">
-<testcase name="Gallery - Interaction Tests › should have gallery container with proper structure" classname="gallery.spec.ts" time="1.066">
-<failure message="gallery.spec.ts:17:3 should have gallery container with proper structure" type="FAILURE">
-<![CDATA[  [chromium] › gallery.spec.ts:17:3 › Gallery - Interaction Tests › should have gallery container with proper structure 
+<testsuites id="" name="" tests="147" failures="34" skipped="5" errors="0" time="240.27360499999998">
+<testsuite name="hero-visual.spec.ts" timestamp="2025-10-30T16:13:43.769Z" hostname="chromium" tests="11" failures="0" skipped="0" time="18.258" errors="0">
+<testcase name="Hero - Visual Trust Elements › should display trust minis in hero section" classname="hero-visual.spec.ts" time="1.884">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display rating trust mini with visible content" classname="hero-visual.spec.ts" time="1.862">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display projects count trust mini" classname="hero-visual.spec.ts" time="1.303">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display warranty trust mini" classname="hero-visual.spec.ts" time="1.346">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display planning support trust mini" classname="hero-visual.spec.ts" time="1.724">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have readable typography for all trust minis" classname="hero-visual.spec.ts" time="1.487">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have proper layout and spacing for trust minis" classname="hero-visual.spec.ts" time="2.289">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should be visible on different screen sizes" classname="hero-visual.spec.ts" time="3.039">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have appropriate visual hierarchy in hero" classname="hero-visual.spec.ts" time="1.089">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should maintain trust minis visibility with hero background" classname="hero-visual.spec.ts" time="1.007">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have semantic markup for trust indicators" classname="hero-visual.spec.ts" time="1.228">
+</testcase>
+</testsuite>
+<testsuite name="testimonial-a11y.spec.ts" timestamp="2025-10-30T16:13:43.769Z" hostname="chromium" tests="10" failures="5" skipped="1" time="31.307" errors="0">
+<testcase name="Testimonials - Accessibility › should have accessible testimonial container structure" classname="testimonial-a11y.spec.ts" time="2.121">
+</testcase>
+<testcase name="Testimonials - Accessibility › should have keyboard accessible navigation controls" classname="testimonial-a11y.spec.ts" time="9.742">
+<failure message="testimonial-a11y.spec.ts:40:3 should have keyboard accessible navigation controls" type="FAILURE">
+<![CDATA[  [chromium] › testimonial-a11y.spec.ts:40:3 › Testimonials - Accessibility › should have keyboard accessible navigation controls 
 
-    Error: expect(received).toContain(expected) // indexOf
+    Error: expect(locator).toBeFocused() failed
 
-    Expected substring: "x"
-    Received string:    "none"
+    Locator:  locator('[data-testid="testimonials"], .testimonials, #testimonials').locator('[data-testid="testimonial-prev"], .testimonial-prev, button:has-text("Previous")')
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
 
-      42 |     
-      43 |     // Should have scroll snap
-    > 44 |     expect(containerStyles.scrollSnapType).toContain('x');
-         |                                            ^
-      45 |   });
-      46 |
-      47 |   test('should have project tiles with images', async ({ page }) => {
-        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\gallery.spec.ts:44:44
+    Call log:
+      - Expect "toBeFocused" with timeout 5000ms
+      - waiting for locator('[data-testid="testimonials"], .testimonials, #testimonials').locator('[data-testid="testimonial-prev"], .testimonial-prev, button:has-text("Previous")')
+        8 × locator resolved to <button disabled type="button" aria-disabled="true" data-testid="testimonial-prev" aria-label="Previous testimonial" class="testimonials__nav-button testimonials__nav-button--prev">…</button>
+          - unexpected value "inactive"
+
+
+      56 |       // Should be keyboard focusable
+      57 |       await prevButton.focus();
+    > 58 |       await expect(prevButton).toBeFocused();
+         |                                ^
+      59 |       
+      60 |       // Should be proper button type
+      61 |       const buttonType = await prevButton.getAttribute('type');
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:58:32
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\gallery-Gallery---Interact-d923b-ainer-with-proper-structure-chromium\test-failed-1.png
+    ..\..\test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-chromium\test-failed-1.png
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
     attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\gallery-Gallery---Interact-d923b-ainer-with-proper-structure-chromium\video.webm
+    ..\..\test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-chromium\video.webm
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
-    Error Context: ..\..\test-results\gallery-Gallery---Interact-d923b-ainer-with-proper-structure-chromium\error-context.md
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-chromium\error-context.md
 ]]>
 </failure>
 <system-out>
 <![CDATA[
-[[ATTACHMENT|test-results\gallery-Gallery---Interact-d923b-ainer-with-proper-structure-chromium\test-failed-1.png]]
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-chromium\test-failed-1.png]]
 
-[[ATTACHMENT|test-results\gallery-Gallery---Interact-d923b-ainer-with-proper-structure-chromium\video.webm]]
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-chromium\video.webm]]
 
-[[ATTACHMENT|test-results\gallery-Gallery---Interact-d923b-ainer-with-proper-structure-chromium\error-context.md]]
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-chromium\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should have properly structured testimonial content" classname="testimonial-a11y.spec.ts" time="2.719">
+</testcase>
+<testcase name="Testimonials - Accessibility › should announce testimonial changes to screen readers" classname="testimonial-a11y.spec.ts" time="2.59">
+<failure message="testimonial-a11y.spec.ts:110:3 should announce testimonial changes to screen readers" type="FAILURE">
+<![CDATA[  [chromium] › testimonial-a11y.spec.ts:110:3 › Testimonials - Accessibility › should announce testimonial changes to screen readers 
+
+    Error: locator.textContent: Error: strict mode violation: locator('[aria-live], [data-testid="testimonial-live-region"]') resolved to 5 elements:
+        1) <div class="sr-only" aria-live="assertive" data-testid="live-region"></div> aka getByTestId('live-region')
+        2) <div role="status" aria-live="polite" class="quote-form__success" data-testid="success-message">…</div> aka getByTestId('success-message')
+        3) <div aria-live="polite" aria-atomic="true" class="gallery-live-region" data-testid="gallery-live-region"></div> aka getByTestId('gallery-live-region')
+        4) <div aria-live="polite" aria-atomic="true" data-testid="testimonial-live-region" class="testimonials__live-region sr-only">Testimonial 2 of 3: From initial consultation to …</div> aka getByTestId('testimonial-live-region')
+        5) <div class="sr-only" id="live-region" aria-live="polite" aria-atomic="true"></div> aka locator('#live-region')
+
+    Call log:
+      - waiting for locator('[aria-live], [data-testid="testimonial-live-region"]')
+
+
+      125 |       // Check if announcement was made
+      126 |       if (await liveRegion.count() > 0) {
+    > 127 |         const liveRegionText = await liveRegion.textContent();
+          |                                                 ^
+      128 |         expect((liveRegionText || '').length).toBeGreaterThan(0);
+      129 |       }
+      130 |       
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:127:49
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-chromium\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-chromium\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-chromium\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should handle keyboard navigation" classname="testimonial-a11y.spec.ts" time="1.386">
+<failure message="testimonial-a11y.spec.ts:142:3 should handle keyboard navigation" type="FAILURE">
+<![CDATA[  [chromium] › testimonial-a11y.spec.ts:142:3 › Testimonials - Accessibility › should handle keyboard navigation 
+
+    Error: expect(received).toBeTruthy()
+
+    Received: false
+
+      172 |         const focusChanged = newState.activeElement !== initialState.activeElement;
+      173 |         const testimonialChanged = newState.currentTestimonial !== initialState.currentTestimonial;
+    > 174 |         expect(focusChanged || testimonialChanged).toBeTruthy();
+          |                                                    ^
+      175 |       }
+      176 |     }
+      177 |   });
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:174:52
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-chromium\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-chromium\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-chromium\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should have proper ARIA attributes for testimonials" classname="testimonial-a11y.spec.ts" time="1.092">
+</testcase>
+<testcase name="Testimonials - Accessibility › should meet WCAG accessibility standards" classname="testimonial-a11y.spec.ts" time="4.848">
+<failure message="testimonial-a11y.spec.ts:220:3 should meet WCAG accessibility standards" type="FAILURE">
+<![CDATA[  [chromium] › testimonial-a11y.spec.ts:220:3 › Testimonials - Accessibility › should meet WCAG accessibility standards 
+
+    AssertionError: 1 accessibility violation was detected
+
+    1 !== 0
+
+        at testResultDependsOnViolations (E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\node_modules\axe-playwright\dist\utils.js:16:26)
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\node_modules\axe-playwright\dist\index.js:143:51
+        at fulfilled (E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\node_modules\axe-playwright\dist\index.js:28:58)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-chromium\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[┌─────────┬────────────────────────┬───────────┬───────────────────────────────────────────────────────────────────┬───────┐
+│ (index) │ id                     │ impact    │ description                                                       │ nodes │
+├─────────┼────────────────────────┼───────────┼───────────────────────────────────────────────────────────────────┼───────┤
+│ 0       │ [32m'aria-prohibited-attr'[39m │ [32m'serious'[39m │ [32m"Ensure ARIA attributes are not prohibited for an element's role"[39m │ [33m1[39m     │
+└─────────┴────────────────────────┴───────────┴───────────────────────────────────────────────────────────────────┴───────┘
+┌─────────┬────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬────────────┐
+│ (index) │ target                                                                                                                             │ html                                                                                                                                                                  │ violations │
+├─────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼────────────┤
+│ 0       │ [32m'[".testimonial-item--active > blockquote > .testimonial__attribution > .testimonial__rating[aria-label=\\"5 out of 5 stars\\"]"]'[39m │ [32m'<div class="testimonial__rating" aria-label="5 out of 5 stars">\n              <span class="testimonial__stars" aria-hidden="true">★★★★★</span>\n            </div>'[39m │ [32m'[0]'[39m      │
+└─────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────────┘
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-chromium\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-chromium\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should handle disabled navigation states" classname="testimonial-a11y.spec.ts" time="1.593">
+</testcase>
+<testcase name="Testimonials - Accessibility › should have minimum touch target size for mobile" classname="testimonial-a11y.spec.ts" time="2.776">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Testimonials - Accessibility › should respect reduced motion preferences" classname="testimonial-a11y.spec.ts" time="2.44">
+<failure message="testimonial-a11y.spec.ts:294:3 should respect reduced motion preferences" type="FAILURE">
+<![CDATA[  [chromium] › testimonial-a11y.spec.ts:294:3 › Testimonials - Accessibility › should respect reduced motion preferences 
+
+    Error: expect(received).toMatch(expected)
+
+    Expected pattern: /0s|0\.0/
+    Received string:  "1e-05s"
+
+      311 |     // Should either have no transitions or very fast ones
+      312 |     if (containerStyles.transition !== 'none') {
+    > 313 |       expect(containerStyles.transition).toMatch(/0s|0\.0/);
+          |                                          ^
+      314 |     }
+      315 |     
+      316 |     if (containerStyles.animation !== 'none') {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:313:42
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-e57a0--reduced-motion-preferences-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-e57a0--reduced-motion-preferences-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-e57a0--reduced-motion-preferences-chromium\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e57a0--reduced-motion-preferences-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e57a0--reduced-motion-preferences-chromium\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e57a0--reduced-motion-preferences-chromium\error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="hero-visual.spec.ts" timestamp="2025-10-30T16:13:43.769Z" hostname="firefox" tests="11" failures="0" skipped="0" time="25.387" errors="0">
+<testcase name="Hero - Visual Trust Elements › should display trust minis in hero section" classname="hero-visual.spec.ts" time="4.333">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display rating trust mini with visible content" classname="hero-visual.spec.ts" time="3.92">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display projects count trust mini" classname="hero-visual.spec.ts" time="2.645">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display warranty trust mini" classname="hero-visual.spec.ts" time="1.705">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display planning support trust mini" classname="hero-visual.spec.ts" time="1.966">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have readable typography for all trust minis" classname="hero-visual.spec.ts" time="2.325">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have proper layout and spacing for trust minis" classname="hero-visual.spec.ts" time="1.927">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should be visible on different screen sizes" classname="hero-visual.spec.ts" time="1.756">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have appropriate visual hierarchy in hero" classname="hero-visual.spec.ts" time="1.697">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should maintain trust minis visibility with hero background" classname="hero-visual.spec.ts" time="1.414">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have semantic markup for trust indicators" classname="hero-visual.spec.ts" time="1.699">
+</testcase>
+</testsuite>
+<testsuite name="testimonial-a11y.spec.ts" timestamp="2025-10-30T16:13:43.769Z" hostname="firefox" tests="10" failures="4" skipped="1" time="39.525" errors="0">
+<testcase name="Testimonials - Accessibility › should have accessible testimonial container structure" classname="testimonial-a11y.spec.ts" time="2.149">
+</testcase>
+<testcase name="Testimonials - Accessibility › should have keyboard accessible navigation controls" classname="testimonial-a11y.spec.ts" time="7.391">
+<failure message="testimonial-a11y.spec.ts:40:3 should have keyboard accessible navigation controls" type="FAILURE">
+<![CDATA[  [firefox] › testimonial-a11y.spec.ts:40:3 › Testimonials - Accessibility › should have keyboard accessible navigation controls 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  locator('[data-testid="testimonials"], .testimonials, #testimonials').locator('[data-testid="testimonial-prev"], .testimonial-prev, button:has-text("Previous")')
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" with timeout 5000ms
+      - waiting for locator('[data-testid="testimonials"], .testimonials, #testimonials').locator('[data-testid="testimonial-prev"], .testimonial-prev, button:has-text("Previous")')
+        8 × locator resolved to <button disabled type="button" aria-disabled="true" data-testid="testimonial-prev" aria-label="Previous testimonial" class="testimonials__nav-button testimonials__nav-button--prev">…</button>
+          - unexpected value "inactive"
+
+
+      56 |       // Should be keyboard focusable
+      57 |       await prevButton.focus();
+    > 58 |       await expect(prevButton).toBeFocused();
+         |                                ^
+      59 |       
+      60 |       // Should be proper button type
+      61 |       const buttonType = await prevButton.getAttribute('type');
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:58:32
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-firefox\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-firefox\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-firefox\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-firefox\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-firefox\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should have properly structured testimonial content" classname="testimonial-a11y.spec.ts" time="2.131">
+</testcase>
+<testcase name="Testimonials - Accessibility › should announce testimonial changes to screen readers" classname="testimonial-a11y.spec.ts" time="2.237">
+<failure message="testimonial-a11y.spec.ts:110:3 should announce testimonial changes to screen readers" type="FAILURE">
+<![CDATA[  [firefox] › testimonial-a11y.spec.ts:110:3 › Testimonials - Accessibility › should announce testimonial changes to screen readers 
+
+    Error: locator.textContent: Error: strict mode violation: locator('[aria-live], [data-testid="testimonial-live-region"]') resolved to 5 elements:
+        1) <div class="sr-only" aria-live="assertive" data-testid="live-region"></div> aka getByTestId('live-region')
+        2) <div role="status" aria-live="polite" class="quote-form__success" data-testid="success-message">…</div> aka getByTestId('success-message')
+        ...
+
+    Call log:
+      - waiting for locator('[aria-live], [data-testid="testimonial-live-region"]')
+
+
+      125 |       // Check if announcement was made
+      126 |       if (await liveRegion.count() > 0) {
+    > 127 |         const liveRegionText = await liveRegion.textContent();
+          |                                                 ^
+      128 |         expect((liveRegionText || '').length).toBeGreaterThan(0);
+      129 |       }
+      130 |       
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:127:49
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-firefox\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-firefox\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-firefox\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-firefox\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-firefox\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should handle keyboard navigation" classname="testimonial-a11y.spec.ts" time="8.158">
+<failure message="testimonial-a11y.spec.ts:142:3 should handle keyboard navigation" type="FAILURE">
+<![CDATA[  [firefox] › testimonial-a11y.spec.ts:142:3 › Testimonials - Accessibility › should handle keyboard navigation 
+
+    Error: expect(received).toBeTruthy()
+
+    Received: false
+
+      172 |         const focusChanged = newState.activeElement !== initialState.activeElement;
+      173 |         const testimonialChanged = newState.currentTestimonial !== initialState.currentTestimonial;
+    > 174 |         expect(focusChanged || testimonialChanged).toBeTruthy();
+          |                                                    ^
+      175 |       }
+      176 |     }
+      177 |   });
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:174:52
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-firefox\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-firefox\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-firefox\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-firefox\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-firefox\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should have proper ARIA attributes for testimonials" classname="testimonial-a11y.spec.ts" time="5.818">
+</testcase>
+<testcase name="Testimonials - Accessibility › should meet WCAG accessibility standards" classname="testimonial-a11y.spec.ts" time="1.962">
+<failure message="testimonial-a11y.spec.ts:220:3 should meet WCAG accessibility standards" type="FAILURE">
+<![CDATA[  [firefox] › testimonial-a11y.spec.ts:220:3 › Testimonials - Accessibility › should meet WCAG accessibility standards 
+
+    AssertionError: 1 accessibility violation was detected
+
+    1 !== 0
+
+        at testResultDependsOnViolations (E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\node_modules\axe-playwright\dist\utils.js:16:26)
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\node_modules\axe-playwright\dist\index.js:143:51
+        at fulfilled (E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\node_modules\axe-playwright\dist\index.js:28:58)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-firefox\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-firefox\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[┌─────────┬────────────────────────┬───────────┬───────────────────────────────────────────────────────────────────┬───────┐
+│ (index) │ id                     │ impact    │ description                                                       │ nodes │
+├─────────┼────────────────────────┼───────────┼───────────────────────────────────────────────────────────────────┼───────┤
+│ 0       │ [32m'aria-prohibited-attr'[39m │ [32m'serious'[39m │ [32m"Ensure ARIA attributes are not prohibited for an element's role"[39m │ [33m1[39m     │
+└─────────┴────────────────────────┴───────────┴───────────────────────────────────────────────────────────────────┴───────┘
+┌─────────┬────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬────────────┐
+│ (index) │ target                                                                                                                             │ html                                                                                                                                                                  │ violations │
+├─────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼────────────┤
+│ 0       │ [32m'[".testimonial-item--active > blockquote > .testimonial__attribution > .testimonial__rating[aria-label=\\"5 out of 5 stars\\"]"]'[39m │ [32m'<div class="testimonial__rating" aria-label="5 out of 5 stars">\n              <span class="testimonial__stars" aria-hidden="true">★★★★★</span>\n            </div>'[39m │ [32m'[0]'[39m      │
+└─────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────────┘
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-firefox\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-firefox\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-firefox\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should handle disabled navigation states" classname="testimonial-a11y.spec.ts" time="3.54">
+</testcase>
+<testcase name="Testimonials - Accessibility › should have minimum touch target size for mobile" classname="testimonial-a11y.spec.ts" time="3.862">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Testimonials - Accessibility › should respect reduced motion preferences" classname="testimonial-a11y.spec.ts" time="2.277">
+</testcase>
+</testsuite>
+<testsuite name="hero-visual.spec.ts" timestamp="2025-10-30T16:13:43.769Z" hostname="webkit" tests="11" failures="0" skipped="0" time="14.115" errors="0">
+<testcase name="Hero - Visual Trust Elements › should display trust minis in hero section" classname="hero-visual.spec.ts" time="1.303">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display rating trust mini with visible content" classname="hero-visual.spec.ts" time="1.398">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display projects count trust mini" classname="hero-visual.spec.ts" time="1.459">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display warranty trust mini" classname="hero-visual.spec.ts" time="1.226">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display planning support trust mini" classname="hero-visual.spec.ts" time="1.264">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have readable typography for all trust minis" classname="hero-visual.spec.ts" time="1.444">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have proper layout and spacing for trust minis" classname="hero-visual.spec.ts" time="1.34">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should be visible on different screen sizes" classname="hero-visual.spec.ts" time="0.957">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have appropriate visual hierarchy in hero" classname="hero-visual.spec.ts" time="1.382">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should maintain trust minis visibility with hero background" classname="hero-visual.spec.ts" time="1.147">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have semantic markup for trust indicators" classname="hero-visual.spec.ts" time="1.195">
+</testcase>
+</testsuite>
+<testsuite name="testimonial-a11y.spec.ts" timestamp="2025-10-30T16:13:43.769Z" hostname="webkit" tests="10" failures="4" skipped="1" time="23.487" errors="0">
+<testcase name="Testimonials - Accessibility › should have accessible testimonial container structure" classname="testimonial-a11y.spec.ts" time="1.256">
+</testcase>
+<testcase name="Testimonials - Accessibility › should have keyboard accessible navigation controls" classname="testimonial-a11y.spec.ts" time="6.677">
+<failure message="testimonial-a11y.spec.ts:40:3 should have keyboard accessible navigation controls" type="FAILURE">
+<![CDATA[  [webkit] › testimonial-a11y.spec.ts:40:3 › Testimonials - Accessibility › should have keyboard accessible navigation controls 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  locator('[data-testid="testimonials"], .testimonials, #testimonials').locator('[data-testid="testimonial-prev"], .testimonial-prev, button:has-text("Previous")')
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" with timeout 5000ms
+      - waiting for locator('[data-testid="testimonials"], .testimonials, #testimonials').locator('[data-testid="testimonial-prev"], .testimonial-prev, button:has-text("Previous")')
+        8 × locator resolved to <button disabled type="button" aria-disabled="true" data-testid="testimonial-prev" aria-label="Previous testimonial" class="testimonials__nav-button testimonials__nav-button--prev">…</button>
+          - unexpected value "inactive"
+
+
+      56 |       // Should be keyboard focusable
+      57 |       await prevButton.focus();
+    > 58 |       await expect(prevButton).toBeFocused();
+         |                                ^
+      59 |       
+      60 |       // Should be proper button type
+      61 |       const buttonType = await prevButton.getAttribute('type');
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:58:32
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-webkit\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-webkit\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-webkit\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-webkit\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should have properly structured testimonial content" classname="testimonial-a11y.spec.ts" time="1.234">
+</testcase>
+<testcase name="Testimonials - Accessibility › should announce testimonial changes to screen readers" classname="testimonial-a11y.spec.ts" time="2.456">
+<failure message="testimonial-a11y.spec.ts:110:3 should announce testimonial changes to screen readers" type="FAILURE">
+<![CDATA[  [webkit] › testimonial-a11y.spec.ts:110:3 › Testimonials - Accessibility › should announce testimonial changes to screen readers 
+
+    Error: locator.textContent: Error: strict mode violation: locator('[aria-live], [data-testid="testimonial-live-region"]') resolved to 5 elements:
+        1) <div class="sr-only" aria-live="assertive" data-testid="live-region"></div> aka getByTestId('live-region')
+        2) <div role="status" aria-live="polite" class="quote-form__success" data-testid="success-message">…</div> aka getByTestId('success-message')
+        3) <div aria-live="polite" aria-atomic="true" class="gallery-live-region" data-testid="gallery-live-region"></div> aka getByTestId('gallery-live-region')
+        4) <div aria-live="polite" aria-atomic="true" data-testid="testimonial-live-region" class="testimonials__live-region sr-only">Testimonial 2 of 3: From initial consultation to …</div> aka getByTestId('testimonial-live-region')
+        5) <div class="sr-only" id="live-region" aria-live="polite" aria-atomic="true"></div> aka locator('#live-region')
+
+    Call log:
+      - waiting for locator('[aria-live], [data-testid="testimonial-live-region"]')
+
+
+      125 |       // Check if announcement was made
+      126 |       if (await liveRegion.count() > 0) {
+    > 127 |         const liveRegionText = await liveRegion.textContent();
+          |                                                 ^
+      128 |         expect((liveRegionText || '').length).toBeGreaterThan(0);
+      129 |       }
+      130 |       
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:127:49
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-webkit\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-webkit\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-webkit\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-webkit\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should handle keyboard navigation" classname="testimonial-a11y.spec.ts" time="1.757">
+<failure message="testimonial-a11y.spec.ts:142:3 should handle keyboard navigation" type="FAILURE">
+<![CDATA[  [webkit] › testimonial-a11y.spec.ts:142:3 › Testimonials - Accessibility › should handle keyboard navigation 
+
+    Error: expect(received).toBeTruthy()
+
+    Received: false
+
+      172 |         const focusChanged = newState.activeElement !== initialState.activeElement;
+      173 |         const testimonialChanged = newState.currentTestimonial !== initialState.currentTestimonial;
+    > 174 |         expect(focusChanged || testimonialChanged).toBeTruthy();
+          |                                                    ^
+      175 |       }
+      176 |     }
+      177 |   });
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:174:52
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-webkit\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-webkit\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-webkit\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-webkit\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should have proper ARIA attributes for testimonials" classname="testimonial-a11y.spec.ts" time="1.28">
+</testcase>
+<testcase name="Testimonials - Accessibility › should meet WCAG accessibility standards" classname="testimonial-a11y.spec.ts" time="2.666">
+<failure message="testimonial-a11y.spec.ts:220:3 should meet WCAG accessibility standards" type="FAILURE">
+<![CDATA[  [webkit] › testimonial-a11y.spec.ts:220:3 › Testimonials - Accessibility › should meet WCAG accessibility standards 
+
+    AssertionError: 1 accessibility violation was detected
+
+    1 !== 0
+
+        at testResultDependsOnViolations (E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\node_modules\axe-playwright\dist\utils.js:16:26)
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\node_modules\axe-playwright\dist\index.js:143:51
+        at fulfilled (E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\node_modules\axe-playwright\dist\index.js:28:58)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-webkit\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[┌─────────┬────────────────────────┬───────────┬───────────────────────────────────────────────────────────────────┬───────┐
+│ (index) │ id                     │ impact    │ description                                                       │ nodes │
+├─────────┼────────────────────────┼───────────┼───────────────────────────────────────────────────────────────────┼───────┤
+│ 0       │ [32m'aria-prohibited-attr'[39m │ [32m'serious'[39m │ [32m"Ensure ARIA attributes are not prohibited for an element's role"[39m │ [33m1[39m     │
+└─────────┴────────────────────────┴───────────┴───────────────────────────────────────────────────────────────────┴───────┘
+┌─────────┬────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬────────────┐
+│ (index) │ target                                                                                                                             │ html                                                                                                                                                                  │ violations │
+├─────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼────────────┤
+│ 0       │ [32m'[".testimonial-item--active > blockquote > .testimonial__attribution > .testimonial__rating[aria-label=\\"5 out of 5 stars\\"]"]'[39m │ [32m'<div class="testimonial__rating" aria-label="5 out of 5 stars">\n              <span class="testimonial__stars" aria-hidden="true">★★★★★</span>\n            </div>'[39m │ [32m'[0]'[39m      │
+└─────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────────┘
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-webkit\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-webkit\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-webkit\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should handle disabled navigation states" classname="testimonial-a11y.spec.ts" time="3.305">
+</testcase>
+<testcase name="Testimonials - Accessibility › should have minimum touch target size for mobile" classname="testimonial-a11y.spec.ts" time="1.169">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Testimonials - Accessibility › should respect reduced motion preferences" classname="testimonial-a11y.spec.ts" time="1.687">
+</testcase>
+</testsuite>
+<testsuite name="hero-visual.spec.ts" timestamp="2025-10-30T16:13:43.769Z" hostname="Mobile Chrome" tests="11" failures="0" skipped="0" time="17.701" errors="0">
+<testcase name="Hero - Visual Trust Elements › should display trust minis in hero section" classname="hero-visual.spec.ts" time="1.619">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display rating trust mini with visible content" classname="hero-visual.spec.ts" time="1.775">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display projects count trust mini" classname="hero-visual.spec.ts" time="1.849">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display warranty trust mini" classname="hero-visual.spec.ts" time="1.309">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display planning support trust mini" classname="hero-visual.spec.ts" time="1.569">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have readable typography for all trust minis" classname="hero-visual.spec.ts" time="1.594">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have proper layout and spacing for trust minis" classname="hero-visual.spec.ts" time="1.433">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should be visible on different screen sizes" classname="hero-visual.spec.ts" time="1.853">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have appropriate visual hierarchy in hero" classname="hero-visual.spec.ts" time="1.545">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should maintain trust minis visibility with hero background" classname="hero-visual.spec.ts" time="1.629">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have semantic markup for trust indicators" classname="hero-visual.spec.ts" time="1.526">
+</testcase>
+</testsuite>
+<testsuite name="testimonial-a11y.spec.ts" timestamp="2025-10-30T16:13:43.769Z" hostname="Mobile Chrome" tests="10" failures="6" skipped="0" time="23.35" errors="0">
+<testcase name="Testimonials - Accessibility › should have accessible testimonial container structure" classname="testimonial-a11y.spec.ts" time="1.48">
+</testcase>
+<testcase name="Testimonials - Accessibility › should have keyboard accessible navigation controls" classname="testimonial-a11y.spec.ts" time="6.998">
+<failure message="testimonial-a11y.spec.ts:40:3 should have keyboard accessible navigation controls" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › testimonial-a11y.spec.ts:40:3 › Testimonials - Accessibility › should have keyboard accessible navigation controls 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  locator('[data-testid="testimonials"], .testimonials, #testimonials').locator('[data-testid="testimonial-prev"], .testimonial-prev, button:has-text("Previous")')
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" with timeout 5000ms
+      - waiting for locator('[data-testid="testimonials"], .testimonials, #testimonials').locator('[data-testid="testimonial-prev"], .testimonial-prev, button:has-text("Previous")')
+        9 × locator resolved to <button disabled type="button" aria-disabled="true" data-testid="testimonial-prev" aria-label="Previous testimonial" class="testimonials__nav-button testimonials__nav-button--prev">…</button>
+          - unexpected value "inactive"
+
+
+      56 |       // Should be keyboard focusable
+      57 |       await prevButton.focus();
+    > 58 |       await expect(prevButton).toBeFocused();
+         |                                ^
+      59 |       
+      60 |       // Should be proper button type
+      61 |       const buttonType = await prevButton.getAttribute('type');
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:58:32
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-Mobile-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-Mobile-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-Mobile-Chrome\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-Mobile-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-Mobile-Chrome\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-Mobile-Chrome\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should have properly structured testimonial content" classname="testimonial-a11y.spec.ts" time="1.198">
+</testcase>
+<testcase name="Testimonials - Accessibility › should announce testimonial changes to screen readers" classname="testimonial-a11y.spec.ts" time="2.954">
+<failure message="testimonial-a11y.spec.ts:110:3 should announce testimonial changes to screen readers" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › testimonial-a11y.spec.ts:110:3 › Testimonials - Accessibility › should announce testimonial changes to screen readers 
+
+    Error: locator.textContent: Error: strict mode violation: locator('[aria-live], [data-testid="testimonial-live-region"]') resolved to 5 elements:
+        1) <div class="sr-only" aria-live="assertive" data-testid="live-region"></div> aka getByTestId('live-region')
+        2) <div role="status" aria-live="polite" class="quote-form__success" data-testid="success-message">…</div> aka getByTestId('success-message')
+        3) <div aria-live="polite" aria-atomic="true" class="gallery-live-region" data-testid="gallery-live-region"></div> aka getByTestId('gallery-live-region')
+        4) <div aria-live="polite" aria-atomic="true" data-testid="testimonial-live-region" class="testimonials__live-region sr-only">Testimonial 2 of 3: From initial consultation to …</div> aka getByTestId('testimonial-live-region')
+        5) <div class="sr-only" id="live-region" aria-live="polite" aria-atomic="true"></div> aka locator('#live-region')
+
+    Call log:
+      - waiting for locator('[aria-live], [data-testid="testimonial-live-region"]')
+
+
+      125 |       // Check if announcement was made
+      126 |       if (await liveRegion.count() > 0) {
+    > 127 |         const liveRegionText = await liveRegion.textContent();
+          |                                                 ^
+      128 |         expect((liveRegionText || '').length).toBeGreaterThan(0);
+      129 |       }
+      130 |       
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:127:49
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-Mobile-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-Mobile-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-Mobile-Chrome\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-Mobile-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-Mobile-Chrome\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-Mobile-Chrome\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should handle keyboard navigation" classname="testimonial-a11y.spec.ts" time="1.765">
+<failure message="testimonial-a11y.spec.ts:142:3 should handle keyboard navigation" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › testimonial-a11y.spec.ts:142:3 › Testimonials - Accessibility › should handle keyboard navigation 
+
+    Error: expect(received).toBeTruthy()
+
+    Received: false
+
+      172 |         const focusChanged = newState.activeElement !== initialState.activeElement;
+      173 |         const testimonialChanged = newState.currentTestimonial !== initialState.currentTestimonial;
+    > 174 |         expect(focusChanged || testimonialChanged).toBeTruthy();
+          |                                                    ^
+      175 |       }
+      176 |     }
+      177 |   });
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:174:52
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-Mobile-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-Mobile-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-Mobile-Chrome\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-Mobile-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-Mobile-Chrome\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-Mobile-Chrome\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should have proper ARIA attributes for testimonials" classname="testimonial-a11y.spec.ts" time="1.394">
+</testcase>
+<testcase name="Testimonials - Accessibility › should meet WCAG accessibility standards" classname="testimonial-a11y.spec.ts" time="1.603">
+<failure message="testimonial-a11y.spec.ts:220:3 should meet WCAG accessibility standards" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › testimonial-a11y.spec.ts:220:3 › Testimonials - Accessibility › should meet WCAG accessibility standards 
+
+    AssertionError: 1 accessibility violation was detected
+
+    1 !== 0
+
+        at testResultDependsOnViolations (E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\node_modules\axe-playwright\dist\utils.js:16:26)
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\node_modules\axe-playwright\dist\index.js:143:51
+        at fulfilled (E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\node_modules\axe-playwright\dist\index.js:28:58)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-Mobile-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-Mobile-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-Mobile-Chrome\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[┌─────────┬────────────────────────┬───────────┬───────────────────────────────────────────────────────────────────┬───────┐
+│ (index) │ id                     │ impact    │ description                                                       │ nodes │
+├─────────┼────────────────────────┼───────────┼───────────────────────────────────────────────────────────────────┼───────┤
+│ 0       │ [32m'aria-prohibited-attr'[39m │ [32m'serious'[39m │ [32m"Ensure ARIA attributes are not prohibited for an element's role"[39m │ [33m1[39m     │
+└─────────┴────────────────────────┴───────────┴───────────────────────────────────────────────────────────────────┴───────┘
+┌─────────┬────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬────────────┐
+│ (index) │ target                                                                                                                             │ html                                                                                                                                                                  │ violations │
+├─────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼────────────┤
+│ 0       │ [32m'[".testimonial-item--active > blockquote > .testimonial__attribution > .testimonial__rating[aria-label=\\"5 out of 5 stars\\"]"]'[39m │ [32m'<div class="testimonial__rating" aria-label="5 out of 5 stars">\n              <span class="testimonial__stars" aria-hidden="true">★★★★★</span>\n            </div>'[39m │ [32m'[0]'[39m      │
+└─────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────────┘
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-Mobile-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-Mobile-Chrome\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-Mobile-Chrome\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should handle disabled navigation states" classname="testimonial-a11y.spec.ts" time="3.054">
+</testcase>
+<testcase name="Testimonials - Accessibility › should have minimum touch target size for mobile" classname="testimonial-a11y.spec.ts" time="1.364">
+<failure message="testimonial-a11y.spec.ts:272:3 should have minimum touch target size for mobile" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › testimonial-a11y.spec.ts:272:3 › Testimonials - Accessibility › should have minimum touch target size for mobile 
+
+    Error: expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 44
+    Received:    12
+
+      286 |       if (boundingBox) {
+      287 |         // Should meet minimum 44x44px touch target
+    > 288 |         expect(boundingBox.width).toBeGreaterThanOrEqual(44);
+          |                                   ^
+      289 |         expect(boundingBox.height).toBeGreaterThanOrEqual(44);
+      290 |       }
+      291 |     }
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:288:35
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-0ea25-ouch-target-size-for-mobile-Mobile-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-0ea25-ouch-target-size-for-mobile-Mobile-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-0ea25-ouch-target-size-for-mobile-Mobile-Chrome\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-0ea25-ouch-target-size-for-mobile-Mobile-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-0ea25-ouch-target-size-for-mobile-Mobile-Chrome\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-0ea25-ouch-target-size-for-mobile-Mobile-Chrome\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should respect reduced motion preferences" classname="testimonial-a11y.spec.ts" time="1.54">
+<failure message="testimonial-a11y.spec.ts:294:3 should respect reduced motion preferences" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › testimonial-a11y.spec.ts:294:3 › Testimonials - Accessibility › should respect reduced motion preferences 
+
+    Error: expect(received).toMatch(expected)
+
+    Expected pattern: /0s|0\.0/
+    Received string:  "1e-05s"
+
+      311 |     // Should either have no transitions or very fast ones
+      312 |     if (containerStyles.transition !== 'none') {
+    > 313 |       expect(containerStyles.transition).toMatch(/0s|0\.0/);
+          |                                          ^
+      314 |     }
+      315 |     
+      316 |     if (containerStyles.animation !== 'none') {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:313:42
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-e57a0--reduced-motion-preferences-Mobile-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-e57a0--reduced-motion-preferences-Mobile-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-e57a0--reduced-motion-preferences-Mobile-Chrome\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e57a0--reduced-motion-preferences-Mobile-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e57a0--reduced-motion-preferences-Mobile-Chrome\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e57a0--reduced-motion-preferences-Mobile-Chrome\error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="hero-visual.spec.ts" timestamp="2025-10-30T16:13:43.769Z" hostname="Mobile Safari" tests="11" failures="0" skipped="0" time="13.053" errors="0">
+<testcase name="Hero - Visual Trust Elements › should display trust minis in hero section" classname="hero-visual.spec.ts" time="1.139">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display rating trust mini with visible content" classname="hero-visual.spec.ts" time="1.312">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display projects count trust mini" classname="hero-visual.spec.ts" time="0.903">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display warranty trust mini" classname="hero-visual.spec.ts" time="1.089">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display planning support trust mini" classname="hero-visual.spec.ts" time="1.108">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have readable typography for all trust minis" classname="hero-visual.spec.ts" time="1.297">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have proper layout and spacing for trust minis" classname="hero-visual.spec.ts" time="1.314">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should be visible on different screen sizes" classname="hero-visual.spec.ts" time="1.244">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have appropriate visual hierarchy in hero" classname="hero-visual.spec.ts" time="1.219">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should maintain trust minis visibility with hero background" classname="hero-visual.spec.ts" time="1.171">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have semantic markup for trust indicators" classname="hero-visual.spec.ts" time="1.257">
+</testcase>
+</testsuite>
+<testsuite name="testimonial-a11y.spec.ts" timestamp="2025-10-30T16:13:43.769Z" hostname="Mobile Safari" tests="10" failures="5" skipped="0" time="20.251" errors="0">
+<testcase name="Testimonials - Accessibility › should have accessible testimonial container structure" classname="testimonial-a11y.spec.ts" time="1.219">
+</testcase>
+<testcase name="Testimonials - Accessibility › should have keyboard accessible navigation controls" classname="testimonial-a11y.spec.ts" time="6.286">
+<failure message="testimonial-a11y.spec.ts:40:3 should have keyboard accessible navigation controls" type="FAILURE">
+<![CDATA[  [Mobile Safari] › testimonial-a11y.spec.ts:40:3 › Testimonials - Accessibility › should have keyboard accessible navigation controls 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  locator('[data-testid="testimonials"], .testimonials, #testimonials').locator('[data-testid="testimonial-prev"], .testimonial-prev, button:has-text("Previous")')
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" with timeout 5000ms
+      - waiting for locator('[data-testid="testimonials"], .testimonials, #testimonials').locator('[data-testid="testimonial-prev"], .testimonial-prev, button:has-text("Previous")')
+        9 × locator resolved to <button disabled type="button" aria-disabled="true" data-testid="testimonial-prev" aria-label="Previous testimonial" class="testimonials__nav-button testimonials__nav-button--prev">…</button>
+          - unexpected value "inactive"
+
+
+      56 |       // Should be keyboard focusable
+      57 |       await prevButton.focus();
+    > 58 |       await expect(prevButton).toBeFocused();
+         |                                ^
+      59 |       
+      60 |       // Should be proper button type
+      61 |       const buttonType = await prevButton.getAttribute('type');
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:58:32
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-Mobile-Safari\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-Mobile-Safari\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-Mobile-Safari\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-Mobile-Safari\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-Mobile-Safari\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-Mobile-Safari\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should have properly structured testimonial content" classname="testimonial-a11y.spec.ts" time="1.067">
+</testcase>
+<testcase name="Testimonials - Accessibility › should announce testimonial changes to screen readers" classname="testimonial-a11y.spec.ts" time="2.001">
+<failure message="testimonial-a11y.spec.ts:110:3 should announce testimonial changes to screen readers" type="FAILURE">
+<![CDATA[  [Mobile Safari] › testimonial-a11y.spec.ts:110:3 › Testimonials - Accessibility › should announce testimonial changes to screen readers 
+
+    Error: locator.textContent: Error: strict mode violation: locator('[aria-live], [data-testid="testimonial-live-region"]') resolved to 5 elements:
+        1) <div class="sr-only" aria-live="assertive" data-testid="live-region"></div> aka getByTestId('live-region')
+        2) <div role="status" aria-live="polite" class="quote-form__success" data-testid="success-message">…</div> aka getByTestId('success-message')
+        3) <div aria-live="polite" aria-atomic="true" class="gallery-live-region" data-testid="gallery-live-region"></div> aka getByTestId('gallery-live-region')
+        4) <div aria-live="polite" aria-atomic="true" data-testid="testimonial-live-region" class="testimonials__live-region sr-only">Testimonial 2 of 3: From initial consultation to …</div> aka getByTestId('testimonial-live-region')
+        5) <div class="sr-only" id="live-region" aria-live="polite" aria-atomic="true"></div> aka locator('#live-region')
+
+    Call log:
+      - waiting for locator('[aria-live], [data-testid="testimonial-live-region"]')
+
+
+      125 |       // Check if announcement was made
+      126 |       if (await liveRegion.count() > 0) {
+    > 127 |         const liveRegionText = await liveRegion.textContent();
+          |                                                 ^
+      128 |         expect((liveRegionText || '').length).toBeGreaterThan(0);
+      129 |       }
+      130 |       
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:127:49
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-Mobile-Safari\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-Mobile-Safari\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-Mobile-Safari\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-Mobile-Safari\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-Mobile-Safari\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-Mobile-Safari\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should handle keyboard navigation" classname="testimonial-a11y.spec.ts" time="1.47">
+<failure message="testimonial-a11y.spec.ts:142:3 should handle keyboard navigation" type="FAILURE">
+<![CDATA[  [Mobile Safari] › testimonial-a11y.spec.ts:142:3 › Testimonials - Accessibility › should handle keyboard navigation 
+
+    Error: expect(received).toBeTruthy()
+
+    Received: false
+
+      172 |         const focusChanged = newState.activeElement !== initialState.activeElement;
+      173 |         const testimonialChanged = newState.currentTestimonial !== initialState.currentTestimonial;
+    > 174 |         expect(focusChanged || testimonialChanged).toBeTruthy();
+          |                                                    ^
+      175 |       }
+      176 |     }
+      177 |   });
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:174:52
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-Mobile-Safari\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-Mobile-Safari\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-Mobile-Safari\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-Mobile-Safari\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-Mobile-Safari\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-Mobile-Safari\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should have proper ARIA attributes for testimonials" classname="testimonial-a11y.spec.ts" time="1.521">
+</testcase>
+<testcase name="Testimonials - Accessibility › should meet WCAG accessibility standards" classname="testimonial-a11y.spec.ts" time="2.022">
+<failure message="testimonial-a11y.spec.ts:220:3 should meet WCAG accessibility standards" type="FAILURE">
+<![CDATA[  [Mobile Safari] › testimonial-a11y.spec.ts:220:3 › Testimonials - Accessibility › should meet WCAG accessibility standards 
+
+    AssertionError: 1 accessibility violation was detected
+
+    1 !== 0
+
+        at testResultDependsOnViolations (E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\node_modules\axe-playwright\dist\utils.js:16:26)
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\node_modules\axe-playwright\dist\index.js:143:51
+        at fulfilled (E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\node_modules\axe-playwright\dist\index.js:28:58)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-Mobile-Safari\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-Mobile-Safari\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-Mobile-Safari\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[┌─────────┬────────────────────────┬───────────┬───────────────────────────────────────────────────────────────────┬───────┐
+│ (index) │ id                     │ impact    │ description                                                       │ nodes │
+├─────────┼────────────────────────┼───────────┼───────────────────────────────────────────────────────────────────┼───────┤
+│ 0       │ [32m'aria-prohibited-attr'[39m │ [32m'serious'[39m │ [32m"Ensure ARIA attributes are not prohibited for an element's role"[39m │ [33m1[39m     │
+└─────────┴────────────────────────┴───────────┴───────────────────────────────────────────────────────────────────┴───────┘
+┌─────────┬────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬────────────┐
+│ (index) │ target                                                                                                                             │ html                                                                                                                                                                  │ violations │
+├─────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼────────────┤
+│ 0       │ [32m'[".testimonial-item--active > blockquote > .testimonial__attribution > .testimonial__rating[aria-label=\\"5 out of 5 stars\\"]"]'[39m │ [32m'<div class="testimonial__rating" aria-label="5 out of 5 stars">\n              <span class="testimonial__stars" aria-hidden="true">★★★★★</span>\n            </div>'[39m │ [32m'[0]'[39m      │
+└─────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────────┘
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-Mobile-Safari\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-Mobile-Safari\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-Mobile-Safari\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should handle disabled navigation states" classname="testimonial-a11y.spec.ts" time="2.181">
+</testcase>
+<testcase name="Testimonials - Accessibility › should have minimum touch target size for mobile" classname="testimonial-a11y.spec.ts" time="1.223">
+<failure message="testimonial-a11y.spec.ts:272:3 should have minimum touch target size for mobile" type="FAILURE">
+<![CDATA[  [Mobile Safari] › testimonial-a11y.spec.ts:272:3 › Testimonials - Accessibility › should have minimum touch target size for mobile 
+
+    Error: expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 44
+    Received:    12
+
+      286 |       if (boundingBox) {
+      287 |         // Should meet minimum 44x44px touch target
+    > 288 |         expect(boundingBox.width).toBeGreaterThanOrEqual(44);
+          |                                   ^
+      289 |         expect(boundingBox.height).toBeGreaterThanOrEqual(44);
+      290 |       }
+      291 |     }
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:288:35
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-0ea25-ouch-target-size-for-mobile-Mobile-Safari\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-0ea25-ouch-target-size-for-mobile-Mobile-Safari\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-0ea25-ouch-target-size-for-mobile-Mobile-Safari\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-0ea25-ouch-target-size-for-mobile-Mobile-Safari\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-0ea25-ouch-target-size-for-mobile-Mobile-Safari\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-0ea25-ouch-target-size-for-mobile-Mobile-Safari\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should respect reduced motion preferences" classname="testimonial-a11y.spec.ts" time="1.261">
+</testcase>
+</testsuite>
+<testsuite name="hero-visual.spec.ts" timestamp="2025-10-30T16:13:43.769Z" hostname="Microsoft Edge" tests="11" failures="0" skipped="0" time="18.723" errors="0">
+<testcase name="Hero - Visual Trust Elements › should display trust minis in hero section" classname="hero-visual.spec.ts" time="1.592">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display rating trust mini with visible content" classname="hero-visual.spec.ts" time="1.81">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display projects count trust mini" classname="hero-visual.spec.ts" time="1.776">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display warranty trust mini" classname="hero-visual.spec.ts" time="2.007">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display planning support trust mini" classname="hero-visual.spec.ts" time="1.49">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have readable typography for all trust minis" classname="hero-visual.spec.ts" time="1.947">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have proper layout and spacing for trust minis" classname="hero-visual.spec.ts" time="1.904">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should be visible on different screen sizes" classname="hero-visual.spec.ts" time="1.74">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have appropriate visual hierarchy in hero" classname="hero-visual.spec.ts" time="1.781">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should maintain trust minis visibility with hero background" classname="hero-visual.spec.ts" time="1.211">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have semantic markup for trust indicators" classname="hero-visual.spec.ts" time="1.465">
+</testcase>
+</testsuite>
+<testsuite name="testimonial-a11y.spec.ts" timestamp="2025-10-30T16:13:43.769Z" hostname="Microsoft Edge" tests="10" failures="5" skipped="1" time="20.676" errors="0">
+<testcase name="Testimonials - Accessibility › should have accessible testimonial container structure" classname="testimonial-a11y.spec.ts" time="1.482">
+</testcase>
+<testcase name="Testimonials - Accessibility › should have keyboard accessible navigation controls" classname="testimonial-a11y.spec.ts" time="6.661">
+<failure message="testimonial-a11y.spec.ts:40:3 should have keyboard accessible navigation controls" type="FAILURE">
+<![CDATA[  [Microsoft Edge] › testimonial-a11y.spec.ts:40:3 › Testimonials - Accessibility › should have keyboard accessible navigation controls 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  locator('[data-testid="testimonials"], .testimonials, #testimonials').locator('[data-testid="testimonial-prev"], .testimonial-prev, button:has-text("Previous")')
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" with timeout 5000ms
+      - waiting for locator('[data-testid="testimonials"], .testimonials, #testimonials').locator('[data-testid="testimonial-prev"], .testimonial-prev, button:has-text("Previous")')
+        9 × locator resolved to <button disabled type="button" aria-disabled="true" data-testid="testimonial-prev" aria-label="Previous testimonial" class="testimonials__nav-button testimonials__nav-button--prev">…</button>
+          - unexpected value "inactive"
+
+
+      56 |       // Should be keyboard focusable
+      57 |       await prevButton.focus();
+    > 58 |       await expect(prevButton).toBeFocused();
+         |                                ^
+      59 |       
+      60 |       // Should be proper button type
+      61 |       const buttonType = await prevButton.getAttribute('type');
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:58:32
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-Microsoft-Edge\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-Microsoft-Edge\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-Microsoft-Edge\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-Microsoft-Edge\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-Microsoft-Edge\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-Microsoft-Edge\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should have properly structured testimonial content" classname="testimonial-a11y.spec.ts" time="1.353">
+</testcase>
+<testcase name="Testimonials - Accessibility › should announce testimonial changes to screen readers" classname="testimonial-a11y.spec.ts" time="2.737">
+<failure message="testimonial-a11y.spec.ts:110:3 should announce testimonial changes to screen readers" type="FAILURE">
+<![CDATA[  [Microsoft Edge] › testimonial-a11y.spec.ts:110:3 › Testimonials - Accessibility › should announce testimonial changes to screen readers 
+
+    Error: locator.textContent: Error: strict mode violation: locator('[aria-live], [data-testid="testimonial-live-region"]') resolved to 5 elements:
+        1) <div class="sr-only" aria-live="assertive" data-testid="live-region"></div> aka getByTestId('live-region')
+        2) <div role="status" aria-live="polite" class="quote-form__success" data-testid="success-message">…</div> aka getByTestId('success-message')
+        3) <div aria-live="polite" aria-atomic="true" class="gallery-live-region" data-testid="gallery-live-region"></div> aka getByTestId('gallery-live-region')
+        4) <div aria-live="polite" aria-atomic="true" data-testid="testimonial-live-region" class="testimonials__live-region sr-only">Testimonial 2 of 3: From initial consultation to …</div> aka getByTestId('testimonial-live-region')
+        5) <div class="sr-only" id="live-region" aria-live="polite" aria-atomic="true"></div> aka locator('#live-region')
+
+    Call log:
+      - waiting for locator('[aria-live], [data-testid="testimonial-live-region"]')
+
+
+      125 |       // Check if announcement was made
+      126 |       if (await liveRegion.count() > 0) {
+    > 127 |         const liveRegionText = await liveRegion.textContent();
+          |                                                 ^
+      128 |         expect((liveRegionText || '').length).toBeGreaterThan(0);
+      129 |       }
+      130 |       
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:127:49
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-Microsoft-Edge\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-Microsoft-Edge\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-Microsoft-Edge\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-Microsoft-Edge\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-Microsoft-Edge\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-Microsoft-Edge\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should handle keyboard navigation" classname="testimonial-a11y.spec.ts" time="1.591">
+<failure message="testimonial-a11y.spec.ts:142:3 should handle keyboard navigation" type="FAILURE">
+<![CDATA[  [Microsoft Edge] › testimonial-a11y.spec.ts:142:3 › Testimonials - Accessibility › should handle keyboard navigation 
+
+    Error: expect(received).toBeTruthy()
+
+    Received: false
+
+      172 |         const focusChanged = newState.activeElement !== initialState.activeElement;
+      173 |         const testimonialChanged = newState.currentTestimonial !== initialState.currentTestimonial;
+    > 174 |         expect(focusChanged || testimonialChanged).toBeTruthy();
+          |                                                    ^
+      175 |       }
+      176 |     }
+      177 |   });
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:174:52
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-Microsoft-Edge\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-Microsoft-Edge\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-Microsoft-Edge\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-Microsoft-Edge\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-Microsoft-Edge\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-Microsoft-Edge\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should have proper ARIA attributes for testimonials" classname="testimonial-a11y.spec.ts" time="1.582">
+</testcase>
+<testcase name="Testimonials - Accessibility › should meet WCAG accessibility standards" classname="testimonial-a11y.spec.ts" time="1.368">
+<failure message="testimonial-a11y.spec.ts:220:3 should meet WCAG accessibility standards" type="FAILURE">
+<![CDATA[  [Microsoft Edge] › testimonial-a11y.spec.ts:220:3 › Testimonials - Accessibility › should meet WCAG accessibility standards 
+
+    AssertionError: 1 accessibility violation was detected
+
+    1 !== 0
+
+        at testResultDependsOnViolations (E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\node_modules\axe-playwright\dist\utils.js:16:26)
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\node_modules\axe-playwright\dist\index.js:143:51
+        at fulfilled (E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\node_modules\axe-playwright\dist\index.js:28:58)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-Microsoft-Edge\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-Microsoft-Edge\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-Microsoft-Edge\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[┌─────────┬────────────────────────┬───────────┬───────────────────────────────────────────────────────────────────┬───────┐
+│ (index) │ id                     │ impact    │ description                                                       │ nodes │
+├─────────┼────────────────────────┼───────────┼───────────────────────────────────────────────────────────────────┼───────┤
+│ 0       │ [32m'aria-prohibited-attr'[39m │ [32m'serious'[39m │ [32m"Ensure ARIA attributes are not prohibited for an element's role"[39m │ [33m1[39m     │
+└─────────┴────────────────────────┴───────────┴───────────────────────────────────────────────────────────────────┴───────┘
+┌─────────┬────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬────────────┐
+│ (index) │ target                                                                                                                             │ html                                                                                                                                                                  │ violations │
+├─────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼────────────┤
+│ 0       │ [32m'[".testimonial-item--active > blockquote > .testimonial__attribution > .testimonial__rating[aria-label=\\"5 out of 5 stars\\"]"]'[39m │ [32m'<div class="testimonial__rating" aria-label="5 out of 5 stars">\n              <span class="testimonial__stars" aria-hidden="true">★★★★★</span>\n            </div>'[39m │ [32m'[0]'[39m      │
+└─────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────────┘
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-Microsoft-Edge\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-Microsoft-Edge\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-Microsoft-Edge\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should handle disabled navigation states" classname="testimonial-a11y.spec.ts" time="1.717">
+</testcase>
+<testcase name="Testimonials - Accessibility › should have minimum touch target size for mobile" classname="testimonial-a11y.spec.ts" time="1.017">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Testimonials - Accessibility › should respect reduced motion preferences" classname="testimonial-a11y.spec.ts" time="1.168">
+<failure message="testimonial-a11y.spec.ts:294:3 should respect reduced motion preferences" type="FAILURE">
+<![CDATA[  [Microsoft Edge] › testimonial-a11y.spec.ts:294:3 › Testimonials - Accessibility › should respect reduced motion preferences 
+
+    Error: expect(received).toMatch(expected)
+
+    Expected pattern: /0s|0\.0/
+    Received string:  "1e-05s"
+
+      311 |     // Should either have no transitions or very fast ones
+      312 |     if (containerStyles.transition !== 'none') {
+    > 313 |       expect(containerStyles.transition).toMatch(/0s|0\.0/);
+          |                                          ^
+      314 |     }
+      315 |     
+      316 |     if (containerStyles.animation !== 'none') {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:313:42
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-e57a0--reduced-motion-preferences-Microsoft-Edge\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-e57a0--reduced-motion-preferences-Microsoft-Edge\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-e57a0--reduced-motion-preferences-Microsoft-Edge\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e57a0--reduced-motion-preferences-Microsoft-Edge\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e57a0--reduced-motion-preferences-Microsoft-Edge\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e57a0--reduced-motion-preferences-Microsoft-Edge\error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="hero-visual.spec.ts" timestamp="2025-10-30T16:13:43.769Z" hostname="Google Chrome" tests="11" failures="0" skipped="0" time="13.189" errors="0">
+<testcase name="Hero - Visual Trust Elements › should display trust minis in hero section" classname="hero-visual.spec.ts" time="1.188">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display rating trust mini with visible content" classname="hero-visual.spec.ts" time="0.822">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display projects count trust mini" classname="hero-visual.spec.ts" time="0.867">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display warranty trust mini" classname="hero-visual.spec.ts" time="1.932">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should display planning support trust mini" classname="hero-visual.spec.ts" time="0.821">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have readable typography for all trust minis" classname="hero-visual.spec.ts" time="0.949">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have proper layout and spacing for trust minis" classname="hero-visual.spec.ts" time="1.21">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should be visible on different screen sizes" classname="hero-visual.spec.ts" time="1.223">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have appropriate visual hierarchy in hero" classname="hero-visual.spec.ts" time="1.513">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should maintain trust minis visibility with hero background" classname="hero-visual.spec.ts" time="1.366">
+</testcase>
+<testcase name="Hero - Visual Trust Elements › should have semantic markup for trust indicators" classname="hero-visual.spec.ts" time="1.298">
+</testcase>
+</testsuite>
+<testsuite name="testimonial-a11y.spec.ts" timestamp="2025-10-30T16:13:43.769Z" hostname="Google Chrome" tests="10" failures="5" skipped="1" time="22.585" errors="0">
+<testcase name="Testimonials - Accessibility › should have accessible testimonial container structure" classname="testimonial-a11y.spec.ts" time="1.291">
+</testcase>
+<testcase name="Testimonials - Accessibility › should have keyboard accessible navigation controls" classname="testimonial-a11y.spec.ts" time="6.234">
+<failure message="testimonial-a11y.spec.ts:40:3 should have keyboard accessible navigation controls" type="FAILURE">
+<![CDATA[  [Google Chrome] › testimonial-a11y.spec.ts:40:3 › Testimonials - Accessibility › should have keyboard accessible navigation controls 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  locator('[data-testid="testimonials"], .testimonials, #testimonials').locator('[data-testid="testimonial-prev"], .testimonial-prev, button:has-text("Previous")')
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" with timeout 5000ms
+      - waiting for locator('[data-testid="testimonials"], .testimonials, #testimonials').locator('[data-testid="testimonial-prev"], .testimonial-prev, button:has-text("Previous")')
+        9 × locator resolved to <button disabled type="button" aria-disabled="true" data-testid="testimonial-prev" aria-label="Previous testimonial" class="testimonials__nav-button testimonials__nav-button--prev">…</button>
+          - unexpected value "inactive"
+
+
+      56 |       // Should be keyboard focusable
+      57 |       await prevButton.focus();
+    > 58 |       await expect(prevButton).toBeFocused();
+         |                                ^
+      59 |       
+      60 |       // Should be proper button type
+      61 |       const buttonType = await prevButton.getAttribute('type');
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:58:32
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-Google-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-Google-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-Google-Chrome\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-Google-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-Google-Chrome\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-9be16-essible-navigation-controls-Google-Chrome\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should have properly structured testimonial content" classname="testimonial-a11y.spec.ts" time="1.419">
+</testcase>
+<testcase name="Testimonials - Accessibility › should announce testimonial changes to screen readers" classname="testimonial-a11y.spec.ts" time="2.601">
+<failure message="testimonial-a11y.spec.ts:110:3 should announce testimonial changes to screen readers" type="FAILURE">
+<![CDATA[  [Google Chrome] › testimonial-a11y.spec.ts:110:3 › Testimonials - Accessibility › should announce testimonial changes to screen readers 
+
+    Error: locator.textContent: Error: strict mode violation: locator('[aria-live], [data-testid="testimonial-live-region"]') resolved to 5 elements:
+        1) <div class="sr-only" aria-live="assertive" data-testid="live-region"></div> aka getByTestId('live-region')
+        2) <div role="status" aria-live="polite" class="quote-form__success" data-testid="success-message">…</div> aka getByTestId('success-message')
+        3) <div aria-live="polite" aria-atomic="true" class="gallery-live-region" data-testid="gallery-live-region"></div> aka getByTestId('gallery-live-region')
+        4) <div aria-live="polite" aria-atomic="true" data-testid="testimonial-live-region" class="testimonials__live-region sr-only">Testimonial 2 of 3: From initial consultation to …</div> aka getByTestId('testimonial-live-region')
+        5) <div class="sr-only" id="live-region" aria-live="polite" aria-atomic="true"></div> aka locator('#live-region')
+
+    Call log:
+      - waiting for locator('[aria-live], [data-testid="testimonial-live-region"]')
+
+
+      125 |       // Check if announcement was made
+      126 |       if (await liveRegion.count() > 0) {
+    > 127 |         const liveRegionText = await liveRegion.textContent();
+          |                                                 ^
+      128 |         expect((liveRegionText || '').length).toBeGreaterThan(0);
+      129 |       }
+      130 |       
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:127:49
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-Google-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-Google-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-Google-Chrome\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-Google-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-Google-Chrome\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-87b2f-l-changes-to-screen-readers-Google-Chrome\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should handle keyboard navigation" classname="testimonial-a11y.spec.ts" time="1.439">
+<failure message="testimonial-a11y.spec.ts:142:3 should handle keyboard navigation" type="FAILURE">
+<![CDATA[  [Google Chrome] › testimonial-a11y.spec.ts:142:3 › Testimonials - Accessibility › should handle keyboard navigation 
+
+    Error: expect(received).toBeTruthy()
+
+    Received: false
+
+      172 |         const focusChanged = newState.activeElement !== initialState.activeElement;
+      173 |         const testimonialChanged = newState.currentTestimonial !== initialState.currentTestimonial;
+    > 174 |         expect(focusChanged || testimonialChanged).toBeTruthy();
+          |                                                    ^
+      175 |       }
+      176 |     }
+      177 |   });
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:174:52
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-Google-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-Google-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-Google-Chrome\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-Google-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-Google-Chrome\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e783b--handle-keyboard-navigation-Google-Chrome\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should have proper ARIA attributes for testimonials" classname="testimonial-a11y.spec.ts" time="1.356">
+</testcase>
+<testcase name="Testimonials - Accessibility › should meet WCAG accessibility standards" classname="testimonial-a11y.spec.ts" time="2.766">
+<failure message="testimonial-a11y.spec.ts:220:3 should meet WCAG accessibility standards" type="FAILURE">
+<![CDATA[  [Google Chrome] › testimonial-a11y.spec.ts:220:3 › Testimonials - Accessibility › should meet WCAG accessibility standards 
+
+    AssertionError: 1 accessibility violation was detected
+
+    1 !== 0
+
+        at testResultDependsOnViolations (E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\node_modules\axe-playwright\dist\utils.js:16:26)
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\node_modules\axe-playwright\dist\index.js:143:51
+        at fulfilled (E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\node_modules\axe-playwright\dist\index.js:28:58)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-Google-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-Google-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-Google-Chrome\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[┌─────────┬────────────────────────┬───────────┬───────────────────────────────────────────────────────────────────┬───────┐
+│ (index) │ id                     │ impact    │ description                                                       │ nodes │
+├─────────┼────────────────────────┼───────────┼───────────────────────────────────────────────────────────────────┼───────┤
+│ 0       │ [32m'aria-prohibited-attr'[39m │ [32m'serious'[39m │ [32m"Ensure ARIA attributes are not prohibited for an element's role"[39m │ [33m1[39m     │
+└─────────┴────────────────────────┴───────────┴───────────────────────────────────────────────────────────────────┴───────┘
+┌─────────┬────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬────────────┐
+│ (index) │ target                                                                                                                             │ html                                                                                                                                                                  │ violations │
+├─────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼────────────┤
+│ 0       │ [32m'[".testimonial-item--active > blockquote > .testimonial__attribution > .testimonial__rating[aria-label=\\"5 out of 5 stars\\"]"]'[39m │ [32m'<div class="testimonial__rating" aria-label="5 out of 5 stars">\n              <span class="testimonial__stars" aria-hidden="true">★★★★★</span>\n            </div>'[39m │ [32m'[0]'[39m      │
+└─────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────────┘
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-Google-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-Google-Chrome\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-ee106-CAG-accessibility-standards-Google-Chrome\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Testimonials - Accessibility › should handle disabled navigation states" classname="testimonial-a11y.spec.ts" time="3.244">
+</testcase>
+<testcase name="Testimonials - Accessibility › should have minimum touch target size for mobile" classname="testimonial-a11y.spec.ts" time="0.927">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Testimonials - Accessibility › should respect reduced motion preferences" classname="testimonial-a11y.spec.ts" time="1.308">
+<failure message="testimonial-a11y.spec.ts:294:3 should respect reduced motion preferences" type="FAILURE">
+<![CDATA[  [Google Chrome] › testimonial-a11y.spec.ts:294:3 › Testimonials - Accessibility › should respect reduced motion preferences 
+
+    Error: expect(received).toMatch(expected)
+
+    Expected pattern: /0s|0\.0/
+    Received string:  "1e-05s"
+
+      311 |     // Should either have no transitions or very fast ones
+      312 |     if (containerStyles.transition !== 'none') {
+    > 313 |       expect(containerStyles.transition).toMatch(/0s|0\.0/);
+          |                                          ^
+      314 |     }
+      315 |     
+      316 |     if (containerStyles.animation !== 'none') {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\testimonial-a11y.spec.ts:313:42
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-e57a0--reduced-motion-preferences-Google-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\testimonial-a11y-Testimoni-e57a0--reduced-motion-preferences-Google-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\testimonial-a11y-Testimoni-e57a0--reduced-motion-preferences-Google-Chrome\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e57a0--reduced-motion-preferences-Google-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e57a0--reduced-motion-preferences-Google-Chrome\video.webm]]
+
+[[ATTACHMENT|test-results\testimonial-a11y-Testimoni-e57a0--reduced-motion-preferences-Google-Chrome\error-context.md]]
 ]]>
 </system-out>
 </testcase>

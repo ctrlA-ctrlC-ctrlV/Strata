@@ -82,9 +82,12 @@ export class Hero {
             </div>
             
             <div class="hero__trust">
-              <div class="hero__trust-indicators" data-testid="trust-indicators">
-                ${this.config.trustIndicators?.map(indicator => `
-                  <div class="hero__trust-item" data-testid="trust-item">
+              <div class="hero__trust-indicators trust-indicators" data-testid="trust-indicators">
+                ${this.config.trustIndicators?.map(indicator => {
+                  // Generate specific test ID based on indicator type
+                  const testId = `trust-${indicator.label.toLowerCase().replace(/\s+/g, '-')}`;
+                  return `
+                  <div class="hero__trust-item trust-item" data-testid="${testId}">
                     <div class="hero__trust-icon" aria-hidden="true">${indicator.icon}</div>
                     <div class="hero__trust-content">
                       <div class="hero__trust-value">${indicator.value}</div>
@@ -92,7 +95,8 @@ export class Hero {
                       ${indicator.description ? `<div class="hero__trust-description">${indicator.description}</div>` : ''}
                     </div>
                   </div>
-                `).join('') || ''}
+                `;
+                }).join('') || ''}
               </div>
             </div>
           </div>
