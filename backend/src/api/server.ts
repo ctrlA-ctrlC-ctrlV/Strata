@@ -110,10 +110,12 @@ app.get('/api/health', async (req, res) => {
 // Import API routes
 import quotesRouter from './quotes.js'
 import contactRouter from './contact.js'
+import { projectsRouter } from './projects.js'
 
 // Mount API routes
 app.use('/api', quotesRouter)
 app.use('/api', contactRouter)
+app.use('/api', projectsRouter)
 // app.use('/api/admin', adminRouter) // Will be added later
 
 // Serve static success pages for no-JS fallbacks

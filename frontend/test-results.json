@@ -164,21 +164,21 @@
   },
   "suites": [
     {
-      "title": "setup.smoke.spec.ts",
-      "file": "setup.smoke.spec.ts",
+      "title": "gallery.spec.ts",
+      "file": "gallery.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Phase 1 Setup - Smoke Tests",
-          "file": "setup.smoke.spec.ts",
+          "title": "Gallery - Interaction Tests",
+          "file": "gallery.spec.ts",
           "line": 10,
           "column": 6,
           "specs": [
             {
-              "title": "should have Tailwind CSS loaded",
-              "ok": true,
+              "title": "should have gallery container with proper structure",
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -191,23 +191,63 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 753,
-                      "errors": [],
+                      "status": "failed",
+                      "duration": 1066,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"x\"\u001b[39m\nReceived string:    \u001b[31m\"none\"\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"x\"\u001b[39m\nReceived string:    \u001b[31m\"none\"\u001b[39m\n    at E:\\Zhaoxiang_Qiu\\work\\SDeal\\Strata\\frontend\\tests\\e2e\\gallery.spec.ts:44:44",
+                        "location": {
+                          "file": "E:\\Zhaoxiang_Qiu\\work\\SDeal\\Strata\\frontend\\tests\\e2e\\gallery.spec.ts",
+                          "column": 44,
+                          "line": 44
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 42 |\u001b[39m     \n \u001b[90m 43 |\u001b[39m     \u001b[90m// Should have scroll snap\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 44 |\u001b[39m     expect(containerStyles\u001b[33m.\u001b[39mscrollSnapType)\u001b[33m.\u001b[39mtoContain(\u001b[32m'x'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 45 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 46 |\u001b[39m\n \u001b[90m 47 |\u001b[39m   test(\u001b[32m'should have project tiles with images'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "E:\\Zhaoxiang_Qiu\\work\\SDeal\\Strata\\frontend\\tests\\e2e\\gallery.spec.ts",
+                            "column": 44,
+                            "line": 44
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"x\"\u001b[39m\nReceived string:    \u001b[31m\"none\"\u001b[39m\n\n\u001b[0m \u001b[90m 42 |\u001b[39m     \n \u001b[90m 43 |\u001b[39m     \u001b[90m// Should have scroll snap\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 44 |\u001b[39m     expect(containerStyles\u001b[33m.\u001b[39mscrollSnapType)\u001b[33m.\u001b[39mtoContain(\u001b[32m'x'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 45 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 46 |\u001b[39m\n \u001b[90m 47 |\u001b[39m   test(\u001b[32m'should have project tiles with images'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at E:\\Zhaoxiang_Qiu\\work\\SDeal\\Strata\\frontend\\tests\\e2e\\gallery.spec.ts:44:44\u001b[22m"
+                        }
+                      ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-30T12:00:44.313Z",
+                      "startTime": "2025-10-30T14:40:47.364Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "E:\\Zhaoxiang_Qiu\\work\\SDeal\\Strata\\frontend\\test-results\\gallery-Gallery---Interact-d923b-ainer-with-proper-structure-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "E:\\Zhaoxiang_Qiu\\work\\SDeal\\Strata\\frontend\\test-results\\gallery-Gallery---Interact-d923b-ainer-with-proper-structure-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "E:\\Zhaoxiang_Qiu\\work\\SDeal\\Strata\\frontend\\test-results\\gallery-Gallery---Interact-d923b-ainer-with-proper-structure-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "E:\\Zhaoxiang_Qiu\\work\\SDeal\\Strata\\frontend\\tests\\e2e\\gallery.spec.ts",
+                        "column": 44,
+                        "line": 44
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
-              "id": "d7b07c16e1d1f193597e-7c6418c0ac0fa64cc82b",
-              "file": "setup.smoke.spec.ts",
-              "line": 31,
+              "id": "0087bd98ece4956907e4-3aeffac08831440cdbf4",
+              "file": "gallery.spec.ts",
+              "line": 17,
               "column": 3
             }
           ]
@@ -217,11 +257,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-10-30T12:00:40.991Z",
-    "duration": 4438.4800000000005,
-    "expected": 1,
+    "startTime": "2025-10-30T14:40:43.626Z",
+    "duration": 5206.895,
+    "expected": 0,
     "skipped": 0,
-    "unexpected": 0,
+    "unexpected": 1,
     "flaky": 0
   }
 }

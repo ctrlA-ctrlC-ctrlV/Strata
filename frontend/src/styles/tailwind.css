@@ -1,6 +1,10 @@
 /* Tailwind CSS v4 - Import base styles */
 @import "tailwindcss";
 
+/* Import component styles */
+@import "./product-sections.css";
+@import "./gallery.css";
+
 /* Test styles to verify CSS loading */
 .test-css-loaded {
   color: red !important;

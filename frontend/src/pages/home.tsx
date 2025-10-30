@@ -13,6 +13,9 @@ export class HomePage {
     hero?: any;
     footer?: any;
     quoteForm?: any;
+    gardenRoomsSection?: any;
+    homeExtensionsSection?: any;
+    gallery?: any;
   } = {};
 
   constructor(config: HomePageConfig = {}) {
@@ -78,6 +81,9 @@ export class HomePage {
       const { default: Hero } = await import('../components/Hero');
       const { default: Footer } = await import('../components/Footer');
       const { QuoteForm } = await import('../components/QuoteForm');
+      const { ProductSectionGardenRooms } = await import('../components/ProductSectionGardenRooms');
+      const { ProductSectionHomeExtensions } = await import('../components/ProductSectionHomeExtensions');
+      const { default: Gallery } = await import('../components/Gallery');
 
       // Initialize Header
       this.components.header = new Header({
@@ -103,6 +109,46 @@ export class HomePage {
         backgroundImage: '/images/hero/garden-room-hero.jpg'
       });
       this.components.hero.mount('#main');
+
+      // Initialize Garden Rooms Section
+      this.components.gardenRoomsSection = new ProductSectionGardenRooms({
+        imageUrl: '/images/projects/garden-room-hero.jpg',
+        imageAlt: 'Modern garden room with glass doors and contemporary design',
+        sectionLabel: 'Garden Rooms',
+        headingLevel: 'h2',
+        heading: 'Transform Your Garden with Premium Garden Rooms',
+        subheading: 'Modern, Insulated Garden Rooms',
+        brandParagraph: 'Create the perfect garden office, studio, or relaxation space with our professionally designed and constructed garden rooms. Built to the highest standards with full insulation, electrical installations, and planning permission support.',
+        primaryCtaText: 'Get Your Garden Room Quote',
+        primaryCtaHref: '#quote',
+        secondaryHeading: 'Year-Round Comfort',
+        supportingParagraph: 'Our garden rooms are designed for year-round use with premium insulation, double-glazed windows, and professional electrical installations. Perfect for home offices, creative studios, or peaceful retreats.',
+        detailsLinkText: 'For more details about our garden rooms',
+        detailsLinkHref: '#garden-rooms-details'
+      });
+      this.components.gardenRoomsSection.mount('#main');
+
+      // Initialize Home Extensions Section
+      this.components.homeExtensionsSection = new ProductSectionHomeExtensions({
+        imageUrl: '/images/projects/home-extension-hero.jpg',
+        imageAlt: 'Modern home extension with large windows and contemporary architecture',
+        sectionLabel: 'Home Extensions',
+        headingLevel: 'h2',
+        heading: 'Expand Your Living Space with Premium Home Extensions',
+        subheading: 'Single & Double-Storey Extensions',
+        brandParagraph: 'Maximize your home\'s potential with our expertly designed and constructed extensions. From kitchen extensions to additional bedrooms, we handle everything from planning permission to final construction with full building regulations compliance.',
+        primaryCtaText: 'Get Your Extension Quote',
+        primaryCtaHref: '#quote',
+        secondaryHeading: 'Full-Service Construction',
+        supportingParagraph: 'Our home extensions are delivered with complete project management, architectural design, planning permission support, and full building regulations compliance. We ensure seamless integration with your existing home.',
+        detailsLinkText: 'For more details about our home extensions',
+        detailsLinkHref: '#home-extensions-details'
+      });
+      this.components.homeExtensionsSection.mount('#main');
+
+      // Initialize Gallery
+      this.components.gallery = new Gallery();
+      this.components.gallery.mount(document.querySelector('#main')!);
 
       // Initialize QuoteForm
       this.components.quoteForm = new QuoteForm({

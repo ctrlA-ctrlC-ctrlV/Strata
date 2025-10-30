@@ -72,18 +72,18 @@ Notes
 
 ## Phase 4 — User Story 2 (P1): Explore Product Sections
 
-- [ ] T087 [US2] Author failing tests first for product sections (a11y, tab order, links) in frontend/tests/e2e/product-sections-a11y.spec.ts
+- [X] T087 [US2] Author failing tests first for product sections (a11y, tab order, links) in frontend/tests/e2e/product-sections-a11y.spec.ts
 
-- [ ] T033 [US2] Create Garden Rooms section (2-col layout) with image left in frontend/src/components/ProductSectionGardenRooms.tsx
-- [ ] T034 [P] [US2] Add right-column content flow (label, H2/H3, brand paragraph, primary CTA) in frontend/src/components/ProductSectionGardenRooms.tsx
-- [ ] T035 [US2] Add secondary heading, supporting paragraph, underlined "For more details" link in frontend/src/components/ProductSectionGardenRooms.tsx
-- [ ] T036 [P] [US2] Create Home Extensions section (2-col layout) in frontend/src/components/ProductSectionHomeExtensions.tsx
-- [ ] T037 [US2] Mirror right-column flow for Home Extensions in frontend/src/components/ProductSectionHomeExtensions.tsx
-- [ ] T038 [US2] Define details link destinations (temporary anchors or dedicated pages) in frontend/index.html
-- [ ] T039 [P] [US2] Ensure 4.5:1 contrast and readable line-lengths in frontend/src/styles/product-sections.css
-- [ ] T040 [US2] Keyboard/tab order tests for CTAs and links in frontend/tests/e2e/product-sections-a11y.spec.ts
+- [X] T033 [US2] Create Garden Rooms section (2-col layout) with image left in frontend/src/components/ProductSectionGardenRooms.tsx
+- [X] T034 [P] [US2] Add right-column content flow (label, H2/H3, brand paragraph, primary CTA) in frontend/src/components/ProductSectionGardenRooms.tsx
+- [X] T035 [US2] Add secondary heading, supporting paragraph, underlined "For more details" link in frontend/src/components/ProductSectionGardenRooms.tsx
+- [X] T036 [P] [US2] Create Home Extensions section (2-col layout) in frontend/src/components/ProductSectionHomeExtensions.tsx
+- [X] T037 [US2] Mirror right-column flow for Home Extensions in frontend/src/components/ProductSectionHomeExtensions.tsx
+- [X] T038 [US2] Define details link destinations (temporary anchors or dedicated pages) in frontend/index.html
+- [X] T039 [P] [US2] Ensure 4.5:1 contrast and readable line-lengths in frontend/src/styles/product-sections.css
+- [X] T040 [US2] Keyboard/tab order tests for CTAs and links in frontend/tests/e2e/product-sections-a11y.spec.ts
 
-- [ ] T088 [US2] Run Phase 4 (US2) tests
+- [X] T088 [US2] Run Phase 4 (US2) tests
 
 ## Phase 5 — User Story 3 (P2): Explore Projects Gallery
 

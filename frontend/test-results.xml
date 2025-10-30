@@ -1,6 +1,43 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="4.43848">
-<testsuite name="setup.smoke.spec.ts" timestamp="2025-10-30T12:00:42.977Z" hostname="chromium" tests="1" failures="0" skipped="0" time="0.753" errors="0">
-<testcase name="Phase 1 Setup - Smoke Tests › should have Tailwind CSS loaded" classname="setup.smoke.spec.ts" time="0.753">
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="5.206895">
+<testsuite name="gallery.spec.ts" timestamp="2025-10-30T14:40:46.027Z" hostname="chromium" tests="1" failures="1" skipped="0" time="1.066" errors="0">
+<testcase name="Gallery - Interaction Tests › should have gallery container with proper structure" classname="gallery.spec.ts" time="1.066">
+<failure message="gallery.spec.ts:17:3 should have gallery container with proper structure" type="FAILURE">
+<![CDATA[  [chromium] › gallery.spec.ts:17:3 › Gallery - Interaction Tests › should have gallery container with proper structure 
+
+    Error: expect(received).toContain(expected) // indexOf
+
+    Expected substring: "x"
+    Received string:    "none"
+
+      42 |     
+      43 |     // Should have scroll snap
+    > 44 |     expect(containerStyles.scrollSnapType).toContain('x');
+         |                                            ^
+      45 |   });
+      46 |
+      47 |   test('should have project tiles with images', async ({ page }) => {
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\gallery.spec.ts:44:44
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\gallery-Gallery---Interact-d923b-ainer-with-proper-structure-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\gallery-Gallery---Interact-d923b-ainer-with-proper-structure-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\gallery-Gallery---Interact-d923b-ainer-with-proper-structure-chromium\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\gallery-Gallery---Interact-d923b-ainer-with-proper-structure-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\gallery-Gallery---Interact-d923b-ainer-with-proper-structure-chromium\video.webm]]
+
+[[ATTACHMENT|test-results\gallery-Gallery---Interact-d923b-ainer-with-proper-structure-chromium\error-context.md]]
+]]>
+</system-out>
 </testcase>
 </testsuite>
 </testsuites>

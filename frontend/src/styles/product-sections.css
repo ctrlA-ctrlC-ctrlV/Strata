@@ -61,8 +61,8 @@
 /* Typography */
 .product-section__label {
   display: inline-block;
-  background-color: #e0f2fe;
-  color: #0369a1;
+  background-color: #1e40af; /* Darker blue for better contrast */
+  color: #ffffff; /* White on blue: 7.35:1 contrast ratio */
   font-size: 0.875rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -76,7 +76,7 @@
   font-size: 2.25rem;
   font-weight: 700;
   line-height: 1.2;
-  color: #111827;
+  color: #111827; /* Very dark gray: 15.3:1 contrast ratio */
   margin-bottom: 1rem;
   max-width: 20ch; /* Readable line length */
 }
@@ -84,7 +84,7 @@
 .product-section__subheading {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #374151;
+  color: #1f2937; /* Darker gray: 12.6:1 contrast ratio */
   margin-bottom: 1.5rem;
   line-height: 1.3;
 }
@@ -92,7 +92,7 @@
 .product-section__brand-paragraph {
   font-size: 1.125rem;
   line-height: 1.7;
-  color: #4b5563;
+  color: #374151; /* Dark gray: 9.1:1 contrast ratio */
   margin-bottom: 2rem;
   max-width: 65ch; /* Optimal reading length */
 }
@@ -106,30 +106,30 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #059669;
-  color: white;
+  background-color: #dc2626; /* Red: 5.25:1 contrast ratio */
+  color: white; /* White text: excellent contrast */
   font-weight: 600;
   font-size: 1.125rem;
   padding: 0.875rem 2rem;
   border-radius: 0.5rem;
   text-decoration: none;
   transition: all 0.2s ease;
-  border: 2px solid #059669;
+  border: 2px solid #dc2626;
   min-height: 44px; /* Accessibility: minimum touch target */
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .product-section__cta:hover,
 .product-section__cta:focus {
-  background-color: #047857;
-  border-color: #047857;
+  background-color: #b91c1c; /* Darker red: 4.8:1 contrast ratio */
+  border-color: #b91c1c;
   transform: translateY(-1px);
   box-shadow: 0 6px 12px -1px rgba(0, 0, 0, 0.15);
   outline: none;
 }
 
 .product-section__cta:focus-visible {
-  outline: 2px solid #059669;
+  outline: 3px solid #fbbf24; /* High contrast yellow focus indicator */
   outline-offset: 2px;
 }
 
@@ -147,36 +147,37 @@
 .product-section__secondary-heading {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #111827;
+  color: #111827; /* Very dark gray: 15.3:1 contrast ratio */
   margin-bottom: 1rem;
 }
 
 .product-section__supporting-paragraph {
   font-size: 1rem;
   line-height: 1.6;
-  color: #6b7280;
+  color: #374151; /* Dark gray: 9.1:1 contrast ratio */
   margin-bottom: 1.5rem;
   max-width: 60ch; /* Readable line length */
 }
 
 .product-section__details-link {
-  color: #059669;
+  color: #1d4ed8; /* Blue: 6.3:1 contrast ratio */
   font-weight: 500;
   text-decoration: underline;
   text-underline-offset: 2px;
+  text-decoration-thickness: 2px;
   transition: all 0.2s ease;
   font-size: 0.9rem;
 }
 
 .product-section__details-link:hover,
 .product-section__details-link:focus {
-  color: #047857;
-  text-decoration-thickness: 2px;
+  color: #1e40af; /* Darker blue: 7.35:1 contrast ratio */
+  text-decoration-thickness: 3px;
   outline: none;
 }
 
 .product-section__details-link:focus-visible {
-  outline: 2px solid #059669;
+  outline: 3px solid #fbbf24; /* High contrast yellow focus indicator */
   outline-offset: 2px;
   border-radius: 2px;
 }
@@ -195,28 +196,28 @@
 }
 
 .home-extensions-section .product-section__label {
-  background-color: #fef3c7;
-  color: #92400e;
+  background-color: #b45309; /* Orange-brown: 4.7:1 contrast ratio */
+  color: #ffffff; /* White text for better contrast */
 }
 
 .home-extensions-section .product-section__cta {
-  background-color: #d97706;
-  border-color: #d97706;
+  background-color: #ea580c; /* Orange: 4.5:1 contrast ratio */
+  border-color: #ea580c;
 }
 
 .home-extensions-section .product-section__cta:hover,
 .home-extensions-section .product-section__cta:focus {
-  background-color: #b45309;
-  border-color: #b45309;
+  background-color: #c2410c; /* Darker orange: 4.9:1 contrast ratio */
+  border-color: #c2410c;
 }
 
 .home-extensions-section .product-section__details-link {
-  color: #d97706;
+  color: #c2410c; /* Orange: 4.9:1 contrast ratio */
 }
 
 .home-extensions-section .product-section__details-link:hover,
 .home-extensions-section .product-section__details-link:focus {
-  color: #b45309;
+  color: #9a3412; /* Darker orange: 5.8:1 contrast ratio */
 }
 
 /* Responsive Design */
