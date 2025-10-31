@@ -1,0 +1,548 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - link "Strata - Home" [ref=e6] [cursor=pointer]:
+        - /url: "#main"
+        - text: Strata
+      - navigation "Main navigation" [ref=e7]:
+        - list [ref=e8]:
+          - listitem [ref=e9]:
+            - link "Garden Rooms" [ref=e10] [cursor=pointer]:
+              - /url: "#garden-rooms"
+          - listitem [ref=e11]:
+            - link "Home Extensions" [ref=e12] [cursor=pointer]:
+              - /url: "#home-extensions"
+          - listitem [ref=e13]:
+            - link "Projects" [ref=e14] [cursor=pointer]:
+              - /url: "#gallery"
+          - listitem [ref=e15]:
+            - link "About" [ref=e16] [cursor=pointer]:
+              - /url: "#about"
+          - listitem [ref=e17]:
+            - link "Contact" [ref=e18] [cursor=pointer]:
+              - /url: "#contact"
+      - link "Get a Quote - scroll to quote form" [ref=e20] [cursor=pointer]:
+        - /url: "#quote"
+        - text: Get a Quote
+  - link "Skip to main content" [ref=e21] [cursor=pointer]:
+    - /url: "#main"
+  - main "Main content" [ref=e22]:
+    - generic [ref=e23]:
+      - generic [ref=e26]:
+        - generic [ref=e27]:
+          - heading "Transform Your Garden with Premium Garden Rooms & Home Extensions" [level=1] [ref=e28]
+          - paragraph [ref=e29]: Professional design and construction services for garden rooms, home offices, and extensions across Ireland. Planning permission handled.
+          - link "Get Your Free Quote - scroll to quote form" [ref=e31] [cursor=pointer]:
+            - /url: "#quote"
+            - text: Get Your Free Quote
+        - generic [ref=e33]:
+          - generic [ref=e34]:
+            - generic [ref=e35]: ⭐
+            - generic [ref=e36]:
+              - generic [ref=e37]: 4.9/5
+              - generic [ref=e38]: Rating
+              - generic [ref=e39]: Based on 127+ reviews
+          - generic [ref=e40]:
+            - generic [ref=e41]: 🏠
+            - generic [ref=e42]:
+              - generic [ref=e43]: 500+
+              - generic [ref=e44]: Projects
+              - generic [ref=e45]: Completed successfully
+          - generic [ref=e46]:
+            - generic [ref=e47]: 🛡️
+            - generic [ref=e48]:
+              - generic [ref=e49]: 10 Years
+              - generic [ref=e50]: Warranty
+              - generic [ref=e51]: Structural guarantee
+          - generic [ref=e52]:
+            - generic [ref=e53]: 📋
+            - generic [ref=e54]:
+              - generic [ref=e55]: Included
+              - generic [ref=e56]: Planning
+              - generic [ref=e57]: Permission handled
+      - button "Scroll to content" [ref=e59] [cursor=pointer]:
+        - generic [ref=e60]: ↓
+    - generic [ref=e64]:
+      - generic [ref=e65]:
+        - heading "Get Your Free Quote" [level=2] [ref=e66]
+        - paragraph [ref=e67]: Tell us about your project and we'll provide a personalized quote within 24 hours.
+      - generic [ref=e68]:
+        - generic [ref=e70]:
+          - group "Personal Information" [ref=e71]:
+            - generic [ref=e72]: Personal Information
+            - generic [ref=e73]:
+              - generic [ref=e74]:
+                - generic [ref=e75]: First Name *
+                - textbox "First Name *" [ref=e76]
+                - alert
+              - generic [ref=e77]:
+                - generic [ref=e78]: Surname
+                - textbox "Surname" [ref=e79]
+          - group "Contact Information" [ref=e80]:
+            - generic [ref=e81]: Contact Information
+            - generic [ref=e82]:
+              - generic [ref=e83]:
+                - generic [ref=e84]: Phone Number *
+                - textbox "Phone Number *" [ref=e85]:
+                  - /placeholder: 087 123 4567
+                - alert
+              - generic [ref=e86]:
+                - generic [ref=e87]: Email Address *
+                - textbox "Email Address *" [ref=e88]:
+                  - /placeholder: your@email.com
+                - alert
+          - group "Project Address" [ref=e89]:
+            - generic [ref=e90]: Project Address
+            - generic [ref=e91]:
+              - generic [ref=e92]:
+                - generic [ref=e93]: Address Line 1 *
+                - textbox "Address Line 1 *" [ref=e94]:
+                  - /placeholder: 123 Main Street
+                - alert
+              - generic [ref=e95]:
+                - generic [ref=e96]: Address Line 2
+                - textbox "Address Line 2" [ref=e97]:
+                  - /placeholder: Apartment, suite, etc. (optional)
+              - generic [ref=e98]:
+                - generic [ref=e99]: Eircode *
+                - textbox "Eircode *" [ref=e100]:
+                  - /placeholder: D02 XY45
+                - alert
+          - group "Project Details" [ref=e101]:
+            - generic [ref=e102]: Project Details
+            - generic [ref=e103]:
+              - generic [ref=e104]: Tell us about your project
+              - textbox "Tell us about your project" [ref=e105]:
+                - /placeholder: Describe your garden room or extension requirements, preferred timeline, budget considerations, etc.
+              - generic [ref=e106]: This helps us provide a more accurate quote
+          - group "Stay Updated" [ref=e107]:
+            - generic [ref=e108]: Stay Updated
+            - generic [ref=e109]:
+              - checkbox "Yes, I'd like to receive occasional updates about new products and special offers" [ref=e110]
+              - generic [ref=e111]: Yes, I'd like to receive occasional updates about new products and special offers
+              - generic [ref=e112]:
+                - text: You can unsubscribe at any time. See our
+                - link "Privacy Policy" [ref=e113] [cursor=pointer]:
+                  - /url: /privacy-policy.html
+                - text: .
+        - button "Get My Free Quote" [ref=e115] [cursor=pointer]
+        - paragraph [ref=e117]:
+          - text: By submitting this form, you confirm that you have read our
+          - link "Terms of Service" [ref=e118] [cursor=pointer]:
+            - /url: /terms-of-service.html
+          - text: and
+          - link "Privacy Policy" [ref=e119] [cursor=pointer]:
+            - /url: /privacy-policy.html
+          - text: .
+    - paragraph [ref=e120]:
+      - strong [ref=e121]: "Phone:"
+      - link "+353 1 234 5678" [ref=e122] [cursor=pointer]:
+        - /url: tel:+35312345678
+    - region "Transform Your Garden with Premium Garden Rooms" [ref=e123]:
+      - generic [ref=e125]:
+        - img "Modern garden room with glass doors and contemporary design" [ref=e128]
+        - generic [ref=e130]:
+          - generic [ref=e131]: Garden Rooms
+          - heading "Transform Your Garden with Premium Garden Rooms" [level=2] [ref=e132]
+          - heading "Modern, Insulated Garden Rooms" [level=3] [ref=e133]
+          - paragraph [ref=e134]: Create the perfect garden office, studio, or relaxation space with our professionally designed and constructed garden rooms. Built to the highest standards with full insulation, electrical installations, and planning permission support.
+          - button "Get Your Garden Room Quote" [ref=e136] [cursor=pointer]
+          - generic [ref=e137]:
+            - heading "Year-Round Comfort" [level=4] [ref=e138]
+            - paragraph [ref=e139]: Our garden rooms are designed for year-round use with premium insulation, double-glazed windows, and professional electrical installations. Perfect for home offices, creative studios, or peaceful retreats.
+            - link "For more details about our garden rooms" [ref=e140] [cursor=pointer]:
+              - /url: "#garden-rooms-details"
+    - generic [ref=e142]:
+      - heading "Garden Rooms - Detailed Information" [level=2] [ref=e143]
+      - generic [ref=e144]:
+        - heading "Comprehensive Garden Room Solutions" [level=3] [ref=e145]
+        - paragraph [ref=e146]: "Our garden rooms are expertly crafted to provide year-round comfort and functionality. Each project includes:"
+        - list [ref=e147]:
+          - listitem [ref=e148]: Full planning permission support and guidance
+          - listitem [ref=e149]: Professional architectural design and 3D visualization
+          - listitem [ref=e150]: Premium insulation for all-season use
+          - listitem [ref=e151]: Complete electrical installation with safety certification
+          - listitem [ref=e152]: Double-glazed windows and doors for energy efficiency
+          - listitem [ref=e153]: Choice of heating and cooling solutions
+          - listitem [ref=e154]: Interior finishing to your specification
+          - listitem [ref=e155]: Full warranty and aftercare service
+        - paragraph [ref=e156]: Perfect for home offices, creative studios, gyms, or peaceful retreats. All our garden rooms comply with Irish building regulations and include comprehensive project management from start to finish.
+        - paragraph [ref=e157]:
+          - strong [ref=e158]: Starting from €25,000
+          - text: including planning support and basic electrical installation.
+        - paragraph [ref=e159]:
+          - link "Get Your Garden Room Quote" [ref=e160] [cursor=pointer]:
+            - /url: "#quote"
+    - region "Expand Your Living Space with Premium Home Extensions" [ref=e161]:
+      - generic [ref=e163]:
+        - generic [ref=e165]:
+          - generic [ref=e166]: Home Extensions
+          - heading "Expand Your Living Space with Premium Home Extensions" [level=2] [ref=e167]
+          - heading "Single & Double-Storey Extensions" [level=3] [ref=e168]
+          - paragraph [ref=e169]: Maximize your home's potential with our expertly designed and constructed extensions. From kitchen extensions to additional bedrooms, we handle everything from planning permission to final construction with full building regulations compliance.
+          - button "Get Your Extension Quote" [ref=e171] [cursor=pointer]
+          - generic [ref=e172]:
+            - heading "Full-Service Construction" [level=4] [ref=e173]
+            - paragraph [ref=e174]: Our home extensions are delivered with complete project management, architectural design, planning permission support, and full building regulations compliance. We ensure seamless integration with your existing home.
+            - link "For more details about our home extensions" [ref=e175] [cursor=pointer]:
+              - /url: "#home-extensions-details"
+        - img "Modern home extension with large windows and contemporary architecture" [ref=e178]
+    - generic [ref=e180]:
+      - heading "Home Extensions - Detailed Information" [level=2] [ref=e181]
+      - generic [ref=e182]:
+        - heading "Complete Home Extension Services" [level=3] [ref=e183]
+        - paragraph [ref=e184]: "Transform your living space with our professional extension services. Our comprehensive approach includes:"
+        - list [ref=e185]:
+          - listitem [ref=e186]: Initial consultation and feasibility assessment
+          - listitem [ref=e187]: Architectural design and planning drawings
+          - listitem [ref=e188]: Planning permission application and management
+          - listitem [ref=e189]: Building regulations compliance and certification
+          - listitem [ref=e190]: Structural engineering and calculations
+          - listitem [ref=e191]: Complete construction and project management
+          - listitem [ref=e192]: Interior design and finishing coordination
+          - listitem [ref=e193]: Quality assurance and final inspections
+        - paragraph [ref=e194]: Whether you need a kitchen extension, additional bedrooms, or a full two-storey addition, we handle every aspect of your project with meticulous attention to detail and quality craftsmanship.
+        - paragraph [ref=e195]:
+          - strong [ref=e196]: Single-storey extensions from €40,000
+          - text: "-"
+          - strong [ref=e197]: Double-storey extensions from €70,000
+        - paragraph [ref=e198]:
+          - link "Get Your Extension Quote" [ref=e199] [cursor=pointer]:
+            - /url: "#quote"
+    - region "Our Recent Projects" [ref=e200]:
+      - generic [ref=e201]:
+        - heading "Our Recent Projects" [level=2] [ref=e202]
+        - generic [ref=e203]:
+          - button "View previous projects" [disabled] [ref=e204]:
+            - generic [ref=e205]: ‹
+            - generic [ref=e206]: Previous
+          - button "View next projects" [ref=e207] [cursor=pointer]:
+            - generic [ref=e208]: ›
+            - generic [ref=e209]: Next
+      - group "Project gallery" [ref=e210]:
+        - generic [ref=e211]:
+          - button "Modern Garden Office in Dublin, Ireland" [ref=e212] [cursor=pointer]:
+            - generic [ref=e213]:
+              - img "Modern Garden Office - Contemporary garden office with floor-to-ceiling windows and sustainable materials" [ref=e214]
+              - generic [ref=e216]:
+                - generic [ref=e217]: Garden Room
+                - generic [ref=e218]: Office
+                - generic [ref=e219]: Modern
+            - generic [ref=e220]:
+              - heading "Modern Garden Office" [level=3] [ref=e221]
+              - paragraph [ref=e222]: Dublin, Ireland
+              - paragraph [ref=e223]: Contemporary garden office with floor-to-ceiling windows and sustainable materials
+          - button "Kitchen Extension in Cork, Ireland" [ref=e224] [cursor=pointer]:
+            - generic [ref=e225]:
+              - img "Kitchen Extension - Open-plan kitchen extension with bifold doors to garden" [ref=e226]
+              - generic [ref=e228]:
+                - generic [ref=e229]: Extension
+                - generic [ref=e230]: Kitchen
+                - generic [ref=e231]: Family
+            - generic [ref=e232]:
+              - heading "Kitchen Extension" [level=3] [ref=e233]
+              - paragraph [ref=e234]: Cork, Ireland
+              - paragraph [ref=e235]: Open-plan kitchen extension with bifold doors to garden
+          - button "Garden Studio in Galway, Ireland" [ref=e236] [cursor=pointer]:
+            - generic [ref=e237]:
+              - img "Garden Studio - Versatile garden studio perfect for creative work and relaxation" [ref=e238]
+              - generic [ref=e240]:
+                - generic [ref=e241]: Garden Room
+                - generic [ref=e242]: Studio
+                - generic [ref=e243]: Creative
+            - generic [ref=e244]:
+              - heading "Garden Studio" [level=3] [ref=e245]
+              - paragraph [ref=e246]: Galway, Ireland
+              - paragraph [ref=e247]: Versatile garden studio perfect for creative work and relaxation
+          - button "Two-Storey Extension in Limerick, Ireland" [ref=e248] [cursor=pointer]:
+            - generic [ref=e249]:
+              - img "Two-Storey Extension - Spacious two-storey extension adding bedroom and living space" [ref=e250]
+              - generic [ref=e252]:
+                - generic [ref=e253]: Extension
+                - generic [ref=e254]: Two-Storey
+                - generic [ref=e255]: Family
+            - generic [ref=e256]:
+              - heading "Two-Storey Extension" [level=3] [ref=e257]
+              - paragraph [ref=e258]: Limerick, Ireland
+              - paragraph [ref=e259]: Spacious two-storey extension adding bedroom and living space
+          - button "Eco Garden Pod in Waterford, Ireland" [ref=e260] [cursor=pointer]:
+            - generic [ref=e261]:
+              - img "Eco Garden Pod - Eco-friendly garden pod with green roof and solar panels" [ref=e262]
+              - generic [ref=e264]:
+                - generic [ref=e265]: Garden Room
+                - generic [ref=e266]: Eco
+                - generic [ref=e267]: Sustainable
+            - generic [ref=e268]:
+              - heading "Eco Garden Pod" [level=3] [ref=e269]
+              - paragraph [ref=e270]: Waterford, Ireland
+              - paragraph [ref=e271]: Eco-friendly garden pod with green roof and solar panels
+          - button "Victorian Extension in Dublin, Ireland" [ref=e272] [cursor=pointer]:
+            - generic [ref=e273]:
+              - img "Victorian Extension - Sympathetic extension to Victorian terrace house" [ref=e274]
+              - generic [ref=e276]:
+                - generic [ref=e277]: Extension
+                - generic [ref=e278]: Victorian
+                - generic [ref=e279]: Heritage
+            - generic [ref=e280]:
+              - heading "Victorian Extension" [level=3] [ref=e281]
+              - paragraph [ref=e282]: Dublin, Ireland
+              - paragraph [ref=e283]: Sympathetic extension to Victorian terrace house
+    - generic [ref=e286]:
+      - heading "About Us" [level=2] [ref=e287]
+      - paragraph [ref=e288]: Learn about our company and expertise coming soon.
+    - generic [ref=e290]:
+      - heading "Contact" [level=2] [ref=e291]
+      - paragraph [ref=e292]: Get in touch with us coming soon.
+    - generic [ref=e294]:
+      - heading "Newsletter" [level=2] [ref=e295]
+      - paragraph [ref=e296]: Subscribe to our newsletter coming soon.
+    - generic [ref=e298]:
+      - generic [ref=e299]:
+        - heading "Our Process" [level=2] [ref=e300]
+        - paragraph [ref=e301]: From initial consultation to project completion, we guide you through every step of creating your perfect garden room or home extension
+      - list "Process timeline with 4 steps" [ref=e302]:
+        - 'listitem "Step one: Initial consultation and site assessment" [ref=e303] [cursor=pointer]':
+          - generic [ref=e304]: "1"
+          - generic [ref=e305]:
+            - heading "Initial Consultation" [level=3] [ref=e306]
+            - paragraph [ref=e307]: We discuss your requirements, assess your space, and understand your vision for the perfect garden room or home extension.
+            - list "Step 1 details" [ref=e308]:
+              - listitem [ref=e309]: ✓ Free site visit and assessment
+              - listitem [ref=e310]: ✓ Discuss your needs and budget
+              - listitem [ref=e311]: ✓ Review planning considerations
+              - listitem [ref=e312]: ✓ Initial design concepts
+        - 'listitem "Step two: Design development and planning permissions" [ref=e313] [cursor=pointer]':
+          - generic [ref=e314]: "2"
+          - generic [ref=e315]:
+            - heading "Design & Planning" [level=3] [ref=e316]
+            - paragraph [ref=e317]: Our architects create detailed plans and handle all planning permissions and building regulations compliance.
+            - list "Step 2 details" [ref=e318]:
+              - listitem [ref=e319]: ✓ Detailed architectural drawings
+              - listitem [ref=e320]: ✓ Planning permission application
+              - listitem [ref=e321]: ✓ Building regulations compliance
+              - listitem [ref=e322]: ✓ Final design approval
+        - 'listitem "Step three: Approvals and construction documentation" [ref=e323] [cursor=pointer]':
+          - generic [ref=e324]: "3"
+          - generic [ref=e325]:
+            - heading "Approvals & Documentation" [level=3] [ref=e326]
+            - paragraph [ref=e327]: We manage all approvals, permits, and documentation required before construction can begin.
+            - list "Step 3 details" [ref=e328]:
+              - listitem [ref=e329]: ✓ Planning permission approval
+              - listitem [ref=e330]: ✓ Building control approval
+              - listitem [ref=e331]: ✓ Construction documentation
+              - listitem [ref=e332]: ✓ Material specifications
+        - 'listitem "Step four: Construction and project completion" [ref=e333] [cursor=pointer]':
+          - generic [ref=e334]: "4"
+          - generic [ref=e335]:
+            - heading "Construction & Completion" [level=3] [ref=e336]
+            - paragraph [ref=e337]: Professional construction team builds your project to the highest standards, with regular progress updates.
+            - list "Step 4 details" [ref=e338]:
+              - listitem [ref=e339]: ✓ Site preparation and foundations
+              - listitem [ref=e340]: ✓ Professional construction
+              - listitem [ref=e341]: ✓ Quality inspections
+              - listitem [ref=e342]: ✓ Project handover and warranty
+      - generic [ref=e343]:
+        - paragraph [ref=e344]: Ready to start your project?
+        - link "Get Your Free Quote" [ref=e345] [cursor=pointer]:
+          - /url: "#quote"
+        - paragraph [ref=e346]: Click to scroll to our quote form and begin your garden room or home extension journey
+    - region "What Our Customers Say" [ref=e347]:
+      - generic [ref=e348]:
+        - heading "What Our Customers Say" [level=2] [ref=e349]
+        - generic [ref=e350]:
+          - generic [ref=e351]:
+            - group "\" \"The garden room exceeded all our expectations. The quality of workmanship is outstanding, and the planning permission process was handled seamlessly. We now have the perfect home office.\"" [ref=e352]:
+              - blockquote [ref=e353]:
+                - paragraph [ref=e354]: "\" \"The garden room exceeded all our expectations. The quality of workmanship is outstanding, and the planning permission process was handled seamlessly. We now have the perfect home office.\""
+                - generic [ref=e355]:
+                  - generic "5 out of 5 stars" [ref=e356]: ★★★★★
+                  - generic [ref=e357]:
+                    - generic [ref=e358]: Sarah M
+                    - generic [ref=e359]: Dublin
+            - text: "\" \""
+          - generic [ref=e360]:
+            - button "Previous testimonial" [disabled] [ref=e361]:
+              - generic [ref=e362]: ‹
+              - generic [ref=e363]: Previous
+            - button "Next testimonial" [ref=e364] [cursor=pointer]:
+              - generic [ref=e365]: ›
+              - generic [ref=e366]: Next
+          - tablist "Testimonial indicators" [ref=e367]:
+            - tab "Go to testimonial 1" [selected] [ref=e368] [cursor=pointer]:
+              - generic [ref=e369]: Testimonial 1
+            - tab "Go to testimonial 2" [ref=e370] [cursor=pointer]:
+              - generic [ref=e371]: Testimonial 2
+            - tab "Go to testimonial 3" [ref=e372] [cursor=pointer]:
+              - generic [ref=e373]: Testimonial 3
+    - generic [ref=e376]:
+      - generic [ref=e377]:
+        - heading "Our Process" [level=2] [ref=e378]
+        - paragraph [ref=e379]: From initial consultation to project completion, we guide you through every step of creating your perfect garden room or home extension
+      - list "Process steps" [ref=e380]:
+        - listitem [ref=e381] [cursor=pointer]:
+          - generic [ref=e382]: "1"
+          - generic [ref=e383]:
+            - heading "Initial Consultation" [level=3] [ref=e384]
+            - paragraph [ref=e385]: We discuss your requirements, assess your space, and understand your vision for the perfect garden room or home extension.
+            - list "Step 1 details" [ref=e386]:
+              - listitem [ref=e387]: ✓ Free site visit and assessment
+              - listitem [ref=e388]: ✓ Discuss your needs and budget
+              - listitem [ref=e389]: ✓ Review planning considerations
+              - listitem [ref=e390]: ✓ Initial design concepts
+        - listitem [ref=e391] [cursor=pointer]:
+          - generic [ref=e392]: "2"
+          - generic [ref=e393]:
+            - heading "Design & Planning" [level=3] [ref=e394]
+            - paragraph [ref=e395]: Our architects create detailed plans and handle all planning permissions and building regulations compliance.
+            - list "Step 2 details" [ref=e396]:
+              - listitem [ref=e397]: ✓ Detailed architectural drawings
+              - listitem [ref=e398]: ✓ Planning permission application
+              - listitem [ref=e399]: ✓ Building regulations compliance
+              - listitem [ref=e400]: ✓ Final design approval
+        - listitem [ref=e401] [cursor=pointer]:
+          - generic [ref=e402]: "3"
+          - generic [ref=e403]:
+            - heading "Approvals & Documentation" [level=3] [ref=e404]
+            - paragraph [ref=e405]: We manage all approvals, permits, and documentation required before construction can begin.
+            - list "Step 3 details" [ref=e406]:
+              - listitem [ref=e407]: ✓ Planning permission approval
+              - listitem [ref=e408]: ✓ Building control approval
+              - listitem [ref=e409]: ✓ Construction documentation
+              - listitem [ref=e410]: ✓ Material specifications
+        - listitem [ref=e411] [cursor=pointer]:
+          - generic [ref=e412]: "4"
+          - generic [ref=e413]:
+            - heading "Construction & Completion" [level=3] [ref=e414]
+            - paragraph [ref=e415]: Professional construction team builds your project to the highest standards, with regular progress updates.
+            - list "Step 4 details" [ref=e416]:
+              - listitem [ref=e417]: ✓ Site preparation and foundations
+              - listitem [ref=e418]: ✓ Professional construction
+              - listitem [ref=e419]: ✓ Quality inspections
+              - listitem [ref=e420]: ✓ Project handover and warranty
+      - generic [ref=e421]:
+        - paragraph [ref=e422]: Ready to start your project?
+        - link "Get Your Free Quote" [ref=e423] [cursor=pointer]:
+          - /url: "#quote"
+        - paragraph [ref=e424]: Click to scroll to our quote form and begin your garden room or home extension journey
+    - region "Frequently Asked Questions" [ref=e425]:
+      - generic [ref=e426]:
+        - generic [ref=e427]:
+          - heading "Frequently Asked Questions" [level=2] [ref=e428]
+          - paragraph [ref=e429]: Get answers to common questions about garden rooms and home extensions
+        - generic [ref=e430]:
+          - group [ref=e431]:
+            - generic "Do I need planning permission for a garden room?" [ref=e432] [cursor=pointer]:
+              - generic [ref=e433]: Do I need planning permission for a garden room?
+              - img [ref=e435]
+          - group [ref=e437]:
+            - generic "How long does it take to build a garden room or extension?" [ref=e438] [cursor=pointer]:
+              - generic [ref=e439]: How long does it take to build a garden room or extension?
+              - img [ref=e441]
+          - group [ref=e443]:
+            - generic "What foundations are required?" [ref=e444] [cursor=pointer]:
+              - generic [ref=e445]: What foundations are required?
+              - img [ref=e447]
+          - group [ref=e449]:
+            - generic "Are your buildings insulated and suitable for year-round use?" [ref=e450] [cursor=pointer]:
+              - generic [ref=e451]: Are your buildings insulated and suitable for year-round use?
+              - img [ref=e453]
+          - group [ref=e455]:
+            - generic "What's included in your service?" [ref=e456] [cursor=pointer]:
+              - generic [ref=e457]: What's included in your service?
+              - img [ref=e459]
+          - group [ref=e461]:
+            - generic "Do you provide warranties?" [ref=e462] [cursor=pointer]:
+              - generic [ref=e463]: Do you provide warranties?
+              - img [ref=e465]
+    - region "Stay Updated with Our Latest Offers" [ref=e467]:
+      - generic [ref=e468]:
+        - generic [ref=e469]:
+          - heading "Stay Updated with Our Latest Offers" [level=2] [ref=e470]
+          - paragraph [ref=e471]: Get exclusive deals on garden rooms and home extensions delivered straight to your inbox.
+        - generic [ref=e472]:
+          - generic [ref=e473]:
+            - generic [ref=e474]: Email Address *
+            - generic [ref=e475]:
+              - textbox "Email Address required" [ref=e476]:
+                - /placeholder: Enter your email address
+              - button "Subscribe Now" [ref=e477] [cursor=pointer]:
+                - generic [ref=e478]: Subscribe Now
+          - paragraph [ref=e480]:
+            - text: By subscribing, you agree to our Privacy Policy and Terms of Service.
+            - link "Learn more" [ref=e481] [cursor=pointer]:
+              - /url: /privacy-policy
+  - contentinfo [ref=e482]:
+    - generic [ref=e483]:
+      - generic [ref=e484]:
+        - generic [ref=e485]:
+          - heading "Contact" [level=3] [ref=e486]
+          - generic [ref=e487]:
+            - strong [ref=e489]: Strata Garden Rooms
+            - generic [ref=e490]:
+              - generic [ref=e491]: 123 Business Park
+              - generic [ref=e492]: Unit 4
+              - generic [ref=e493]: Dublin, County Dublin
+              - generic [ref=e494]: D01 A123
+              - generic [ref=e495]: Ireland
+            - generic [ref=e496]:
+              - link "📞 +353 1 234 5678" [ref=e498] [cursor=pointer]:
+                - /url: tel:+35312345678
+                - generic [ref=e499]: 📞
+                - generic [ref=e500]: +353 1 234 5678
+              - link "✉️ info@strata.ie" [ref=e502] [cursor=pointer]:
+                - /url: mailto:info@strata.ie
+                - generic [ref=e503]: ✉️
+                - generic [ref=e504]: info@strata.ie
+        - generic [ref=e505]:
+          - heading "Services" [level=3] [ref=e506]
+          - list [ref=e507]:
+            - listitem [ref=e508]:
+              - link "Garden Rooms" [ref=e509] [cursor=pointer]:
+                - /url: "#garden-rooms"
+            - listitem [ref=e510]:
+              - link "Home Extensions" [ref=e511] [cursor=pointer]:
+                - /url: "#home-extensions"
+            - listitem [ref=e512]:
+              - link "Projects Gallery" [ref=e513] [cursor=pointer]:
+                - /url: "#gallery"
+            - listitem [ref=e514]:
+              - link "Get a Quote" [ref=e515] [cursor=pointer]:
+                - /url: "#quote"
+        - generic [ref=e516]:
+          - heading "Social" [level=3] [ref=e517]
+          - generic [ref=e518]:
+            - link "Follow us on Facebook" [ref=e519] [cursor=pointer]:
+              - /url: https://facebook.com/strata
+              - generic [ref=e520]: 📘
+              - generic [ref=e521]: Facebook
+            - link "Follow us on Instagram" [ref=e522] [cursor=pointer]:
+              - /url: https://instagram.com/strata
+              - generic [ref=e523]: 📷
+              - generic [ref=e524]: Instagram
+            - link "Connect with us on LinkedIn" [ref=e525] [cursor=pointer]:
+              - /url: https://linkedin.com/company/strata
+              - generic [ref=e526]: 💼
+              - generic [ref=e527]: LinkedIn
+        - generic [ref=e528]:
+          - heading "Stay Updated" [level=3] [ref=e529]
+          - paragraph [ref=e530]: Get the latest news and offers
+          - paragraph [ref=e533]:
+            - link "Subscribe to Newsletter" [ref=e534] [cursor=pointer]:
+              - /url: "#newsletter"
+      - generic [ref=e536]:
+        - navigation "Legal" [ref=e537]:
+          - list [ref=e538]:
+            - listitem [ref=e539]:
+              - link "Privacy Policy" [ref=e540] [cursor=pointer]:
+                - /url: /privacy-policy.html
+            - listitem [ref=e541]:
+              - link "Terms of Service" [ref=e542] [cursor=pointer]:
+                - /url: /terms-of-service.html
+            - listitem [ref=e543]:
+              - link "Cookie Policy" [ref=e544] [cursor=pointer]:
+                - /url: /cookie-policy.html
+        - paragraph [ref=e546]: © 2025 Strata Garden Rooms. All rights reserved.
+```

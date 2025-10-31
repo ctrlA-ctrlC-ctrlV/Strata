@@ -1,24 +1,43 @@
-<testsuites id="" name="" tests="10" failures="0" skipped="0" errors="0" time="12.993913000000001">
-<testsuite name="process.spec.ts" timestamp="2025-10-30T16:50:30.247Z" hostname="chromium" tests="10" failures="0" skipped="0" time="16.485" errors="0">
-<testcase name="Phase 7 - Process Component › should display process section with 4 stages" classname="process.spec.ts" time="2.438">
-</testcase>
-<testcase name="Phase 7 - Process Component › should have proper heading structure" classname="process.spec.ts" time="2.481">
-</testcase>
-<testcase name="Phase 7 - Process Component › should have numbered steps with content" classname="process.spec.ts" time="2.09">
-</testcase>
-<testcase name="Phase 7 - Process Component › should have appropriate content for each step" classname="process.spec.ts" time="1.574">
-</testcase>
-<testcase name="Phase 7 - Process Component › should be keyboard accessible" classname="process.spec.ts" time="1.477">
-</testcase>
-<testcase name="Phase 7 - Process Component › should have visible focus indicators" classname="process.spec.ts" time="1.023">
-</testcase>
-<testcase name="Phase 7 - Process Component › should be responsive across different viewport sizes" classname="process.spec.ts" time="1.442">
-</testcase>
-<testcase name="Phase 7 - Process Component › should have proper semantic structure" classname="process.spec.ts" time="1.216">
-</testcase>
-<testcase name="Phase 7 - Process Component › should respect reduced motion preferences" classname="process.spec.ts" time="1.459">
-</testcase>
-<testcase name="Phase 7 - Process Component › should be positioned correctly in page flow" classname="process.spec.ts" time="1.285">
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="6.795587">
+<testsuite name="newsletter-a11y.spec.ts" timestamp="2025-10-31T13:23:52.246Z" hostname="Mobile Chrome" tests="1" failures="1" skipped="0" time="2.129" errors="0">
+<testcase name="Newsletter - Accessibility › should have appropriate touch targets on mobile" classname="newsletter-a11y.spec.ts" time="2.129">
+<failure message="newsletter-a11y.spec.ts:145:3 should have appropriate touch targets on mobile" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › newsletter-a11y.spec.ts:145:3 › Newsletter - Accessibility › should have appropriate touch targets on mobile 
+
+    Error: expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 44
+    Received:    32
+
+      156 |         // WCAG recommends minimum 44x44px for touch targets
+      157 |         expect(box.width).toBeGreaterThanOrEqual(44);
+    > 158 |         expect(box.height).toBeGreaterThanOrEqual(44);
+          |                            ^
+      159 |       }
+      160 |     }
+      161 |   });
+        at E:\Zhaoxiang_Qiu\work\SDeal\Strata\frontend\tests\e2e\newsletter-a11y.spec.ts:158:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\newsletter-a11y-Newsletter-35e79-ate-touch-targets-on-mobile-Mobile-Chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\newsletter-a11y-Newsletter-35e79-ate-touch-targets-on-mobile-Mobile-Chrome\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\newsletter-a11y-Newsletter-35e79-ate-touch-targets-on-mobile-Mobile-Chrome\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\newsletter-a11y-Newsletter-35e79-ate-touch-targets-on-mobile-Mobile-Chrome\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\newsletter-a11y-Newsletter-35e79-ate-touch-targets-on-mobile-Mobile-Chrome\video.webm]]
+
+[[ATTACHMENT|test-results\newsletter-a11y-Newsletter-35e79-ate-touch-targets-on-mobile-Mobile-Chrome\error-context.md]]
+]]>
+</system-out>
 </testcase>
 </testsuite>
 </testsuites>

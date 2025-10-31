@@ -11,7 +11,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 2
+      "actualWorkers": 1
     },
     "preserveOutput": "always",
     "reporter": [
@@ -43,7 +43,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 2
+          "actualWorkers": 1
         },
         "id": "chromium",
         "name": "chromium",
@@ -59,7 +59,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 2
+          "actualWorkers": 1
         },
         "id": "firefox",
         "name": "firefox",
@@ -75,7 +75,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 2
+          "actualWorkers": 1
         },
         "id": "webkit",
         "name": "webkit",
@@ -91,7 +91,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 2
+          "actualWorkers": 1
         },
         "id": "Mobile Chrome",
         "name": "Mobile Chrome",
@@ -107,7 +107,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 2
+          "actualWorkers": 1
         },
         "id": "Mobile Safari",
         "name": "Mobile Safari",
@@ -123,7 +123,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 2
+          "actualWorkers": 1
         },
         "id": "Microsoft Edge",
         "name": "Microsoft Edge",
@@ -139,7 +139,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 2
+          "actualWorkers": 1
         },
         "id": "Google Chrome",
         "name": "Google Chrome",
@@ -164,356 +164,90 @@
   },
   "suites": [
     {
-      "title": "process.spec.ts",
-      "file": "process.spec.ts",
+      "title": "newsletter-a11y.spec.ts",
+      "file": "newsletter-a11y.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Phase 7 - Process Component",
-          "file": "process.spec.ts",
-          "line": 3,
+          "title": "Newsletter - Accessibility",
+          "file": "newsletter-a11y.spec.ts",
+          "line": 7,
           "column": 6,
           "specs": [
             {
-              "title": "should display process section with 4 stages",
-              "ok": true,
+              "title": "should have appropriate touch targets on mobile",
+              "ok": false,
               "tags": [],
               "tests": [
                 {
                   "timeout": 30000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
                   "results": [
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 2438,
-                      "errors": [],
+                      "status": "failed",
+                      "duration": 2129,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m44\u001b[39m\nReceived:    \u001b[31m32\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m44\u001b[39m\nReceived:    \u001b[31m32\u001b[39m\n    at E:\\Zhaoxiang_Qiu\\work\\SDeal\\Strata\\frontend\\tests\\e2e\\newsletter-a11y.spec.ts:158:28",
+                        "location": {
+                          "file": "E:\\Zhaoxiang_Qiu\\work\\SDeal\\Strata\\frontend\\tests\\e2e\\newsletter-a11y.spec.ts",
+                          "column": 28,
+                          "line": 158
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 156 |\u001b[39m         \u001b[90m// WCAG recommends minimum 44x44px for touch targets\u001b[39m\n \u001b[90m 157 |\u001b[39m         expect(box\u001b[33m.\u001b[39mwidth)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m44\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 158 |\u001b[39m         expect(box\u001b[33m.\u001b[39mheight)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m44\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 159 |\u001b[39m       }\n \u001b[90m 160 |\u001b[39m     }\n \u001b[90m 161 |\u001b[39m   })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "E:\\Zhaoxiang_Qiu\\work\\SDeal\\Strata\\frontend\\tests\\e2e\\newsletter-a11y.spec.ts",
+                            "column": 28,
+                            "line": 158
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m44\u001b[39m\nReceived:    \u001b[31m32\u001b[39m\n\n\u001b[0m \u001b[90m 156 |\u001b[39m         \u001b[90m// WCAG recommends minimum 44x44px for touch targets\u001b[39m\n \u001b[90m 157 |\u001b[39m         expect(box\u001b[33m.\u001b[39mwidth)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m44\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 158 |\u001b[39m         expect(box\u001b[33m.\u001b[39mheight)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m44\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 159 |\u001b[39m       }\n \u001b[90m 160 |\u001b[39m     }\n \u001b[90m 161 |\u001b[39m   })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at E:\\Zhaoxiang_Qiu\\work\\SDeal\\Strata\\frontend\\tests\\e2e\\newsletter-a11y.spec.ts:158:28\u001b[22m"
+                        }
+                      ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-30T16:50:31.894Z",
+                      "startTime": "2025-10-31T13:23:54.235Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "E:\\Zhaoxiang_Qiu\\work\\SDeal\\Strata\\frontend\\test-results\\newsletter-a11y-Newsletter-35e79-ate-touch-targets-on-mobile-Mobile-Chrome\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "E:\\Zhaoxiang_Qiu\\work\\SDeal\\Strata\\frontend\\test-results\\newsletter-a11y-Newsletter-35e79-ate-touch-targets-on-mobile-Mobile-Chrome\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "E:\\Zhaoxiang_Qiu\\work\\SDeal\\Strata\\frontend\\test-results\\newsletter-a11y-Newsletter-35e79-ate-touch-targets-on-mobile-Mobile-Chrome\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "E:\\Zhaoxiang_Qiu\\work\\SDeal\\Strata\\frontend\\tests\\e2e\\newsletter-a11y.spec.ts",
+                        "column": 28,
+                        "line": 158
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
-              "id": "37e4c99d8313ab3db5d7-4378f94460273e2170c5",
-              "file": "process.spec.ts",
-              "line": 8,
-              "column": 3
-            },
-            {
-              "title": "should have proper heading structure",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 2481,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-10-30T16:50:31.940Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "37e4c99d8313ab3db5d7-a96526a5200d24006859",
-              "file": "process.spec.ts",
-              "line": 17,
-              "column": 3
-            },
-            {
-              "title": "should have numbered steps with content",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 2090,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-10-30T16:50:34.579Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "37e4c99d8313ab3db5d7-087e7a896f7367049beb",
-              "file": "process.spec.ts",
-              "line": 30,
-              "column": 3
-            },
-            {
-              "title": "should have appropriate content for each step",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 1574,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-10-30T16:50:34.627Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "37e4c99d8313ab3db5d7-ecb5f8000ace3a6df156",
-              "file": "process.spec.ts",
-              "line": 51,
-              "column": 3
-            },
-            {
-              "title": "should be keyboard accessible",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 1477,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-10-30T16:50:36.259Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "37e4c99d8313ab3db5d7-80a80d7738db610ade13",
-              "file": "process.spec.ts",
-              "line": 76,
-              "column": 3
-            },
-            {
-              "title": "should have visible focus indicators",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 1023,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-10-30T16:50:36.704Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "37e4c99d8313ab3db5d7-482cba91432e5d06bb74",
-              "file": "process.spec.ts",
-              "line": 96,
-              "column": 3
-            },
-            {
-              "title": "should be responsive across different viewport sizes",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 1442,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-10-30T16:50:37.757Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "37e4c99d8313ab3db5d7-987c7fc4a16d32ec21a8",
-              "file": "process.spec.ts",
-              "line": 120,
-              "column": 3
-            },
-            {
-              "title": "should have proper semantic structure",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 1216,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-10-30T16:50:37.778Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "37e4c99d8313ab3db5d7-6714176fbb5b63731922",
-              "file": "process.spec.ts",
-              "line": 141,
-              "column": 3
-            },
-            {
-              "title": "should respect reduced motion preferences",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 1459,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-10-30T16:50:39.020Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "37e4c99d8313ab3db5d7-1cb344c44ee2cde49fc2",
-              "file": "process.spec.ts",
-              "line": 161,
-              "column": 3
-            },
-            {
-              "title": "should be positioned correctly in page flow",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 1285,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-10-30T16:50:39.224Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "37e4c99d8313ab3db5d7-4f779aedc215ff3e2424",
-              "file": "process.spec.ts",
-              "line": 192,
+              "id": "b48aa2dca269a3f036b3-2e3589b3730897feac71",
+              "file": "newsletter-a11y.spec.ts",
+              "line": 145,
               "column": 3
             }
           ]
@@ -523,11 +257,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-10-30T16:50:27.823Z",
-    "duration": 12993.913,
-    "expected": 10,
+    "startTime": "2025-10-31T13:23:50.086Z",
+    "duration": 6795.587,
+    "expected": 0,
     "skipped": 0,
-    "unexpected": 0,
+    "unexpected": 1,
     "flaky": 0
   }
 }

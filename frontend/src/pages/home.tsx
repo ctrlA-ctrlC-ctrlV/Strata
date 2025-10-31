@@ -18,6 +18,8 @@ export class HomePage {
     gallery?: any;
     testimonials?: any;
     process?: any;
+    faq?: any;
+    newsletter?: any;
   } = {};
 
   constructor(config: HomePageConfig = {}) {
@@ -88,6 +90,8 @@ export class HomePage {
       const { default: Gallery } = await import('../components/Gallery');
       const { default: Testimonial } = await import('../components/Testimonial');
       const { default: Process } = await import('../components/Process');
+      const { default: FAQ } = await import('../components/FAQ');
+      const { Newsletter } = await import('../components/Newsletter');
 
       // Initialize Header
       this.components.header = new Header({
@@ -168,6 +172,60 @@ export class HomePage {
         subtitle: 'From initial consultation to project completion, we guide you through every step of creating your perfect garden room or home extension'
       });
       this.components.process.mount('#main');
+
+      // Initialize FAQ
+      this.components.faq = new FAQ({
+        title: 'Frequently Asked Questions',
+        items: [
+          {
+            id: 'planning-permission',
+            question: 'Do I need planning permission for a garden room?',
+            answer: 'Most garden rooms fall under permitted development rights in Ireland, meaning you typically don\'t need planning permission if they\'re under 25 square metres and meet certain criteria. However, we always recommend checking with your local planning authority, and our team can guide you through this process during your consultation.'
+          },
+          {
+            id: 'build-time',
+            question: 'How long does it take to build a garden room or extension?',
+            answer: 'Garden rooms typically take 3-5 days to complete once construction begins, while home extensions can take 4-8 weeks depending on size and complexity. We provide a detailed timeline during your consultation and keep you informed throughout the process.'
+          },
+          {
+            id: 'foundations',
+            question: 'What foundations are required?',
+            answer: 'Most garden rooms require a simple concrete pad foundation or adjustable screw pile system. Home extensions may require deeper strip foundations. We assess your site during the consultation and handle all foundation work as part of our complete service.'
+          },
+          {
+            id: 'insulation',
+            question: 'Are your buildings insulated and suitable for year-round use?',
+            answer: 'Yes, all our garden rooms and extensions are fully insulated with high-performance materials and double-glazed windows. They\'re designed for comfortable year-round use in Irish weather conditions, with optional heating systems available.'
+          },
+          {
+            id: 'service-included',
+            question: 'What\'s included in your service?',
+            answer: 'Our complete service includes design consultation, planning guidance, all materials, professional installation, electrical work, insulation, and finishing. We handle everything from start to finish, so you don\'t need to coordinate multiple contractors.'
+          },
+          {
+            id: 'warranties',
+            question: 'Do you provide warranties?',
+            answer: 'Yes, we provide comprehensive warranties on all our work. Our garden rooms come with a 10-year structural warranty, and we offer ongoing support and maintenance services to ensure your investment is protected.'
+          }
+        ]
+      });
+      this.components.faq.mount('#main');
+
+      // Initialize Newsletter
+      this.components.newsletter = new Newsletter({
+        title: 'Stay Updated with Our Latest Offers',
+        subtitle: 'Get exclusive deals on garden rooms and home extensions delivered straight to your inbox.',
+        placeholder: 'Enter your email address',
+        submitText: 'Subscribe Now',
+        successMessage: 'Thank you! You\'ve been successfully subscribed to our newsletter.',
+        errorMessage: 'Please enter a valid email address.',
+        policyText: 'By subscribing, you agree to our Privacy Policy and Terms of Service.',
+        policyLink: '/privacy-policy',
+        enableJavaScriptEnhancements: this.config.enableJavaScriptEnhancements ?? true,
+        apiEndpoint: '/api/newsletter-subscriptions',
+        contactEmail: 'hello@stratagardnerooms.ie'
+      });
+      this.components.newsletter.mount('#main');
 
       // Initialize QuoteForm
       this.components.quoteForm = new QuoteForm({

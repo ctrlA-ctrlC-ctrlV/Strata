@@ -125,29 +125,29 @@ Notes
 
 ## Phase 8 — User Story 5 (P3): Self-Serve Answers (Mini-FAQ)
 
-- [ ] T099 [US5] Author failing tests first for FAQ expand/collapse and SR announcements in frontend/tests/e2e/faq-a11y.spec.ts
+- [X] T099 [US5] Author failing tests first for FAQ expand/collapse and SR announcements in frontend/tests/e2e/faq-a11y.spec.ts
 
-- [ ] T056 [US5] Implement FAQ using <details><summary> baseline in frontend/src/components/FAQ.tsx
-- [ ] T057 [P] [US5] Style summary focus/hover and expanded states in frontend/src/styles/faq.css
-- [ ] T058 [US5] Ensure multiple items can be open; update behavior in frontend/src/components/FAQ.tsx
-- [ ] T059 [P] [US5] Add keyboard navigation tests for FAQ in frontend/tests/e2e/faq-a11y.spec.ts
-- [ ] T060 [US5] Content placeholders for top 3 planning/regs questions in frontend/src/components/FAQ.tsx
+- [X] T056 [US5] Implement FAQ using <details><summary> baseline in frontend/src/components/FAQ.tsx
+- [X] T057 [P] [US5] Style summary focus/hover and expanded states in frontend/src/styles/faq.css
+- [X] T058 [US5] Ensure multiple items can be open; update behavior in frontend/src/components/FAQ.tsx
+- [X] T059 [P] [US5] Add keyboard navigation tests for FAQ in frontend/tests/e2e/faq-a11y.spec.ts
+- [X] T060 [US5] Content placeholders for top 3 planning/regs questions in frontend/src/components/FAQ.tsx
 
-- [ ] T100 [US5] Run Phase 8 (US5) tests
+- [X] T100 [US5] Run Phase 8 (US5) tests
 
 ## Phase 9 — User Story 6 (P3): Subscribe for Offers (Newsletter)
 
-- [ ] T101 [US6] Author failing tests first for newsletter (validation, links) in frontend/tests/e2e/newsletter-a11y.spec.ts
+- [X] T101 [US6] Author failing tests first for newsletter (validation, links) in frontend/tests/e2e/newsletter-a11y.spec.ts
 
-- [ ] T061 [US6] Create Newsletter form with email field and policy link in frontend/src/components/Newsletter.tsx
-- [ ] T062 [P] [US6] Add client-side validation and inline error in frontend/src/components/Newsletter.tsx
-- [ ] T063 [US6] Single opt-in inline success state in frontend/src/components/Newsletter.tsx
-- [ ] T064 [P] [US6] JS enhancement: POST /api/newsletter-subscriptions in frontend/src/components/Newsletter.tsx
-- [ ] T065 [US6] No-JS baseline behavior (fallback note and contact email) in frontend/src/components/Newsletter.tsx
-- [ ] T066 [P] [US6] Backend: scaffold POST /api/newsletter-subscriptions in backend/src/api/newsletter.ts
-- [ ] T067 [US6] A11y test: form label, error text, focus order in frontend/tests/e2e/newsletter-a11y.spec.ts
+- [X] T061 [US6] Create Newsletter form with email field and policy link in frontend/src/components/Newsletter.tsx
+- [X] T062 [P] [US6] Add client-side validation and inline error in frontend/src/components/Newsletter.tsx
+- [X] T063 [US6] Single opt-in inline success state in frontend/src/components/Newsletter.tsx
+- [X] T064 [P] [US6] JS enhancement: POST /api/newsletter-subscriptions in frontend/src/components/Newsletter.tsx
+- [X] T065 [US6] No-JS baseline behavior (fallback note and contact email) in frontend/src/components/Newsletter.tsx
+- [X] T066 [P] [US6] Backend: scaffold POST /api/newsletter-subscriptions in backend/src/api/newsletter.ts
+- [X] T067 [US6] A11y test: form label, error text, focus order in frontend/tests/e2e/newsletter-a11y.spec.ts
 
-- [ ] T102 [US6] Run Phase 9 (US6) tests
+- [X] T102 [US6] Run Phase 9 (US6) tests
 
 ## Final Phase — Polish & Cross-Cutting
 
